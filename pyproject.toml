@@ -1,0 +1,22 @@
+[project]
+name = "interp-playground"
+version = "0.1.0"
+description = "Expose a language model's internals (activations, SAE features, steering) as MCP tools"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "mcp[cli]>=2.2.0",
+    "nnsight>=0.7.0",
+    "sae-lens>=6.51.1",
+    "torch>=2.14.0",
+    # Not used directly; pinned for sae-lens. TL 4.0.0 (2026-09-21) removed
+    # transformer_lens.HookedTransformer, which sae-lens 6.51.1 imports.
+    # Drop the pin once a sae-lens release supports TL 4.
+    "transformer-lens>=3.9,<4",
+    "transformers>=5.17.0",
+]
+
+[dependency-groups]
+dev = [
+    "ipykernel>=7.3.0",
+    "jupyterlab>=4.6.4",
+]
