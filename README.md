@@ -11,7 +11,8 @@ It's a learning project. Current target: **Gemma 2 2B** with Google DeepMind's
 
 - [x] Nix + uv environment; MPS verified against CPU
 - [x] Reproduce a known SAE feature by hand (activations, steering, random control)
-- [ ] MCP server: `run_prompt`, `feature_info`, `steer`, `ablate`, `logit_lens`
+- [x] MCP server skeleton with `run_prompt`
+- [ ] More tools: `feature_info`, `steer`, `ablate`, `logit_lens`
 
 ## Setup
 
@@ -31,6 +32,19 @@ uv run hf auth login
 ```
 
 The model (~10 GB in fp32) and SAEs download on first use.
+
+## MCP server
+
+```sh
+claude mcp add interp-playground -- uv run --directory /path/to/interp-playground interp-playground-mcp
+uv run python scripts/mcp_smoke.py   # end-to-end check over stdio
+```
+
+`run_prompt` returns the top SAE features per token and across the text, with
+Neuronpedia labels. Activations are also given relative to each feature's typical
+max (`rel`), and features active on >10% of tokens are hidden by default. The
+model stays loaded between calls. Feature metadata comes from Neuronpedia's bulk
+exports and is cached in `~/.cache/interp-playground/`.
 
 ## Scripts
 
