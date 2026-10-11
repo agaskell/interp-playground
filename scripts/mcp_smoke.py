@@ -37,6 +37,18 @@ async def main() -> None:
             print(f"watched {fid} ({w['hidden'] or 'visible'}):", w["acts"])
         print("response bytes:", len(json.dumps(data)))
 
+        result = await client.call_tool(
+            "steer",
+            {"prompt": "My favorite thing to do on weekends is", "feature": 7272,
+             "scales": [0], "max_new_tokens": 8},
+        )
+        if result.is_error:
+            sys.exit(f"tool error: {result.content}")
+        data = result.structured_content
+        run = data["runs"][0]
+        assert run["steered"]["completion"] == data["baseline"]["completion"], "scale 0 != baseline"
+        print("steer scale 0 == baseline:", repr(data["baseline"]["completion"]))
+
 
 if __name__ == "__main__":
     asyncio.run(main())

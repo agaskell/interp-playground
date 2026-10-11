@@ -15,7 +15,7 @@ It's a learning project. Current target: **Gemma 2 2B** with Google DeepMind's
 
 - [x] Nix + uv environment; MPS verified against CPU
 - [x] Reproduce a known SAE feature by hand (activations, steering, random control)
-- [x] MCP server with `run_prompt`; first agent-driven investigation
+- [x] MCP server with `run_prompt` and `steer`; first agent-driven investigation
 - [ ] More tools (see [Roadmap](#roadmap))
 
 ## Setup
@@ -51,6 +51,12 @@ typical max (`rel`). Two kinds of features are hidden from rankings by default:
 dense ones (active on >10% of tokens) and position artifacts (detected at load
 time with probe prompts). The model stays loaded between calls. Feature metadata
 comes from Neuronpedia's bulk exports and is cached in `~/.cache/interp-playground/`.
+
+`steer` adds a feature's direction during generation at several scales (default
+1x/2x/4x the feature's max activation), each next to a random-direction control
+of the same size. It reports the completions plus `p_promoted` (next-token
+probability on the feature's promoted tokens) and `kl` (how far the distribution
+moved), so feature-specific effects can be separated from generic disruption.
 
 ```sh
 uv run pytest            # unit tests (no model needed)
@@ -99,7 +105,6 @@ Tools still to build:
 | Tool | Purpose |
 |---|---|
 | `feature_info` | Label, top activating examples and stats for one feature |
-| `steer` | Add a scaled feature direction during generation; return output next to the baseline, with a random-direction control |
 | `ablate` | Zero or clamp a feature; return output and logit changes next to the baseline |
 | `logit_lens` | Top predicted tokens at each layer for a given position |
 

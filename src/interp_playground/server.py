@@ -86,6 +86,62 @@ def run_prompt(
     )
 
 
+@server.tool()
+def steer(
+    prompt: str,
+    feature: int,
+    layer: int = DEFAULT_LAYER,
+    scales: list[float] | None = None,
+    max_new_tokens: int = 30,
+    control: bool = True,
+    seed: int = 0,
+) -> dict[str, Any]:
+    """Add an SAE feature's direction to the residual stream and compare outputs.
+
+    At each scale, adds scale x the feature's (unit-norm) decoder direction at
+    `layer`, at every position, during greedy generation. Scale is in the
+    feature's activation units: scale = max_act matches the feature's own
+    strongest natural firing. Negative scales push away from the feature.
+
+    With control=true (default), each scale is also run with a random unit
+    direction of the same size. Compare the two: an effect is attributable to
+    the feature only if the steered run shows it and the control doesn't.
+    Repetitive text ("I love the beach. I love the beach.") appears with random
+    pushes too, so it isn't evidence by itself.
+
+    Returns the baseline and, per scale, `steered` and `control` runs, each with:
+    - completion: the generated text.
+    - p_promoted: next-token probability, at the end of the prompt, on the
+      feature's top 10 promoted tokens (listed in promoted_tokens).
+    - kl: KL(baseline || run) at that position; how disrupted the model is.
+    - promoted_in_completion: count of generated tokens that are promoted tokens.
+    frac_of_resid is |scale| / the typical residual norm at that layer.
+
+    Args:
+        prompt: Text to continue. Gemma 2 2B is a base model, not a chat model.
+        feature: Feature id (0-16383).
+        layer: Residual-stream layer of the feature's SAE (0-25). Default 12.
+        scales: Up to 6 scales. Default: 1x, 2x, 4x the feature's max_act.
+        max_new_tokens: Tokens to generate per run (1-100).
+        control: Also run a random direction at each scale.
+        seed: Seed for the random control direction.
+    """
+    if scales is not None:
+        if not 1 <= len(scales) <= 6:
+            raise ValueError("pass 1-6 scales")
+        if any(abs(x) > 2000 for x in scales):
+            raise ValueError("scales must be within +/-2000")
+    return backend.steer(
+        prompt,
+        feature,
+        layer,
+        scales,
+        max_new_tokens=max(1, min(max_new_tokens, 100)),
+        control=control,
+        seed=seed,
+    )
+
+
 def main() -> None:
     server.run("stdio")
 
