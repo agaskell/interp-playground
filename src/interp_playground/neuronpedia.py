@@ -62,3 +62,34 @@ def _records(prefix: str):
         with urllib.request.urlopen(f"{BUCKET}/{key}") as resp:
             for line in gzip.decompress(resp.read()).splitlines():
                 yield json.loads(line)
+
+
+def feature_url(layer: int, feature: int) -> str:
+    return f"https://www.neuronpedia.org/{MODEL_ID}/{sae_id(layer)}/{feature}"
+
+
+def fetch_examples(layer: int, feature: int, n: int = 8, context: int = 12) -> list[dict] | None:
+    """Top activating examples from Neuronpedia's API, cached on disk.
+
+    Each example: the max activation, and a snippet with the peak token in
+    [[brackets]]. Returns None if Neuronpedia is unreachable.
+    """
+    path = CACHE_DIR / "features" / sae_id(layer) / f"{feature}.json"
+    if not path.exists():
+        url = f"https://www.neuronpedia.org/api/feature/{MODEL_ID}/{sae_id(layer)}/{feature}"
+        try:
+            with urllib.request.urlopen(url, timeout=20) as resp:
+                raw = json.loads(resp.read())
+        except (OSError, ValueError):
+            return None
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(json.dumps([
+            {"max": a["maxValue"], "tokens": a["tokens"], "peak": a["maxValueTokenIndex"]}
+            for a in raw.get("activations", [])
+        ]))
+    examples = []
+    for a in json.loads(path.read_text())[:n]:
+        toks, i = a["tokens"], a["peak"]
+        snippet = "".join(toks[max(0, i - context):i]) + f"[[{toks[i]}]]" + "".join(toks[i + 1:i + 4])
+        examples.append({"max": round(a["max"], 1), "text": snippet.replace("\n", "\\n")})
+    return examples

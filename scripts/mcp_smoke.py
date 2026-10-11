@@ -49,6 +49,22 @@ async def main() -> None:
         assert run["steered"]["completion"] == data["baseline"]["completion"], "scale 0 != baseline"
         print("steer scale 0 == baseline:", repr(data["baseline"]["completion"]))
 
+        for name, args in [
+            ("feature_info", {"feature": 7272}),
+            ("logit_lens", {"prompt": "The Eiffel Tower is located in the city of", "top_k": 1}),
+            ("ablate", {"prompt": "We drove across the old bridge.", "feature": 7272}),
+        ]:
+            result = await client.call_tool(name, args)
+            if result.is_error:
+                sys.exit(f"{name} error: {result.content}")
+            d = result.structured_content
+            brief = {
+                "feature_info": lambda: f"{d['label']!r}, {len(d['top_examples'] or [])} examples",
+                "logit_lens": lambda: f"{d['final_prediction']!r} p_final@25={d['layers'][-1]['p_final']}",
+                "ablate": lambda: f"kl={d['next_token']['kl']} active={len(d['active_positions'])}",
+            }[name]()
+            print(f"{name}: {brief} ({len(json.dumps(d))} bytes)")
+
 
 if __name__ == "__main__":
     asyncio.run(main())

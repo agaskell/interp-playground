@@ -15,8 +15,8 @@ It's a learning project. Current target: **Gemma 2 2B** with Google DeepMind's
 
 - [x] Nix + uv environment; MPS verified against CPU
 - [x] Reproduce a known SAE feature by hand (activations, steering, random control)
-- [x] MCP server with `run_prompt` and `steer`; first agent-driven investigation
-- [ ] More tools (see [Roadmap](#roadmap))
+- [x] MCP server: `run_prompt`, `feature_info`, `steer`, `ablate`, `logit_lens`
+- [x] First agent-driven investigations (see [FINDINGS.md](FINDINGS.md))
 
 ## Setup
 
@@ -58,6 +58,13 @@ of the same size. It reports the completions plus `p_promoted` (next-token
 probability on the feature's promoted tokens) and `kl` (how far the distribution
 moved), so feature-specific effects can be separated from generic disruption.
 
+`ablate` removes a feature's own contribution (or clamps it) at the positions
+where it fires and reports the change in next-token predictions, per-position
+log-prob deltas, and optionally completions. `feature_info` gathers a feature's
+label, density, promoted/suppressed tokens, nearest features by decoder
+direction, and Neuronpedia's top examples. `logit_lens` shows what each layer
+would predict at a position, and when the final answer forms.
+
 ```sh
 uv run pytest            # unit tests (no model needed)
 ```
@@ -77,6 +84,8 @@ uv run python scripts/steer.py --random 0 --scales 0 50 100 200
 ```
 
 ## Findings so far
+
+The full log is in [FINDINGS.md](FINDINGS.md). Highlights:
 
 Layer-12 feature **7272**, labelled "references to various types of bridges" on
 [Neuronpedia](https://www.neuronpedia.org/gemma-2-2b/12-gemmascope-res-16k/7272):
@@ -100,15 +109,7 @@ confabulated meanings for a purely positional signal. Found by Claude using
 
 ## Roadmap
 
-Tools still to build:
-
-| Tool | Purpose |
-|---|---|
-| `feature_info` | Label, top activating examples and stats for one feature |
-| `ablate` | Zero or clamp a feature; return output and logit changes next to the baseline |
-| `logit_lens` | Top predicted tokens at each layer for a given position |
-
-Design principles:
+The initial tool set is complete. Design principles:
 
 - **Compact, structured JSON.** Agents do badly with large activation dumps;
   return top-k lists, deltas and exact values for features asked about.

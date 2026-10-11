@@ -142,6 +142,89 @@ def steer(
     )
 
 
+@server.tool()
+def feature_info(feature: int, layer: int = DEFAULT_LAYER) -> dict[str, Any]:
+    """Everything known about one SAE feature.
+
+    Returns its Neuronpedia label, density (fraction of all tokens it fires
+    on), max activation, whether it's hidden from run_prompt rankings and why,
+    the output tokens its direction promotes and suppresses most (from the
+    unembedding), the 5 features with the most similar decoder directions,
+    Neuronpedia's top activating examples (peak token in [[brackets]]; null if
+    Neuronpedia is unreachable), and its Neuronpedia URL.
+
+    The label is auto-generated from the top examples, so it describes the
+    feature's strongest activations; check promotes/similar_features and the
+    examples against each other before trusting it.
+
+    Args:
+        feature: Feature id (0-16383).
+        layer: Residual-stream layer of the feature's SAE (0-25). Default 12.
+    """
+    return backend.feature_info(feature, layer)
+
+
+@server.tool()
+def logit_lens(prompt: str, position: int = -1, top_k: int = 5) -> dict[str, Any]:
+    """What the model would predict next if it stopped at each layer.
+
+    Applies the final norm and unembedding to the residual stream after every
+    layer, at one position. Returns per layer the top_k tokens with
+    probabilities and `p_final`, that layer's probability for the token the
+    last layer actually predicts. A rising p_final shows when the answer
+    forms. Early and middle layers often show junk tokens (the residual stream
+    isn't in the output basis yet); read p_final, not the junk.
+
+    Args:
+        prompt: Text to analyze. Gemma 2 2B is a base model, not a chat model.
+        position: 0-based index into the returned tokens; negative counts
+            from the end. Default -1, the last token (the next-token prediction).
+        top_k: Tokens to list per layer (1-10).
+    """
+    return backend.logit_lens(prompt, position, top_k=max(1, min(top_k, 10)))
+
+
+@server.tool()
+def ablate(
+    prompt: str,
+    feature: int,
+    layer: int = DEFAULT_LAYER,
+    value: float | None = None,
+    max_new_tokens: int = 0,
+    top_k: int = 5,
+) -> dict[str, Any]:
+    """Remove a feature's contribution to the residual stream and measure the effect.
+
+    At every position, subtracts (act - target) x the feature's decoder
+    direction, where target is 0 (default) or `value` (clamp). Unlike steer,
+    this only changes positions where the feature is active, by exactly its
+    own contribution, so a null result means the model doesn't rely on this
+    feature here. Compare with steer at a negative scale, which pushes at every
+    position regardless.
+
+    Returns active_positions (where the feature fired, its activation, and how
+    much ablating it changes log p of the actual next token there),
+    next_token (top_k predictions after the prompt, baseline vs ablated, with
+    KL), and optionally completions.
+
+    Args:
+        prompt: Text to run. Gemma 2 2B is a base model, not a chat model.
+        feature: Feature id (0-16383).
+        layer: Residual-stream layer of the feature's SAE (0-25). Default 12.
+        value: Clamp the feature to this activation instead of zeroing it.
+        max_new_tokens: If > 0, also generate completions (0-100).
+        top_k: Next-token predictions to list (1-10).
+    """
+    return backend.ablate(
+        prompt,
+        feature,
+        layer,
+        value,
+        max_new_tokens=max(0, min(max_new_tokens, 100)),
+        top_k=max(1, min(top_k, 10)),
+    )
+
+
 def main() -> None:
     server.run("stdio")
 
