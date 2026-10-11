@@ -95,6 +95,8 @@ def steer(
     max_new_tokens: int = 30,
     control: bool = True,
     seed: int = 0,
+    positions: str = "all",
+    target_tokens: list[str] | None = None,
 ) -> dict[str, Any]:
     """Add an SAE feature's direction to the residual stream and compare outputs.
 
@@ -115,7 +117,13 @@ def steer(
       feature's top 10 promoted tokens (listed in promoted_tokens).
     - kl: KL(baseline || run) at that position; how disrupted the model is.
     - promoted_in_completion: count of generated tokens that are promoted tokens.
+    - p_target / target_in_completion: the same for `target_tokens`, if given.
     frac_of_resid is |scale| / the typical residual norm at that layer.
+
+    p_promoted only catches lexical effects (the feature's own word). A concept
+    feature can steer the theme of the text while p_promoted stays 0; pass
+    target_tokens (e.g. ["cemetery", "funeral", "grief"]) to measure that, or
+    read the completions.
 
     Args:
         prompt: Text to continue. Gemma 2 2B is a base model, not a chat model.
@@ -125,7 +133,15 @@ def steer(
         max_new_tokens: Tokens to generate per run (1-100).
         control: Also run a random direction at each scale.
         seed: Seed for the random control direction.
+        positions: Where to add the direction: "all" (default), "last" (the
+            final position only, i.e. each token as it's generated) or
+            "prompt" (all prompt positions, nothing during generation).
+            Comparing these shows where in the context a direction matters.
+        target_tokens: Up to 20 words whose next-token probability mass and
+            appearances in the completion to report.
     """
+    if target_tokens is not None and len(target_tokens) > 20:
+        raise ValueError("pass at most 20 target_tokens")
     if scales is not None:
         if not 1 <= len(scales) <= 6:
             raise ValueError("pass 1-6 scales")
@@ -139,6 +155,8 @@ def steer(
         max_new_tokens=max(1, min(max_new_tokens, 100)),
         control=control,
         seed=seed,
+        positions=positions,
+        target_tokens=target_tokens,
     )
 
 

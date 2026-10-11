@@ -16,7 +16,7 @@ from sae_lens import SAE
 from interp_playground import neuronpedia
 from interp_playground.lens import lens_rows
 from interp_playground.loading import load_model, load_sae
-from interp_playground.steering import random_direction, steer_metrics
+from interp_playground.steering import position_mask, random_direction, steer_metrics
 from interp_playground.summarize import find_position_artifacts, summarize
 
 NUM_LAYERS = 26
@@ -122,8 +122,11 @@ class Backend:
         max_new_tokens: int,
         control: bool,
         seed: int,
+        positions: str = "all",
+        target_tokens: list[str] | None = None,
     ) -> dict[str, Any]:
         self._check(feature, layer)
+        position_mask(1, positions, True)  # validate early
         with self._lock:
             model = self._get_model()
             self._prepare_layer(layer)
@@ -136,14 +139,26 @@ class Backend:
             ctrl = random_direction(direction.shape[0], seed).to(direction.device)
             promoted = (model.lm_head.weight.detach() @ direction).topk(NUM_PROMOTED).indices.tolist()
 
+            # First token id of each target word, with a leading space as in running text.
+            target = [
+                model.tokenizer(" " + w.strip(), add_special_tokens=False)["input_ids"][0]
+                for w in (target_tokens or [])
+            ]
+
             ids = model.tokenizer(prompt, return_tensors="pt")["input_ids"]
             base_probs, resid_norm = self._next_token_probs(ids, layer, None)
 
+            def edit_fn(vec: torch.Tensor) -> Any:
+                def edit(out: torch.Tensor) -> torch.Tensor:
+                    mask = position_mask(out.shape[1], positions, out.shape[1] > 1)
+                    return out + vec if mask is None else out + mask.to(out.device) * vec
+                return edit
+
             def run(vec: torch.Tensor | None, probs: torch.Tensor) -> dict[str, Any]:
-                completion = self._generate(ids, layer, vec, max_new_tokens)
+                completion = self._generate(ids, layer, None if vec is None else edit_fn(vec), max_new_tokens)
                 return {
                     "completion": model.tokenizer.decode(completion),
-                    **steer_metrics(base_probs, probs, promoted, completion),
+                    **steer_metrics(base_probs, probs, promoted, completion, target),
                 }
 
             baseline = run(None, base_probs)
@@ -156,7 +171,7 @@ class Backend:
                 arms = [("steered", direction)] + ([("control", ctrl)] if control else [])
                 for name, unit in arms:
                     vec = scale * unit
-                    entry[name] = run(vec, self._next_token_probs(ids, layer, vec)[0])
+                    entry[name] = run(vec, self._next_token_probs(ids, layer, edit_fn(vec))[0])
                 runs.append(entry)
 
         return {
@@ -164,7 +179,9 @@ class Backend:
             "layer": layer,
             "label": meta.label,
             "max_act": meta.max_act,
+            "positions": positions,
             "promoted_tokens": [model.tokenizer.decode(t) for t in promoted],
+            "target_tokens": [model.tokenizer.decode(t) for t in target],
             "resid_norm": round(resid_norm, 1),
             "baseline": baseline,
             "runs": runs,
@@ -325,19 +342,20 @@ class Backend:
             raise ValueError(f"feature {feature} out of range 0-{D_SAE - 1}")
 
     def _next_token_probs(
-        self, ids: torch.Tensor, layer: int, vec: torch.Tensor | None
+        self, ids: torch.Tensor, layer: int, edit: Any
     ) -> tuple[torch.Tensor, float]:
-        """Next-token distribution after the prompt, optionally steered at `layer`.
+        """Next-token distribution after the prompt, with `layer`'s output edited.
 
-        Also returns the mean residual norm at `layer` (excluding <bos>), before
-        any steering is added.
+        `edit` is None or a callable mapping the residual tensor to its
+        replacement. Also returns the mean residual norm at `layer`
+        (excluding <bos>) before the edit.
         """
         model = self._get_model()
         with torch.no_grad(), model.trace(ids):
             target = model.model.layers[layer]
             resid = target.output.save()
-            if vec is not None:
-                target.output = target.output + vec
+            if edit is not None:
+                target.output = edit(target.output)
             logits = model.output.logits.save()
         norm = resid[0, 1:].norm(dim=-1).mean().item()
         return logits[0, -1].float().softmax(-1).cpu(), norm

@@ -117,6 +117,16 @@ The initial tool set is complete. Design principles:
   or remote execution via [NDIF](https://nnsight.net), can be added later.
 - **Long-lived process.** Load the model once, not per call.
 
+Next steps suggested by the findings:
+
+- **A judge for thematic steering.** `p_promoted` misses concept-level effects;
+  score completions against a theme with a small model or embedding similarity.
+- **Agent explanation evals.** Have the agent predict a feature's activations on
+  held-out sentences from its own explanation, then check with `run_prompt`.
+  Sections 3 and 7 of FINDINGS.md are the manual version of this.
+- **Multi-feature ablation** and attention-head attribution, to find what does
+  carry the "bridge" prediction at layers 19-23.
+
 Future directions:
 
 - **Larger models:** Gemma 2 9B locally; much larger via NDIF.
@@ -131,6 +141,19 @@ References: [SAELens](https://github.com/jbloomAus/SAELens),
 [nnsight](https://nnsight.net), [TransformerLens](https://github.com/TransformerLensOrg/TransformerLens),
 [Neuronpedia](https://www.neuronpedia.org), [Gemma Scope](https://huggingface.co/google/gemma-scope),
 and [ARENA](https://arena.education)'s mechanistic interpretability chapter.
+
+**Ablation vs. steering disagree, and both are right.** Zero-ablating 7272 on
+"We drove across the old" changes nothing (the feature is inactive there), but
+subtracting its direction at the *context* positions removes "bridge" from the
+prediction. The logit lens shows the prediction forming at layers 19-23 from the
+earlier tokens. "Feature inactive" and "direction unused" are different claims.
+
+**Concept features steer; token features cliff.** A "grief and loss" feature at
+4x its max activation yields fluent text about honouring loved ones; "bridges"
+and "dogs" at the same relative scale produce the word, then garbage.
+
+**Labels are search keys, not ground truth.** 9435 "San Francisco" is a "San"
+string feature (fires on "Sanitize" and "Sanofi", not on "Bay Area").
 
 ## Notes
 
