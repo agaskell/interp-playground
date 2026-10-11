@@ -4,6 +4,10 @@ Tools for looking inside a language model: activations, sparse-autoencoder (SAE)
 features, steering, and ablation. The goal is an MCP server that lets an AI agent
 and a human investigate a model's internals together.
 
+The motivation: humans *and* AIs should be able to understand how a model
+reasons, especially if chain-of-thought stops being legible English. This makes
+that concrete: an AI using tools to understand another model.
+
 It's a learning project. Current target: **Gemma 2 2B** with Google DeepMind's
 **Gemma Scope** residual-stream SAEs, running locally on Apple Silicon (MPS).
 
@@ -11,8 +15,8 @@ It's a learning project. Current target: **Gemma 2 2B** with Google DeepMind's
 
 - [x] Nix + uv environment; MPS verified against CPU
 - [x] Reproduce a known SAE feature by hand (activations, steering, random control)
-- [x] MCP server skeleton with `run_prompt`
-- [ ] More tools: `feature_info`, `steer`, `ablate`, `logit_lens`
+- [x] MCP server with `run_prompt`; first agent-driven investigation
+- [ ] More tools (see [Roadmap](#roadmap))
 
 ## Setup
 
@@ -40,11 +44,17 @@ claude mcp add interp-playground -- uv run --directory /path/to/interp-playgroun
 uv run python scripts/mcp_smoke.py   # end-to-end check over stdio
 ```
 
-`run_prompt` returns the top SAE features per token and across the text, with
-Neuronpedia labels. Activations are also given relative to each feature's typical
-max (`rel`), and features active on >10% of tokens are hidden by default. The
-model stays loaded between calls. Feature metadata comes from Neuronpedia's bulk
-exports and is cached in `~/.cache/interp-playground/`.
+`run_prompt` returns the top SAE features across the text and per token, with
+Neuronpedia labels, plus exact per-token activations for any features you ask
+about (`features=[...]`). Activations are also given relative to each feature's
+typical max (`rel`). Two kinds of features are hidden from rankings by default:
+dense ones (active on >10% of tokens) and position artifacts (detected at load
+time with probe prompts). The model stays loaded between calls. Feature metadata
+comes from Neuronpedia's bulk exports and is cached in `~/.cache/interp-playground/`.
+
+```sh
+uv run pytest            # unit tests (no model needed)
+```
 
 ## Scripts
 
@@ -74,6 +84,47 @@ Layer-12 feature **7272**, labelled "references to various types of bridges" on
   the same norm never produce "bridge" and stay fluent up to ~200, so the effect
   is specific to the feature. (One prompt, two random seeds: suggestive, not
   conclusive.)
+
+**Position artifacts.** Features 1178, 4667, 6889 and 11087 (layer 12) fire on
+whatever token comes first, whether "Bananas", "def" or "1", and nowhere else.
+Their density is ~1/127, i.e. once per Neuronpedia text window. Their
+auto-generated labels ("words that indicate agreement, concession...") are
+confabulated meanings for a purely positional signal. Found by Claude using
+`run_prompt`; this is why the server now detects and hides them.
+
+## Roadmap
+
+Tools still to build:
+
+| Tool | Purpose |
+|---|---|
+| `feature_info` | Label, top activating examples and stats for one feature |
+| `steer` | Add a scaled feature direction during generation; return output next to the baseline, with a random-direction control |
+| `ablate` | Zero or clamp a feature; return output and logit changes next to the baseline |
+| `logit_lens` | Top predicted tokens at each layer for a given position |
+
+Design principles:
+
+- **Compact, structured JSON.** Agents do badly with large activation dumps;
+  return top-k lists, deltas and exact values for features asked about.
+- **Swappable backend.** Keep model access behind an interface so larger models,
+  or remote execution via [NDIF](https://nnsight.net), can be added later.
+- **Long-lived process.** Load the model once, not per call.
+
+Future directions:
+
+- **Larger models:** Gemma 2 9B locally; much larger via NDIF.
+- **Probes on a reasoning model's chain of thought:** does the model "know" its
+  answer before its written reasoning says so? A CoT-faithfulness question.
+- **Train our own SAEs** where pretrained ones don't cover a model or layer
+  (activation caching, storage, streaming, shuffling).
+- **Evaluate the agent's explanations:** do its claims about features hold up
+  under intervention? An open question in automated interpretability.
+
+References: [SAELens](https://github.com/jbloomAus/SAELens),
+[nnsight](https://nnsight.net), [TransformerLens](https://github.com/TransformerLensOrg/TransformerLens),
+[Neuronpedia](https://www.neuronpedia.org), [Gemma Scope](https://huggingface.co/google/gemma-scope),
+and [ARENA](https://arena.education)'s mechanistic interpretability chapter.
 
 ## Notes
 

@@ -20,13 +20,21 @@ async def main() -> None:
         print("tools:", [t.name for t in tools.tools])
 
         result = await client.call_tool(
-            "run_prompt", {"prompt": "We drove across the old bridge into town.", "top_k": 2}
+            "run_prompt",
+            {
+                "prompt": "We drove across the old bridge into town.",
+                "top_k": 0,
+                "features": [7272, 4667],
+            },
         )
         if result.is_error:
             sys.exit(f"tool error: {result.content}")
         data = result.structured_content
-        top = data["layers"]["12"]["top_features"][0]
-        print("top feature:", json.dumps(top))
+        layer = data["layers"]["12"]
+        print("top feature:", json.dumps(layer["top_features"][0]))
+        print("hidden:", layer["hidden"])
+        for fid, w in layer["watched"].items():
+            print(f"watched {fid} ({w['hidden'] or 'visible'}):", w["acts"])
         print("response bytes:", len(json.dumps(data)))
 
 

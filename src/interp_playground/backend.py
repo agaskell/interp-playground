@@ -15,11 +15,24 @@ from sae_lens import SAE
 
 from interp_playground import neuronpedia
 from interp_playground.loading import load_model, load_sae
+from interp_playground.summarize import find_position_artifacts, summarize
 
 NUM_LAYERS = 26
 # Features active on more than this fraction of tokens carry little meaning
 # (e.g. 2620 fires on 98% of tokens) and crowd out everything else.
 DENSE_THRESHOLD = 0.1
+# Varied first tokens (prose, code, digits, markup, Spanish) for detecting
+# features that respond to "first position" rather than content.
+ARTIFACT_PROBES = [
+    "The weather was cold.",
+    "def main():\n    pass",
+    "1987 was a long year.",
+    "Bananas are yellow.",
+    "He said nothing at all.",
+    "<!DOCTYPE html>\n<html>",
+    "Q: What is two plus two?",
+    "¿Dónde está la biblioteca?",
+]
 
 
 class Backend:
@@ -29,18 +42,25 @@ class Backend:
         self._model: LanguageModel | None = None
         self._saes: dict[int, SAE] = {}
         self._tables: dict[int, dict[int, neuronpedia.FeatureMeta]] = {}
-        # Per layer: (max activation per feature, is-dense mask), as tensors.
-        self._stats: dict[int, tuple[torch.Tensor, torch.Tensor]] = {}
+        # Per layer: max activation per feature, and masks of features hidden
+        # from rankings by default ("dense", "position_artifact").
+        self._max_act: dict[int, torch.Tensor] = {}
+        self._hidden: dict[int, dict[str, torch.Tensor]] = {}
 
     def warm_up(self, layers: list[int]) -> None:
         with self._lock:
             self._get_model()
             for layer in layers:
-                self._get_sae(layer)
-                self._get_table(layer)
+                self._prepare_layer(layer)
 
     def run_prompt(
-        self, prompt: str, layers: list[int], top_k: int, max_new_tokens: int, include_dense: bool
+        self,
+        prompt: str,
+        layers: list[int],
+        top_k: int,
+        features: list[int],
+        max_new_tokens: int,
+        include_hidden: bool,
     ) -> dict[str, Any]:
         for layer in layers:
             if not 0 <= layer < NUM_LAYERS:
@@ -48,6 +68,8 @@ class Backend:
 
         with self._lock:
             model = self._get_model()
+            for layer in layers:
+                self._prepare_layer(layer)
             ids = model.tokenizer(prompt, return_tensors="pt")["input_ids"]
             prompt_len = ids.shape[1]
             if max_new_tokens > 0:
@@ -60,12 +82,21 @@ class Backend:
             with torch.no_grad(), model.trace(ids):
                 resid = nnsight.save([model.model.layers[layer].output for layer in layers])
 
+            # Position 0 is <bos>: huge norm, not in Gemma Scope's training data.
+            tokens = [model.tokenizer.decode(i) for i in ids[0, 1:].tolist()]
             per_layer = {}
             for layer, r in zip(layers, resid):
                 with torch.no_grad():
-                    acts = self._get_sae(layer).encode(r[0]).cpu()
-                per_layer[str(layer)] = self._summarize(
-                    acts, ids[0].tolist(), layer, top_k, include_dense
+                    acts = self._saes[layer].encode(r[0, 1:]).cpu()
+                per_layer[str(layer)] = summarize(
+                    acts,
+                    tokens,
+                    self._max_act[layer],
+                    self._hidden[layer],
+                    self._tables[layer],
+                    top_k=top_k,
+                    watch=features,
+                    include_hidden=include_hidden,
                 )
 
         tok = model.tokenizer
@@ -75,79 +106,31 @@ class Backend:
             "layers": per_layer,
         }
 
-    def _summarize(
-        self,
-        acts: torch.Tensor,
-        ids: list[int],
-        layer: int,
-        top_k: int,
-        include_dense: bool,
-    ) -> dict[str, Any]:
-        # Position 0 is <bos>: huge norm, not in Gemma Scope's training data.
-        acts = acts[1:]
-        tokens = [self._model.tokenizer.decode(i) for i in ids[1:]]
-        table = self._get_table(layer)
-
-        max_act, dense = self._stats[layer]
-        if not include_dense:
-            acts = acts.masked_fill(dense, 0.0)
-        # Rank by activation relative to the feature's own max, so a strong
-        # firing of a quiet feature beats a middling firing of a loud one.
-        rel = acts / max_act.clamp(min=1e-6)
-
-        def entry(feature: int, pos: int) -> dict[str, Any]:
-            return {
-                "feature": feature,
-                "act": round(acts[pos, feature].item(), 2),
-                "rel": round(rel[pos, feature].item(), 2),
-            }
-
-        per_token = []
-        for pos, token in enumerate(tokens):
-            top = rel[pos].topk(top_k)
-            feats = [entry(f, pos) for v, f in zip(top.values.tolist(), top.indices.tolist()) if v > 0]
-            per_token.append({"pos": pos + 1, "token": token, "features": feats})
-
-        # Whole-text view: each feature at its strongest position.
-        best_rel, best_pos = rel.max(dim=0)
-        summary = []
-        for feature in best_rel.topk(min(10, int((best_rel > 0).sum()))).indices.tolist():
-            pos = best_pos[feature].item()
-            meta = table[feature]
-            summary.append(
-                {
-                    **entry(feature, pos),
-                    "at_pos": pos + 1,
-                    "at_token": tokens[pos],
-                    "label": meta.label,
-                    "density": round(meta.density, 5),
-                    "promotes": meta.promotes,
-                }
-            )
-
-        return {
-            "top_features": summary,
-            "tokens": per_token,
-            "dense_features_hidden": 0 if include_dense else int(dense.sum()),
-        }
-
     def _get_model(self) -> LanguageModel:
         if self._model is None:
             self._model = load_model(self._device)
         return self._model
 
-    def _get_sae(self, layer: int) -> SAE:
-        if layer not in self._saes:
-            self._saes[layer] = load_sae(layer, self._device)
-        return self._saes[layer]
+    def _prepare_layer(self, layer: int) -> None:
+        """Load the SAE and feature metadata for a layer, and find its artifacts."""
+        if layer in self._hidden:
+            return
+        sae = load_sae(layer, self._device)
+        table = neuronpedia.load_table(layer)
+        metas = [table[i] for i in range(len(table))]
 
-    def _get_table(self, layer: int) -> dict[int, neuronpedia.FeatureMeta]:
-        if layer not in self._tables:
-            table = neuronpedia.load_table(layer)
-            metas = [table[i] for i in range(len(table))]
-            self._tables[layer] = table
-            self._stats[layer] = (
-                torch.tensor([m.max_act for m in metas]),
-                torch.tensor([m.density for m in metas]) > DENSE_THRESHOLD,
-            )
-        return self._tables[layer]
+        model = self._get_model()
+        probe_acts = []
+        for probe in ARTIFACT_PROBES:
+            with torch.no_grad(), model.trace(probe):
+                r = model.model.layers[layer].output.save()
+            with torch.no_grad():
+                probe_acts.append(sae.encode(r[0, 1:]).cpu())
+
+        self._saes[layer] = sae
+        self._tables[layer] = table
+        self._max_act[layer] = torch.tensor([m.max_act for m in metas])
+        self._hidden[layer] = {
+            "dense": torch.tensor([m.density for m in metas]) > DENSE_THRESHOLD,
+            "position_artifact": find_position_artifacts(probe_acts),
+        }

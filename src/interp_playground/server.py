@@ -41,38 +41,48 @@ def run_prompt(
     prompt: str,
     layers: list[int] | None = None,
     top_k: int = 5,
+    features: list[int] | None = None,
     max_new_tokens: int = 0,
-    include_dense: bool = False,
+    include_hidden: bool = False,
 ) -> dict[str, Any]:
     """Run a prompt through the model and report which SAE features are active.
 
     Returns, per layer:
+    - tokens: the text's tokens (<bos> omitted). Positions elsewhere are
+      0-based indexes into this list.
     - top_features: the 10 features most strongly active anywhere in the text,
-      each at its peak token, with its Neuronpedia label, density (fraction of
-      all tokens it fires on) and the output tokens it promotes.
-    - tokens: for each token, its top_k features.
+      each at its peak position, with its Neuronpedia label, density
+      (fraction of all tokens it fires on) and the output tokens it promotes.
+    - per_token: for each position, its top_k features (omitted if top_k=0).
+    - watched: for each feature in `features`, its activation at every
+      position. Use this to test a hypothesis about specific features; it's
+      exact (0 means not firing) and far more compact than a large top_k.
+    - hidden: how many features were hidden from rankings, by reason.
 
     `act` is the raw activation. `rel` is act / the feature's typical max
     activation, so rel near 1 means firing about as hard as it ever does.
-    Rankings use rel. Features active on >10% of all tokens carry little
-    meaning and are hidden unless include_dense is true. The <bos> token is
-    omitted. The first real token often shows position artifacts: features
-    with very large activations unrelated to its meaning.
+    Rankings use rel. Two kinds of features are hidden from rankings by
+    default (watched features are always reported):
+    - dense: active on >10% of all tokens, so they carry little meaning.
+    - position_artifact: fire on whatever token comes first, regardless of
+      content (detected with probe prompts when a layer loads).
 
     Args:
         prompt: Text to run. Gemma 2 2B is a base model, not a chat model.
         layers: Residual-stream layers to read (0-25). Default [12].
-        top_k: Features to list per token.
+        top_k: Features to list per position (0-20).
+        features: Feature ids (0-16383) to report at every position.
         max_new_tokens: If > 0, greedily generate this many tokens first and
             analyze prompt + completion.
-        include_dense: Include features active on >10% of tokens.
+        include_hidden: Include dense and position-artifact features in rankings.
     """
     return backend.run_prompt(
         prompt,
         layers or [DEFAULT_LAYER],
-        top_k=max(1, min(top_k, 20)),
+        top_k=max(0, min(top_k, 20)),
+        features=features or [],
         max_new_tokens=max(0, min(max_new_tokens, 200)),
-        include_dense=include_dense,
+        include_hidden=include_hidden,
     )
 
 
