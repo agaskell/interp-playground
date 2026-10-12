@@ -243,6 +243,9 @@ def ablate(
     )
 
 
+TOOLS = ("run_prompt", "steer", "feature_info", "logit_lens", "ablate")
+
+
 def main() -> None:
     server.run("stdio")
 
