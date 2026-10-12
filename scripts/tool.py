@@ -9,7 +9,7 @@ tool's parameters. Values are parsed as JSON when they are valid JSON
     scripts/tool.py logit_lens prompt="The capital of France is" top_k=3
     scripts/tool.py steer prompt="..." feature=9193 target_tokens='["grief","loss"]'
 
-Each run loads the model from scratch (about a minute); the MCP server keeps
+Each run loads the model from scratch (seconds to a minute); the MCP server keeps
 it warm, so for many calls in a row ask Claude to use the server instead.
 """
 
