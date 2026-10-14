@@ -54,9 +54,11 @@ comes from Neuronpedia's bulk exports and is cached in `~/.cache/interp-playgrou
 
 `steer` adds a feature's direction during generation at several scales (default
 1x/2x/4x the feature's max activation), each next to a random-direction control
-of the same size. It reports the completions plus `p_promoted` (next-token
-probability on the feature's promoted tokens) and `kl` (how far the distribution
-moved), so feature-specific effects can be separated from generic disruption.
+of the same size. It reports the completions plus `kl` at the prompt's end (how
+far the distribution moved) and the mean next-token mass on the feature's
+promoted tokens, or on caller-chosen `target_tokens`, across the whole
+completion, so feature-specific effects can be separated from generic disruption
+and thematic steering is measured where it shows.
 
 `ablate` removes a feature's own contribution (or clamps it) at the positions
 where it fires and reports the change in next-token predictions, per-position
@@ -81,6 +83,7 @@ uv run python scripts/feature_acts.py --feature 7272 "We drove across the old br
 # Steer generation along a feature direction, or a random one as a control
 uv run python scripts/steer.py --feature 7272 --scales 0 50 100 200
 uv run python scripts/steer.py --random 0 --scales 0 50 100 200
+uv run python scripts/tool.py logit_lens prompt="Romeo and Juliet was written by" top_k=3   # any MCP tool, no server
 ```
 
 ## Findings so far
@@ -119,8 +122,9 @@ The initial tool set is complete. Design principles:
 
 Next steps suggested by the findings:
 
-- **A judge for thematic steering.** `p_promoted` misses concept-level effects;
-  score completions against a theme with a small model or embedding similarity.
+- **A judge for thematic steering.** Completion-averaged token mass (section
+  10) is graded but still lexical and misses "loved ones"; score completions
+  against a theme with a small model or embedding similarity.
 - **Agent explanation evals.** Have the agent predict a feature's activations on
   held-out sentences from its own explanation, then check with `run_prompt`.
   Sections 3 and 7 of FINDINGS.md are the manual version of this.
@@ -151,6 +155,11 @@ earlier tokens. "Feature inactive" and "direction unused" are different claims.
 **Concept features steer; token features cliff.** A "grief and loss" feature at
 4x its max activation yields fluent text about honouring loved ones; "bridges"
 and "dogs" at the same relative scale produce the word, then garbage.
+
+**The logit lens shows retrieval before commitment.** On "Romeo and Juliet was
+written by", " Shakespeare" leads at layer 20 but the answer is " William" at
+layer 25; `p_final` stays near 0 until layer 24. Read top tokens from layer 15
+on, not just `p_final`.
 
 **Labels are search keys, not ground truth.** 9435 "San Francisco" is a "San"
 string feature (fires on "Sanitize" and "Sanofi", not on "Bay Area").

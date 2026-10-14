@@ -16,7 +16,13 @@ from sae_lens import SAE
 from interp_playground import neuronpedia
 from interp_playground.lens import lens_rows
 from interp_playground.loading import load_model, load_sae
-from interp_playground.steering import position_mask, random_direction, steer_metrics
+from interp_playground.steering import (
+    completion_metrics,
+    position_mask,
+    random_direction,
+    steer_metrics,
+    teacher_mask,
+)
 from interp_playground.summarize import find_position_artifacts, summarize
 
 NUM_LAYERS = 26
@@ -156,9 +162,18 @@ class Backend:
 
             def run(vec: torch.Tensor | None, probs: torch.Tensor) -> dict[str, Any]:
                 completion = self._generate(ids, layer, None if vec is None else edit_fn(vec), max_new_tokens)
+                # One teacher-forced pass over prompt + completion reproduces the
+                # generation-time edits, giving the distribution behind each step.
+                full = torch.cat([ids, torch.tensor([completion])], dim=1)
+                teach = None
+                if vec is not None:
+                    mask = teacher_mask(full.shape[1], ids.shape[1], positions)
+                    teach = lambda out: out + vec if mask is None else out + mask.to(out.device) * vec
+                step_probs = self._all_probs(full, layer, teach)[ids.shape[1] - 1:-1]
                 return {
                     "completion": model.tokenizer.decode(completion),
                     **steer_metrics(base_probs, probs, promoted, completion, target),
+                    **completion_metrics(step_probs, completion, promoted, target),
                 }
 
             baseline = run(None, base_probs)
@@ -359,6 +374,16 @@ class Backend:
             logits = model.output.logits.save()
         norm = resid[0, 1:].norm(dim=-1).mean().item()
         return logits[0, -1].float().softmax(-1).cpu(), norm
+
+    def _all_probs(self, ids: torch.Tensor, layer: int, edit: Any) -> torch.Tensor:
+        """Next-token distribution at every position, [seq, vocab], with `layer` edited."""
+        model = self._get_model()
+        with torch.no_grad(), model.trace(ids):
+            target = model.model.layers[layer]
+            if edit is not None:
+                target.output = edit(target.output)
+            logits = model.output.logits.save()
+        return logits[0].float().softmax(-1).cpu()
 
     def _generate(
         self, ids: torch.Tensor, layer: int, edit: Any, max_new_tokens: int

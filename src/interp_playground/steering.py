@@ -58,3 +58,51 @@ def position_mask(seq_len: int, positions: str, is_prompt_pass: bool) -> torch.T
     if positions == "prompt":
         return None if is_prompt_pass else torch.zeros(seq_len, 1)
     raise ValueError(f"positions must be all, last or prompt, not {positions!r}")
+
+
+def teacher_mask(seq_len: int, prompt_len: int, positions: str) -> torch.Tensor | None:
+    """[seq_len, 1] mask that reproduces a generation-time edit in one pass.
+
+    Greedy generation under `position_mask` leaves the KV cache holding edited
+    states at some positions and clean ones at others. Re-running prompt +
+    completion in a single teacher-forced pass with this mask gives the same
+    states, so per-step distributions can be read off without re-generating.
+    """
+    if positions == "all":
+        return None
+    mask = torch.zeros(seq_len, 1)
+    if positions == "last":
+        mask[prompt_len - 1:] = 1.0  # last prompt token, then each generated token
+    elif positions == "prompt":
+        mask[:prompt_len] = 1.0
+    else:
+        raise ValueError(f"positions must be all, last or prompt, not {positions!r}")
+    return mask
+
+
+def completion_metrics(
+    step_probs: torch.Tensor,
+    completion_ids: list[int],
+    promoted: list[int],
+    target: list[int] | None = None,
+) -> dict[str, float | int]:
+    """Metrics averaged over the completion, from per-step next-token distributions.
+
+    `step_probs` is [steps, vocab]: the distribution that produced each
+    completion token. Mean mass on a token set catches "the model kept wanting
+    to say funeral" even where greedy picked something else, which a single
+    read at the prompt's end misses entirely.
+
+    - p_promoted_completion / p_target_completion: mean mass per step.
+    - teacher_forced_mismatch: steps whose argmax isn't the generated token.
+      Should be 0; anything else means the re-run didn't match generation.
+    """
+    out: dict[str, float | int] = {
+        "p_promoted_completion": round(step_probs[:, promoted].sum(-1).mean().item(), 4),
+    }
+    if target:
+        out["p_target_completion"] = round(step_probs[:, target].sum(-1).mean().item(), 4)
+    mismatch = int((step_probs.argmax(-1) != torch.tensor(completion_ids)).sum().item())
+    if mismatch:
+        out["teacher_forced_mismatch"] = mismatch
+    return out

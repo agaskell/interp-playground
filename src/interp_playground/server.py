@@ -117,7 +117,15 @@ def steer(
       feature's top 10 promoted tokens (listed in promoted_tokens).
     - kl: KL(baseline || run) at that position; how disrupted the model is.
     - promoted_in_completion: count of generated tokens that are promoted tokens.
-    - p_target / target_in_completion: the same for `target_tokens`, if given.
+    - p_promoted_completion: mean next-token mass on promoted tokens across
+      every step of the completion. This is the metric to read for steering
+      strength: p_promoted at the prompt's end is usually ~0 because the
+      promoted word rarely fits right there.
+    - p_target / target_in_completion / p_target_completion: the same three
+      for `target_tokens`, if given. Pick target words for the theme you
+      expect (e.g. cemetery, funeral for a grief feature); word lists still
+      undercount thematic steering ("loved ones", "honor"), so read the
+      completions too.
     frac_of_resid is |scale| / the typical residual norm at that layer.
 
     p_promoted only catches lexical effects (the feature's own word). A concept
@@ -189,9 +197,18 @@ def logit_lens(prompt: str, position: int = -1, top_k: int = 5) -> dict[str, Any
     Applies the final norm and unembedding to the residual stream after every
     layer, at one position. Returns per layer the top_k tokens with
     probabilities and `p_final`, that layer's probability for the token the
-    last layer actually predicts. A rising p_final shows when the answer
-    forms. Early and middle layers often show junk tokens (the residual stream
-    isn't in the output basis yet); read p_final, not the junk.
+    last layer actually predicts.
+
+    How to read it: layers below about 15 echo the current input token plus
+    junk (the residual stream isn't in the output basis yet); ignore them.
+    From about layer 15 on, read the top tokens layer by layer, not just
+    p_final. The model often retrieves the fact several layers before it
+    commits to the output token: for "Romeo and Juliet was written by",
+    " Shakespeare" leads at layer 20 but the final answer is " William" (layer
+    25), and p_final is near 0 until layer 24. p_final measures when the model
+    settles on a token, not when it knows the answer. A descriptor stage
+    (" famous", " writers") often precedes the fact when nothing in the prompt
+    has narrowed the answer's form.
 
     Args:
         prompt: Text to analyze. Gemma 2 2B is a base model, not a chat model.

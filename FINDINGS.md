@@ -217,3 +217,100 @@ walk with my friend, and we walked to the cemetery."
   Lexical metrics miss thematic steering. `steer` now takes `target_tokens`
   so an agent can measure the theme it expects; a judge model would be the
   next step.
+
+## 9. Logit lens: facts are retrieved before the output token is chosen
+
+Tool: `logit_lens` via `scripts/tool.py` (Andy ran these). Compare two prompts
+that differ by one cue word.
+
+**"Romeo and Juliet was written by William"** → " Shakespeare" (0.98).
+p_final: 0.005 at layer 17, 0.37 at 18, 0.56 at 19, then 0.71, 0.73, 0.79,
+0.89, 0.98 through layer 24. No descriptor stage; layer 17's top token is
+still " William". At layers 18-22 the mass is split between " Shakespeare"
+and "Shakespeare" (no space), e.g. 0.71 vs 0.27 at layer 20: the model knows
+*who* several layers before it settles *which token*.
+
+**"Romeo and Juliet was written by"** → " William" (0.66), " Shakespeare" (0.18).
+
+| Layers | Leading token |
+|---|---|
+| 15-18 | " famous" (0.27 → 0.58), " renowned" |
+| 19 | " writers", " writer" |
+| 20 | " **Shakespeare**" 0.35 |
+| 21-23 | " the", " a", " play" |
+| 24-25 | " **William**" 0.22 → 0.66 |
+
+- The fact (" Shakespeare") is retrieved at layer 20, the same layer as
+  " Paris" in section 6. The last five layers turn it into the right first
+  token of the name. `p_final` tracks " William" and is ~0 until layer 24, so
+  **p_final measures when the model commits to a token, not when it knows the
+  answer.** Read the top tokens from layer 15 on; the docstring now says so.
+- The cue word made recall two layers earlier (18 vs 20) and firmer (0.98 vs
+  0.66). Some of the first run was name completion, not fact retrieval.
+- The descriptor stage (famous → writers → Shakespeare, like city → Paris)
+  appears when nothing has narrowed the answer's form and is skipped when a
+  cue has. Hypothesis from two prompt pairs; cheap to test on more.
+- No late-layer confidence dip for a confident fact (0.98 holds at 24-25).
+  The dip in section 5 (0.89 → 0.31 for "bridge") happened where the model had
+  real alternatives.
+
+## 10. Measuring thematic steering across the completion
+
+Tool: `steer`, feature 9193 (grief), weekend prompt, `target_tokens`
+cemetery/funeral/grief/loss. Prediction beforehand: `p_target` at the
+prompt's end stays ~0 (nobody writes "weekends is cemetery"), the completion
+count rises. Held:
+
+| Scale | p_target at prompt end | target tokens in completion | mean p_target over completion | control mean |
+|---|---|---|---|---|
+| 36 (1x) | 0.000 | 0 | 0.003 | 0.000 |
+| 73 (2x) | 0.0001 | 1 (cemetery) | 0.016 | 0.000 |
+| 145 (4x) | 0.0005 | 2 (grief, loss) | 0.030 | 0.000 |
+
+The count undercounts: the 2x completion ("the cemetery and visit my loved
+ones") and 4x ("honor my loved ones... I've lost loved") are about grief
+throughout. So `steer` now re-runs prompt + completion in one teacher-forced
+pass (with a mask reproducing the generation-time `positions` edit; argmax
+matched the generated token at every step in all three modes) and reports
+the **mean next-token mass on promoted/target tokens over the completion**
+(`p_promoted_completion`, `p_target_completion`). It is graded where the
+count is 0/1/2, and it separates steered from control already at 1x (0.003
+vs 0.000), where KL cannot (0.019 vs 0.014). Still lexical: a judge model is
+the next step for "loved ones".
+
+Side result, scale 73, 20 tokens: steering only the **generated** positions
+(`positions="last"`) still gives "the cemetery and visit my family" (mean
+p_target 0.017, KL at prompt end only 0.03); steering only the **prompt**
+gives beach (0.008, no target tokens). The opposite of section 5, where the
+context positions carried the effect. Where a direction matters depends on
+whether the output is being *predicted from context* (bridge) or
+*generated along a theme* (grief).
+
+Also: 1x max_act added at every position barely moves KL above the control.
+Steering needs about twice a feature's natural peak.
+
+## 11. Ablating 1127 "old" on "We drove across the old"
+
+Tool: `ablate`, top_k 8. 1127 fires at 46.2 (max 51.8) on "old" and promotes
+" old", " Old", " fashioned". Zeroing it: KL 0.43 (vs 0.0005 for 7272 at the
+same spot; ablation is informative exactly where the feature fires).
+
+| Next token | Baseline | Ablated |
+|---|---|---|
+| bridge | 0.308 | 0.391 |
+| suspension | 0.030 | 0.118 |
+| wooden | 0.047 | 0.021 |
+| stone / iron / town | 0.034 / 0.022 / 0.031 | out of top 8 |
+| old | out of top 8 | 0.013 |
+
+- Prediction ("fashioned" loses mass) was wrong: it was never in the top 8.
+  The competition story survived with different competitors. The feature
+  carries the *meaning* of "old"; remove it and the continuations that depend
+  on it (old **wooden**/**stone**/**iron** bridge) fall, a modern bridge type
+  (suspension) quadruples, and "bridge" rises because there is less reason to
+  add a second adjective.
+- " old" reappears as a next token: without the feature the model no longer
+  fully registers that it just said "old". Direct evidence the feature encodes
+  "this token is old", not a vaguer sense of age.
+- Check the token list, not just the headline number; the mechanism was in
+  the losers, not the winner.
