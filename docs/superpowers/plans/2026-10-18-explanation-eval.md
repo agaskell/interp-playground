@@ -501,7 +501,9 @@ def test_build_pool_with_empty_sources():
     rows = match_predictions([], [{"text": "x", "expected": 3}])
     rows[0].update({"rel": 0.0, "peak_token": " x"})
     s = score_set(rows)
-    assert s["n"] == 1 and s["spearman"] is None and s["f1"] == 0.0
+    # One false positive: precision 0, recall undefined (nothing fired), so f1 is None.
+    assert s["n"] == 1 and s["spearman"] is None
+    assert s["precision"] == 0.0 and s["recall"] is None and s["f1"] is None
 ```
 
 - [ ] **Step 2: Run tests**
