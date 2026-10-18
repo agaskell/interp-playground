@@ -1,6 +1,6 @@
 # Agent explanation eval: design
 
-Date: 2026-10-18. Status: approved in conversation; self-reviewed; pending Andy's review.
+Date: 2026-10-18. Status: approved by Andy 2026-10-18.
 
 ## Purpose
 
@@ -43,6 +43,13 @@ For one feature the agent:
 
 Both sets are graded in one call, so the agent never sees ground truth for
 the eval sentences before predicting either set.
+
+A good score is necessary, not sufficient: an explanation can predict
+activations well while missing what the feature is for. Recommended
+practice, stated in the tool docstring but not enforced: the investigated
+explanation should be checked with at least one causal probe (`steer` or
+`ablate`) and that check recorded alongside the score in the write-up. The
+agent's own near-miss sentences are the main lever inside the score itself.
 
 Contamination check: for the life of the server process, the backend
 records every prompt passed to `run_prompt`, `steer`, `ablate` and
@@ -95,8 +102,11 @@ with the SAE, take the feature's peak activation over positions (excluding
 Scores per prediction set, computed in a new pure module
 `src/interp_playground/evals.py`:
 
-- **spearman**: rank correlation between `expected` and actual `rel`. Null
-  when either side is constant.
+- **spearman**: rank correlation between `expected` and actual `rel`, with
+  actual `rel` below `FIRE_REL` clamped to 0 first so ranking among
+  non-firing sentences doesn't count (simulation scores otherwise reward
+  detail in weak activations that matter little). Null when either side is
+  constant.
 - **firing precision / recall / f1**: actual fires when `rel >= FIRE_REL =
   0.1`; predicted fires when `expected >= PREDICT_FIRE = 2`. Each also broken
   down by source (`heldout`, `random`, `agent`).
