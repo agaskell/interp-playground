@@ -1,6 +1,6 @@
 # Agent explanation eval: design
 
-Date: 2026-10-18. Status: approved in conversation, pending spec review.
+Date: 2026-10-18. Status: approved in conversation; self-reviewed; pending Andy's review.
 
 ## Purpose
 
@@ -44,11 +44,12 @@ For one feature the agent:
 Both sets are graded in one call, so the agent never sees ground truth for
 the eval sentences before predicting either set.
 
-Contamination check: from the `eval_sentences` call onward, the backend
+Contamination check: for the life of the server process, the backend
 records every prompt passed to `run_prompt`, `steer`, `ablate` and
 `logit_lens`. At grading time any eval sentence that appears in that record
 (exact match after whitespace normalisation) is counted and listed as
-`contaminated`. It is reported, not refused.
+`contaminated`. It is reported, not refused. The record is never cleared, so
+several features can be evaluated in one session.
 
 ## Sentence pool
 
@@ -68,10 +69,12 @@ records every prompt passed to `run_prompt`, `steer`, `ablate` and
   pool. Tagged at grading time.
 
 Sentences are shuffled with the seed. The returned structure is
-`{"feature", "layer", "seed", "sentences": [{"id", "text"}]}`. The pool is
-deterministic in (feature, layer, seed), so the server keeps no per-call
-state beyond the contamination record; `grade_explanation` rebuilds the pool
-to recover source tags.
+`{"feature", "layer", "seed", "n_heldout", "n_random", "sentences": [{"id",
+"text"}]}`. The pool is deterministic in (feature, layer, seed, n_heldout,
+n_random), so the server keeps no per-call state beyond the contamination
+record; `grade_explanation` takes the same four parameters (same defaults)
+and rebuilds the pool to recover source tags. A script driver can therefore
+grade after a server restart.
 
 `fetch_examples` currently caps at 8 examples in its cache; it is changed to
 cache everything Neuronpedia returns and let callers slice. Existing cache
@@ -124,12 +127,12 @@ and the difference. This table is the answer to the question in Purpose.
 ## Backend changes
 
 - `Backend.eval_sentences(feature, layer, seed, n_heldout, n_random)`.
-- `Backend.grade_explanation(feature, layer, explanation, predictions, seed)`:
+- `Backend.grade_explanation(feature, layer, explanation, predictions, seed, n_heldout, n_random)`:
   rebuilds the pool, runs all sentences (one forward pass each, under the
   lock), computes ground truth, calls `evals.score_set` per set, appends the
   log line.
-- A `_seen_prompts: set[str]` on the backend, cleared by `eval_sentences`,
-  appended to by the other tools' entry points.
+- A `_seen_prompts: set[str]` on the backend, appended to by the other
+  tools' entry points, never cleared.
 - `neuronpedia.fetch_examples` caches all examples; a new
   `example_text(example)` returns the plain-text window.
 
