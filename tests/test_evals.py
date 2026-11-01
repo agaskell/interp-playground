@@ -115,3 +115,42 @@ def test_score_set_metrics():
     assert rows[3]["peak_hit"] is None  # not fired, so no peak to hit
     assert rows[0]["peak_hit"] is True and rows[1]["peak_hit"] is False
     assert s["spearman"] is not None and FIRE_REL == 0.1
+
+
+from interp_playground.evals import build_pool, pick_random_features
+
+
+def test_pick_random_features_skips_hidden_and_self_and_is_seeded():
+    hidden = [False] * 20
+    hidden[3] = hidden[4] = True
+    picked = pick_random_features(20, hidden, exclude=7, seed=0, n=10)
+    assert len(picked) == len(set(picked)) == 10
+    assert not {3, 4, 7} & set(picked)
+    assert picked == pick_random_features(20, hidden, exclude=7, seed=0, n=10)
+    assert picked != pick_random_features(20, hidden, exclude=7, seed=1, n=10)
+    # Asking for more than exist returns what exists.
+    assert len(pick_random_features(5, [False] * 5, exclude=0, seed=0, n=10)) == 4
+
+
+def test_build_pool_shuffles_deterministically_and_tags_sources():
+    pool = build_pool(["h1", "h2"], ["r1", "r2", "r3"], seed=0)
+    assert [p["id"] for p in pool] == [0, 1, 2, 3, 4]
+    assert sorted(p["text"] for p in pool) == ["h1", "h2", "r1", "r2", "r3"]
+    assert {p["text"]: p["source"] for p in pool} == {
+        "h1": "heldout", "h2": "heldout", "r1": "random", "r2": "random", "r3": "random"
+    }
+    assert pool == build_pool(["h1", "h2"], ["r1", "r2", "r3"], seed=0)
+    assert [p["text"] for p in pool] != [p["text"] for p in build_pool(["h1", "h2"], ["r1", "r2", "r3"], seed=1)]
+
+
+def test_build_pool_with_empty_sources():
+    assert build_pool([], [], seed=0) == []
+    pool = build_pool([], ["r1"], seed=0)
+    assert pool == [{"id": 0, "text": "r1", "source": "random"}]
+    # Grading an empty pool with only agent sentences still scores.
+    rows = match_predictions([], [{"text": "x", "expected": 3}])
+    rows[0].update({"rel": 0.0, "peak_token": " x"})
+    s = score_set(rows)
+    # One false positive: precision 0, recall undefined (nothing fired), so f1 is None.
+    assert s["n"] == 1 and s["spearman"] is None
+    assert s["precision"] == 0.0 and s["recall"] is None and s["f1"] is None
