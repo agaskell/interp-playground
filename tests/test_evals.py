@@ -1,0 +1,117 @@
+import pytest
+
+from interp_playground.evals import (
+    FIRE_REL,
+    match_predictions,
+    peak_matches,
+    score_set,
+    spearman,
+)
+
+POOL = [
+    {"id": 0, "text": "We drove across the old bridge.", "source": "heldout"},
+    {"id": 1, "text": "The soup needs more salt.", "source": "random"},
+    {"id": 2, "text": "Music can bridge divides.", "source": "heldout"},
+]
+
+
+def test_spearman_ranks_and_clamps_weak_activations():
+    # Perfect ranking once sub-threshold rels are treated as 0.
+    assert spearman([0, 5, 10], [0.0, 0.5, 1.0]) == 1.0
+    # Ranking among non-firing sentences must not count: 0.02 vs 0.05 are both 0.
+    assert spearman([0, 1, 10], [0.05, 0.02, 1.0]) == spearman([1, 0, 10], [0.05, 0.02, 1.0])
+
+
+def test_spearman_none_on_constant_or_empty():
+    assert spearman([0, 0, 0], [0.0, 0.5, 1.0]) is None
+    assert spearman([], []) is None
+    assert spearman([3], [0.5]) is None
+
+
+def test_peak_matches_is_lenient_about_spacing_case_and_plurals():
+    assert peak_matches("bridge", " bridges")
+    assert peak_matches(" Bridges", "bridge")
+    assert peak_matches("San Francisco", " San")
+    assert not peak_matches("river", " bridge")
+    assert not peak_matches(None, " bridge")
+    assert not peak_matches("", " bridge")
+
+
+def test_match_predictions_by_id_and_agent_text():
+    preds = [
+        {"id": 0, "expected": 9, "on": "bridge"},
+        {"id": 1, "expected": 0},
+        {"id": 2, "expected": 4, "on": "bridge"},
+        {"text": "The dentist fitted a bridge.", "expected": 7, "on": "bridge"},
+    ]
+    rows = match_predictions(POOL, preds)
+    assert [r["source"] for r in rows] == ["heldout", "random", "heldout", "agent"]
+    assert rows[3]["id"] is None and rows[3]["text"] == "The dentist fitted a bridge."
+    assert rows[1]["on"] is None
+
+
+def test_match_predictions_requires_every_pool_id():
+    with pytest.raises(ValueError, match=r"missing.*\[1, 2\]"):
+        match_predictions(POOL, [{"id": 0, "expected": 9}])
+
+
+def test_match_predictions_rejects_duplicates_and_blanks():
+    with pytest.raises(ValueError, match="twice"):
+        match_predictions(POOL, [{"id": 0, "expected": 9}, {"id": 0, "expected": 1},
+                                 {"id": 1, "expected": 0}, {"id": 2, "expected": 0}])
+    with pytest.raises(ValueError, match="id .* or text"):
+        match_predictions(POOL, [{"expected": 9}, {"id": 0, "expected": 9},
+                                 {"id": 1, "expected": 0}, {"id": 2, "expected": 0}])
+    with pytest.raises(ValueError, match="unknown sentence id 7"):
+        match_predictions(POOL, [{"id": 7, "expected": 9}, {"id": 0, "expected": 9},
+                                 {"id": 1, "expected": 0}, {"id": 2, "expected": 0}])
+
+
+def test_match_predictions_coerces_expected():
+    rows = match_predictions(POOL, [{"id": 0, "expected": "7"}, {"id": 1, "expected": -3},
+                                    {"id": 2, "expected": 15}])
+    assert [r["expected"] for r in rows] == [7.0, 0.0, 10.0]
+    with pytest.raises(ValueError, match="expected"):
+        match_predictions(POOL, [{"id": 0, "expected": "high"}, {"id": 1, "expected": 0},
+                                 {"id": 2, "expected": 0}])
+
+
+def test_agent_text_matching_pool_maps_to_pool_id():
+    rows = match_predictions(POOL, [{"text": "We drove across the old bridge.", "expected": 9},
+                                    {"id": 1, "expected": 0}, {"id": 2, "expected": 0}])
+    assert rows[0]["id"] == 0 and rows[0]["source"] == "heldout"
+
+
+def test_match_predictions_caps_agent_sentences():
+    extra = [{"text": f"agent sentence {i}", "expected": 0} for i in range(5)]
+    with pytest.raises(ValueError, match="at most 4 agent"):
+        match_predictions(POOL, [{"id": 0, "expected": 0}, {"id": 1, "expected": 0},
+                                 {"id": 2, "expected": 0}, *extra])
+
+
+def test_score_set_metrics():
+    rows = [
+        # fired, predicted, peak hit
+        {"id": 0, "text": "a", "source": "heldout", "expected": 9.0, "on": "bridge", "rel": 1.0, "peak_token": " bridge"},
+        # fired, predicted, peak miss
+        {"id": 2, "text": "b", "source": "heldout", "expected": 4.0, "on": "music", "rel": 0.3, "peak_token": " bridge"},
+        # not fired, not predicted
+        {"id": 1, "text": "c", "source": "random", "expected": 0.0, "on": None, "rel": 0.0, "peak_token": " salt"},
+        # not fired (weak), predicted: false positive
+        {"id": None, "text": "d", "source": "agent", "expected": 5.0, "on": "gap", "rel": 0.05, "peak_token": " gap"},
+        # fired, not predicted: false negative, no `on` so excluded from peak_hit
+        {"id": None, "text": "e", "source": "agent", "expected": 1.0, "on": None, "rel": 0.2, "peak_token": " span"},
+    ]
+    s = score_set(rows)
+    assert s["n"] == 5
+    assert (s["precision"], s["recall"]) == (pytest.approx(2 / 3, abs=1e-3), pytest.approx(2 / 3, abs=1e-3))
+    assert s["f1"] == pytest.approx(2 / 3, abs=1e-3)
+    assert s["peak_hit"] == 0.5
+    assert s["by_source"]["heldout"] == {"n": 2, "precision": 1.0, "recall": 1.0, "f1": 1.0}
+    assert s["by_source"]["random"] == {"n": 1, "precision": None, "recall": None, "f1": None}
+    assert s["by_source"]["agent"]["precision"] == 0.0 and s["by_source"]["agent"]["recall"] == 0.0
+    assert s["by_source"]["agent"]["f1"] == 0.0
+    assert rows[3]["fired"] is False and rows[3]["predicted_fired"] is True
+    assert rows[3]["peak_hit"] is None  # not fired, so no peak to hit
+    assert rows[0]["peak_hit"] is True and rows[1]["peak_hit"] is False
+    assert s["spearman"] is not None and FIRE_REL == 0.1
