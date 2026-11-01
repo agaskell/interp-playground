@@ -7,6 +7,7 @@ runs sync tools on worker threads.
 
 import json
 import os
+import random
 import threading
 from datetime import datetime, timezone
 from pathlib import Path
@@ -27,6 +28,8 @@ from interp_playground.evals import (
     pick_random_features,
     relative_activation,
     score_set,
+    spread_indices,
+    window_offsets,
 )
 from interp_playground.lens import lens_rows
 from interp_playground.loading import load_model, load_sae
@@ -351,13 +354,19 @@ class Backend:
                 raise ValueError(f"Neuronpedia is unreachable (feature {f}, layer {layer}); retry later")
             return examples
 
+        rng = random.Random(f"{seed}:{feature}:window")
         own = examples_for(feature)
-        heldout = [neuronpedia.example_text(e) for e in own[EXAMPLES_SHOWN:EXAMPLES_SHOWN + n_heldout]]
+        # Held-out examples are spread over the unseen part of the activation
+        # range, and every window puts the peak at a random position.
+        heldout = [
+            neuronpedia.example_text(own[i], *window_offsets(rng))
+            for i in spread_indices(EXAMPLES_SHOWN, len(own), n_heldout)
+        ]
         random_texts = []
         for other in pick_random_features(D_SAE, hidden, feature, seed, n_random):
             examples = examples_for(other)
             if examples:
-                random_texts.append(neuronpedia.example_text(examples[0]))
+                random_texts.append(neuronpedia.example_text(examples[0], *window_offsets(rng)))
         return build_pool([t for t in heldout if t], [t for t in random_texts if t], seed)
 
     def _peak(self, model: LanguageModel, feature: int, layer: int, text: str) -> dict[str, Any]:

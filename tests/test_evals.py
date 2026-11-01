@@ -202,3 +202,56 @@ def test_relative_activation_guards_zero_max():
     assert relative_activation(5.0, 50.0) == 0.1
     assert relative_activation(0.0, 0.0) == 0.0
     assert relative_activation(3.0, 0.0) > 1.0  # dead-feature table entry: no ZeroDivisionError
+
+
+# --- blind-run fixes (FINDINGS 12) ---------------------------------------
+
+def test_pick_random_features_depends_on_target_feature():
+    from interp_playground.evals import pick_random_features
+
+    hidden = [False] * 16384
+    a = pick_random_features(16384, hidden, exclude=7272, seed=0, n=8)
+    b = pick_random_features(16384, hidden, exclude=9435, seed=0, n=8)
+    assert len(a) == len(b) == 8
+    assert len(set(a) & set(b)) <= 1  # different features, different random pools
+    assert a == pick_random_features(16384, hidden, exclude=7272, seed=0, n=8)
+
+
+def test_spread_indices_covers_the_range():
+    from interp_playground.evals import spread_indices
+
+    idx = spread_indices(8, 45, 4)
+    assert idx[0] == 8 and idx[-1] == 44 and len(idx) == 4
+    assert idx == sorted(set(idx))
+    assert spread_indices(8, 10, 4) == [8, 9]
+    assert spread_indices(8, 8, 4) == []
+
+
+def test_window_offsets_vary_and_sum_to_total():
+    import random
+
+    from interp_playground.evals import window_offsets
+
+    rng = random.Random("t")
+    draws = [window_offsets(rng) for _ in range(50)]
+    assert all(b + a == 16 for b, a in draws)
+    assert all(2 <= a <= 14 for _, a in draws)
+    assert len({a for _, a in draws}) > 3
+
+
+def test_paired_summary_counts_wins_and_sign_test():
+    from interp_playground.evals import paired_summary
+
+    def rec(f1_label, f1_inv, rho_label=0.5, rho_inv=0.6):
+        return {"sets": {"label": {"f1": f1_label, "spearman": rho_label},
+                         "investigated": {"f1": f1_inv, "spearman": rho_inv}}}
+
+    recs = [rec(0.8, 0.9), rec(0.8, 0.9), rec(0.8, 0.9), rec(0.9, 0.9), rec(0.9, 0.8)]
+    s = paired_summary(recs)
+    assert s["n"] == 5
+    assert s["f1"]["wins"] == 3 and s["f1"]["ties"] == 1 and s["f1"]["losses"] == 1
+    assert s["f1"]["mean_delta"] == pytest.approx(0.04, abs=1e-6)
+    # sign test on 3 wins / 1 loss, two-sided: 2 * (C(4,0)+C(4,1)) / 16 = 0.625
+    assert s["f1"]["sign_p"] == pytest.approx(0.625)
+    assert s["spearman"]["wins"] == 5 and s["spearman"]["sign_p"] == pytest.approx(2 / 32)
+    assert paired_summary([{"sets": {"label": {"f1": None, "spearman": None}}}])["n"] == 0

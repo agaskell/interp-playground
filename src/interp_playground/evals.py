@@ -26,7 +26,62 @@ def pick_random_features(
 ) -> list[int]:
     """`n` distinct feature ids that are not hidden and not `exclude`, chosen by seed."""
     candidates = [i for i in range(n_features) if not hidden[i] and i != exclude]
-    return random.Random(seed).sample(candidates, min(n, len(candidates)))
+    # Keyed on the target feature too, so two features never share a random pool.
+    return random.Random(f"{seed}:{exclude}").sample(candidates, min(n, len(candidates)))
+
+
+def spread_indices(start: int, stop: int, n: int) -> list[int]:
+    """`n` distinct indices spread evenly over [start, stop), first and last included."""
+    if stop - start <= n:
+        return list(range(start, stop))
+    if n == 1:
+        return [start]
+    return sorted({start + round(k * (stop - 1 - start) / (n - 1)) for k in range(n)})
+
+
+WINDOW_TOKENS = 16
+MIN_AFTER = 2
+
+
+def window_offsets(rng: random.Random, total: int = WINDOW_TOKENS, min_after: int = MIN_AFTER) -> tuple[int, int]:
+    """(before, after) token counts around the peak, with the peak's position drawn at random.
+
+    A fixed offset would tell the agent where the trigger is in every sentence.
+    """
+    after = rng.randint(min_after, total - min_after)
+    return total - after, after
+
+
+def paired_summary(records: list[dict[str, Any]]) -> dict[str, Any]:
+    """Label-vs-investigated deltas across records that scored both sets.
+
+    Per metric: mean delta, wins/ties/losses for investigated over label, and
+    a two-sided exact sign test over the non-tied pairs.
+    """
+    out: dict[str, Any] = {"n": 0}
+    pairs = [r["sets"] for r in records if "label" in r.get("sets", {}) and "investigated" in r["sets"]]
+    for metric in ("f1", "spearman"):
+        deltas = [
+            s["investigated"][metric] - s["label"][metric]
+            for s in pairs
+            if s["label"].get(metric) is not None and s["investigated"].get(metric) is not None
+        ]
+        wins = sum(d > 1e-9 for d in deltas)
+        losses = sum(d < -1e-9 for d in deltas)
+        ties = len(deltas) - wins - losses
+        m = wins + losses
+        if m:
+            k = min(wins, losses)
+            sign_p = min(1.0, 2 * sum(math.comb(m, j) for j in range(k + 1)) / 2**m)
+        else:
+            sign_p = None
+        out[metric] = {
+            "n": len(deltas),
+            "mean_delta": statistics.fmean(deltas) if deltas else None,
+            "wins": wins, "ties": ties, "losses": losses, "sign_p": sign_p,
+        }
+        out["n"] = max(out["n"], len(deltas))
+    return out
 
 
 def normalize(text: str) -> str:

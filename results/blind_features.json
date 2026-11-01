@@ -1,0 +1,166 @@
+{
+ "layer": 12,
+ "seed": 1,
+ "n_heldout": 6,
+ "criteria": "not mentioned in FINDINGS/README, not hidden, labelled, >= 14 Neuronpedia examples; order = Random('blind:<seed>').shuffle",
+ "n_excluded_ids": 104,
+ "skipped": {
+  "excluded": 0,
+  "hidden": 0,
+  "no_label": 0,
+  "few_examples": 0,
+  "unreachable": 0
+ },
+ "features": [
+  {
+   "feature": 5323,
+   "label": "references to territorial disputes and resource exploitation",
+   "density": 0.00507,
+   "n_examples": 45
+  },
+  {
+   "feature": 3907,
+   "label": "structure elements of programming languages or data formats, particularly indicating the end of blocks or arrays",
+   "density": 0.00146,
+   "n_examples": 45
+  },
+  {
+   "feature": 9605,
+   "label": "historical naval terminology and references",
+   "density": 0.00222,
+   "n_examples": 45
+  },
+  {
+   "feature": 11650,
+   "label": "the start of new sections or paragraphs in the text",
+   "density": 8e-05,
+   "n_examples": 45
+  },
+  {
+   "feature": 9250,
+   "label": "various types of programming elements and parameters",
+   "density": 0.01544,
+   "n_examples": 45
+  },
+  {
+   "feature": 5651,
+   "label": "detailed mathematical notations and structural elements in documents, particularly those involving equations and labeling",
+   "density": 0.01468,
+   "n_examples": 45
+  },
+  {
+   "feature": 14383,
+   "label": "statistics and data pertaining to health-related outcomes",
+   "density": 0.01026,
+   "n_examples": 45
+  },
+  {
+   "feature": 339,
+   "label": "references to articles and supplementary material in academic contexts",
+   "density": 0.00178,
+   "n_examples": 40
+  },
+  {
+   "feature": 8861,
+   "label": "terms related to electrical power systems and infrastructure",
+   "density": 0.00201,
+   "n_examples": 45
+  },
+  {
+   "feature": 16293,
+   "label": "sections or phrases indicating conclusions or summaries in a text",
+   "density": 0.00187,
+   "n_examples": 45
+  },
+  {
+   "feature": 10354,
+   "label": "attributes related to scientific discoveries and their implications",
+   "density": 0.00548,
+   "n_examples": 45
+  },
+  {
+   "feature": 13026,
+   "label": "terms and conditions related to specific instructions or requirements",
+   "density": 0.00372,
+   "n_examples": 43
+  },
+  {
+   "feature": 7660,
+   "label": "references to a crisis or challenging societal situations",
+   "density": 0.00567,
+   "n_examples": 45
+  },
+  {
+   "feature": 14230,
+   "label": "terms related to restoration and recovery",
+   "density": 0.00104,
+   "n_examples": 45
+  },
+  {
+   "feature": 2179,
+   "label": "references to scientific authors and their works",
+   "density": 0.005809999999999999,
+   "n_examples": 45
+  },
+  {
+   "feature": 8316,
+   "label": "terms related to fiscal policies and government spending",
+   "density": 0.00243,
+   "n_examples": 45
+  },
+  {
+   "feature": 10710,
+   "label": "phrases related to leadership and its functions in political contexts",
+   "density": 0.01849,
+   "n_examples": 42
+  },
+  {
+   "feature": 6440,
+   "label": "code elements and syntax related to graphic user interface (GUI) frameworks",
+   "density": 0.0005899999999999999,
+   "n_examples": 37
+  },
+  {
+   "feature": 14431,
+   "label": "legal and procedural language related to eligibility assessments and approvals",
+   "density": 0.00459,
+   "n_examples": 45
+  },
+  {
+   "feature": 8271,
+   "label": "references to specific locations or contexts",
+   "density": 0.00104,
+   "n_examples": 45
+  },
+  {
+   "feature": 7111,
+   "label": "terms related to health, success, and professional development",
+   "density": 0.00709,
+   "n_examples": 45
+  },
+  {
+   "feature": 8072,
+   "label": "references to scientific processes or methodologies involving measurements and statistics",
+   "density": 0.01805,
+   "n_examples": 45
+  },
+  {
+   "feature": 9770,
+   "label": "the adverb \"indeed\" in various contexts",
+   "density": 0.00095,
+   "n_examples": 45
+  },
+  {
+   "feature": 4344,
+   "label": "summaries and descriptive annotations related to classes and components in programming documentation",
+   "density": 7.000000000000001e-05,
+   "n_examples": 35
+  },
+  {
+   "feature": 6184,
+   "label": "specific instructions related to configuring and managing software or systems",
+   "density": 0.00629,
+   "n_examples": 45
+  }
+ ]
+}
