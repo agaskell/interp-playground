@@ -5,7 +5,11 @@ Everything that touches the model goes through `self._lock`, because MCP
 runs sync tools on worker threads.
 """
 
+import json
+import os
 import threading
+from datetime import datetime, timezone
+from pathlib import Path
 from typing import Any
 
 import nnsight
@@ -14,6 +18,14 @@ from nnsight import LanguageModel
 from sae_lens import SAE
 
 from interp_playground import neuronpedia
+from interp_playground.evals import (
+    EXAMPLES_SHOWN,
+    MAX_SETS,
+    build_pool,
+    match_predictions,
+    pick_random_features,
+    score_set,
+)
 from interp_playground.lens import lens_rows
 from interp_playground.loading import load_model, load_sae
 from interp_playground.steering import (
@@ -46,6 +58,19 @@ ARTIFACT_PROBES = [
     "Q: What is two plus two?",
     "¿Dónde está la biblioteca?",
 ]
+# Where grade_explanation appends one JSON line per call. Override with the
+# INTERP_PLAYGROUND_RESULTS env var (the smoke test does, to keep the repo's
+# log clean).
+RESULTS_PATH = Path(
+    os.environ.get(
+        "INTERP_PLAYGROUND_RESULTS",
+        Path(__file__).resolve().parents[2] / "results" / "explanation_evals.jsonl",
+    )
+)
+
+
+def _normalize(text: str) -> str:
+    return " ".join(text.split())
 
 
 class Backend:
@@ -59,6 +84,9 @@ class Backend:
         # from rankings by default ("dense", "position_artifact").
         self._max_act: dict[int, torch.Tensor] = {}
         self._hidden: dict[int, dict[str, torch.Tensor]] = {}
+        # Every prompt the other tools have run, for the eval's contamination
+        # check. Never cleared: several features can be evaluated per session.
+        self._seen_prompts: set[str] = set()
 
     def warm_up(self, layers: list[int]) -> None:
         with self._lock:
@@ -75,6 +103,7 @@ class Backend:
         max_new_tokens: int,
         include_hidden: bool,
     ) -> dict[str, Any]:
+        self._seen_prompts.add(_normalize(prompt))
         for layer in layers:
             if not 0 <= layer < NUM_LAYERS:
                 raise ValueError(f"layer {layer} out of range 0-{NUM_LAYERS - 1}")
@@ -131,6 +160,7 @@ class Backend:
         positions: str = "all",
         target_tokens: list[str] | None = None,
     ) -> dict[str, Any]:
+        self._seen_prompts.add(_normalize(prompt))
         self._check(feature, layer)
         position_mask(1, positions, True)  # validate early
         with self._lock:
@@ -240,7 +270,105 @@ class Backend:
             "url": neuronpedia.feature_url(layer, feature),
         }
 
+    def eval_sentences(
+        self, feature: int, layer: int, seed: int, n_heldout: int, n_random: int
+    ) -> dict[str, Any]:
+        self._check(feature, layer)
+        pool = self._pool(feature, layer, seed, n_heldout, n_random)
+        return {
+            "feature": feature,
+            "layer": layer,
+            "seed": seed,
+            "n_heldout": n_heldout,
+            "n_random": n_random,
+            "sentences": [{"id": p["id"], "text": p["text"]} for p in pool],
+        }
+
+    def grade_explanation(
+        self,
+        feature: int,
+        layer: int,
+        explanation: str,
+        predictions: dict[str, list[dict[str, Any]]],
+        seed: int,
+        n_heldout: int,
+        n_random: int,
+    ) -> dict[str, Any]:
+        self._check(feature, layer)
+        if not predictions:
+            raise ValueError("predictions must contain at least one named set")
+        if len(predictions) > MAX_SETS:
+            raise ValueError(f"at most {MAX_SETS} prediction sets, got {len(predictions)}")
+        pool = self._pool(feature, layer, seed, n_heldout, n_random)
+        sets = {name: match_predictions(pool, preds) for name, preds in predictions.items()}
+
+        texts = sorted({r["text"] for rows in sets.values() for r in rows})
+        with self._lock:
+            model = self._get_model()
+            self._prepare_layer(layer)
+            truth = {t: self._peak(model, feature, layer, t) for t in texts}
+            label = self._tables[layer][feature].label
+        for rows in sets.values():
+            for r in rows:
+                r.update(truth[r["text"]])
+
+        record = {
+            "time": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+            "feature": feature,
+            "layer": layer,
+            "label": label,
+            "explanation": explanation,
+            "seed": seed,
+            "n_heldout": n_heldout,
+            "n_random": n_random,
+            "contaminated": [p["id"] for p in pool if _normalize(p["text"]) in self._seen_prompts],
+            "sets": {name: score_set(rows) for name, rows in sets.items()},
+        }
+        RESULTS_PATH.parent.mkdir(parents=True, exist_ok=True)
+        with RESULTS_PATH.open("a") as f:
+            f.write(json.dumps(record) + "\n")
+        return record
+
+    def _pool(
+        self, feature: int, layer: int, seed: int, n_heldout: int, n_random: int
+    ) -> list[dict[str, Any]]:
+        """The eval's sentence pool: held-out own examples plus other features' text.
+
+        Deterministic in (feature, layer, seed, n_heldout, n_random). Network
+        reads (cached per feature) happen outside the model lock.
+        """
+        with self._lock:
+            self._prepare_layer(layer)
+            masks = self._hidden[layer]
+            hidden = (masks["dense"] | masks["position_artifact"]).tolist()
+        own = neuronpedia.load_examples(layer, feature) or []
+        heldout = [neuronpedia.example_text(e) for e in own[EXAMPLES_SHOWN:EXAMPLES_SHOWN + n_heldout]]
+        random_texts = []
+        for other in pick_random_features(D_SAE, hidden, feature, seed, n_random):
+            examples = neuronpedia.load_examples(layer, other)
+            if examples:
+                random_texts.append(neuronpedia.example_text(examples[0]))
+        return build_pool([t for t in heldout if t], [t for t in random_texts if t], seed)
+
+    def _peak(self, model: LanguageModel, feature: int, layer: int, text: str) -> dict[str, Any]:
+        """Ground truth for one sentence: the feature's peak activation and where."""
+        ids = model.tokenizer(text, return_tensors="pt")["input_ids"]
+        if ids.shape[1] < 2:
+            raise ValueError(f"sentence has no tokens: {text!r}")
+        with torch.no_grad(), model.trace(ids):
+            resid = model.model.layers[layer].output.save()
+        with torch.no_grad():
+            acts = self._saes[layer].encode(resid[0, 1:])[:, feature].cpu()
+        i = int(acts.argmax())
+        act = float(acts[i])
+        return {
+            "act": round(act, 2),
+            "rel": round(act / float(self._max_act[layer][feature]), 3),
+            "peak_token": model.tokenizer.decode(ids[0, 1 + i]),
+        }
+
     def logit_lens(self, prompt: str, position: int, top_k: int) -> dict[str, Any]:
+        self._seen_prompts.add(_normalize(prompt))
         with self._lock:
             model = self._get_model()
             ids = model.tokenizer(prompt, return_tensors="pt")["input_ids"]
@@ -280,6 +408,7 @@ class Backend:
         rest of the residual stream is untouched: no SAE reconstruction error
         is introduced.
         """
+        self._seen_prompts.add(_normalize(prompt))
         self._check(feature, layer)
         with self._lock:
             model = self._get_model()
