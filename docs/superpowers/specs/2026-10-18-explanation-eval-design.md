@@ -83,10 +83,9 @@ record; `grade_explanation` takes the same four parameters (same defaults)
 and rebuilds the pool to recover source tags. A script driver can therefore
 grade after a server restart.
 
-`fetch_examples` currently caps at 8 examples in its cache; it is changed to
-cache everything Neuronpedia returns and let callers slice. Existing cache
-files written with the old cap are refreshed when they hold fewer than
-`EXAMPLES_SHOWN + 1` entries.
+`fetch_examples` already caches every example Neuronpedia returns and
+slices on read; it is split into `load_examples` (raw cached list) and the
+display formatting, plus `example_text` for the plain-text window.
 
 ## Predictions and scoring
 
@@ -143,8 +142,8 @@ and the difference. This table is the answer to the question in Purpose.
   log line.
 - A `_seen_prompts: set[str]` on the backend, appended to by the other
   tools' entry points, never cleared.
-- `neuronpedia.fetch_examples` caches all examples; a new
-  `example_text(example)` returns the plain-text window.
+- `neuronpedia.load_examples` returns the raw cached list; `example_text(example)`
+  returns the plain-text window.
 
 ## Server changes
 

@@ -68,11 +68,12 @@ def feature_url(layer: int, feature: int) -> str:
     return f"https://www.neuronpedia.org/{MODEL_ID}/{sae_id(layer)}/{feature}"
 
 
-def fetch_examples(layer: int, feature: int, n: int = 8, context: int = 12) -> list[dict] | None:
-    """Top activating examples from Neuronpedia's API, cached on disk.
+def load_examples(layer: int, feature: int) -> list[dict] | None:
+    """All of Neuronpedia's top activating examples for a feature, cached on disk.
 
-    Each example: the max activation, and a snippet with the peak token in
-    [[brackets]]. Returns None if Neuronpedia is unreachable.
+    Each example: {"max": peak activation, "tokens": token strings as
+    Neuronpedia shows them (▁ for a leading space), "peak": index of the
+    peak token}. Returns None if Neuronpedia is unreachable.
     """
     path = CACHE_DIR / "features" / sae_id(layer) / f"{feature}.json"
     if not path.exists():
@@ -87,9 +88,27 @@ def fetch_examples(layer: int, feature: int, n: int = 8, context: int = 12) -> l
             {"max": a["maxValue"], "tokens": a["tokens"], "peak": a["maxValueTokenIndex"]}
             for a in raw.get("activations", [])
         ]))
-    examples = []
-    for a in json.loads(path.read_text())[:n]:
+    return json.loads(path.read_text())
+
+
+def example_text(example: dict, before: int = 12, after: int = 4) -> str:
+    """A plain-text window around an example's peak token, for running through the model."""
+    toks, i = example["tokens"], example["peak"]
+    window = [t for t in toks[max(0, i - before):i + 1 + after] if t != "<bos>"]
+    return " ".join("".join(window).replace("▁", " ").split())
+
+
+def fetch_examples(layer: int, feature: int, n: int = 8, context: int = 12) -> list[dict] | None:
+    """Top activating examples for display, with the peak token in [[brackets]].
+
+    Returns None if Neuronpedia is unreachable.
+    """
+    examples = load_examples(layer, feature)
+    if examples is None:
+        return None
+    out = []
+    for a in examples[:n]:
         toks, i = a["tokens"], a["peak"]
         snippet = "".join(toks[max(0, i - context):i]) + f"[[{toks[i]}]]" + "".join(toks[i + 1:i + 4])
-        examples.append({"max": round(a["max"], 1), "text": snippet.replace("\n", "\\n")})
-    return examples
+        out.append({"max": round(a["max"], 1), "text": snippet.replace("\n", "\\n")})
+    return out
