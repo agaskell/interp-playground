@@ -2,6 +2,7 @@
 
 import asyncio
 import json
+import os
 import sys
 from pathlib import Path
 
@@ -13,7 +14,9 @@ ROOT = Path(__file__).resolve().parent.parent
 
 async def main() -> None:
     params = StdioServerParameters(
-        command="uv", args=["run", "--directory", str(ROOT), "interp-playground-mcp"]
+        command="uv",
+        args=["run", "--directory", str(ROOT), "interp-playground-mcp"],
+        env={**os.environ, "INTERP_PLAYGROUND_RESULTS": str(ROOT / ".smoke_evals.jsonl")},
     )
     async with Client(params, read_timeout_seconds=300) as client:
         tools = await client.list_tools()
@@ -64,6 +67,30 @@ async def main() -> None:
                 "ablate": lambda: f"kl={d['next_token']['kl']} active={len(d['active_positions'])}",
             }[name]()
             print(f"{name}: {brief} ({len(json.dumps(d))} bytes)")
+
+        result = await client.call_tool(
+            "eval_sentences", {"feature": 7272, "n_heldout": 2, "n_random": 3}
+        )
+        if result.is_error:
+            sys.exit(f"eval_sentences error: {result.content}")
+        pool = result.structured_content["sentences"]
+        assert all(set(s) == {"id", "text"} for s in pool), "pool leaks fields"
+        print("eval_sentences:", len(pool), "sentences")
+
+        preds = {"zeros": [{"id": s["id"], "expected": 0} for s in pool]
+                 + [{"text": "We drove across the old bridge.", "expected": 9, "on": "bridge"}]}
+        result = await client.call_tool(
+            "grade_explanation",
+            {"feature": 7272, "explanation": "smoke", "predictions": preds,
+             "n_heldout": 2, "n_random": 3},
+        )
+        if result.is_error:
+            sys.exit(f"grade_explanation error: {result.content}")
+        s = result.structured_content["sets"]["zeros"]
+        assert s["n"] == len(pool) + 1
+        agent_row = next(r for r in s["rows"] if r["source"] == "agent")
+        assert agent_row["peak_hit"] is True, agent_row
+        print("grade_explanation:", {k: s[k] for k in ("n", "f1", "spearman", "peak_hit")})
 
 
 if __name__ == "__main__":

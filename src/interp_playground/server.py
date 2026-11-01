@@ -260,7 +260,98 @@ def ablate(
     )
 
 
-TOOLS = ("run_prompt", "steer", "feature_info", "logit_lens", "ablate")
+@server.tool()
+def eval_sentences(
+    feature: int,
+    layer: int = DEFAULT_LAYER,
+    seed: int = 0,
+    n_heldout: int = 4,
+    n_random: int = 8,
+) -> dict[str, Any]:
+    """Start an explanation eval: get sentences to predict a feature's activations on.
+
+    Protocol (do it in this order):
+    1. Call this. You get sentences as text with ids, shuffled, and nothing
+       else: some are the feature's own top examples that feature_info did
+       not show you, some are random text from other features' examples.
+    2. BEFORE using any other tool on this feature, write a prediction for
+       every sentence from the Neuronpedia label alone. This is the baseline
+       set, named "label".
+    3. Investigate with feature_info, run_prompt (on sentences of your own
+       choosing, not these), steer, ablate. Write an explanation and a second
+       prediction set named "investigated" for the same sentences. Add up to
+       4 sentences of your own (near-misses, edge cases) by giving `text`
+       instead of `id`.
+    4. Call grade_explanation once with both sets.
+
+    Do not run these sentences through run_prompt or the other tools before
+    grading: any that you do are reported as `contaminated`. A good score is
+    necessary, not sufficient; check the investigated explanation with one
+    causal probe (steer or ablate) and note the result in your write-up.
+
+    Args:
+        feature: Feature id (0-16383).
+        layer: Residual-stream layer of the feature's SAE (0-25). Default 12.
+        seed: Pool seed; pass the same seed and counts to grade_explanation.
+        n_heldout: Held-out own examples to include (0-8). Default 4.
+        n_random: Random-text sentences to include (0-16). Default 8.
+    """
+    return backend.eval_sentences(
+        feature,
+        layer,
+        seed,
+        n_heldout=max(0, min(n_heldout, 8)),
+        n_random=max(0, min(n_random, 16)),
+    )
+
+
+@server.tool()
+def grade_explanation(
+    feature: int,
+    explanation: str,
+    predictions: dict[str, list[dict[str, Any]]],
+    layer: int = DEFAULT_LAYER,
+    seed: int = 0,
+    n_heldout: int = 4,
+    n_random: int = 8,
+) -> dict[str, Any]:
+    """Score prediction sets from eval_sentences against the feature's real activations.
+
+    `predictions` maps a set name ("label", "investigated") to a list of
+    {"id": <sentence id>, "expected": 0-10, "on": "<word>"} for every pool
+    sentence, plus optional {"text": "<your sentence>", "expected", "on"}
+    entries (at most 4 per set). `expected` is the predicted peak activation
+    relative to the feature's max: 10 = as strong as a top example, 0 = does
+    not fire. `on` (optional) is the word you expect the peak on.
+
+    Pass the same seed, n_heldout and n_random as eval_sentences.
+
+    Per set, returns: spearman (rank correlation of expected vs actual,
+    sub-threshold activations counted as 0), precision/recall/f1 for firing
+    (actual rel >= 0.1 vs expected >= 2), the same by source (heldout /
+    random / agent), peak_hit (fraction of true firings whose peak token you
+    named), and per-sentence rows with the truth. Also returns `contaminated`:
+    pool ids that were run through other tools before grading. Every call is
+    appended to results/explanation_evals.jsonl.
+
+    Read the rows, not just the scores: a wrong `on` with the right `expected`
+    usually means the explanation names the topic but not the trigger.
+    """
+    return backend.grade_explanation(
+        feature,
+        layer,
+        explanation,
+        predictions,
+        seed,
+        n_heldout=max(0, min(n_heldout, 8)),
+        n_random=max(0, min(n_random, 16)),
+    )
+
+
+TOOLS = (
+    "run_prompt", "steer", "feature_info", "logit_lens", "ablate",
+    "eval_sentences", "grade_explanation",
+)
 
 
 def main() -> None:
