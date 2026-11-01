@@ -67,6 +67,15 @@ label, density, promoted/suppressed tokens, nearest features by decoder
 direction, and Neuronpedia's top examples. `logit_lens` shows what each layer
 would predict at a position, and when the final answer forms.
 
+`eval_sentences` and `grade_explanation` run an explanation eval: the agent
+predicts a feature's activations on a mixed pool (held-out Neuronpedia
+examples, random text from other features, its own near-misses), first from
+the label alone and again after investigating, and the server scores both
+sets with Spearman correlation, firing F1 by source, and peak-token hits.
+Results append to `results/explanation_evals.jsonl`; `scripts/eval_report.py`
+prints the label-vs-investigated table. Design:
+`docs/superpowers/specs/2026-10-18-explanation-eval-design.md`.
+
 ```sh
 uv run pytest            # unit tests (no model needed)
 ```
@@ -84,6 +93,7 @@ uv run python scripts/feature_acts.py --feature 7272 "We drove across the old br
 uv run python scripts/steer.py --feature 7272 --scales 0 50 100 200
 uv run python scripts/steer.py --random 0 --scales 0 50 100 200
 uv run python scripts/tool.py logit_lens prompt="Romeo and Juliet was written by" top_k=3   # any MCP tool, no server
+uv run python scripts/eval_report.py   # label vs investigated scores per feature
 ```
 
 ## Findings so far
@@ -125,9 +135,9 @@ Next steps suggested by the findings:
 - **A judge for thematic steering.** Completion-averaged token mass (section
   10) is graded but still lexical and misses "loved ones"; score completions
   against a theme with a small model or embedding similarity.
-- **Agent explanation evals.** Have the agent predict a feature's activations on
-  held-out sentences from its own explanation, then check with `run_prompt`.
-  Sections 3 and 7 of FINDINGS.md are the manual version of this.
+- **Agent explanation evals** are built (`eval_sentences`, `grade_explanation`);
+  next is running them over more features and adding a judge for the
+  explanations themselves.
 - **Multi-feature ablation** and attention-head attribution, to find what does
   carry the "bridge" prediction at layers 19-23.
 
