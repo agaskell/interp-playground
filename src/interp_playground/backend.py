@@ -23,7 +23,9 @@ from interp_playground.evals import (
     MAX_SETS,
     build_pool,
     match_predictions,
+    normalize,
     pick_random_features,
+    relative_activation,
     score_set,
 )
 from interp_playground.lens import lens_rows
@@ -69,8 +71,7 @@ RESULTS_PATH = Path(
 )
 
 
-def _normalize(text: str) -> str:
-    return " ".join(text.split())
+_normalize = normalize
 
 
 class Backend:
@@ -334,18 +335,27 @@ class Backend:
     ) -> list[dict[str, Any]]:
         """The eval's sentence pool: held-out own examples plus other features' text.
 
-        Deterministic in (feature, layer, seed, n_heldout, n_random). Network
-        reads (cached per feature) happen outside the model lock.
+        Deterministic in (feature, layer, seed, n_heldout, n_random): a
+        Neuronpedia fetch failure raises rather than silently shrinking the
+        pool, since a shorter pool would misalign the agent's predictions.
+        Network reads (cached per feature) happen outside the model lock.
         """
         with self._lock:
             self._prepare_layer(layer)
             masks = self._hidden[layer]
             hidden = (masks["dense"] | masks["position_artifact"]).tolist()
-        own = neuronpedia.load_examples(layer, feature) or []
+
+        def examples_for(f: int) -> list[dict]:
+            examples = neuronpedia.load_examples(layer, f)
+            if examples is None:
+                raise ValueError(f"Neuronpedia is unreachable (feature {f}, layer {layer}); retry later")
+            return examples
+
+        own = examples_for(feature)
         heldout = [neuronpedia.example_text(e) for e in own[EXAMPLES_SHOWN:EXAMPLES_SHOWN + n_heldout]]
         random_texts = []
         for other in pick_random_features(D_SAE, hidden, feature, seed, n_random):
-            examples = neuronpedia.load_examples(layer, other)
+            examples = examples_for(other)
             if examples:
                 random_texts.append(neuronpedia.example_text(examples[0]))
         return build_pool([t for t in heldout if t], [t for t in random_texts if t], seed)
@@ -363,7 +373,7 @@ class Backend:
         act = float(acts[i])
         return {
             "act": round(act, 2),
-            "rel": round(act / float(self._max_act[layer][feature]), 3),
+            "rel": round(relative_activation(act, float(self._max_act[layer][feature])), 3),
             "peak_token": model.tokenizer.decode(ids[0, 1 + i]),
         }
 

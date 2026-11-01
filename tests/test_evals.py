@@ -154,3 +154,51 @@ def test_build_pool_with_empty_sources():
     # One false positive: precision 0, recall undefined (nothing fired), so f1 is None.
     assert s["n"] == 1 and s["spearman"] is None
     assert s["precision"] == 0.0 and s["recall"] is None and s["f1"] is None
+
+
+# --- review fixes ---------------------------------------------------------
+
+from interp_playground.evals import relative_activation
+
+
+def test_match_predictions_requires_expected_and_rejects_non_finite():
+    with pytest.raises(ValueError, match="no 'expected'"):
+        match_predictions(POOL, [{"id": 0}, {"id": 1, "expected": 0}, {"id": 2, "expected": 0}])
+    with pytest.raises(ValueError, match="no 'expected'"):
+        match_predictions(POOL, [{"id": 0, "activation": 9}, {"id": 1, "expected": 0},
+                                 {"id": 2, "expected": 0}])
+    with pytest.raises(ValueError, match="expected"):
+        match_predictions(POOL, [{"id": 0, "expected": "nan"}, {"id": 1, "expected": 0},
+                                 {"id": 2, "expected": 0}])
+
+
+def test_match_predictions_rejects_non_string_on():
+    with pytest.raises(ValueError, match="on must be a string"):
+        match_predictions(POOL, [{"id": 0, "expected": 9, "on": 1987}, {"id": 1, "expected": 0},
+                                 {"id": 2, "expected": 0}])
+
+
+def test_match_predictions_cross_checks_text_against_id():
+    # Same id, different sentence: the pool the agent predicted on is not this pool.
+    with pytest.raises(ValueError, match=r"id 0 is .*old bridge.* in this pool"):
+        match_predictions(POOL, [{"id": 0, "text": "The soup needs more salt.", "expected": 9},
+                                 {"id": 1, "expected": 0}, {"id": 2, "expected": 0}])
+    # Whitespace differences are not a mismatch, with or without an id.
+    rows = match_predictions(POOL, [{"id": 0, "text": "We drove  across the old bridge.", "expected": 9},
+                                    {"text": "Music can  bridge divides.", "expected": 4},
+                                    {"id": 1, "expected": 0}])
+    assert [r["id"] for r in rows] == [0, 2, 1]
+
+
+def test_build_pool_drops_duplicate_texts_keeping_heldout():
+    pool = build_pool(["same", "h2"], ["same", "r2", "r2"], seed=0)
+    texts = [p["text"] for p in pool]
+    assert sorted(texts) == ["h2", "r2", "same"]
+    assert next(p for p in pool if p["text"] == "same")["source"] == "heldout"
+    assert [p["id"] for p in pool] == [0, 1, 2]
+
+
+def test_relative_activation_guards_zero_max():
+    assert relative_activation(5.0, 50.0) == 0.1
+    assert relative_activation(0.0, 0.0) == 0.0
+    assert relative_activation(3.0, 0.0) > 1.0  # dead-feature table entry: no ZeroDivisionError

@@ -4,6 +4,7 @@ The backend supplies texts and ground-truth activations; nothing here
 touches the model or the network, so it all runs in unit tests.
 """
 
+import math
 import random
 import statistics
 from typing import Any
@@ -28,9 +29,27 @@ def pick_random_features(
     return random.Random(seed).sample(candidates, min(n, len(candidates)))
 
 
+def normalize(text: str) -> str:
+    """Whitespace-insensitive form used for every text comparison in the eval."""
+    return " ".join(text.split())
+
+
+def relative_activation(act: float, max_act: float) -> float:
+    """act / max_act with the same guard summarize uses, so dead features don't divide by zero."""
+    return act / max(max_act, 1e-6)
+
+
 def build_pool(heldout: list[str], random_texts: list[str], seed: int) -> list[dict[str, Any]]:
-    """Shuffle the sources together; ids are 0..n-1 in shuffled order."""
-    items = [(t, "heldout") for t in heldout] + [(t, "random") for t in random_texts]
+    """Shuffle the sources together; ids are 0..n-1 in shuffled order.
+
+    Duplicate texts are dropped, keeping the first occurrence (held-out
+    before random), so no two ids ever carry the same sentence.
+    """
+    items, seen = [], set()
+    for text, source in [(t, "heldout") for t in heldout] + [(t, "random") for t in random_texts]:
+        if normalize(text) not in seen:
+            seen.add(normalize(text))
+            items.append((text, source))
     random.Random(seed).shuffle(items)
     return [{"id": i, "text": t, "source": s} for i, (t, s) in enumerate(items)]
 
@@ -42,11 +61,11 @@ def match_predictions(pool: list[dict[str, Any]], predictions: list[dict[str, An
     float and clamped to 0-10.
     """
     by_id = {p["id"]: p for p in pool}
-    by_text = {p["text"]: p for p in pool}
+    by_text = {normalize(p["text"]): p for p in pool}
     rows: list[dict[str, Any]] = []
     seen: set[int] = set()
     for pred in predictions:
-        pid, text = pred.get("id"), (pred.get("text") or "").strip()
+        pid, text = pred.get("id"), normalize(pred.get("text") or "")
         if pid is None and text in by_text:
             pid = by_text[text]["id"]
         if pid is not None:
@@ -54,20 +73,32 @@ def match_predictions(pool: list[dict[str, Any]], predictions: list[dict[str, An
                 raise ValueError(f"unknown sentence id {pid}")
             if pid in seen:
                 raise ValueError(f"sentence id {pid} predicted twice")
-            seen.add(pid)
             base = by_id[pid]
+            if text and text != normalize(base["text"]):
+                raise ValueError(
+                    f"id {pid} is {base['text']!r} in this pool, not {text!r}: "
+                    "check seed, n_heldout and n_random match eval_sentences"
+                )
+            seen.add(pid)
         elif text:
             base = {"id": None, "text": text, "source": "agent"}
         else:
             raise ValueError("each prediction needs an id (pool sentence) or text (agent sentence)")
+        if "expected" not in pred:
+            raise ValueError(f"prediction for {pid if pid is not None else text!r} has no 'expected'")
         try:
-            expected = float(pred.get("expected", 0))
+            expected = float(pred["expected"])
         except (TypeError, ValueError):
-            raise ValueError(f"expected must be a number 0-10, got {pred.get('expected')!r}") from None
+            expected = math.nan
+        if not math.isfinite(expected):
+            raise ValueError(f"expected must be a number 0-10, got {pred['expected']!r}")
+        on = pred.get("on")
+        if on is not None and not isinstance(on, str):
+            raise ValueError(f"on must be a string, got {on!r}")
         rows.append({
             **base,
             "expected": min(max(expected, 0.0), float(MAX_EXPECTED)),
-            "on": pred.get("on") or None,
+            "on": (on or "").strip() or None,
         })
     missing = sorted(set(by_id) - seen)
     if missing:

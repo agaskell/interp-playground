@@ -75,6 +75,11 @@ several features can be evaluated in one session.
 - **agent**: sentences present in the agent's predictions but not in the
   pool. Tagged at grading time.
 
+Duplicate texts are dropped (held-out kept over random). If Neuronpedia is
+unreachable for any feature the pool needs, `eval_sentences` and
+`grade_explanation` raise rather than return a silently shorter pool, so the
+pool is a pure function of its parameters whenever it is returned at all.
+
 Sentences are shuffled with the seed. The returned structure is
 `{"feature", "layer", "seed", "n_heldout", "n_random", "sentences": [{"id",
 "text"}]}`. The pool is deterministic in (feature, layer, seed, n_heldout,
@@ -118,7 +123,9 @@ Scores per prediction set, computed in a new pure module
 
 Predictions must cover every pool sentence; missing ones are an error that
 names the ids. Texts are matched by id for pool sentences and by text for
-agent sentences.
+agent sentences; a prediction carrying both an id and a text that is not
+that id's sentence is an error (the agent is grading against a different
+pool). `expected` is required and must be finite; `on` must be a string.
 
 ## Outputs
 

@@ -324,7 +324,9 @@ def grade_explanation(
     relative to the feature's max: 10 = as strong as a top example, 0 = does
     not fire. `on` (optional) is the word you expect the peak on.
 
-    Pass the same seed, n_heldout and n_random as eval_sentences.
+    Pass the same seed, n_heldout and n_random as eval_sentences. Including
+    each sentence's `text` next to its `id` is optional but recommended: a
+    mismatch is reported as an error instead of being scored silently.
 
     Per set, returns: spearman (rank correlation of expected vs actual,
     sub-threshold activations counted as 0), precision/recall/f1 for firing
