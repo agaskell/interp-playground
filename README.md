@@ -120,6 +120,15 @@ auto-generated labels ("words that indicate agreement, concession...") are
 confabulated meanings for a purely positional signal. Found by Claude using
 `run_prompt`; this is why the server now detects and hides them.
 
+**Explanation eval, first run.** On three previously studied features, the
+Neuronpedia label alone scored F1 1.00 / 0.89 / 0.86 for predicting where the
+feature fires, and an investigated explanation scored 1.00 / 0.94 / 0.92. The
+label for 9435 named the wrong peak token in every held-out sentence (the
+feature detects the spelling "San", not San Francisco). The run mostly taught
+us about the eval: held-out windows centred on the peak are too easy for
+token-level features, and the random pool repeats across features. See
+FINDINGS section 12.
+
 ## Roadmap
 
 The initial tool set is complete. Design principles:

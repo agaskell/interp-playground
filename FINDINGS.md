@@ -314,3 +314,86 @@ same spot; ablation is informative exactly where the feature fires).
   "this token is old", not a vaguer sense of age.
 - Check the token list, not just the headline number; the mechanism was in
   the losers, not the winner.
+
+## 12. First explanation eval: 7272, 9435, 9193
+
+The `eval_sentences` / `grade_explanation` protocol (see README) run once
+per feature by Claude through the MCP server, 2026-11-01. Pool per feature:
+4 held-out Neuronpedia examples the agent had not seen plus 8 random windows
+from other features, seed 0. Two prediction sets each: `label` written from
+the Neuronpedia label before any tool call, `investigated` written after
+`feature_info`, three or four `run_prompt`s on fresh sentences and one
+`ablate`, plus four agent-written sentences. Raw records are in
+`results/explanation_evals.jsonl`; `scripts/eval_report.py` prints the table.
+
+Predictions, written before running: 7272's label would already score well
+and investigation would only help on near-misses; 9435's label would fail
+on anything "San" that is not San Francisco; 9193's label would do fine and
+investigation would add little.
+
+| feature | set | n | F1 | recall | Spearman | peak_hit |
+|---|---|---|---|---|---|---|
+| 7272 bridges | label | 12 | 1.00 | 1.00 | 0.96 | 1.00 |
+| | investigated | 16 | 1.00 | 1.00 | 0.97 | 0.88 |
+| 9435 "San Francisco" | label | 12 | 0.89 | 0.80 | 0.94 | 0.00 |
+| | investigated | 16 | 0.94 | 0.89 | 0.97 | 1.00 |
+| 9193 grief | label | 11 | 0.86 | 0.75 | 0.81 | 1.00 |
+| | investigated | 15 | 0.92 | 0.86 | 0.88 | 0.83 |
+
+Precision was 1.0 everywhere and nothing was contaminated.
+
+**7272.** Both sets saturate on the pool. Every held-out window contains the
+literal token "bridge" and no random window contains anything bridge-like,
+so for a token-level feature this pool cannot separate a label from an
+explanation. The signal was in the agent rows: viaduct fired at 0.41 and a
+guitar bridge at 0.74, both as predicted; the ferry sentence fired at 0.25
+on " ferry" rather than on "crosses", so the weak tail covers crossing
+vehicles as well as spanning verbs. Causal check positive: ablating the
+feature after "the famous bridge" removes " over" from the next-token
+distribution (KL 0.19).
+
+**9435.** The label failed the way section 7 predicted. It put the peak on
+the wrong token in all four held-out rows (the peak is on " San", never on
+the city), and it missed a random-pool sentence containing "Sanchez" that
+fired at 0.33. The investigated explanation ("orthographic: the token San
+and words starting san/sant/são") called Sanchez, sanitize(), Sanofi and
+Sandra correctly. One surprise: a Bay Area sentence with no "San" in it
+fired at 0.17 on " Palo", so there is a small genuine place component under
+the spelling detector. Causal check near null: ablating at "Boston for San"
+leaves the Francisco/Diego/Jose split almost unchanged (KL 0.04). The
+feature detects the spelling and does not carry the city's identity.
+
+**9193.** Label and investigation agree on what fires; investigation added
+calibration. Bereavement-specific words peak (sorry for your "loss" 1.0,
+grieving 0.84, sorrow 0.80, grief 0.76, widowed 0.75) and general death
+words fire at half that (mourning 0.53, passed away 0.49, funeral 0.38,
+cemetery 0.30). "Loss" is disambiguated: a net loss of $4 million fired 0,
+a lost football match fired 0.25 on " lost". A wedding thank-you with
+"love and support" was near zero. The label's one miss was a random window
+(".Vale de Lua") that fired at 0.16 on "Vale", which neither set predicted.
+Causal check null: ablating across "Since his wife passed away last spring,
+he has been" changed the continuation by KL 0.005.
+
+**About the eval itself**, which is what this first run was for:
+
+- The held-out windows are centred on the peak token, so a sentence that
+  contains the trigger word is easy to spot and `peak_hit` is easier than it
+  looks. For token-level features the pool saturates; the agent sentences and
+  the random windows that happen to contain near-misses (Sanchez, Vale) carry
+  the discriminating signal. A harder pool would draw held-out examples from
+  lower in the activation range, not only the top.
+- The random windows are identical across the three features because the
+  seed alone picks the random features. That is a bug to fix (mix the target
+  feature into the seed): the agent learns the random set after one feature.
+- The `label` baseline is only clean for features the agent has never
+  investigated. For 9435 the label predictions were written by a mechanical
+  rule because section 7 already existed; a fair baseline needs features
+  chosen blind.
+- Three causal checks, one positive (7272) and two near null (9435, 9193).
+  A layer-12 feature can be a reliable detector and still have no measurable
+  effect on the next token at the position tested. The ablation result is
+  reported in the explanation but not scored, which is the right place for it
+  until there is a defensible way to score "causal role".
+- n=3 features, all previously studied. The deltas (+0.00, +0.05, +0.07 F1)
+  are the direction predicted, not a result. A real test is 20-30 features
+  the agent has not seen, with the same protocol driven by a script.
