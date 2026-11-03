@@ -120,14 +120,18 @@ auto-generated labels ("words that indicate agreement, concession...") are
 confabulated meanings for a purely positional signal. Found by Claude using
 `run_prompt`; this is why the server now detects and hides them.
 
-**Explanation eval, first run.** On three previously studied features, the
-Neuronpedia label alone scored F1 1.00 / 0.89 / 0.86 for predicting where the
-feature fires, and an investigated explanation scored 1.00 / 0.94 / 0.92. The
-label for 9435 named the wrong peak token in every held-out sentence (the
-feature detects the spelling "San", not San Francisco). The run mostly taught
-us about the eval: held-out windows centred on the peak are too easy for
-token-level features, and the random pool repeats across features. See
-FINDINGS section 12.
+**Explanation eval.** Does investigating a feature produce a better
+explanation than its Neuronpedia label? On 25 blind layer-12 features, a
+tool-less agent predicting from the label alone scored mean firing F1 0.72,
+Spearman 0.68 and named the peak token 43% of the time; an agent with
+`feature_info`, four `run_prompt`s and one ablation scored 0.85, 0.82 and 64%.
+Paired over features: F1 +0.12 (15 wins, 6 losses, sign test p = 0.08),
+Spearman +0.13 (18 wins, 5 losses, p = 0.01). The label failed worst on
+features whose trigger is syntactic or formatting (a modifier-onset feature
+labelled "scientific measurements"; a mid-sequence `<bos>` detector labelled
+"start of new sections"). 20 of 25 ablations barely moved the next token.
+Records in `results/`, write-up in FINDINGS sections 12-13, decisions and
+pre-registered predictions in `results/DECISIONS.md`.
 
 ## Roadmap
 

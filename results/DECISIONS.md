@@ -65,3 +65,26 @@ and reported separately.
 **Open to Andy**: n features (25), seed (1), pool sizes (6/10), the
 tool budget, and whether a null causal probe should count against an
 explanation. None of these were tuned after seeing results.
+
+## 2026-11-03 Run 2 (blind) — executed
+
+- Ran as proposed: 25 features, seed 1, n_heldout 6, n_random 10, four
+  Claude agents per feature through a Claude Code workflow (100 agents, 13.5
+  minutes). Every investigator used the full budget (1 feature_info, 4
+  run_prompt, 1 ablate; none chose steer) and wrote 4 agent sentences.
+- Two grade calls (6440, 8072) failed because the label agent copied the
+  sentences with JSON quotes and the id/text cross-check refused them. Both
+  were re-graded by hand from the agents' recorded outputs with only the
+  quotes removed (`results/blind_run_agents.json` has the agents' text;
+  the regraded records are the last two in `explanation_evals.jsonl`).
+  No prediction value was changed.
+- Result: F1 +0.12 (15/2/6, p = 0.078), Spearman +0.13 (18/0/5, p = 0.011),
+  peak_hit +0.21. Write-up in FINDINGS 13.
+- Predictions: direction right, F1 significance missed, peak_hit > F1 gain
+  right, 3907/11650 right and 9770 wrong among the worst labels, null-probe
+  share badly underestimated (20 of 25, not a third).
+- Pool defect found: held-out windows fired in 100 of 150 rows; two features
+  had no firing pool row. Proposed fix, not applied: check each candidate
+  window fires when building the pool, flag features with fewer than 3
+  firing held-out rows. Also: surface grading errors through MCP; format
+  sentences as plain text in agent prompts.

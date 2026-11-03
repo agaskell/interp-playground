@@ -397,3 +397,92 @@ he has been" changed the continuation by KL 0.005.
 - n=3 features, all previously studied. The deltas (+0.00, +0.05, +0.07 F1)
   are the direction predicted, not a result. A real test is 20-30 features
   the agent has not seen, with the same protocol driven by a script.
+
+## 13. Blind explanation eval: 25 features, label vs investigation
+
+Run 2026-11-03 on 25 layer-12 features chosen by a seeded shuffle and never
+mentioned in this repo before (`results/blind_features.json`; criteria and
+pre-registered predictions in `results/DECISIONS.md`). Pool per feature: 6
+held-out Neuronpedia examples spread over the unseen part of the activation
+range plus 10 random windows from other features, peak at a random position
+in every window, 16 sentences in all. One chain of four Claude agents per
+feature: a sampler, a tool-less label agent that saw only the Neuronpedia
+label and the sentences, an investigator with a fixed budget (`feature_info`
+once, four `run_prompt`s on its own sentences, one causal probe, four agent
+sentences), and a grader. 100 agents, 13.5 minutes, nothing contaminated.
+Two grades failed on a transcription slip (the label agent kept JSON quotes
+around the sentences, and the id/text cross-check refused the call) and were
+re-run by hand with the quotes removed and nothing else changed.
+
+**Paired result, investigated minus label** (23 features with both scores):
+
+| metric | label mean | investigated mean | mean delta | wins / ties / losses | sign test |
+|---|---|---|---|---|---|
+| firing F1 | 0.72 | 0.85 | +0.12 | 15 / 2 / 6 | p = 0.078 |
+| Spearman | 0.68 | 0.82 | +0.13 | 18 / 0 / 5 | p = 0.011 |
+| peak_hit | 0.43 | 0.64 | +0.21 | 12 / 6 / 4 | |
+
+Pooled over all 400 pool rows: label precision 0.68 and recall 0.73,
+investigated 0.78 and 0.86. False alarms on random windows fell from 29 to
+19 and misses on held-out windows from 23 to 13. Agent-written sentences (100
+in all): 60 fired, the investigator predicted firing on 53, 50 were right,
+and it named the peak token on 32 of those 50.
+
+**Where the label failed** (label F1 at or below 0.6 for 9 of 25):
+
+- 8072, labelled "scientific processes or methodologies involving
+  measurements and statistics", is a syntactic feature: it fires on the first
+  token of a modifier attached to a noun phrase inside an embedded clause
+  ("the documents [found] in", "accused [of] theft"). Label F1 0.00; the
+  investigated explanation got 0.47, still poor because the trigger is
+  subtle and the feature is weak (max activation about 15).
+- 11650, "the start of new sections or paragraphs", fires only on a `<bos>`
+  token in the middle of a packed sequence, never on prose. The label agent
+  predicted firing on headers and got every one wrong; the investigator
+  planted a mid-text `<bos>` in an agent sentence and it fired at 0.85.
+- 6440, "code elements and syntax related to GUI frameworks", peaks on the
+  dot after `System.Windows.Forms` and barely elsewhere.
+- 10354 (0.44 to 1.00), 7660 (0.40 to 0.82), 13026 (0.57 to 0.92), 9605
+  (0.57 to 0.86) and 3907 (0.55 to 0.71): labels that name a topic the
+  feature is only partly about. 9605 "historical naval terminology" is really
+  aircraft and ship type designations (Boeing, F-35, Leander-class).
+
+**Where investigation lost** (6 features): 16293, 5651 and 8316 went from a
+perfect label F1 to 0.83-0.86, and 6184, 4344 and 8271 slipped by 0.03-0.09.
+In each case the investigator broadened the trigger from four probes and
+predicted firing on random windows that stayed silent. Four probes are
+enough to find a trigger and not enough to bound it.
+
+**Causal probes.** Every investigator chose `ablate`. 20 of 25 came back
+with KL below 0.05, three between 0.05 and 0.2, and two above: 5323
+(contested territory; ablation cut p("territory") from 0.63 to 0.40, KL 0.25)
+and 339 (KL 0.20). A layer-12 feature that is a clean detector is usually
+not something the next-token distribution depends on at the position tested.
+
+**Predictions scored.** Mean F1 gain was predicted at +0.05 and came in at
++0.12, but the F1 sign test did not reach 0.05 (Spearman did). The peak_hit
+gain was larger than the F1 gain, as predicted. 3907 and 11650 were among the
+worst labels as predicted; 9770 "indeed" was not, because its label names the
+token, and 7111 gained as predicted while 8271 did not. "At least a third of
+probes near null" undershot badly: four in five were.
+
+**What the run says about the eval itself:**
+
+- Held-out windows fired in only 100 of 150 cases. Neuronpedia's activations
+  come from 128-token contexts and a 16-token window loses the context a
+  contextual feature needs, so a third of the "positives" are negatives in
+  the pool, and an agent that treats them as positives is penalised. The pool
+  builder should check each candidate window fires and skip the ones that
+  do not; two features (10710, 11650) had no firing pool row at all and
+  should have been flagged at `eval_sentences` time.
+- Random windows fired in 8 of 250, so random precision is a weak signal and
+  the agent sentences carry most of the negative-case information.
+- The MCP layer swallowed the grading error ("Error executing tool
+  grade_explanation"), so the grader could not see that the id/text check had
+  fired. The server should return the message.
+- Formatting pool sentences as JSON strings in a prompt made two of 25 label
+  agents copy the quotes. Plain text with a delimiter is safer.
+- The label baseline is a fair opponent now (blind features, no tools), and
+  it is not weak: mean F1 0.72 from a one-line auto-generated label. The gain
+  from investigation is real on ranking and peak location, modest and not yet
+  significant on firing F1 at n = 23.

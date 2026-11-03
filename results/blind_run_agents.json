@@ -1,0 +1,452 @@
+[
+ {
+  "feature": 5323,
+  "label": "references to territorial disputes and resource exploitation",
+  "explanation": "Contextual feature for contested political territory: colonies, occupation, partition, sovereignty, border/province disputes, plebiscites, nationhood. Once such a topic is established it fires on nearly every token of the clause (0.2-0.5 of max), peaking on the status word: \"colony\" 0.89, \"province\"/\"independence\" ~0.8, \"disputed\" 0.75, \"Kashmir\" 0.7, \"referendum\"/\"nation\" ~0.65 (duchies/Prussia/Denmark context 0.2-0.65). Weak token-only firing: biological \"colony\" 0.13, \"Babylonian\" 0.11. Does NOT fire on resource exploitation without territory (mining/exploited workforce = 0), medicine, sports, courts, industry, code. Ablation on \"...lists the territory as a non-self-governing\" cut p(territory) 0.63 to 0.40 and shifted mass to \"island\"/\"area\" (KL 0.25).",
+  "causal": "Ablating 5323 on \"the United Nations still lists the territory as a non-self-governing\" dropped p(\" territory\") from 0.63 to 0.40 and raised \"island\"/\"area\", KL 0.25, with the largest per-position log-prob loss (-1.3) at \" a\" before \"non\".",
+  "tools_used": {
+   "feature_info": 1,
+   "run_prompt": 4,
+   "ablate": 1,
+   "steer": 0
+  },
+  "n_agent": 4,
+  "grade_ok": true,
+  "grade_error": null,
+  "surprises": "Biggest disagreements are peak placement rather than firing: \"Schleswig Plebiscite to let the\" peaked on the subword \"bis\" (rel 0.96, predicted 6), \"Holstein was a member of the German Confederation. Denmark, and Schleswig\" peaked on \" Confederation\" not \" Schleswig\", and the agent sentence \"Sovereignty over the islands was never settled\" peaked on \" was\" (rel 0.63) rather than \"Sovereignty\". The only firing miss was the label set's \"written later in Israel'\" (expected 1, actual rel 0.26 on \" Israel\"), which the investigated set caught; the biological \"colony\" sentence did not fire at all (predicted 1).",
+  "kl": 0.25,
+  "failed": null
+ },
+ {
+  "feature": 3907,
+  "label": "structure elements of programming languages or data formats, particularly indicating the end of blocks or arrays",
+  "explanation": "Trigger: the dedented indentation-whitespace token that sits immediately before a closing delimiter (], }, ];, ]);) ending a multi-line list/block, i.e. the position where the model expects the closer next. Tiers: 8-space indent before \"]]\" / \"]);\" in top examples = 1.0; 4-space indent before \"],\" = 0.5; the closer token itself when preceded by a newline (\"};\" 0.24, \"]);\" 0.10); \"\\end{align}\" on \"align\" 0.17. Does NOT fire on single-line code: inline \" ];\", \" };\", \" }\", \"#endif\", trailing-comma lists, or prose, all exactly 0. Ablating it at the indentation before \"],\" left the next-token distribution unchanged (P(\"],\") 0.777 to 0.785, KL 0.0007): the model does not rely on it there.",
+  "causal": "Ablating 3907 at the 4-space indentation before \"],\" (act 17.9) barely moved the next-token prediction (P(\"],\") 0.777 to 0.785, KL 0.0007), so the model's closer prediction does not depend on this feature.",
+  "tools_used": {
+   "feature_info": 1,
+   "run_prompt": 4,
+   "ablate": 1,
+   "steer": 0
+  },
+  "n_agent": 4,
+  "grade_ok": true,
+  "grade_error": null,
+  "surprises": "Both sets predicted firing on code closers that were silent: \"files[file]); } }; }\" (peak_token \"files\", act 0), \"LaPaz\\\\''), ]); }; exports.down\" (peak_token \"La\", act 0), \"; } // namespace units } // namespace boost\" (peak_token \";\", act 0) and \"); ~Vertice3f(); };\" (peak_token \");\", act 0). The label set also missed peaks on the LaTeX rows, where the feature fired on \"cases\" (rel 0.30) and \"array\" (rel 0.26) rather than \"end\".",
+  "kl": 0.0007,
+  "failed": null
+ },
+ {
+  "feature": 9605,
+  "label": "historical naval terminology and references",
+  "explanation": "Trigger: named aircraft/ship/military-vehicle types, especially manufacturer names (Boeing, Airbus, Lockheed ~1.0 of max) and model/class designators (B-52, F-35, Type 21, Leopard 2, Leander-class 0.7-0.9). It also bleeds onto surrounding fleet/order/delivery tokens (\"delivery of its first ... flying boat\" 0.4-0.7). Cars are weak (Toyota Corolla 0.4, Ford recall 0.2). Does NOT fire on naval narrative without a type designation (admiral, fleet, sailors, anchor = 0), code, CSS, or generic prose; bare \"Type\"/\"F\" tokens give ~0.15-0.2. Causal: ablating at \"Boeing\" lowered mass on aircraft-designation continuations (\" B\" 0.27->0.21, \" F\" 0.18->0.13), KL 0.055.",
+  "causal": "Zero-ablating 9605 on \"The squadron flew the Boeing\" shifted next-token mass away from aircraft-designation letters (\" B\" 0.27->0.21, \" F\" 0.18->0.13) toward a bare space, with a small KL of 0.055.",
+  "tools_used": {
+   "feature_info": 1,
+   "run_prompt": 4,
+   "ablate": 1,
+   "steer": 0
+  },
+  "n_agent": 4,
+  "grade_ok": true,
+  "grade_error": null,
+  "surprises": "Largest misses: \"Glenn Martin is developing\" was predicted 4 on \"Martin\" but actual 0 (peak_token \"much\"), and \"Honda Civic\" predicted 3 but actual 0 (peak_token \"My\"); peak_hit was 0 in both sets because peaks landed on sub-word/offset tokens such as \"5\" in \"F-15\", \"er\" in \"Embraer\", \" launched\" after \"Ant-class iron gunboat\", and \" \" in \"Empire flying boats\" rather than the named words.",
+  "kl": 0.055,
+  "failed": null
+ },
+ {
+  "feature": 11650,
+  "label": "the start of new sections or paragraphs in the text",
+  "explanation": "Feature 11650 is a document-boundary detector: it fires only on a <bos> token that appears mid-sequence (packed-corpus document start), never on ordinary text. All 8 top examples peak on an embedded <bos> (0.65-1.0 of max). My test with a literal mid-text <bos> fired 34.9 (0.75 of max) on that token alone. It does NOT fire on paragraph breaks (\\n\\n), ALL-CAPS section headers, \"1 Introduction\", abrupt code-to-prose junctions, or the first token of a prompt (the leading <bos> is excluded). Density 8e-5 confirms near-total silence on normal tokens. Since pool sentences contain no literal <bos>, I predict zero everywhere. Causal: ablating it at the <bos> position barely changed next-token predictions (KL 0.0005), so the feature marks the boundary but little downstream depends on it here.",
+  "causal": "Zero-ablating feature 11650 at the mid-text <bos> position (act 34.9) left the next-token distribution essentially unchanged (KL 0.0005, top-5 order barely shifted), so the model does not rely on this feature for prediction at that point.",
+  "tools_used": {
+   "feature_info": 1,
+   "run_prompt": 4,
+   "ablate": 1,
+   "steer": 0
+  },
+  "n_agent": 4,
+  "grade_ok": true,
+  "grade_error": null,
+  "surprises": "No pool sentence fired at all (act 0 everywhere, peak_token just the first token, e.g. \"in Sign up Account Manager (2) Well...\" -> \"in\"), so every label-set firing prediction (e.g. expected 5 on \"Featured\", \"Similar\", \"Well\") was a false positive and the label set's recall/f1/spearman are undefined. The only firing was the agent probe \"return total; }<bos>Welcome to our bakery\" at rel 0.852 on \"<bos>\", exactly as predicted; the investigated set is perfect but only trivially discriminative since the pool is all-zero.",
+  "kl": 0.0005,
+  "failed": null
+ },
+ {
+  "feature": 9250,
+  "label": "various types of programming elements and parameters",
+  "explanation": "Fires on noun phrases that denote multiple instances of the writer's own technical objects (UI controls, files, models, sites), peaking on the plural noun or on the quantifier/determiner/comma around it (\"a single form,\", \"the forms\", \"layout files\", \"every one of the controls\"), but only inside a technical-forum/problem-description frame (\"accepted answer, but... in my project\"). Tiers: top examples 1.0; my forum text 0.15-0.47 (peak on \"form,\" and \"forms\"); isolated plurals with quantifiers in GUI prose (\"all the widgets\", \"several buttons\") or everyday prose (\"dozens of apples\") 0, singulars 0. Density 1.5% so weak spill onto following verbs. Ablation on the firing prompt changed nothing: KL 0.000, per-token log-prob shifts within 0.17.",
+  "causal": "Zero-ablating 9250 across its 11 active positions in the forum-style prompt left the next-token distribution unchanged (KL 0.000) and shifted no active position's next-token log-prob by more than 0.17, so the model does not rely on it there.",
+  "tools_used": {
+   "feature_info": 1,
+   "run_prompt": 4,
+   "ablate": 1,
+   "steer": 0
+  },
+  "n_agent": 4,
+  "grade_ok": true,
+  "grade_error": null,
+  "surprises": "The biggest misses: the label set gave \"all my blog sites\" expected 0 but it fired at rel 0.877 (peak_token \" sites\"), and the investigated agent sentence \"The accepted answer worked, but my tabs are generated dynamically\" expected 5 but did not fire at all (peak_token \"The\"). Other disagreements: \"dozens of tulips along all the fences\" expected 0 fired at 0.192 (peak \" fences\"), while \"root->proxy ? root->proxy : root->hostname\" expected 6 (label) only reached 0.113 (peak \" root\") and \"many causative genes\" expected 4 (investigated) did not fire.",
+  "kl": 0.0,
+  "failed": null
+ },
+ {
+  "feature": 5651,
+  "label": "detailed mathematical notations and structural elements in documents, particularly those involving equations and labeling",
+  "explanation": "Trigger: LaTeX control-sequence tokens inside a LaTeX document, especially the command name right after a backslash at the start of a line following an equation (\\label, \\end, \\title, \\quad), and the newline after \\begin{env}/\\end{env}. Tiers (of max 48): line-initial \\label/\\title and post-environment newlines ~0.45-0.6; inline commands mid-sentence (\\cite, \\usepackage, \\textbf, \\eqref) ~0.1-0.33; braces/arguments ~0.1-0.15; the very first \\begin token 0. Does NOT fire on $-delimited inline math without commands, plain equations like f(x)=x^2, Windows paths, regex backslashes, or roxygen \\code{} inline. Causal: zero-ablating in a LaTeX snippet barely changed next-token prediction (KL 0.007, \"end\" stayed top); largest local effect was -0.58 nats on predicting \"label\" after an equation-line backslash.",
+  "causal": "Zero-ablating 5651 across a LaTeX align/eqref snippet left the next-token distribution essentially unchanged (KL 0.007, \"end\" 0.72 to 0.70), with the only notable local effect a -0.58 nat drop in predicting \"label\" after a post-equation backslash.",
+  "tools_used": {
+   "feature_info": 1,
+   "run_prompt": 4,
+   "ablate": 1,
+   "steer": 0
+  },
+  "n_agent": 4,
+  "grade_ok": true,
+  "grade_error": null,
+  "surprises": "The investigated set missed two weak heldout firings it predicted as non-firing: \"Canonical transformations in -----------------------------\" (rel 0.133, peak_token \"------------\") and \"}})=1$.' address: - | Mohammad T. Dib\" (rel 0.104, peak_token \" |\"), both non-LaTeX structural markup. Agent sentences fired harder than the explanation's tiers predicted: \"\\\\textit{emphasis} and cite \\\\cite{smith}\" peaked at rel 0.541 on \" \\\\\" (expected 3, on \"cite\") and \"\\\\newcommand{\\\\R}\" hit rel 0.735 on \"newcommand\" (expected 5), so inline commands are not the 0.1-0.33 tier claimed.",
+  "kl": 0.007,
+  "failed": null
+ },
+ {
+  "feature": 14383,
+  "label": "statistics and data pertaining to health-related outcomes",
+  "explanation": "Trigger: spans that describe a measured quantity or survey/economic variable (\"number of housing units completed\", \"household spending on food and beverages\", \"years of schooling for adults over 25\"). It fires on almost every token of the measured-phrase, peaking on the qualifying head word (completed 1.04, over 0.84, household/on ~0.85). Tiers: economic/census data descriptions ~0.8-1.0; health prevalence statistics (\"anemia among women aged 15-49\", \"contraceptive use among married women\") only ~0.3-0.6; numerals, \"percent\" and verbs like \"was/rose\" get 0. Does not fire at all on narrative prose, code, or citations. Ablating it on a table-description prompt barely moved next-token predictions (KL 0.011, small shift toward \".\" away from \"by\"), so the model does not rely on it heavily there.",
+  "causal": "Zero-ablating 14383 on \"Table 2 reports annual household spending on food and beverages\" (active 9-18 at every token from \"annual\" onward) changed next-token predictions only slightly (KL 0.011; \".\" up from 0.086 to 0.106, \"by\" down from 0.102 to 0.092) with small negative logprob deltas (-0.03 to -0.17) on each actual next token.",
+  "tools_used": {
+   "feature_info": 1,
+   "run_prompt": 4,
+   "ablate": 1,
+   "steer": 0
+  },
+  "n_agent": 4,
+  "grade_ok": true,
+  "grade_error": null,
+  "surprises": "Biggest misses: \"7, 1.47) Wants no more children\" was predicted 6 in both sets but did not fire at all (peak_token \"7\"), and \"Iron (Fe) deficiency is among the most prevalent micronutrient deficiencies\" (predicted 6/4) also got 0 (peak_token \"============\"), while \"*Nonfatal reasons* Progressive disease\" fired at rel 0.61 peaking on \"fatal\" rather than \"disease\". Peak placement was wrong almost everywhere: \"between current use of family planning (any and modern methods)\" peaked on \"any\" (rel 0.89), \"family planning method and current use\" on \" method\", and the agent sentence \"Annual per-capita consumption of milk and eggs\" on \" of\" rather than \"consumption\".",
+  "kl": 0.011,
+  "failed": null
+ },
+ {
+  "feature": 339,
+  "label": "references to articles and supplementary material in academic contexts",
+  "explanation": "Trigger: the \"/\" token immediately after a DOI registrant prefix, overwhelmingly Springer's \"10.1007\". On \"10.1007/\" it hits ~1.0 of max (73-77) whether in a doi.org URL, a bare \"Cite as:\" string, or anywhere else; the suffix digits/hyphens that follow carry a tail of 0.1-0.5 (peaking on \"-\"). Other publishers' prefixes fire weakly: \"10.1038/\" 0.25-0.4, \"10.1016/\" 0.2. Nothing fires on \"10.1007\" with a spaced slash, on file-path or HTML slashes, on the word Springer, or on academic prose about supplementary material, addenda, errata or citations (<0.1). Ablating it after \"...doi.org/10.1007/\" dropped p(\"s\"), the Springer article-id opener, from 0.89 to 0.63 and raised \"9\"/\"JHEP\" (KL 0.20): it encodes \"a Springer DOI suffix comes next\".",
+  "causal": "Zero-ablating feature 339 after \"Correction to the original article: https://doi.org/10.1007/\" cut the top next-token \"s\" (Springer article-id opener) from 0.89 to 0.63 and raised \"9\" (0.09 to 0.23) and \"JHEP\", KL 0.20, so the feature causally pushes toward a Springer-style DOI suffix.",
+  "tools_used": {
+   "feature_info": 1,
+   "run_prompt": 4,
+   "ablate": 1,
+   "steer": 0
+  },
+  "n_agent": 4,
+  "grade_ok": true,
+  "grade_error": null,
+  "surprises": "The biggest miss was the agent sentence \"The Springer paper is indexed as 10.1007 / s00134 with odd spacing.\" (expected 1) which fired at rel 0.87 on peak_token \" /\", contradicting the explanation's claim that a spaced slash kills it; \"38/nnano.2015.281) [\" (expected 3, label-set 6 on \"nnano\") did not fire at all (peak_token \"3\", rel 0). Minor: the 10.1038 Nature DOI peaked on \"-\" rather than \"/\" at rel 0.38.",
+  "kl": 0.2,
+  "failed": null
+ },
+ {
+  "feature": 8861,
+  "label": "terms related to electrical power systems and infrastructure",
+  "explanation": "Contextual \"electricity supply\" feature, not a token detector. Peaks on \"power\" in the electrical-supply sense (0.7 of max; top examples are blackout/UPS \"power\"), and on generator/electricity/wiring/transformer (0.5-0.6). Once an electrical context is set it persists at 0.15-0.3 across following function words (to, homes, grid, restored). Exactly zero on political power, mental power (\"power to read minds\"), and computing power; \"coal power plant\" only 0.28 and \"battery powered\" ~0.4. Code, math, biology, and unrelated prose do not fire. Ablation on \"the hospital never lost\" barely moved p(\" power\") (0.819 to 0.804, KL 0.003): the model does not rely on this feature for the prediction, so it is redundant with other electricity features (13230, 15130).",
+  "causal": "Zero-ablating 8861 on \"The backup generator kicked in, so the hospital never lost\" left the next-token distribution essentially unchanged (p(\" power\") 0.819 to 0.804, KL 0.0028), so the model does not depend on this feature to predict electrical \"power\" here.",
+  "tools_used": {
+   "feature_info": 1,
+   "run_prompt": 4,
+   "ablate": 1,
+   "steer": 0
+  },
+  "n_agent": 4,
+  "grade_ok": true,
+  "grade_error": null,
+  "surprises": "Firing was predicted perfectly in both sets; the misses were all peak tokens: \"overload power grids\" peaked on \" power\" not \"grids\" (rel 0.60, label set), \"a power outage affected\" peaked on \" outage\" not \"power\" (rel 0.91, investigated set), and \"Power was out across the whole valley after the transformer exploded\" peaked on \" out\" (rel 0.87) rather than \"transformer\". The UPS sentence hit 0.95 of max, above the explanation's stated ~0.7 ceiling for \"power\".",
+  "kl": 0.0028,
+  "failed": null
+ },
+ {
+  "feature": 16293,
+  "label": "sections or phrases indicating conclusions or summaries in a text",
+  "explanation": "Trigger: the word Conclusion(s)/CONCLUSION used as a section heading (numbered \"4. Conclusions\", legal \"IV. CONCLUSION\"), plus summary discourse markers. Tiers: Conclusions heading 0.8-1.0 of max; legal CONCLUSION ~0.73; \"In summary\" on \"summary\" ~0.67; \"To sum up,\" peak on comma ~0.5; \"Overall,\"/\"In short,\"/\"we conclude\" ~0.2; heading underline/following tokens 0.2-0.4 (decays over a few tokens). Does NOT fire on \"conclusion\" as an ordinary noun in prose (jury reached its conclusion: 0), \"Discussion\" heading (0, underline 0.06), \"Summary\" heading only ~0.1-0.2, code, or body text. Ablating at a Conclusions heading barely changes next-token prediction (KL 0.024, logprob delta -0.44): weak causal role for immediate next token.",
+  "causal": "Zero-ablating 16293 at a \"6. Conclusions\" heading (act 51.6) lowered log p of the following newline by 0.44 and barely perturbed the next-token distribution after it (KL 0.024, \"The\" 0.35 to 0.38), so the feature marks the heading but is not load-bearing for the immediate continuation.",
+  "tools_used": {
+   "feature_info": 1,
+   "run_prompt": 4,
+   "ablate": 1,
+   "steer": 0
+  },
+  "n_agent": 4,
+  "grade_ok": true,
+  "grade_error": null,
+  "surprises": "The investigated set under-predicted \"Discussion ========== In the\" (expected 1, actual rel 0.226, peak_token \" Discussion\") and \"Results and Discussion The samples...\" (expected 1, rel 0.104, peak_token \" The\"), both counted as missed firings. Peak-token misses: \"In conclusion, the proposed estimator\" peaked on \",\" (rel 0.726) rather than \"conclusion\", \"7. Concluding Remarks\" peaked on \" Remarks\" (rel 0.77) rather than \"Concluding\", and in the label set \"To sum up,\" peaked on \",\" not \"sum\".",
+  "kl": 0.024,
+  "failed": null
+ },
+ {
+  "feature": 10354,
+  "label": "attributes related to scientific discoveries and their implications",
+  "explanation": "Trigger: the determiner (the/a/an) that opens the direct object right after a reporting or epistemic verb (noted, observed, proved, asserted, indicated, demonstrated, suggest); it is a syntactic \"claim-object\" feature, not a science-topic feature. Tiers: ~0.7 of max on \"noted the\", \"proved the\", \"suggest an\", \"demonstrated the\"; ~0.5 on \"observed a\"; ~0.2 weak spillover onto the following adjective and onto \"explained how\". Does not fire on the same determiners after ordinary verbs (bought the, painted a, contains a), on science text without a reporting verb, or when a that-complementizer follows the verb (\"note that the\" = 0). Ablation on \"the authors demonstrated the\" barely moved next-token predictions (KL 0.004; existence/feasibility/ability unchanged order).",
+  "causal": "Zero-ablating 10354 at \"the authors demonstrated the\" (act 16.1) left the next-token distribution essentially unchanged (top-5 same words, KL 0.004), so the model does not rely on this feature for predicting the object noun.",
+  "tools_used": {
+   "feature_info": 1,
+   "run_prompt": 4,
+   "ablate": 1,
+   "steer": 0
+  },
+  "n_agent": 4,
+  "grade_ok": true,
+  "grade_error": null,
+  "surprises": "The investigated set had no firing/non-firing disagreements; the largest magnitude gaps were \"These findings highlight the importance...\" (expected 7, actual rel 0.438, peak_token \" the\") and \"declare the event a success, the\" (expected 4, actual 0.381, peak \" the\"). The label set missed every heldout firing it predicted low: \"analysts noted a weak launch\" (expected 1, actual 0.595, peak \" a\"), \"Court also explained the distinction\" (expected 1, actual 0.552, peak \" the\"), and \"can achieve the\" (expected 0, actual 0.219, peak \" the\"), while its named peaks \"reported\"/\"findings\" were both wrong (true peaks \" a\" and \" the\").",
+  "kl": 0.004,
+  "failed": null
+ },
+ {
+  "feature": 13026,
+  "label": "terms and conditions related to specific instructions or requirements",
+  "explanation": "Trigger: imperative task/exercise directives (\"Put/Drag/Choose the correct X in/into the Y, then...\"), the register of quiz or worksheet instructions. It fires across the whole clause, not one token, peaking (1.0 of max) on \"correct\"/the object noun (\"box\", \"list\", \"write\") and staying 0.5-0.8 on surrounding words. Math problem commands (\"Simplify...\", \"Collect the terms\") fire weakly, 0.2-0.45, mostly on the verb and \"write the result\". Does NOT fire on narrative placement (\"She put the keys in the drawer\"), code bodies, or descriptive prose; code doc tags get ~0.1. Ablation on \"Choose the correct option ... write it in the\": KL 0.158, next-token mass moved from \" space\"/\" blank\" toward \" answer\", and log p of \" and\" after \"list\" fell 1.03.",
+  "causal": "Zero-ablating 13026 on \"Choose the correct option from the list and write it in the\" gave KL 0.158, shifting the next token from \" space\"/\" blank\" toward \" answer\" and cutting log p of \" and\" after \"list\" by 1.03.",
+  "tools_used": {
+   "feature_info": 1,
+   "run_prompt": 4,
+   "ablate": 1,
+   "steer": 0
+  },
+  "n_agent": 4,
+  "grade_ok": true,
+  "grade_error": null,
+  "surprises": "The biggest misses were \"rice to the dogs.' The Absolutive argument is obligatory...\" (predicted 3/2 on \"obligatory\", actual 0, peak_token \"rice\") and the label set's two \"Rearrange (-2*j + 4*j +\" / \"Rearrange (-4 + m + 0 + 5 +\" rows (predicted 0, actual rel 0.42/0.32 on peak_token \"range\"). Peak_hit was 0 in both sets: the peaks landed on \" correct\" (not \"box\"/\"according\"), \" gap\" (not \"right\"), \" the\" (not \"conditions\"), and \"ate\" of \"Differentiate\" (not \"state\").",
+  "kl": 0.158,
+  "failed": null
+ },
+ {
+  "feature": 7660,
+  "label": "references to a crisis or challenging societal situations",
+  "explanation": "Not a crisis feature: it tracks Spanish-language / Hispanic-world context. In Spanish prose it fires on nearly every token (0.3-1.0 of max; peak 23.2 on \"futbolista\", 16-17 on \"crisis\"/\"económica\"/\"provocó\"). In English, it switches on only after a Hispanic cue (Spain, Medellín, Universidad de Antioquia) and stays at 0.3-0.55 of max on following tokens, including bland ones like \"presented\". Identical English crisis sentence with Ireland/Canada instead of Spain: exactly 0 everywhere, so the \"crisis\" label is an artifact of Spanish-crisis top examples. Promotes Spanish tokens (de, continúas, MADRID, futbolista). Ablating it on a Spanish prompt barely moved next-token predictions (KL 0.04), so it is a context marker rather than a prediction driver at this layer.",
+  "causal": "Zero-ablating 7660 on \"La crisis económica en España provocó que muchos jóvenes\" (active 6-17 at every position) left the top-5 next tokens unchanged (\" se\" 0.172 to 0.179) with KL 0.042, so the model does not rely on this feature for next-token prediction here.",
+  "tools_used": {
+   "feature_info": 1,
+   "run_prompt": 4,
+   "ablate": 1,
+   "steer": 0
+  },
+  "n_agent": 4,
+  "grade_ok": true,
+  "grade_error": null,
+  "surprises": "Biggest misses are two English sentences with no Hispanic cue that fired anyway: \"such as repeated trauma\" (rel 0.41, peak_token \" such\") and \"innovation and sustainability, describedhere\" (rel 0.20, peak_token \",\"), while \"Columbus' arrival in American\" stayed at 0 despite both sets predicting 3. Peaks also landed off the named words (\" del\" not \"Argentina\", \"onen\" not \"Sánchez\", \" siempre\" not \"abuela\", \" rice\" not \"Valencia\"), consistent with the feature spreading across tokens after a Spanish cue rather than firing on the cue itself.",
+  "kl": 0.042,
+  "failed": null
+ },
+ {
+  "feature": 14230,
+  "label": "terms related to restoration and recovery",
+  "explanation": "Token-level feature for the \"restor-\" / \"restr-\" string. Peak tier (0.8-0.95 of max): \" restore\", \" restoration\", \" restored\" in any sense (power, art, code state). Mid tier (0.5-0.6): \" restorative\", \" restriction\", and spillover onto the 1-2 tokens after \"restoration\" (\" of\" 0.56). Low tier (0.15-0.4): \"orer\" after \" rest\" (restorer), \" strict\", \" regain\". Does NOT fire on the recovery concept without the string: \" recovery\", \" rehabilitation\", \" rebuild\" are 0; nor on \" restaurant\", \" rest\", \" rested\", \" store\", \" stored\". Ablating it on \"...promised to restore\" barely changes next-token prediction (KL 0.058, \" the\"/\" my\" unchanged), so it is a lexical detector, not a load-bearing driver here.",
+  "causal": "Zero-ablating 14230 at \" restore\" in \"The technician promised to restore\" left the next-token distribution essentially unchanged (top predictions \" the\" 0.377->0.396, \" my\" 0.290->0.314; KL 0.058), so the model does not depend on this feature for the continuation.",
+  "tools_used": {
+   "feature_info": 1,
+   "run_prompt": 4,
+   "ablate": 1,
+   "steer": 0
+  },
+  "n_agent": 4,
+  "grade_ok": true,
+  "grade_error": null,
+  "surprises": "Label set missed \"P_t$ for the restriction of\" (expected 1, actual rel 0.617 on \" restriction\") and \"I. Strict Liability In Tort\" (expected 0, actual 0.344 on \" Strict\"), both caught by the investigated set. The investigated set's one miss was its own negative control \"The restaurant's restroom stayed closed...\" (expected 0, actual 0.162 on \" restroom\"), a weak firing on a \"restr-\" string the explanation claimed would be silent.",
+  "kl": 0.058,
+  "failed": null
+ },
+ {
+  "feature": 2179,
+  "label": "references to scientific authors and their works",
+  "explanation": "Trigger: punctuation (comma or period) immediately following an author's surname at the head of a bibliographic entry or footnote-style reference; weaker on the initial's period, the closing \"*,\" of a title and the \"(\" before a year. Tiers: ~0.9 on the first author's comma in a reference list; ~0.7 on later author commas; ~0.4-0.6 on initials' periods and title-closing punctuation; small-caps HTML citations only ~0.4, on tokens after the name. Does NOT fire on a name-plus-comma in ordinary prose, on citation text without an author (brackets, \"article\", \"appendix\"), or on dotted code identifiers. Ablation at an author comma was nearly null: KL 0.028, next-token distribution unchanged, completion merely dropped italics markup around the title.",
+  "causal": "Zero-ablating 2179 on \"Further reading\\n\\nR. Feynman,\" left the next-token distribution essentially unchanged (KL 0.028, \" R\" still top at 0.24 vs 0.23) and the greedy completion still produced the co-author list, only dropping the <i> italics around the title.",
+  "tools_used": {
+   "feature_info": 1,
+   "run_prompt": 4,
+   "ablate": 1,
+   "steer": 0
+  },
+  "n_agent": 4,
+  "grade_ok": true,
+  "grade_error": null,
+  "surprises": "The label set's biggest miss was \"[@bib:cdfdy; @bib\" (expected 4, actual 0, peak_token \"mass\"), and both sets expected \"Diamond, Rey 2020 Diamond, Rey\" to fire at 4-6 but it reached only rel 0.247 with the peak on \"0\" rather than the comma or \"Rey\". The investigated set's own sentence \"by Gauss, C. F.\" fired at rel 0.637 (expected 3) with the peak on the final \".\" not the comma, and peak tokens on \"*Gaussian ... permanents*.\" and \"Call, *On local cohomology modules*,\" were the title-closing \"*.\" and \"*,\" rather than the author punctuation.",
+  "kl": 0.028,
+  "failed": null
+ },
+ {
+  "feature": 8316,
+  "label": "terms related to fiscal policies and government spending",
+  "explanation": "Trigger: public-finance / fiscal-policy vocabulary in a government or macroeconomic context: budget, deficit, spending, cuts, surplus, allocate, taxes. Tiers: in a state/federal sentence \"budget\" 0.95, \"deficit\" 0.85, \"spending\" 0.78, \"cuts\" 0.70, and the whole surrounding clause stays at 0.3-0.5 (even \"allocate\"/\"money\" at 0.55-0.65 with no keyword). Household budget: weak (0.28 on \"budget\", ~0.15 elsewhere). Corporate \"fiscal year\": 0.38. Does NOT fire on film budget, surgical cuts, \"spent the afternoon\", code, math, or everyday narrative. Ablation on a federal-deficit prompt barely changed the next token (\" cuts\" 0.887 -> 0.886, KL 0.0036), so the model does not rely on this feature for that prediction.",
+  "causal": "Zero-ablating 8316 on \"...the federal deficit could only be closed through spending\" left the next-token distribution essentially unchanged (\" cuts\" 0.887 -> 0.886, KL 0.0036), though log p of \"spending\" after \"through\" fell 0.55 nats.",
+  "tools_used": {
+   "feature_info": 1,
+   "run_prompt": 4,
+   "ablate": 1,
+   "steer": 0
+  },
+  "n_agent": 4,
+  "grade_ok": true,
+  "grade_error": null,
+  "surprises": "The two agent negatives predicted at 1 actually fired weakly: \"The studio slashed the sequel's budget\" peaked at \" budget\" (rel 0.201) and \"She budgeted two hours for the dance rehearsal\" at \" budgeted\" (rel 0.216), contradicting the explanation's \"does NOT fire on film budget\" claim. On the heldout \"large budget surplus\" sentence the investigated set named \"budget\" but the peak was \" surplus\" (rel 0.732), and \"Deficits. That was the only word...\" peaked on the subtoken \"its\" (rel 0.405) rather than the whole word.",
+  "kl": 0.0036,
+  "failed": null
+ },
+ {
+  "feature": 10710,
+  "label": "phrases related to leadership and its functions in political contexts",
+  "explanation": "Label is not supported by probing. Feature 10710 (max 21.2, density 1.8%) has all eight top examples from one repeated document: \"a political organization. [page number] \\f direct[ing], and controlling\", peaking on the \"ing\" of a word split by a form-feed page break. Its promoted tokens are boundary/truncation tokens (\"</strong>\", \" […]\", \" …\", \"<eos>\", \")';\"), and similar features are technical/numeric junk, suggesting a control-character or document-artifact detector rather than a leadership concept. In four probes it was exactly 0 at every position: political leadership text (\"chairman leading, managing, governing the campaign\"), a page-number + \"organizing, and supervising\" near-replica, C/Java code, and legal citation text. Only expected firing is on that specific top-example fragment. Ablation: no active positions, KL 0.",
+  "causal": "Ablating 10710 on a page-number plus split-word \"organ izing, and supervising\" prompt found no active positions and changed nothing (KL = 0), consistent with the feature not firing outside its single source document.",
+  "tools_used": {
+   "feature_info": 1,
+   "run_prompt": 4,
+   "ablate": 1,
+   "steer": 0
+  },
+  "n_agent": 4,
+  "grade_ok": true,
+  "grade_error": null,
+  "surprises": "The feature fired on nothing (act 0, rel 0 on all 20 rows), so the only disagreements are the predicted firings: \"17 directing, and controlling of party functions with the goal\" (expected 8 in both sets; peak_token \"1\", act 0) and, in the label set, \"White House drew guffaws from many local chefs, staunch\" (expected 2; peak_token \"White\", act 0). The held-out top-example fragment did not fire even without the form-feed, so spearman/recall/f1 are null for both sets.",
+  "kl": 0.0,
+  "failed": null
+ },
+ {
+  "feature": 6440,
+  "label": "code elements and syntax related to graphic user interface (GUI) frameworks",
+  "explanation": "Trigger: the \".\" separator token inside fully-qualified .NET/Java GUI namespace chains, peaking on the dot after \"System.Windows.Forms\" (~1.0-1.1x max). Tiers: \"Forms.\" ~1.0; \"System.\" 0.3-0.4; dots in \"java.awt.Cursor.\" chains 0.2-0.4; \"Drawing.\"/\"AnchorStyles.\"/the \" System\" token ~0.1-0.15. Does NOT fire on: ordinary member-access dots (panel.BackColor, frame.setCursor, client.Prepare), \"javax.swing.\" dots, \"::\" or \"->\" chains, C logging macros with UPPER_CASE constants, or English prose about Windows Forms/cursors/dialogs. Causal: zero-ablating it on \"button.Anchor = System.Windows.Forms.\" left the next-token prediction (AnchorStyles) unchanged, KL 0, so the model does not rely on it here.",
+  "causal": "Ablating feature 6440 on \"button.Anchor = System.Windows.Forms.\" (active 31.1 on the final dot) left the next-token prediction AnchorStyles at p=1.0 -> 0.9999 with KL 0 and logprob deltas of at most 0.02 at earlier dots, so the model does not depend on this feature for continuing the namespace chain.",
+  "tools_used": {
+   "feature_info": 1,
+   "run_prompt": 4,
+   "ablate": 1,
+   "steer": 0
+  },
+  "n_agent": 4,
+  "grade_ok": false,
+  "grade_error": "Error executing tool grade_explanation",
+  "surprises": null,
+  "kl": 0.0,
+  "failed": null
+ },
+ {
+  "feature": 14431,
+  "label": "legal and procedural language related to eligibility assessments and approvals",
+  "explanation": "Trigger: the transition from a satisfied qualifying condition (passing a screening, test, round, validity check, eligibility criterion) to its consequence (advancing, being admitted, proceeding). Peak lands on the comma or verb immediately after the gate clause (\"verified as valid[,] [are] admitted\", \"clears the qualifying heat[,] she [proceeds]\"), 0.6-0.75 of max. The qualifying clause itself (\"who meet all the requirements\", \"qualify\") sits at 0.25-0.4. Generic conditionals with no screening (\"when the oven is hot, put\") reach only ~0.17; bare eligibility/approval/legal vocabulary with no gate-then-consequence structure barely fires (0.1 on one token). Code and casual chat do not fire. Ablating it on the strong sentence barely changed anything (KL 0.002, top next-token unchanged).",
+  "causal": "Zero-ablating 14431 across the strong gate sentence left the next-token distribution essentially unchanged (KL 0.0021, top prediction \"\\n\\n\" 0.359 -> 0.362), with per-position log-prob shifts all under 0.15, so the model does not causally rely on this feature here.",
+  "tools_used": {
+   "feature_info": 1,
+   "run_prompt": 4,
+   "ablate": 1,
+   "steer": 0
+  },
+  "n_agent": 4,
+  "grade_ok": true,
+  "grade_error": null,
+  "surprises": "The biggest miss in both sets is id 6, \"The amplified PCR products of rearranged PCV3 gene were purified following\" (expected 0-1), which fired at rel 0.663 with peak_token \" products\"; id 0 \"through the check of its operation, is mounted\" was predicted 4 in the investigated set but did not fire at all (peak_token \"through\"). The two agent sentences that fired peaked on the comma after the gate clause (\"passes quality control[,]\" rel 0.873, \"Having cleared customs[,]\" rel 0.379) rather than on the named verbs \"is\"/\"proceeded\", consistent with the explanation's comma-or-verb claim but costing peak_hit.",
+  "kl": 0.0021,
+  "failed": null
+ },
+ {
+  "feature": 8271,
+  "label": "references to specific locations or contexts",
+  "explanation": "Trigger: the preposition \"at\" immediately after a visual-perception verb (look/looked/looking at, glanced at, stared at, peered at). Tiers: look/looked at ~0.7-0.8 of max; glanced/stared/peered at ~0.55-0.65; \"take a look at\" ~0.65; the object/article right after the \"at\" gets a weak tail (~0.15-0.3); bare perception verbs without \"at\" (examine ~0.3, Viewing ~0.2) fire weakly. Does NOT fire on locative or temporal \"at\" (at the office, at noon, at the corner: all exactly 0), nor on look into/up/for (<0.15), watch, consider, or location nouns; the Neuronpedia \"locations\" label is wrong. Ablation at \"look at\" barely changed the next-token distribution (KL 0.013; \" the\" 0.58 to 0.55), so the feature is a detector, not a load-bearing predictor here.",
+  "causal": "Zero-ablating 8271 at the \"at\" of \"I stop and look at\" (act 30.5) left the next-token distribution almost unchanged (KL 0.013; \" the\" fell from 0.58 to 0.55, \" a\"/\" this\" rose slightly), so the model does not rely on this feature for prediction there.",
+  "tools_used": {
+   "feature_info": 1,
+   "run_prompt": 4,
+   "ablate": 1,
+   "steer": 0
+  },
+  "n_agent": 4,
+  "grade_ok": true,
+  "grade_error": null,
+  "surprises": "Both misses are perception verbs without \"at\": \"can also be regarded as a one measuring purity\" fired at rel 0.245 on peak_token \" regarded\" (expected 1), and the agent probe \"At first glance the proposal seemed\" fired at rel 0.186 on \" glance\" (expected 0, the locative/temporal \"At\" was correctly ignored). Everything predicted to fire peaked on \" at\" as named, with \"Look at how quickly\" slightly exceeding max (rel 1.038).",
+  "kl": 0.013,
+  "failed": null
+ },
+ {
+  "feature": 7111,
+  "label": "terms related to health, success, and professional development",
+  "explanation": "Not lexical \"health/success\" words. 7111 fires on the complement of an enabling/importance relation: the noun phrase naming what something is essential/critical/necessary for, contributes to, promotes, or is linked to, ramping from the preposition through modifiers and peaking on the head noun. Tiers (of max): \"cognitive function\" 1.0, \"athletic success\" 0.86, \"engine performance\" 0.72, \"plant survival\" 0.71, \"cardiovascular results\" 0.62, \"student growth\" 0.59, \"lasting partnership\" 0.57, \"economic productivity\" 0.54, \"bone health\" only 0.25. Zero on the same words without that frame: \"Success!\", the math sense of \"function\", \"efficiency rating\", medical treatment, \"professional training\", \"Her survival depended on\". Ablating every active position was causally null (KL 0.0015).",
+  "causal": "Zeroing 7111 at all three active positions of \"Adequate sleep is essential for cognitive function\" changed nothing (KL 0.0015, next-token logprob deltas ~0.02), so it is representational here rather than driving the prediction.",
+  "tools_used": {
+   "feature_info": 1,
+   "run_prompt": 4,
+   "ablate": 1,
+   "steer": 0
+  },
+  "n_agent": 4,
+  "grade_ok": true,
+  "grade_error": null,
+  "surprises": "Biggest misses: the label set gave \"is critical for bacterial survival; ... promote\" expected 2 on \"promote\" but it fired at rel 0.80 with peak_token \" survival\", and gave \"material is an important aspect of a battery\" expected 0 but it fired at rel 0.40 on peak_token \" a\" (investigated predicted \"battery\", so peak_hit missed there too). Also the agent sentence \"indispensable to village prosperity\" hit rel 1.02 on \" prosperity\" (above the feature's max) while \"For cognitive function\" reached only 0.25 against an expected 7.",
+  "kl": 0.0015,
+  "failed": null
+ },
+ {
+  "feature": 8072,
+  "label": "references to scientific processes or methodologies involving measurements and statistics",
+  "explanation": "Not a science feature. It fires on the first token of a modifier attached to a noun phrase that sits mid-sentence or inside an embedded clause: participles (\"the documents [found] in\", 0.71 of max), prepositions (\"a person accused [of] theft\" 0.50, \"books [on] the table\" 0.34), relative \"that\", occasionally the head noun itself or an attributive adjective (\"his [late] father\" 0.24). Top examples hit ~1.0 only deep inside subordinate clauses (\"claim that games [that]\", \"whether the information they [see]\"). Does NOT fire on measurement/statistics prose, complementizer \"that\" after a verb, code, or a sentence-initial subject with its own modifier (\"Any evidence obtained through...\"). Ablation at every active position changed next-token logprob by at most 0.05 nats, KL 0.0001: the model does not rely on it.",
+  "causal": "Zero-ablating 8072 on \"He insisted that the documents found in the drawer belonged to his late father\" (active at documents 4.2, found 10.4, in 4.7, late 3.5) shifted next-token logprobs by at most 0.05 nats and left the final distribution unchanged (KL 0.0001), so the feature is a syntactic marker the model does not causally depend on here.",
+  "tools_used": {
+   "feature_info": 1,
+   "run_prompt": 4,
+   "ablate": 1,
+   "steer": 0
+  },
+  "n_agent": 4,
+  "grade_ok": false,
+  "grade_error": "Error executing tool grade_explanation",
+  "surprises": null,
+  "kl": 0.0001,
+  "failed": null
+ },
+ {
+  "feature": 9770,
+  "label": "the adverb \"indeed\" in various contexts",
+  "explanation": "Lexical feature for the token \"indeed\"/\"Indeed\". Strongest (0.91-0.94 of max) on sentence-initial \"Indeed,\" and mid-clause \"and indeed\"; clause-final \"very long day indeed\" fires at 0.65; brand name \"Indeed.com\" still fires at 0.54. Weak secondary tier (0.25-0.37) on other affirmation/certainty adverbs: \"Certainly\" 0.37, \"truly\" 0.29, \"in fact\" 0.25; the comma or word right after \"indeed\" gets spillover of 0.1-0.2. Does NOT fire on \"Really\", \"Of course\", ordinary prose, code, math, or numbers; \"deed\" alone is 0.08 and \"in deed\" 0.23. Causal: ablating at \"Indeed,\" changes next-token KL only 0.005 and leaves the greedy completion identical, so the feature is a detector, not a driver of downstream prediction here.",
+  "causal": "Zero-ablating 9770 at \"Indeed,\" (act 40.7) in \"The experiment failed on every trial. Indeed, the\" shifted next-token KL by only 0.005 and left the greedy completion unchanged, so the feature detects \"indeed\" without driving the continuation.",
+  "tools_used": {
+   "feature_info": 1,
+   "run_prompt": 4,
+   "ablate": 1,
+   "steer": 0
+  },
+  "n_agent": 4,
+  "grade_ok": true,
+  "grade_error": null,
+  "surprises": "The only miss in both sets is held-out id 15, \"...bigger than the problem, perhaps we can eventually deal with\", predicted 0 but actually fired at rel 0.324 on peak_token \" perhaps\" — a hedging/epistemic adverb the explanation's secondary tier did not list. All four agent sentences fired on the named token at roughly the predicted strength (Indeed.com 0.61, \"in deed\" 0.243, \"boring indeed\" 0.598, \"Certainly\" 0.374).",
+  "kl": 0.005,
+  "failed": null
+ },
+ {
+  "feature": 4344,
+  "label": "summaries and descriptive annotations related to classes and components in programming documentation",
+  "explanation": "Trigger: the token \"summary\" inside an XML-doc closing tag `///</summary>` in C#-style documentation comments. Tiers (fraction of max 68.7): closing `</summary>` after `///` = 1.0-1.07; opening `///<summary>` = 0.36; other `///` closing tags (`</remarks>`, `</param>`, `</returns>`) = 0.3-0.38; HTML `<details><summary>` tags = 0.18 (open) / 0.25 (close); the newline right after `</summary>` ~0.07. Does NOT fire on the English word \"summary\" in prose, on JSDoc `/** @param ... */` blocks, or on ordinary code without doc tags. Causal: ablating it on a `///</summary>` prompt barely moved anything (KL 0.0034, next-token \"\\n\" stays 0.99), so the model does not rely on this feature for the next-token prediction there.",
+  "causal": "Zero-ablating 4344 on a `/// <summary> ... /// </summary>` prompt changed the next-token distribution negligibly (KL 0.0034; \"\\n\" 0.990 -> 0.992; per-position logprob deltas +0.011 and -0.003), so the feature is a detector the model does not depend on for prediction here.",
+  "tools_used": {
+   "feature_info": 1,
+   "run_prompt": 4,
+   "ablate": 1,
+   "steer": 0
+  },
+  "n_agent": 4,
+  "grade_ok": true,
+  "grade_error": null,
+  "surprises": "The investigated set under-called two weak heldout firings: `<div class=\"summary\">` (expected 1, actual rel 0.151, peak_token \"summary\") and `private String _summary;` (expected 1, actual rel 0.125, peak \"summary\"), so the \"does NOT fire on ordinary code without doc tags\" claim is too strong; the label set's one false positive was JSDoc `*/ configure:` (expected 4 on \"options\", actual 0, peak \"{\"). Agent sentences all matched, including `</remarks>` (rel 0.245 on \"remarks\") and bare `</summary>` in prose firing at 0.474.",
+  "kl": 0.0034,
+  "failed": null
+ },
+ {
+  "feature": 6184,
+  "label": "specific instructions related to configuring and managing software or systems",
+  "explanation": "Trigger: second-person how-to/advice in a software or systems context, peaking on the instruction verb (\"add\", \"set\", \"adding\", \"change\") and staying on across the whole instruction clause (object nouns, \"your\", \"file\", \"variable\"). Tiers: ~0.9 max on \"add\"/\"set\" after \"you need to\"/\"make sure to\" with software nouns nearby; 0.4-0.8 on the rest of the clause; ~0.2-0.6 when the imperative comes before the software noun is established (\"You should install the plugin\" starts only at \"plugin\"). Does NOT fire on the identical instruction frame in a cooking context (\"you need to add two eggs and set the oven\": all zeros) or on descriptive, non-instructional technical prose (config file / compiler / debugging: all zeros). Ablation on a firing sentence barely changed next-token predictions (KL 0.0035), so it is a context-marking feature with little direct output effect.",
+  "causal": "Zero-ablating 6184 across a firing software-instruction sentence shifted next-token log-probs by at most 0.24 nats and left the final-position distribution nearly unchanged (KL 0.0035), so the feature marks the how-to context rather than driving specific outputs.",
+  "tools_used": {
+   "feature_info": 1,
+   "run_prompt": 4,
+   "ablate": 1,
+   "steer": 0
+  },
+  "n_agent": 4,
+  "grade_ok": true,
+  "grade_error": null,
+  "surprises": "The cooking control \"You need to add more salt and set the table\" was predicted 0 but fired at rel 0.43 (peak_token \" add\"), and the descriptive \"The installer automatically adds a registry key\" fired at rel 0.20 (peak_token \" and\"), contradicting the explanation's two claimed negatives. Peaks also landed later than predicted: \"need to add a using statement\" peaked on \" statement\", \"Make sure to add the header file before\" on \" before\", and \"Add the following line to your crontab\" on \" to\".",
+  "kl": 0.0035,
+  "failed": null
+ }
+]
