@@ -33,7 +33,7 @@ def test_pool_raises_when_a_random_feature_fetch_fails(bare_backend, monkeypatch
     def fake_load(layer, feature):
         calls.append(feature)
         if feature == 7272:
-            return [{"max": 1.0, "tokens": [f"▁w{i}" for i in range(20)], "peak": 15}] * 10
+            return distinct_examples(feature, 10)  # distinct texts: copies of shown examples are not held out
         return None  # Neuronpedia unreachable for every other feature
 
     monkeypatch.setattr(backend_module.neuronpedia, "load_examples", fake_load)
@@ -118,3 +118,16 @@ def test_pool_is_built_once_per_key(bare_backend, monkeypatch):
     assert a == b and len(checks) == n == 4
     a[0]["text"] = "mutated"  # callers get copies, the cache is not theirs to change
     assert bare_backend._pool(7272, 12, seed=0, n_heldout=4, n_random=2) == b
+
+
+def test_pool_never_holds_out_an_example_feature_info_shows(bare_backend, monkeypatch):
+    def fake_load(layer, feature):
+        ex = distinct_examples(feature, 45 if feature == 7272 else 3)
+        if feature == 7272:
+            ex[8] = dict(ex[2])   # Neuronpedia repeats examples: index 8 is a copy of one of the 8 shown
+            ex[20] = dict(ex[5])
+        return ex
+
+    monkeypatch.setattr(backend_module.neuronpedia, "load_examples", fake_load)
+    pool = bare_backend._pool(7272, 12, seed=0, n_heldout=4, n_random=2)
+    assert example_ids(pool) == [9, 21, 32, 44]  # the copies are skipped like silent windows

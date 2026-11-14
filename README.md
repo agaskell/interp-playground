@@ -128,17 +128,19 @@ confabulated meanings for a purely positional signal. Found by Claude using
 `run_prompt`; this is why the server now detects and hides them.
 
 **Explanation eval.** Does investigating a feature produce a better
-explanation than its Neuronpedia label? On 25 blind layer-12 features, a
-tool-less agent predicting from the label alone scored mean firing F1 0.72,
-Spearman 0.68 and named the peak token 43% of the time; an agent with
-`feature_info`, four `run_prompt`s and one ablation scored 0.85, 0.82 and 64%.
-Paired over features: F1 +0.12 (15 wins, 6 losses, sign test p = 0.08),
-Spearman +0.13 (18 wins, 5 losses, p = 0.01). The label failed worst on
-features whose trigger is syntactic or formatting (a modifier-onset feature
-labelled "scientific measurements"; a mid-sequence `<bos>` detector labelled
-"start of new sections"). 20 of 25 ablations barely moved the next token.
-Records in `results/`, write-up in FINDINGS sections 12-13, decisions and
-pre-registered predictions in `results/DECISIONS.md`.
+explanation than its Neuronpedia label? On 23 blind layer-12 features, a
+tool-less agent predicting from the label alone scored mean firing F1 0.66 and
+Spearman 0.69 on a 16-sentence pool; an agent with `feature_info`, four
+`run_prompt`s and one causal probe scored 0.88 and 0.88. Paired over features,
+on the pre-registered primary metric: F1 +0.22, 13 wins, 8 ties, 2 losses,
+sign test p = 0.007. The gain is concentrated on weak firings (below 0.6 of
+max the label agent finds half of them) and on labels that name a topic when
+the trigger is something else: "references to a crisis" is a Spanish-language
+detector, "scientific measurements" is a syntactic slot. 18 of 23 causal
+probes barely moved the next token. Not yet separated: how much of the gain
+comes from seeing examples and how much from running experiments. Records in
+`results/`, write-up in FINDINGS sections 12-14, decisions and predictions
+written before each run in `results/DECISIONS.md`.
 
 ## Roadmap
 

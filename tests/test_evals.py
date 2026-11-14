@@ -290,3 +290,31 @@ def test_value_errors_reach_the_client_with_their_message():
     with pytest.raises(ToolError, match="16383") as exc:
         server.eval_sentences(feature=99999)
     assert not isinstance(exc.value, UnexpectedToolError)
+
+
+# --- run-3 corrections (DECISIONS 2026-11-14, after run 3) -------------------
+
+def test_paired_summary_compares_pool_rows_only():
+    from interp_playground.evals import paired_summary
+
+    def row(source, expected, rel):
+        return {"source": source, "expected": expected, "rel": rel, "on": None, "peak_token": "x"}
+
+    pool_label = [row("heldout", 0, 0.9), row("heldout", 9, 0.9), row("random", 0, 0.0)]
+    pool_inv = [row("heldout", 0, 0.9), row("heldout", 9, 0.9), row("random", 0, 0.0)]
+    agent = [row("agent", 9, 0.9), row("agent", 9, 0.8)]  # the agent's own sentences, all correct
+    rec = {"sets": {"label": score_set([dict(r) for r in pool_label]),
+                    "investigated": score_set([dict(r) for r in pool_inv + agent])}}
+    assert rec["sets"]["investigated"]["f1"] > rec["sets"]["label"]["f1"]  # as recorded: inflated by agent rows
+    s = paired_summary([rec])
+    assert s["f1"]["ties"] == 1 and s["f1"]["wins"] == 0  # on the shared pool the two sets are identical
+    assert s["f1"]["mean_delta"] == pytest.approx(0.0)
+
+
+def test_shown_examples_are_not_held_out():
+    from interp_playground.evals import duplicates_shown
+
+    shown = ["We checked it out to find that the old bridge had been removed last year."]
+    assert duplicates_shown("find that the  old bridge had been", shown)  # a window of a shown example
+    assert not duplicates_shown("the new bridge had been", shown)
+    assert not duplicates_shown("", shown)

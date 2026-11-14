@@ -27,6 +27,7 @@ from interp_playground.evals import (
     WINDOW_TOKENS,
     MAX_SETS,
     build_pool,
+    duplicates_shown,
     match_predictions,
     normalize,
     pick_firing,
@@ -381,15 +382,19 @@ class Backend:
             return neuronpedia.example_text(example, *window_offsets(rng))
 
         own = examples_for(feature)
+        # What feature_info shows in full; a copy of any of it is not held out.
+        shown = [neuronpedia.example_text(e, len(e["tokens"]), len(e["tokens"])) for e in own[:EXAMPLES_SHOWN]]
+
+        def usable(i: int) -> bool:
+            text = window(own[i], i)
+            return not duplicates_shown(text, shown) and self._window_fires(feature, layer, text)
+
         with self._lock:
-            chosen = pick_firing(
-                EXAMPLES_SHOWN, len(own), n_heldout,
-                lambda i: bool(window(own[i], i)) and self._window_fires(feature, layer, window(own[i], i)),
-            )
+            chosen = pick_firing(EXAMPLES_SHOWN, len(own), n_heldout, usable)
         if len(chosen) < min(MIN_FIRING_HELDOUT, n_heldout):
             raise ValueError(
                 f"feature {feature}: only {len(chosen)} of its {max(0, len(own) - EXAMPLES_SHOWN)} held-out "
-                f"examples fire in a {WINDOW_TOKENS}-token window (need {min(MIN_FIRING_HELDOUT, n_heldout)}). "
+                f"examples are unseen and fire in a {WINDOW_TOKENS}-token window (need {min(MIN_FIRING_HELDOUT, n_heldout)}). "
                 "It needs context these short plain-text windows do not carry (longer text, or special "
                 "tokens), so it cannot be evaluated here."
             )

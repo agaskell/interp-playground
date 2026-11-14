@@ -47,7 +47,7 @@ def main() -> None:
             print(f"{'':19} {'':>5} {'delta':13} {'':>3} {fmt(d['f1'])} {'':>5} {'':>5} {fmt(d['spearman'])}")
     s = paired_summary(records)
     if s["n"]:
-        print(f"\npaired, investigated minus label, n={s['n']}:")
+        print(f"\npaired, investigated minus label, pool sentences only, n={s['n']}:")
         for m in ("f1", "spearman"):
             r = s[m]
             print(f"  {m:9} mean {fmt(r['mean_delta'])}  wins/ties/losses {r['wins']}/{r['ties']}/{r['losses']}"

@@ -24,8 +24,9 @@ SOURCES = ("heldout", "random", "agent")
 MIN_FIRING_HELDOUT = 3
 # Bumped whenever pool construction changes, and written to every record:
 # 1 = next-best examples, fixed window; 2 = spread examples, random peak
-# position, random pool keyed on the feature; 3 = held-out windows verified to fire.
-POOL_VERSION = 3
+# position, random pool keyed on the feature; 3 = held-out windows verified to
+# fire; 4 = copies of the examples feature_info shows are never held out.
+POOL_VERSION = 4
 
 
 def pick_random_features(
@@ -84,14 +85,30 @@ def window_offsets(rng: random.Random, total: int = WINDOW_TOKENS, min_after: in
     return total - after, after
 
 
+def _pool_only(scored: dict[str, Any]) -> dict[str, Any]:
+    """A set's scores over pool sentences alone, dropping the agent's own.
+
+    Agent sentences exist only in the investigated set, so including them
+    would compare the two sets on different sentences.
+    """
+    rows = scored.get("rows")
+    if not rows or all(r["source"] != "agent" for r in rows):
+        return scored
+    return score_set([dict(r) for r in rows if r["source"] != "agent"])
+
+
 def paired_summary(records: list[dict[str, Any]]) -> dict[str, Any]:
-    """Label-vs-investigated deltas across records that scored both sets.
+    """Label-vs-investigated deltas across records that scored both sets,
+    over the pool sentences both sets predicted (agent sentences excluded).
 
     Per metric: mean delta, wins/ties/losses for investigated over label, and
     a two-sided exact sign test over the non-tied pairs.
     """
     out: dict[str, Any] = {"n": 0}
-    pairs = [r["sets"] for r in records if "label" in r.get("sets", {}) and "investigated" in r["sets"]]
+    pairs = [
+        {name: _pool_only(r["sets"][name]) for name in ("label", "investigated")}
+        for r in records if "label" in r.get("sets", {}) and "investigated" in r["sets"]
+    ]
     for metric in ("f1", "spearman"):
         deltas = [
             s["investigated"][metric] - s["label"][metric]
@@ -119,6 +136,16 @@ def paired_summary(records: list[dict[str, Any]]) -> dict[str, Any]:
 def normalize(text: str) -> str:
     """Whitespace-insensitive form used for every text comparison in the eval."""
     return " ".join(text.split())
+
+
+def duplicates_shown(window: str, shown_texts: list[str]) -> bool:
+    """Whether a held-out window is part of an example the agent can see in full.
+
+    Neuronpedia's example lists repeat texts, so "beyond the first 8" does not
+    by itself mean unseen.
+    """
+    w = normalize(window)
+    return bool(w) and any(w in normalize(t) for t in shown_texts)
 
 
 def relative_activation(act: float, max_act: float) -> float:

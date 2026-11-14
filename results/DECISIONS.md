@@ -144,3 +144,39 @@ effect of either alone.
   already near perfect and four probes over-broaden the trigger.
 - peak_hit gain stays larger than the F1 gain.
 - At least 18 of 23 causal probes come back with KL below 0.05.
+
+## 2026-11-14 Run 3 executed; two corrections; decision 6 now due
+
+- Ran as set up: 23 features, run tag `blind-3`, pool version 3, Fable 5.2
+  agents, 92 agents in 11.6 minutes, all graded, nothing contaminated.
+  Agents' explanations: `results/blind3_run_agents.json`.
+- **Primary metric (firing F1, pool sentences, paired): 0.66 to 0.88, +0.22,
+  13 wins / 8 ties / 2 losses, two-sided sign test p = 0.007.** Spearman
+  +0.19 (20 / 0 / 3, p = 0.0005). peak_hit +0.21.
+- **Correction 1: the comparison I ran after run 2 was not the one this log
+  specified.** The log said agent sentences are excluded from the paired
+  comparison; `paired_summary` used each set's recorded F1, and the
+  investigated set's includes its four agent sentences. Fixed in code with a
+  test. Run 2 corrected: F1 +0.10, 14 / 5 / 4, p = 0.031 (was reported as
+  +0.12, 15 / 2 / 6, p = 0.078). FINDINGS 13 carries a correction note.
+- **Correction 2: 9 of 138 held-out sentences in run 3 (11 of 150 in run 2)
+  were copies of an example `feature_info` shows.** Excluding them, run 3 is
+  F1 +0.23, 13 / 8 / 2, p = 0.007. Pool version 4 excludes such copies when
+  building (test added). Run 3's records stay as they are, version 3.
+- Budget deviations: 5651 and 8271 used three `run_prompt`s; 3907 had two of
+  four denied by the permission classifier. One investigator (7660) used
+  `steer`; the rest `ablate`.
+- Predictions: 3 right (investigated about 0.90; p < 0.05; at least 18 null
+  probes), 5 wrong (label level, size of gain, win count, loss count,
+  peak_hit against F1). Details in FINDINGS 14.
+
+**Decision 6 (extend n) is now Andy's to make.** The pre-agreed condition,
+"the F1 effect holds", is met. *Proposed*, not started:
+- 25 new features, selection seed 2, pool version 4, everything else as
+  ratified. About 5 million subagent tokens for two arms.
+- *New and optional*: a third arm per feature, an agent that gets the label
+  and `feature_info`'s output but no other tool, to separate seeing examples
+  from running experiments. Adds roughly a quarter to the cost. If added, the
+  primary comparison stays label against investigated; the third arm is
+  secondary and its two contrasts are named here before any run: examples
+  against label, and investigated against examples.

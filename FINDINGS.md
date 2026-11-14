@@ -414,6 +414,14 @@ Two grades failed on a transcription slip (the label agent kept JSON quotes
 around the sentences, and the id/text cross-check refused the call) and were
 re-run by hand with the quotes removed and nothing else changed.
 
+> **Correction, 2026-11-14.** The table below scored the investigated set
+> over its pool sentences *plus* the agent's own four sentences, which the
+> label set does not have. On the 16 shared pool sentences, as the decision
+> log specified, run 2 was F1 0.72 to 0.82 (+0.10, 14 wins / 5 ties / 4
+> losses, sign test p = 0.031) and Spearman 0.68 to 0.80 (+0.13, 20 / 0 / 3,
+> p = 0.0005). `paired_summary` now compares pool sentences only. See
+> section 14.
+
 **Paired result, investigated minus label** (23 features with both scores):
 
 | metric | label mean | investigated mean | mean delta | wins / ties / losses | sign test |
@@ -486,3 +494,119 @@ probes near null" undershot badly: four in five were.
   it is not weak: mean F1 0.72 from a one-line auto-generated label. The gain
   from investigation is real on ranking and peak location, modest and not yet
   significant on firing F1 at n = 23.
+
+## 14. Blind eval rerun with a fixed pool: the gain doubles
+
+Run 2026-11-14, tagged `blind-3` in `results/explanation_evals.jsonl`. Same
+selection, seed, pool sizes, thresholds and investigator budget as section 13,
+all ratified beforehand, with firing F1 named as the primary metric and
+predictions written down first (`results/DECISIONS.md`). Two things differ
+from section 13:
+
+- **Pool version 3.** Every held-out window is checked to fire before it is
+  used; a silent one is replaced by its nearest firing neighbour. Two of the
+  25 features (11650, 10710) have no held-out window that fires in 16 tokens
+  and were excluded before the run, leaving 23.
+- **The agents are Claude Fable 5.2** in all four roles; section 13's were
+  Fable 5.1. The label-versus-investigated comparison inside this run is
+  clean. The difference between this run and section 13 mixes the pool fix
+  with the model change.
+
+92 agents, 11.6 minutes, all 23 graded, nothing contaminated.
+
+**Primary result, investigated minus label, on the 16 pool sentences both
+sets predicted** (23 features):
+
+| metric | label | investigated | mean delta | wins / ties / losses | sign test |
+|---|---|---|---|---|---|
+| firing F1 (primary) | 0.66 | 0.88 | +0.22 | 13 / 8 / 2 | p = 0.007 |
+| Spearman | 0.69 | 0.88 | +0.19 | 20 / 0 / 3 | p = 0.0005 |
+| peak_hit | 0.42 | 0.63 | +0.21 | 10 / 9 / 2 | |
+
+Pooled over the 368 pool rows: label precision 0.84 and recall 0.61,
+investigated 0.94 and 0.85. False alarms on random windows 16 against 8;
+missed held-out windows 51 against 19.
+
+**Two defects found while analysing, both corrected and neither changes the
+conclusion:**
+
+- The recorded set-level F1 for the investigated set includes the agent's own
+  sentences. With them in, the numbers look better than the table above
+  (F1 +0.24, 20 / 2 / 1, p = 0.00002). The table above is the pre-registered
+  comparison; `paired_summary` and `scripts/eval_report.py` now use it.
+- Nine of the 138 held-out sentences were copies of one of the eight examples
+  `feature_info` shows, because Neuronpedia's example lists repeat texts. The
+  investigator had seen those with the peak marked. Dropping them: F1 0.64 to
+  0.87, +0.23, 13 / 8 / 2, p = 0.007. Pool version 4 never holds out a copy
+  of a shown example.
+
+**Where the gain comes from.** Recall on held-out sentences, by how strongly
+the feature actually fired:
+
+| actual activation (fraction of max) | n | label recall | investigated recall |
+|---|---|---|---|
+| 0.1 to 0.3 | 47 | 0.51 | 0.74 |
+| 0.3 to 0.6 | 35 | 0.49 | 0.86 |
+| above 0.6 | 56 | 0.82 | 0.96 |
+
+A label describes the top of a feature's range. Below 0.6 of max the label
+agent finds half the firings; the investigator, who has measured weaker
+cases, finds three quarters or more.
+
+**Features**, pool F1 label to investigated:
+
+- **7660** "references to a crisis or challenging societal situations",
+  0.00 to 0.91. It is a Spanish-language detector: fires on nearly every
+  token of Spanish text, on Hispanic names in English at half strength, weakly
+  on Portuguese, never on English crisis text. The one investigator that
+  chose `steer` used it here: at 2.6 times max the continuation of an English
+  prompt switched into Spanish (KL 0.31 against 0.05 for a random direction).
+- **8072** "scientific processes ... measurements and statistics", 0.00 to
+  0.77. The syntactic feature from section 13, found again by a different
+  model: fires inside a long noun phrase while the clause still owes
+  something after it.
+- **9605** "historical naval terminology", 0.29 to 1.00: military and
+  aviation hardware types (Boeing, McDonnell Douglas, Leander-class).
+- **14431** "legal and procedural language related to eligibility", 0.22 to
+  0.73: the hinge between a satisfied condition and its consequence ("if the
+  documents are complete[,] ..."), not legal vocabulary.
+- **13026** 0.44 to 1.00, **10354** 0.40 to 0.92, **6440** 0.60 to 1.00.
+- Eight ties, where both agents made the same firing calls, and two losses:
+  **4344** (0.83 to 0.67), where the investigator narrowed the trigger to the
+  `</summary>` tag and missed other doc-comment text, and 7111 by 0.01.
+
+**Agent-written sentences** (92): 56 fired; the investigator predicted
+firing on 50 and was right on all 50; it named the peak token on 34.
+
+**Causal probes.** 22 ablations and one steer. 18 of 23 had KL below 0.05,
+three between 0.05 and 0.2, two above (339 at 0.47; 7660's steer at 0.31).
+Same picture as section 13: most clean layer-12 detectors leave the next
+token alone at the position tested.
+
+**Budget deviations.** Three investigators ran fewer than four `run_prompt`s:
+5651 and 8271 used three, and 3907 had two of its four denied by Claude
+Code's permission classifier. All used `feature_info` once and one probe.
+
+**Predictions scored.** Right: investigated mean F1 about 0.90 (0.88); the
+sign test under 0.05; at least 18 null probes (exactly 18). Wrong: the label
+would rise to about 0.80 (it fell to 0.66, because the fixed pool swaps silent
+windows for weakly firing ones, which is where labels fail); the gain would
+shrink to +0.08 (it was +0.22); at least 16 wins (13, with 8 ties);
+investigation would lose on 3 to 5 features (2); the peak_hit gain would
+exceed the F1 gain (about equal).
+
+**What this does and does not show.**
+
+- On these 23 features, an agent that looks at a feature's examples and runs
+  five experiments predicts its firing better than the same agent reading
+  the auto-generated label, and the difference is largest on weak firings and
+  on labels that name a topic when the trigger is a language, a syntactic
+  slot or a formatting pattern.
+- It does not separate *looking* from *experimenting*. `feature_info` shows
+  eight top examples from the same source as the held-out sentences. A third
+  arm that gets the label and those examples but no probes would say how much
+  of the gain needs tools at all.
+- One model family writes the explanations and makes the predictions, one SAE
+  at one layer, 23 features, one seed. The explanation's quality is measured
+  only through the predictions its author makes, not by handing the
+  explanation to a separate simulator.
