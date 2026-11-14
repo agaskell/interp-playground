@@ -181,3 +181,15 @@ set.
 
 Per-token predictions, a judge model for thematic steering, a script driver,
 cross-layer evals, and any UI. None is precluded by the signatures above.
+
+## Amendment 2026-11-14: pool version 3
+
+Held-out windows are verified to fire (relative activation at or above 0.1)
+when the pool is built. A silent window is replaced by its nearest firing
+neighbour in the example list, and a feature with fewer than three firing
+held-out windows is refused by `eval_sentences`. Held-out examples are spread
+over the unseen part of the activation range and the peak sits at a random
+position in each 16-token window (version 2, 2026-11-01). Records carry
+`pool_version` and a free `run` label. Tool errors the caller can fix are
+returned with their message. Rationale and history: `results/DECISIONS.md`
+and FINDINGS section 13.

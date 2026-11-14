@@ -21,14 +21,18 @@ from sae_lens import SAE
 from interp_playground import neuronpedia
 from interp_playground.evals import (
     EXAMPLES_SHOWN,
+    FIRE_REL,
+    MIN_FIRING_HELDOUT,
+    POOL_VERSION,
+    WINDOW_TOKENS,
     MAX_SETS,
     build_pool,
     match_predictions,
     normalize,
+    pick_firing,
     pick_random_features,
     relative_activation,
     score_set,
-    spread_indices,
     window_offsets,
 )
 from interp_playground.lens import lens_rows
@@ -91,6 +95,8 @@ class Backend:
         # Every prompt the other tools have run, for the eval's contamination
         # check. Never cleared: several features can be evaluated per session.
         self._seen_prompts: set[str] = set()
+        # Built pools, keyed by (feature, layer, seed, n_heldout, n_random).
+        self._pools: dict[tuple[int, int, int, int, int], list[dict[str, Any]]] = {}
 
     def warm_up(self, layers: list[int]) -> None:
         with self._lock:
@@ -297,6 +303,7 @@ class Backend:
         seed: int,
         n_heldout: int,
         n_random: int,
+        run: str = "",
     ) -> dict[str, Any]:
         self._check(feature, layer)
         if not predictions:
@@ -325,6 +332,8 @@ class Backend:
             "seed": seed,
             "n_heldout": n_heldout,
             "n_random": n_random,
+            "run": run,
+            "pool_version": POOL_VERSION,
             "contaminated": [p["id"] for p in pool if _normalize(p["text"]) in self._seen_prompts],
             "sets": {name: score_set(rows) for name, rows in sets.items()},
         }
@@ -338,11 +347,22 @@ class Backend:
     ) -> list[dict[str, Any]]:
         """The eval's sentence pool: held-out own examples plus other features' text.
 
-        Deterministic in (feature, layer, seed, n_heldout, n_random): a
+        Deterministic in (feature, layer, seed, n_heldout, n_random) and built
+        once per key. Held-out windows are verified to fire: Neuronpedia's
+        activations come from long contexts, and a short window can lose what
+        the feature needs. A feature with too few firing windows is refused
+        rather than evaluated on a pool whose "positives" are silent. A
         Neuronpedia fetch failure raises rather than silently shrinking the
         pool, since a shorter pool would misalign the agent's predictions.
-        Network reads (cached per feature) happen outside the model lock.
         """
+        key = (feature, layer, seed, n_heldout, n_random)
+        if key not in self._pools:
+            self._pools[key] = self._build_pool(*key)
+        return [dict(p) for p in self._pools[key]]
+
+    def _build_pool(
+        self, feature: int, layer: int, seed: int, n_heldout: int, n_random: int
+    ) -> list[dict[str, Any]]:
         with self._lock:
             self._prepare_layer(layer)
             masks = self._hidden[layer]
@@ -354,20 +374,36 @@ class Backend:
                 raise ValueError(f"Neuronpedia is unreachable (feature {f}, layer {layer}); retry later")
             return examples
 
-        rng = random.Random(f"{seed}:{feature}:window")
+        def window(example: dict, tag: object) -> str:
+            # The peak's position in the window is random, and depends only on
+            # which example it is, not on the order windows are tried in.
+            rng = random.Random(f"{seed}:{feature}:window:{tag}")
+            return neuronpedia.example_text(example, *window_offsets(rng))
+
         own = examples_for(feature)
-        # Held-out examples are spread over the unseen part of the activation
-        # range, and every window puts the peak at a random position.
-        heldout = [
-            neuronpedia.example_text(own[i], *window_offsets(rng))
-            for i in spread_indices(EXAMPLES_SHOWN, len(own), n_heldout)
-        ]
+        with self._lock:
+            chosen = pick_firing(
+                EXAMPLES_SHOWN, len(own), n_heldout,
+                lambda i: bool(window(own[i], i)) and self._window_fires(feature, layer, window(own[i], i)),
+            )
+        if len(chosen) < min(MIN_FIRING_HELDOUT, n_heldout):
+            raise ValueError(
+                f"feature {feature}: only {len(chosen)} of its {max(0, len(own) - EXAMPLES_SHOWN)} held-out "
+                f"examples fire in a {WINDOW_TOKENS}-token window (need {min(MIN_FIRING_HELDOUT, n_heldout)}). "
+                "It needs context these short plain-text windows do not carry (longer text, or special "
+                "tokens), so it cannot be evaluated here."
+            )
+        heldout = [window(own[i], i) for i in chosen]
         random_texts = []
         for other in pick_random_features(D_SAE, hidden, feature, seed, n_random):
             examples = examples_for(other)
             if examples:
-                random_texts.append(neuronpedia.example_text(examples[0], *window_offsets(rng)))
-        return build_pool([t for t in heldout if t], [t for t in random_texts if t], seed)
+                random_texts.append(window(examples[0], f"r{other}"))
+        return build_pool(heldout, [t for t in random_texts if t], seed)
+
+    def _window_fires(self, feature: int, layer: int, text: str) -> bool:
+        """Whether the feature reaches the firing threshold anywhere in `text`. Caller holds the lock."""
+        return self._peak(self._get_model(), feature, layer, text)["rel"] >= FIRE_REL
 
     def _peak(self, model: LanguageModel, feature: int, layer: int, text: str) -> dict[str, Any]:
         """Ground truth for one sentence: the feature's peak activation and where."""

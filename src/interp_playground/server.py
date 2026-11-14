@@ -1,11 +1,13 @@
 """MCP server exposing Gemma 2 2B's internals via Gemma Scope SAEs."""
 
+import functools
 import threading
-from collections.abc import AsyncIterator
+from collections.abc import AsyncIterator, Callable
 from contextlib import asynccontextmanager
 from typing import Any
 
 from mcp.server.mcpserver import MCPServer
+from mcp.server.mcpserver.exceptions import ToolError
 
 from interp_playground.backend import Backend
 
@@ -36,7 +38,26 @@ server = MCPServer(
 )
 
 
+def anticipated(fn: Callable[..., Any]) -> Callable[..., Any]:
+    """Send a tool's ValueError to the client with its message.
+
+    The backend raises ValueError for everything the caller can fix (a bad
+    id, a prediction that does not match the pool, a feature that cannot be
+    evaluated). Without this the SDK treats it as a crash and the agent sees
+    only "Error executing tool <name>".
+    """
+    @functools.wraps(fn)
+    def wrapper(*args: Any, **kwargs: Any) -> Any:
+        try:
+            return fn(*args, **kwargs)
+        except ValueError as exc:
+            raise ToolError(str(exc)) from exc
+
+    return wrapper
+
+
 @server.tool()
+@anticipated
 def run_prompt(
     prompt: str,
     layers: list[int] | None = None,
@@ -87,6 +108,7 @@ def run_prompt(
 
 
 @server.tool()
+@anticipated
 def steer(
     prompt: str,
     feature: int,
@@ -169,6 +191,7 @@ def steer(
 
 
 @server.tool()
+@anticipated
 def feature_info(feature: int, layer: int = DEFAULT_LAYER) -> dict[str, Any]:
     """Everything known about one SAE feature.
 
@@ -191,6 +214,7 @@ def feature_info(feature: int, layer: int = DEFAULT_LAYER) -> dict[str, Any]:
 
 
 @server.tool()
+@anticipated
 def logit_lens(prompt: str, position: int = -1, top_k: int = 5) -> dict[str, Any]:
     """What the model would predict next if it stopped at each layer.
 
@@ -220,6 +244,7 @@ def logit_lens(prompt: str, position: int = -1, top_k: int = 5) -> dict[str, Any
 
 
 @server.tool()
+@anticipated
 def ablate(
     prompt: str,
     feature: int,
@@ -261,6 +286,7 @@ def ablate(
 
 
 @server.tool()
+@anticipated
 def eval_sentences(
     feature: int,
     layer: int = DEFAULT_LAYER,
@@ -284,6 +310,10 @@ def eval_sentences(
        instead of `id`.
     4. Call grade_explanation once with both sets.
 
+    Every held-out sentence is checked to fire before it is included. A
+    feature whose examples go silent in a short window (it depends on long
+    context) is refused with an error saying so; pick another feature.
+
     Do not run these sentences through run_prompt or the other tools before
     grading: any that you do are reported as `contaminated`. A good score is
     necessary, not sufficient; check the investigated explanation with one
@@ -306,6 +336,7 @@ def eval_sentences(
 
 
 @server.tool()
+@anticipated
 def grade_explanation(
     feature: int,
     explanation: str,
@@ -314,6 +345,7 @@ def grade_explanation(
     seed: int = 0,
     n_heldout: int = 4,
     n_random: int = 8,
+    run: str = "",
 ) -> dict[str, Any]:
     """Score prediction sets from eval_sentences against the feature's real activations.
 
@@ -334,7 +366,9 @@ def grade_explanation(
     random / agent), peak_hit (fraction of true firings whose peak token you
     named), and per-sentence rows with the truth. Also returns `contaminated`:
     pool ids that were run through other tools before grading. Every call is
-    appended to results/explanation_evals.jsonl.
+    appended to results/explanation_evals.jsonl, tagged with `run` (a free
+    label for the batch this call belongs to, e.g. "blind-3") and the pool
+    version.
 
     Read the rows, not just the scores: a wrong `on` with the right `expected`
     usually means the explanation names the topic but not the trigger.
@@ -347,6 +381,7 @@ def grade_explanation(
         seed,
         n_heldout=max(0, min(n_heldout, 8)),
         n_random=max(0, min(n_random, 16)),
+        run=run,
     )
 
 

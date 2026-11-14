@@ -7,6 +7,7 @@ touches the model or the network, so it all runs in unit tests.
 import math
 import random
 import statistics
+from collections.abc import Callable
 from typing import Any
 
 # feature_info shows this many top examples; the rest are held out for the eval.
@@ -19,6 +20,12 @@ MAX_EXPECTED = 10
 MAX_AGENT = 4
 MAX_SETS = 4
 SOURCES = ("heldout", "random", "agent")
+# A feature is only evaluable if at least this many held-out windows fire.
+MIN_FIRING_HELDOUT = 3
+# Bumped whenever pool construction changes, and written to every record:
+# 1 = next-best examples, fixed window; 2 = spread examples, random peak
+# position, random pool keyed on the feature; 3 = held-out windows verified to fire.
+POOL_VERSION = 3
 
 
 def pick_random_features(
@@ -37,6 +44,31 @@ def spread_indices(start: int, stop: int, n: int) -> list[int]:
     if n == 1:
         return [start]
     return sorted({start + round(k * (stop - 1 - start) / (n - 1)) for k in range(n)})
+
+
+def pick_firing(start: int, stop: int, n: int, fires: Callable[[int], bool]) -> list[int]:
+    """Up to `n` indices in [start, stop) for which `fires` holds, spread over the range.
+
+    Starts from the evenly spread picks; a pick that does not fire is replaced
+    by its nearest neighbour that does (i+1, i-1, i+2, ...). `fires` is called
+    at most once per index. Returns fewer than `n` when too few fire.
+    """
+    known: dict[int, bool] = {}
+
+    def check(i: int) -> bool:
+        if i not in known:
+            known[i] = fires(i)
+        return known[i]
+
+    chosen: list[int] = []
+    for target in spread_indices(start, stop, n):
+        by_distance = [target] + [
+            i for d in range(1, stop - start) for i in (target + d, target - d) if start <= i < stop
+        ]
+        pick = next((i for i in by_distance if i not in chosen and check(i)), None)
+        if pick is not None:
+            chosen.append(pick)
+    return sorted(chosen)
 
 
 WINDOW_TOKENS = 16

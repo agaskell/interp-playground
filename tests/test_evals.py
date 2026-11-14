@@ -255,3 +255,38 @@ def test_paired_summary_counts_wins_and_sign_test():
     assert s["f1"]["sign_p"] == pytest.approx(0.625)
     assert s["spearman"]["wins"] == 5 and s["spearman"]["sign_p"] == pytest.approx(2 / 32)
     assert paired_summary([{"sets": {"label": {"f1": None, "spearman": None}}}])["n"] == 0
+
+
+# --- firing-checked pool (DECISIONS 2026-11-14) ----------------------------
+
+def test_pick_firing_replaces_silent_picks_with_nearest_neighbours():
+    from interp_playground.evals import pick_firing
+
+    silent, calls = {8, 20, 21}, []
+
+    def fires(i):
+        calls.append(i)
+        return i not in silent
+
+    # Spread picks are 8, 20, 32, 44. 8 -> 9; 20 -> 21 is silent too -> 19.
+    assert pick_firing(8, 45, 4, fires) == [9, 19, 32, 44]
+    assert len(calls) == len(set(calls))  # no window is checked twice
+
+
+def test_pick_firing_returns_fewer_when_nothing_else_fires():
+    from interp_playground.evals import pick_firing
+
+    assert pick_firing(8, 45, 4, lambda i: i in (30, 31)) == [30, 31]
+    assert pick_firing(8, 12, 4, lambda i: False) == []
+    assert pick_firing(8, 8, 4, lambda i: True) == []
+    assert pick_firing(8, 45, 0, lambda i: True) == []
+
+
+def test_value_errors_reach_the_client_with_their_message():
+    from mcp.server.mcpserver.exceptions import ToolError, UnexpectedToolError
+
+    from interp_playground import server
+
+    with pytest.raises(ToolError, match="16383") as exc:
+        server.eval_sentences(feature=99999)
+    assert not isinstance(exc.value, UnexpectedToolError)

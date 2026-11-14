@@ -1,9 +1,10 @@
 """Summarise explanation-eval results: one line per prediction set, with the
 label-vs-investigated F1 difference per run.
 
-Usage: uv run python scripts/eval_report.py [results/explanation_evals.jsonl]
+Usage: uv run python scripts/eval_report.py [results/explanation_evals.jsonl] [--run LABEL]
 """
 
+import argparse
 import json
 import sys
 from pathlib import Path
@@ -19,12 +20,18 @@ def fmt(x: float | None) -> str:
 
 
 def main() -> None:
-    path = Path(sys.argv[1]) if len(sys.argv) > 1 else ROOT / "results" / "explanation_evals.jsonl"
+    ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+    ap.add_argument("path", nargs="?", type=Path, default=ROOT / "results" / "explanation_evals.jsonl")
+    ap.add_argument("--run", help="only records tagged with this run label")
+    args = ap.parse_args()
+    path = args.path
     if not path.exists():
         sys.exit(f"no results at {path}")
     print(f"{'time':19} {'feat':>5} {'set':13} {'n':>3} {'f1':>5} {'prec':>5} {'rec':>5} "
           f"{'rho':>5} {'peak':>5} {'cont':>4}  label")
     records = [json.loads(line) for line in path.read_text().splitlines() if line.strip()]
+    if args.run is not None:
+        records = [r for r in records if r.get("run", "") == args.run]
     for rec in records:
         for name, s in rec["sets"].items():
             print(f"{rec['time'][:19]:19} {rec['feature']:>5} {name[:13]:13} {s['n']:>3} "

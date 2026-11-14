@@ -82,7 +82,7 @@ async def main() -> None:
         result = await client.call_tool(
             "grade_explanation",
             {"feature": 7272, "explanation": "smoke", "predictions": preds,
-             "n_heldout": 2, "n_random": 3},
+             "n_heldout": 2, "n_random": 3, "run": "smoke"},
         )
         if result.is_error:
             sys.exit(f"grade_explanation error: {result.content}")
@@ -90,7 +90,15 @@ async def main() -> None:
         assert s["n"] == len(pool) + 1
         agent_row = next(r for r in s["rows"] if r["source"] == "agent")
         assert agent_row["peak_hit"] is True, agent_row
+        heldout = [r for r in s["rows"] if r["source"] == "heldout"]
+        assert heldout and all(r["fired"] for r in heldout), "held-out window that does not fire"
+        assert result.structured_content["run"] == "smoke"
+        assert result.structured_content["pool_version"] >= 3
         print("grade_explanation:", {k: s[k] for k in ("n", "f1", "spearman", "peak_hit")})
+
+        result = await client.call_tool("eval_sentences", {"feature": 99999})
+        assert result.is_error and "16383" in str(result.content), result.content
+        print("error surfaced:", result.content[0].text)
 
 
 if __name__ == "__main__":

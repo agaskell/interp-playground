@@ -73,8 +73,15 @@ examples, random text from other features, its own near-misses), first from
 the label alone and again after investigating, and the server scores both
 sets with Spearman correlation, firing F1 by source, and peak-token hits.
 Results append to `results/explanation_evals.jsonl`; `scripts/eval_report.py`
-prints the label-vs-investigated table. Design:
+prints the label-vs-investigated table (`--run LABEL` for one batch). Design:
 `docs/superpowers/specs/2026-10-18-explanation-eval-design.md`.
+
+A blind batch is three steps: `scripts/select_features.py` picks features by
+seeded shuffle, `scripts/check_pools.py` builds each pool and lists the
+features that cannot be evaluated, and `scripts/blind_eval_workflow.js` drives
+four agents per feature through the MCP server. Every choice that shapes the
+numbers, with predictions written before each run, is in
+`results/DECISIONS.md`.
 
 ```sh
 uv run pytest            # unit tests (no model needed)
