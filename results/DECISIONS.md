@@ -227,3 +227,37 @@ stops otherwise.
   (13412 "patterns and structures in the text", 12043 "programming-related
   keywords and structures", 3584) and the examples arm will fix most of them.
 - At least 19 of 25 causal probes have KL below 0.05.
+
+## 2026-11-14 Run 4 executed
+
+- Ran as set up: 25 features, run tag `blind-4`, pool version 4, three arms,
+  Fable 5.2, 125 agents in 11.9 minutes, all graded, nothing contaminated, no
+  held-out sentence silent or copied from a shown example. Agents'
+  explanations for both tool-using arms: `results/blind4_run_agents.json`.
+- **Primary (investigated minus label, firing F1, this batch): +0.09,
+  12 wins / 9 ties / 4 losses, p = 0.077. Not significant.** Spearman +0.13
+  (p = 0.0002), peak_hit +0.27 (p = 0.0005).
+- Secondary: examples minus label F1 +0.08 (12 / 13 / 0, p = 0.0005);
+  investigated minus examples F1 +0.01 (5 / 13 / 7, p = 0.77).
+- Pooled with run 3 (48 features, pool versions 3 and 4): F1 +0.15,
+  25 / 17 / 6, p = 0.0009.
+- Budget deviations: three investigators ran three `run_prompt`s; five report
+  a call blocked by the permission classifier.
+- Exploratory, decided after seeing the data and labelled as such in
+  FINDINGS 15: the stratification by the label's own F1, and the sensitivity
+  check without the two `<bos>` features (primary +0.07, p = 0.12).
+- Predictions: 3 right, 4 wrong. Details in FINDINGS 15.
+
+**Open, for Andy.** Nothing below has been started.
+1. Whether to stop collecting here. Recommended: yes for this design. A third
+   batch would sharpen the F1 estimate but not change what the two batches
+   say, and the design's limits matter more than its n.
+2. Whether to fix the three pool defects FINDINGS 15 lists (unreachable
+   triggers scored on noise; collapsed whitespace; pool resembles the shown
+   examples). Recommended: fix the first two as pool version 5 before any
+   further use; treat the third as a design question, not a bug.
+3. If the tools question matters for the write-up: a pool the examples do not
+   resemble, e.g. sentences sampled from ordinary text at the feature's
+   density, or near-misses written by an agent that never sees the arms'
+   outputs, predicted by all three arms. This is a new experiment and needs
+   its own entry and predictions.

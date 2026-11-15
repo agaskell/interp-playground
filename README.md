@@ -128,19 +128,30 @@ confabulated meanings for a purely positional signal. Found by Claude using
 `run_prompt`; this is why the server now detects and hides them.
 
 **Explanation eval.** Does investigating a feature produce a better
-explanation than its Neuronpedia label? On 23 blind layer-12 features, a
-tool-less agent predicting from the label alone scored mean firing F1 0.66 and
-Spearman 0.69 on a 16-sentence pool; an agent with `feature_info`, four
-`run_prompt`s and one causal probe scored 0.88 and 0.88. Paired over features,
-on the pre-registered primary metric: F1 +0.22, 13 wins, 8 ties, 2 losses,
-sign test p = 0.007. The gain is concentrated on weak firings (below 0.6 of
-max the label agent finds half of them) and on labels that name a topic when
-the trigger is something else: "references to a crisis" is a Spanish-language
-detector, "scientific measurements" is a syntactic slot. 18 of 23 causal
-probes barely moved the next token. Not yet separated: how much of the gain
-comes from seeing examples and how much from running experiments. Records in
-`results/`, write-up in FINDINGS sections 12-14, decisions and predictions
-written before each run in `results/DECISIONS.md`.
+explanation than its Neuronpedia label? Two blind batches, 48 layer-12
+features, each agent predicting a feature's activations on a 16-sentence pool:
+
+- From the label alone, mean firing F1 was 0.66 and 0.81 in the two batches.
+  With `feature_info`, four `run_prompt`s and one causal probe it was 0.88 and
+  0.90. Paired, on the pre-registered primary metric: +0.22 (p = 0.007) in the
+  first batch, +0.09 (p = 0.077, not significant) in the second, +0.15
+  (25 wins, 17 ties, 6 losses, p = 0.0009) pooled.
+- The gain comes from a minority of bad labels. Where the label's own F1 was
+  below 0.6 (10 features) investigating added +0.53; where it was 0.9 or more
+  (20 features) it added nothing. "References to a crisis" is a
+  Spanish-language detector; "scientific measurements" is a syntactic slot;
+  four of 50 sampled features are mid-text `<bos>` detectors under topical
+  labels.
+- A third arm in the second batch, given the label and the top examples but
+  no experiments, got F1 0.89 against the investigator's 0.90. On this pool,
+  reading eight examples accounts for nearly all of the gain.
+- 38 of 48 causal probes barely moved the next token.
+
+Known limits: the pool is drawn from the same top activations the examples
+come from, whitespace is collapsed, and features whose trigger cannot appear
+in plain text are scored on noise. Records in `results/`, write-up in
+FINDINGS sections 12-15, decisions and predictions written before each run in
+`results/DECISIONS.md`.
 
 ## Roadmap
 

@@ -610,3 +610,120 @@ exceed the F1 gain (about equal).
   at one layer, 23 features, one seed. The explanation's quality is measured
   only through the predictions its author makes, not by handing the
   explanation to a separate simulator.
+
+## 15. Three arms on 25 new features: the examples do most of the work
+
+Run 2026-11-14, tagged `blind-4`. 25 new layer-12 features drawn with
+selection seed 2 (`results/blind_features_seed2.json`, the first 25 of
+`results/blind_pools_seed2.json`), pool version 4, Claude Fable 5.2 in every
+role. Setup, statistics and predictions were written down first
+(`results/DECISIONS.md`). New in this run: a third arm, `examples`, that gets
+the label, the sentences and one `feature_info` call, and runs no experiments.
+125 agents, 11.9 minutes, all 25 graded, nothing contaminated, every held-out
+sentence fired and none was a copy of a shown example.
+
+**Results on the pool sentences all three arms predicted** (25 features):
+
+| arm | firing F1 | precision / recall (pooled rows) | Spearman | peak_hit |
+|---|---|---|---|---|
+| label | 0.81 | 0.84 / 0.81 | 0.79 | 0.48 |
+| examples | 0.89 | 0.96 / 0.84 | 0.87 | 0.61 |
+| investigated | 0.90 | 0.96 / 0.86 | 0.92 | 0.75 |
+
+| paired contrast | F1 delta | wins / ties / losses | sign test | Spearman delta, test | peak_hit delta, test |
+|---|---|---|---|---|---|
+| **investigated minus label (primary)** | +0.09 | 12 / 9 / 4 | **p = 0.077** | +0.13, p = 0.0002 | +0.27, p = 0.0005 |
+| examples minus label | +0.08 | 12 / 13 / 0 | p = 0.0005 | +0.09, p = 0.002 | +0.13, p = 0.15 |
+| investigated minus examples | +0.01 | 5 / 13 / 7 | p = 0.77 | +0.05, p = 0.83 | +0.14, p = 0.42 |
+| investigated minus label, sections 14 and 15 pooled (48) | +0.15 | 25 / 17 / 6 | p = 0.0009 | +0.16, p < 0.0001 | +0.25, p < 0.0001 |
+
+**The primary comparison did not reach significance in this batch.** The
+direction is the same as section 14, the size is under half (+0.09 against
++0.22), and four features got worse. Pooled over both batches it holds.
+
+**Reading the examples accounts for nearly all of the firing gain.** The
+examples arm never did worse than the label (12 wins, 13 ties, no losses) and
+experiments added +0.01 F1 on top, with more losses than wins. The one place
+the investigator looks better than the examples arm is naming the peak token
+(0.75 against 0.61), and that difference is not significant either.
+
+**Why this batch differs from section 14** (exploratory, not pre-registered).
+The gain depends on how bad the label is, and this batch had better labels:
+
+| label's own pool F1 | features (both batches) | mean F1 gain from investigating | wins / ties / losses |
+|---|---|---|---|
+| below 0.6 | 10 | +0.53 | 8 / 2 / 0 |
+| 0.6 to 0.9 | 18 | +0.10 | 11 / 5 / 2 |
+| 0.9 and above | 20 | 0.00 | 6 / 10 / 4 |
+
+Section 14's batch had 7 of 23 features with a label F1 below 0.6; this one
+had 3 of 25. Where the label already works, investigating does not help and
+sometimes over-narrows. Section 14's other pattern, a large recall gain on
+weak firings, did not repeat: recall on held-out sentences firing below 0.3 of
+max was 0.68, 0.70 and 0.68 for the three arms.
+
+**Features.**
+
+- **312** "counterfactual reasoning and concepts in quantum mechanics": F1
+  0.25, 0.50, 1.00. Fires across expository prose about abstract mathematical
+  objects (sample space, distribution, eigenspace). All eight shown examples
+  were the same text, so the examples arm could only guess "space"; this is
+  the case where experiments earned their keep.
+- **2616** is the token " over" in every sense; **16333** is the word
+  "majority"; **4409** is the copyright symbol after the word "Copyright".
+  These three had the only large causal effects: ablating 4409 after
+  "Copyright ©" dropped the next token's probability from 0.999 to 0.17
+  (KL 1.79); ablating 2616 on "the same song over and" turned " over" into
+  " again" (KL 0.98); ablating 16333 halved " minority" after "the majority
+  held ... while the" (KL 0.22).
+- **7957** "viruses and diseases" and **11243** "punctuation marks" are both
+  mid-text `<bos>` detectors, the third and fourth found in 50 features.
+  Both investigators said so and scored badly anyway (7957: F1 0.29), which
+  is a defect of the eval, below.
+- **276** (0.91 to 0.67), **2011**, **4190**, **3584**: investigation lost by
+  narrowing a trigger the label had right.
+
+**Causal probes.** All 25 investigators chose `ablate`. 20 had KL below 0.05.
+
+**Budget deviations.** Three investigators (16333, 11243, 2616) ran three
+`run_prompt`s. Five report an attempt blocked by Claude Code's permission
+classifier as too close to a pool sentence; for three of those it was an
+extra call beyond the four allowed. Every examples agent made exactly one
+`feature_info` call.
+
+**Predictions scored.** Right: the examples arm captures most of the gain;
+investigated minus examples is small, tie-heavy and not significant on F1; at
+least 19 null probes (20). Wrong: label mean F1 about 0.65 (0.81); primary
+gain +0.15 to +0.25 (+0.09); primary significant (p = 0.077); the vague
+labels would be the worst (13412 scored 1.00; the worst were 312, 7957 and
+11243).
+
+**Defects in the eval this run exposed, none fixed yet:**
+
+- *A feature whose real trigger cannot appear in the pool is still accepted
+  if its weak tail fires.* The windows are plain text and cannot carry a
+  mid-text `<bos>`. 7957's held-out sentences fired at 0.12 to 0.38 of max on
+  tokens like " Mann" and "IBC": noise. An agent that correctly says "this is
+  a `<bos>` detector" predicts zero and is marked wrong. Without those two
+  features the primary contrast is +0.07 (11 / 8 / 4, p = 0.12) and examples
+  minus label +0.06 (10 / 13 / 0, p = 0.002). A fix would compare each
+  window's activation with what Neuronpedia recorded for that example and
+  refuse features whose windows keep only a fraction of it.
+- *Whitespace is collapsed*, in pool windows and in the agent's own
+  sentences. 10140 fires on the indentation after a Python class header; its
+  held-out windows, with the newlines gone, fired at 0.13 to 0.25, and the
+  investigator's test sentence lost its newlines before it was run. A peak
+  named as a whitespace token is also dropped.
+- *The pool resembles what the examples arm is shown.* Held-out sentences
+  come from the same list of top activations as the eight examples, so this
+  eval measures "can you recognise more of the same" and is close to the best
+  case for the examples arm. Whether experiments help on sentences unlike the
+  top examples (near-misses, other senses, weak firings in ordinary text) is
+  not measured: only the investigator predicts its own near-miss sentences.
+
+**Where this leaves the question.** On 48 blind features, an agent that
+studies a feature beats the same agent reading its label at predicting where
+the feature fires, mostly because a minority of labels are badly wrong and
+the examples reveal it. On this pool, running experiments adds nothing
+measurable to firing prediction beyond reading eight examples. The honest
+headline is about labels and examples, not about tools.
