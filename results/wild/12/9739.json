@@ -1,0 +1,410 @@
+{
+ "feature": 9739,
+ "layer": 12,
+ "seed": 1,
+ "max_act": 55.47,
+ "contexts_scanned": 17988,
+ "contexts_firing": {
+  "strong": 321,
+  "weak": 706
+ },
+ "neighbors": [
+  {
+   "feature": 976,
+   "cos": 0.374
+  },
+  {
+   "feature": 7374,
+   "cos": 0.353
+  },
+  {
+   "feature": 13170,
+   "cos": 0.346
+  },
+  {
+   "feature": 10537,
+   "cos": 0.343
+  },
+  {
+   "feature": 14240,
+   "cos": 0.32
+  }
+ ],
+ "neighbors_unreachable": [],
+ "strong": [
+  {
+   "text": " her son (later Paul I",
+   "act": 45.08,
+   "rel": 0.813,
+   "peak_token": "later",
+   "context": 1920
+  },
+  {
+   "text": " of cash. Grant later fled the\ncountry to avoid prosecution.\n\fnever stated",
+   "act": 46.1,
+   "rel": 0.831,
+   "peak_token": " later",
+   "context": 6548
+  },
+  {
+   "text": " and defeating his past self. Kukulga later fights Shishi Red Orion on Ka",
+   "act": 40.6,
+   "rel": 0.732,
+   "peak_token": " later",
+   "context": 17893
+  },
+  {
+   "text": " meeting. Yours, Leif Reinhardt Natvig.\" Later Semb-Johansson received a",
+   "act": 47.57,
+   "rel": 0.858,
+   "peak_token": " Later",
+   "context": 13626
+  },
+  {
+   "text": "6 or later",
+   "act": 24.8,
+   "rel": 0.447,
+   "peak_token": " later",
+   "context": 13332
+  },
+  {
+   "text": " decide for themselves later in life to request a carrier test or not.Q:\n\n",
+   "act": 43.05,
+   "rel": 0.776,
+   "peak_token": " later",
+   "context": 13523
+  },
+  {
+   "text": " of this route later became known as the Spanish Trail, San Antonio-San",
+   "act": 43.42,
+   "rel": 0.783,
+   "peak_token": " later",
+   "context": 5681
+  },
+  {
+   "text": " Freehold (previews coming soon!).. Later that day, with the adorable Katie and",
+   "act": 47.11,
+   "rel": 0.849,
+   "peak_token": " Later",
+   "context": 9249
+  },
+  {
+   "text": " the director of disbursements. He later became the Flag Banking Officer.\n*44",
+   "act": 44.52,
+   "rel": 0.803,
+   "peak_token": " later",
+   "context": 9893
+  },
+  {
+   "text": " Financial Services products are not available on Buy Now Pay Later and will appear on your next",
+   "act": 23.8,
+   "rel": 0.429,
+   "peak_token": " Later",
+   "context": 15638
+  },
+  {
+   "text": ".\n\nThey emerge a few minutes later. They've packed Wleh in a",
+   "act": 27.01,
+   "rel": 0.487,
+   "peak_token": " later",
+   "context": 11415
+  },
+  {
+   "text": ", the *498 magistrate judge's later conclusion that he had only recently",
+   "act": 45.74,
+   "rel": 0.825,
+   "peak_token": " later",
+   "context": 16512
+  },
+  {
+   "text": " for the COMEX Division will be implemented at a later date.\n\n\tRule Amendments",
+   "act": 40.76,
+   "rel": 0.735,
+   "peak_token": " later",
+   "context": 9189
+  },
+  {
+   "text": "1999. Four days later, Brown broke the South African 80",
+   "act": 23.98,
+   "rel": 0.432,
+   "peak_token": " later",
+   "context": 4672
+  },
+  {
+   "text": " it just had another fill a year later? I feel I'm not really understanding",
+   "act": 26.83,
+   "rel": 0.484,
+   "peak_token": " later",
+   "context": 3459
+  },
+  {
+   "text": ". at 533-34.             Later, when the\n\nplain",
+   "act": 48.52,
+   "rel": 0.875,
+   "peak_token": "Later",
+   "context": 11972
+  },
+  {
+   "text": " around, pausing multiple times to catch my breath.\n\nA couple hours later, I",
+   "act": 27.95,
+   "rel": 0.504,
+   "peak_token": " later",
+   "context": 1222
+  },
+  {
+   "text": " a mere two months later, on 12 August 1998,",
+   "act": 25.9,
+   "rel": 0.467,
+   "peak_token": " later",
+   "context": 11185
+  },
+  {
+   "text": " was built before 1965; boats constructed later may be considered for listing",
+   "act": 40.84,
+   "rel": 0.736,
+   "peak_token": " later",
+   "context": 14706
+  },
+  {
+   "text": " to acoustic phonon as discussed later on). Rather, the lifetime is likely associated",
+   "act": 37.93,
+   "rel": 0.684,
+   "peak_token": " later",
+   "context": 10263
+  }
+ ],
+ "weak": [
+  {
+   "text": " diagnosis and subsequent treatment.Alcohol expectancies pre-",
+   "act": 9.87,
+   "rel": 0.178,
+   "peak_token": " subsequent",
+   "context": 9497
+  },
+  {
+   "text": ", but it was too late for me to fall head over heels for them. It",
+   "act": 11.57,
+   "rel": 0.209,
+   "peak_token": " late",
+   "context": 1651
+  },
+  {
+   "text": "2.7% of all neurological cases seen in the latter and 9^th",
+   "act": 12.86,
+   "rel": 0.232,
+   "peak_token": " latter",
+   "context": 684
+  },
+  {
+   "text": " F1 Mobile Racing APK v1 10 4 (Update Latest Verison",
+   "act": 9.43,
+   "rel": 0.17,
+   "peak_token": " Latest",
+   "context": 8927
+  },
+  {
+   "text": " work with the local organ builder Rushworth & Dreaper in the late 1",
+   "act": 9.54,
+   "rel": 0.172,
+   "peak_token": " late",
+   "context": 2540
+  },
+  {
+   "text": " minimum balance thereafter to avoid fees or to earn the high APY.\n\nThe Bank",
+   "act": 6.74,
+   "rel": 0.122,
+   "peak_token": " thereafter",
+   "context": 8065
+  },
+  {
+   "text": "A:\n\nI tried the earlier answers, but I got a never ending loop",
+   "act": 9.35,
+   "rel": 0.169,
+   "peak_token": " earlier",
+   "context": 17819
+  },
+  {
+   "text": " all your past and future patches under the MPLv2 and LGPLv3+",
+   "act": 5.85,
+   "rel": 0.105,
+   "peak_token": " MPL",
+   "context": 17977
+  },
+  {
+   "text": " as discussed throughout\nthis Order, all of Mr. Kirby’s late-blooming",
+   "act": 10.06,
+   "rel": 0.181,
+   "peak_token": " late",
+   "context": 15987
+  },
+  {
+   "text": " 200-day moving average. Earlier in the year the index broke down",
+   "act": 15.17,
+   "rel": 0.274,
+   "peak_token": " Earlier",
+   "context": 10451
+  },
+  {
+   "text": " 522, 80 L.Ed. 760 (",
+   "act": 7.56,
+   "rel": 0.136,
+   "peak_token": "Ed",
+   "context": 17462
+  },
+  {
+   "text": "According to the latest data from the European\nStatistical Office (Eurostat), Spain tops",
+   "act": 6.32,
+   "rel": 0.114,
+   "peak_token": " latest",
+   "context": 10294
+  },
+  {
+   "text": " hours prior to sacrifice decreased the subsequent binding of [3H]DADL to both",
+   "act": 12.42,
+   "rel": 0.224,
+   "peak_token": " subsequent",
+   "context": 2246
+  },
+  {
+   "text": ".com/AWSCloudFormation/latest/UserGuide/aws-properties-",
+   "act": 10.44,
+   "rel": 0.188,
+   "peak_token": "latest",
+   "context": 9767
+  },
+  {
+   "text": " in 2015, but their romance was rocked earlier this year when the",
+   "act": 10.34,
+   "rel": 0.186,
+   "peak_token": " earlier",
+   "context": 11420
+  },
+  {
+   "text": "2*. The latter four are coexpressed with target genes of the transcription factor FIT,",
+   "act": 12.99,
+   "rel": 0.234,
+   "peak_token": " latter",
+   "context": 16860
+  },
+  {
+   "text": "-project.org/projects/doctrine-orm/en/latest/reference/",
+   "act": 8.03,
+   "rel": 0.145,
+   "peak_token": "latest",
+   "context": 8444
+  },
+  {
+   "text": "/>). Subsequently, secondary structure prediction was performed for the region comprising residues Leu45",
+   "act": 5.75,
+   "rel": 0.104,
+   "peak_token": " Subsequently",
+   "context": 2579
+  },
+  {
+   "text": ".\n\nEarlier, some of Lebanon's political leaders accused Syria of being behind the",
+   "act": 16.28,
+   "rel": 0.294,
+   "peak_token": "Earlier",
+   "context": 7652
+  },
+  {
+   "text": " be scattered outside the detection instrument\"\"s field of view. But the lateral structure geometry",
+   "act": 7.66,
+   "rel": 0.138,
+   "peak_token": " lateral",
+   "context": 2770
+  }
+ ],
+ "neighbor": [
+  {
+   "text": "19.\n\nEarly on Monday morning, 20 November, the leaders of",
+   "of": 976,
+   "cos": 0.374,
+   "label": "phrases and mentions related to the early stages of life or career"
+  },
+  {
+   "text": " new, longer acting anti-VEGF medications and drug delivery systems are needed to improve outcomes",
+   "of": 7374,
+   "cos": 0.353,
+   "label": "comparative adjectives and phrases indicating size or duration"
+  },
+  {
+   "text": " and our findings. For example, previous results were obtained from VHL-related hem",
+   "of": 13170,
+   "cos": 0.346,
+   "label": "references to prior research or studies"
+  },
+  {
+   "text": " better. Further work should investigate whether",
+   "of": 10537,
+   "cos": 0.343,
+   "label": "instances of the word \"further\" indicating additional information or continuation of a topic"
+  },
+  {
+   "text": " glacial lake...\n\nRecent Trail Reviews\n\nKinstone Recreational Path\n\nSide trail that",
+   "of": 14240,
+   "cos": 0.32,
+   "label": "references to recent studies and findings in research"
+  },
+  {
+   "text": "24 under Chancellor Wilhelm Marx.\n\nEarly life\nErich Emminger was born on",
+   "of": 976,
+   "cos": 0.374,
+   "label": "phrases and mentions related to the early stages of life or career"
+  },
+  {
+   "text": " recordkeeping purposes. This rulemaking completes a larger overall effort to revise Part 1",
+   "of": 7374,
+   "cos": 0.353,
+   "label": "comparative adjectives and phrases indicating size or duration"
+  },
+  {
+   "text": " urgently needed. Previous studies have evaluated several biomarkers for AAD, such as the smooth",
+   "of": 13170,
+   "cos": 0.346,
+   "label": "references to prior research or studies"
+  },
+  {
+   "text": "ref-type=\"supplementary-material\"}--F). Further confirming that this loss",
+   "of": 10537,
+   "cos": 0.343,
+   "label": "instances of the word \"further\" indicating additional information or continuation of a topic"
+  },
+  {
+   "text": " of the human brain \\[[@B18]\\]. In recent times, these",
+   "of": 14240,
+   "cos": 0.32,
+   "label": "references to recent studies and findings in research"
+  },
+  {
+   "text": " that began in the early 2000s, there was still one area",
+   "of": 976,
+   "cos": 0.374,
+   "label": "phrases and mentions related to the early stages of life or career"
+  },
+  {
+   "text": " be ((-4)/y)/(2/10). Which is bigger: d",
+   "of": 7374,
+   "cos": 0.353,
+   "label": "comparative adjectives and phrases indicating size or duration"
+  },
+  {
+   "text": "paeolum virus 2), described previously from the same host",
+   "of": 13170,
+   "cos": 0.346,
+   "label": "references to prior research or studies"
+  },
+  {
+   "text": "0-Wood1], potentially clearing damaged tissue and preventing further dispersal of microorganisms from un",
+   "of": 10537,
+   "cos": 0.343,
+   "label": "instances of the word \"further\" indicating additional information or continuation of a topic"
+  },
+  {
+   "text": ", in many parts of the continent, are much more recent than that.",
+   "of": 14240,
+   "cos": 0.32,
+   "label": "references to recent studies and findings in research"
+  }
+ ]
+}

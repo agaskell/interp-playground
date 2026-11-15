@@ -1,0 +1,380 @@
+{
+ "feature": 4409,
+ "layer": 12,
+ "seed": 1,
+ "max_act": 76.42,
+ "contexts_scanned": 18043,
+ "contexts_firing": {
+  "strong": 20,
+  "weak": 40
+ },
+ "neighbors": [
+  {
+   "feature": 11329,
+   "cos": 0.119
+  },
+  {
+   "feature": 1229,
+   "cos": 0.107
+  },
+  {
+   "feature": 15685,
+   "cos": 0.1
+  },
+  {
+   "feature": 5476,
+   "cos": 0.099
+  },
+  {
+   "feature": 13979,
+   "cos": 0.097
+  }
+ ],
+ "neighbors_unreachable": [],
+ "strong": [
+  {
+   "text": "copyright  Copyright (c) 2005-2012 Zend",
+   "act": 36.26,
+   "rel": 0.475,
+   "peak_token": "c",
+   "context": 533
+  },
+  {
+   "text": "\n﻿/**\r\n *   Copyright (c) Rich Hickey. All rights reserved.\r",
+   "act": 40.96,
+   "rel": 0.536,
+   "peak_token": "c",
+   "context": 2224
+  },
+  {
+   "text": " unit/quantity manipulation and conversion\n//\n// Copyright (C) 20",
+   "act": 30.14,
+   "rel": 0.394,
+   "peak_token": "C",
+   "context": 11306
+  },
+  {
+   "text": ".\n *\n * Copyright (C) 1999-20",
+   "act": 32.9,
+   "rel": 0.431,
+   "peak_token": "C",
+   "context": 795
+  },
+  {
+   "text": " every computer./**\n * Copyright (c) 2015-present",
+   "act": 38.87,
+   "rel": 0.509,
+   "peak_token": "c",
+   "context": 5929
+  },
+  {
+   "text": "\n * Marlin 3D Printer Firmware\n * Copyright (c) 20",
+   "act": 38.85,
+   "rel": 0.508,
+   "peak_token": "c",
+   "context": 10819
+  },
+  {
+   "text": "Thread\n/*\n * Copyright (c) 2003, 2",
+   "act": 40.26,
+   "rel": 0.527,
+   "peak_token": "c",
+   "context": 4829
+  },
+  {
+   "text": " manipulation and conversion\n//\n// Copyright (C) 2003-",
+   "act": 29.66,
+   "rel": 0.388,
+   "peak_token": "C",
+   "context": 11307
+  },
+  {
+   "text": "% Copyright (C) 1993-2011, by",
+   "act": 27.82,
+   "rel": 0.364,
+   "peak_token": ")",
+   "context": 10817
+  },
+  {
+   "text": "}package network\n\n// Copyright (c) Microsoft and contributors.  All rights reserved",
+   "act": 39.81,
+   "rel": 0.521,
+   "peak_token": "c",
+   "context": 5157
+  },
+  {
+   "text": "\noptimize.\n\n// -*- C++ -*-\n\n// Copyright (C) 2",
+   "act": 30.14,
+   "rel": 0.394,
+   "peak_token": ")",
+   "context": 8719
+  },
+  {
+   "text": " (C) 2005-2006 The Trustees of Indiana",
+   "act": 24.95,
+   "rel": 0.326,
+   "peak_token": ")",
+   "context": 14962
+  },
+  {
+   "text": ";;;;;;;;;;;;;;;;;;;;;\n;;; Copyright (C) Kongsberg Oil &",
+   "act": 25.37,
+   "rel": 0.332,
+   "peak_token": ")",
+   "context": 1159
+  },
+  {
+   "text": "HPP */\r\n////////////////////////////////////////////////////////////////////////////////\n//  Copyright (c) 2",
+   "act": 38.94,
+   "rel": 0.51,
+   "peak_token": "c",
+   "context": 15931
+  },
+  {
+   "text": ".\n//\n// Copyright (C) 2012 Gael Guenne",
+   "act": 29.38,
+   "rel": 0.384,
+   "peak_token": ")",
+   "context": 16578
+  },
+  {
+   "text": "\n//\n// Copyright (C) 2012 Giacomo Po <g",
+   "act": 31.06,
+   "rel": 0.406,
+   "peak_token": "C",
+   "context": 4477
+  },
+  {
+   "text": "5\nCopyright (C) Microsoft Corporation. All rights reserved.\n\ng:\\P",
+   "act": 25.68,
+   "rel": 0.336,
+   "peak_token": "C",
+   "context": 14932
+  },
+  {
+   "text": "gnu.org/licenses/>.\n\n// Copyright (C) 200",
+   "act": 31.49,
+   "rel": 0.412,
+   "peak_token": "C",
+   "context": 14876
+  },
+  {
+   "text": " District\nCategory:Villages in Turkey# Copyright (c) 201",
+   "act": 31.31,
+   "rel": 0.41,
+   "peak_token": "c",
+   "context": 5162
+  },
+  {
+   "text": "///\n/// Copyright (c) 2016 Dropbox, Inc. All",
+   "act": 36.84,
+   "rel": 0.482,
+   "peak_token": "c",
+   "context": 9815
+  }
+ ],
+ "weak": [
+  {
+   "text": "\n\n<?php\n\nheader('Content-Type: text/html; charset=utf",
+   "act": 8.15,
+   "rel": 0.107,
+   "peak_token": "-",
+   "context": 14746
+  },
+  {
+   "text": "© Robert C Soriano\n\nLicensed under the [MIT License](LICENSE).",
+   "act": 12.93,
+   "rel": 0.169,
+   "peak_token": "©",
+   "context": 13171
+  },
+  {
+   "text": "(C) 1991  Linus Torvalds\n */\n\n",
+   "act": 20.57,
+   "rel": 0.269,
+   "peak_token": ")",
+   "context": 4884
+  },
+  {
+   "text": "mContext, message, Toast.LENGTH_SHORT).show();\n\n    \t}\n\n",
+   "act": 8.99,
+   "rel": 0.118,
+   "peak_token": "LENGTH",
+   "context": 1880
+  },
+  {
+   "text": "b_goodG2BSink(data);\n}\n\nvoid CWE12",
+   "act": 11.43,
+   "rel": 0.15,
+   "peak_token": " CWE",
+   "context": 2239
+  },
+  {
+   "text": " Fall of Nations\n\nPosted on December 15, 2008\n\n",
+   "act": 8.56,
+   "rel": 0.112,
+   "peak_token": " on",
+   "context": 6415
+  },
+  {
+   "text": "InfoCopyright=(c) 2011-{#YEAR} Michael Lukashov",
+   "act": 18.38,
+   "rel": 0.241,
+   "peak_token": "c",
+   "context": 12187
+  },
+  {
+   "text": " Copyright 2006-2015 Joaquin M Lopez Munoz.\r",
+   "act": 8.76,
+   "rel": 0.115,
+   "peak_token": "0",
+   "context": 1019
+  },
+  {
+   "text": "\n    <meta name=\"viewport\" content=\"width=device-width, initial",
+   "act": 8.36,
+   "rel": 0.109,
+   "peak_token": "viewport",
+   "context": 9836
+  },
+  {
+   "text": ".\n// Copyright 2004-present Facebook. All Rights Reserved.",
+   "act": 8.44,
+   "rel": 0.11,
+   "peak_token": "0",
+   "context": 1175
+  },
+  {
+   "text": ".0, Culture=neutral, PublicKeyToken=b77a5c5",
+   "act": 8.11,
+   "rel": 0.106,
+   "peak_token": " PublicKey",
+   "context": 5150
+  },
+  {
+   "text": " = []\n\n    def run(self):\n        while 1:\n            ",
+   "act": 18.42,
+   "rel": 0.241,
+   "peak_token": "1",
+   "context": 778
+  },
+  {
+   "text": "2@enwiki (talk | contribs | logs) edited Orly Taitz",
+   "act": 8.22,
+   "rel": 0.108,
+   "peak_token": " contri",
+   "context": 9745
+  },
+  {
+   "text": "Toast.makeText(mContext, message, Toast.LENGTH_SHORT).",
+   "act": 8.84,
+   "rel": 0.116,
+   "peak_token": "LENGTH",
+   "context": 9334
+  },
+  {
+   "text": "components.service\nimport com.intellij.openapi.extensions.ExtensionNotApplicableException",
+   "act": 7.87,
+   "rel": 0.103,
+   "peak_token": "intellij",
+   "context": 12526
+  },
+  {
+   "text": "Section Editor\n\nRey\n\nFélix A.\n\nAssociate Editor\n\n© 20",
+   "act": 17.82,
+   "rel": 0.233,
+   "peak_token": "©",
+   "context": 3546
+  },
+  {
+   "text": "                public void run() {\n                    while (true",
+   "act": 16.96,
+   "rel": 0.222,
+   "peak_token": "true",
+   "context": 12429
+  },
+  {
+   "text": "}\n\nwhich is equivalent to:\nwhile (1) {\n   printf(\"",
+   "act": 9.69,
+   "rel": 0.127,
+   "peak_token": "1",
+   "context": 13093
+  },
+  {
+   "text": ".sin_addr.s_addr);\n    while(1)\n     ",
+   "act": 16.83,
+   "rel": 0.22,
+   "peak_token": "1",
+   "context": 9929
+  },
+  {
+   "text": "(c) means the oral pronouncement of it, not",
+   "act": 8.16,
+   "rel": 0.107,
+   "peak_token": ")",
+   "context": 6559
+  }
+ ],
+ "neighbor": [
+  {
+   "text": "=\"JavaScript\" type=\"text/javascript\">\n\t\t\t// Dojo configuration\n\t\t\tdj",
+   "of": 11329,
+   "cos": 0.119,
+   "label": "declarations and references related to JavaScript and its types in HTML"
+  },
+  {
+   "text": " ComVisible attribute to true on that type.\r\n[assembly: ComVisible(false)]\r\n",
+   "of": 1229,
+   "cos": 0.107,
+   "label": "components related to programming attributes and assemblies"
+  },
+  {
+   "text": " It has a backrest that can be tilted",
+   "of": 15685,
+   "cos": 0.1,
+   "label": "phrases indicating conditions or requirements related to functionality and effectiveness"
+  },
+  {
+   "text": " effective,\" Rasheed said.// Copyright 2018 The Go Authors",
+   "of": 5476,
+   "cos": 0.099,
+   "label": "copyright and licensing information"
+  },
+  {
+   "text": "<>(); // list incase of persons with the same name\n    for (Person p",
+   "of": 13979,
+   "cos": 0.097,
+   "label": "instances of opening parentheses in code or text"
+  },
+  {
+   "text": "<script type=\"text/javascript\"><!--\n    try {\n        if (location",
+   "of": 11329,
+   "cos": 0.119,
+   "label": "declarations and references related to JavaScript and its types in HTML"
+  },
+  {
+   "text": ".\n\nIt may be helpful to write out a calendar. Just grab a planner and",
+   "of": 15685,
+   "cos": 0.1,
+   "label": "phrases indicating conditions or requirements related to functionality and effectiveness"
+  },
+  {
+   "text": ");\n                    }\n                }\n\n\n                for (long oldThread : oldThreads",
+   "of": 13979,
+   "cos": 0.097,
+   "label": "instances of opening parentheses in code or text"
+  },
+  {
+   "text": " no consideration stated in the extension. It is clear that consideration must pass for the extension",
+   "of": 15685,
+   "cos": 0.1,
+   "label": "phrases indicating conditions or requirements related to functionality and effectiveness"
+  },
+  {
+   "text": "getAttribute( \"tabSrc\" );\n    for ( var j = 0,",
+   "of": 13979,
+   "cos": 0.097,
+   "label": "instances of opening parentheses in code or text"
+  }
+ ]
+}

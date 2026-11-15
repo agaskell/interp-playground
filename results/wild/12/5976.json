@@ -1,0 +1,392 @@
+{
+ "feature": 5976,
+ "layer": 12,
+ "seed": 1,
+ "max_act": 22.31,
+ "contexts_scanned": 18071,
+ "contexts_firing": {
+  "strong": 548,
+  "weak": 2510
+ },
+ "neighbors": [
+  {
+   "feature": 14700,
+   "cos": 0.289
+  },
+  {
+   "feature": 13888,
+   "cos": 0.277
+  },
+  {
+   "feature": 10653,
+   "cos": 0.27
+  },
+  {
+   "feature": 3620,
+   "cos": 0.262
+  },
+  {
+   "feature": 13439,
+   "cos": 0.239
+  }
+ ],
+ "neighbors_unreachable": [],
+ "strong": [
+  {
+   "text": " any formal training in business but learned by observing, experimenting and applying their mind. It",
+   "act": 8.02,
+   "rel": 0.359,
+   "peak_token": " learned",
+   "context": 8162
+  },
+  {
+   "text": " that the metal parts of the handle are zinc",
+   "act": 7.17,
+   "rel": 0.322,
+   "peak_token": " of",
+   "context": 16122
+  },
+  {
+   "text": ": Reliability is a measurement of the reproducibility of the data. The UW QOL questionnaire",
+   "act": 15.41,
+   "rel": 0.691,
+   "peak_token": " of",
+   "context": 7822
+  },
+  {
+   "text": ". *Subset selectors* return a non-ordered subset of features from the original set",
+   "act": 11.82,
+   "rel": 0.53,
+   "peak_token": " subset",
+   "context": 10143
+  },
+  {
+   "text": " images appropriately printed with such pigments changes as the angle of view and/or illumination is",
+   "act": 11.76,
+   "rel": 0.527,
+   "peak_token": " changes",
+   "context": 5454
+  },
+  {
+   "text": " still liquid metal is introduced between two cooled work rolls and in which a metal plating strip",
+   "act": 6.85,
+   "rel": 0.307,
+   "peak_token": " introduced",
+   "context": 9764
+  },
+  {
+   "text": " may offer opinion testimony when that testimony will be helpful to the trier of fact, Fed",
+   "act": 7.13,
+   "rel": 0.319,
+   "peak_token": " to",
+   "context": 7174
+  },
+  {
+   "text": " the part of the back of a surfboard that enters the water. Similar to a rudder",
+   "act": 8.75,
+   "rel": 0.392,
+   "peak_token": " enters",
+   "context": 6272
+  },
+  {
+   "text": " indirect action against the person, the former tort was covered by the two-year statute",
+   "act": 7.96,
+   "rel": 0.357,
+   "peak_token": " against",
+   "context": 15611
+  },
+  {
+   "text": " pressure, pulse, respiration, and skin conductivity while the subject is asked and answers a",
+   "act": 15.91,
+   "rel": 0.713,
+   "peak_token": " is",
+   "context": 13114
+  },
+  {
+   "text": " of their moral cause and use tribalism, social networking and terrorism – these groups will",
+   "act": 6.97,
+   "rel": 0.312,
+   "peak_token": " cause",
+   "context": 2669
+  },
+  {
+   "text": " dry relatively large particle size (granular) fertilizers to crops, such as lawns.",
+   "act": 7.2,
+   "rel": 0.323,
+   "peak_token": " fertilizers",
+   "context": 5364
+  },
+  {
+   "text": " Ford, who perfected the assembly line by installing driven conveyor belts that could produce a",
+   "act": 6.93,
+   "rel": 0.311,
+   "peak_token": " produce",
+   "context": 1977
+  },
+  {
+   "text": " nurse manager had skills to understand the feelings of another person and supported him/her by",
+   "act": 7.34,
+   "rel": 0.329,
+   "peak_token": " person",
+   "context": 9299
+  },
+  {
+   "text": " allow results to be obtained from a Spark cluster, perhaps the most important is $collect",
+   "act": 7.68,
+   "rel": 0.344,
+   "peak_token": " from",
+   "context": 16556
+  },
+  {
+   "text": " if\n\n     he or she commits an act of sexual conduct with a victim who",
+   "act": 7.77,
+   "rel": 0.349,
+   "peak_token": " with",
+   "context": 13347
+  },
+  {
+   "text": " photographic image of the Sun at a single wavelength of light, a monochromatic image. The",
+   "act": 13.1,
+   "rel": 0.587,
+   "peak_token": " single",
+   "context": 348
+  },
+  {
+   "text": " purposes of hauling a trailer or machinery used in agriculture or construction. Agricultural implements may be",
+   "act": 11.07,
+   "rel": 0.496,
+   "peak_token": " machinery",
+   "context": 16862
+  },
+  {
+   "text": " belief in the words of an individual or a collective of individuals that are believed to possess",
+   "act": 12.63,
+   "rel": 0.566,
+   "peak_token": " that",
+   "context": 14898
+  },
+  {
+   "text": " was subject to unwelcome sexual\r\nharassment; (3) the harassment complained of",
+   "act": 8.14,
+   "rel": 0.365,
+   "peak_token": " to",
+   "context": 4879
+  }
+ ],
+ "weak": [
+  {
+   "text": " reported to interfere with estrogen signaling. Exposure to these chemicals decreases the immune response and causes",
+   "act": 3.67,
+   "rel": 0.164,
+   "peak_token": " with",
+   "context": 16098
+  },
+  {
+   "text": " and comfortable support in the reclined patient and treatment position. The foam cushion provides patient",
+   "act": 4.44,
+   "rel": 0.199,
+   "peak_token": "ined",
+   "context": 11456
+  },
+  {
+   "text": " the human race, as always, destroys itself and other living things, as long as",
+   "act": 3.47,
+   "rel": 0.156,
+   "peak_token": " itself",
+   "context": 17116
+  },
+  {
+   "text": " isolators that provide ground isolation and noise abatement for audio and video in broadcast, home",
+   "act": 3.67,
+   "rel": 0.164,
+   "peak_token": " noise",
+   "context": 8573
+  },
+  {
+   "text": " that excludable aliens could be detained for an indefinite period of time pending removal,",
+   "act": 5.64,
+   "rel": 0.253,
+   "peak_token": " pending",
+   "context": 17141
+  },
+  {
+   "text": " preachers, but to set up standards of preaching and belief which should secure loyalty to the",
+   "act": 4.24,
+   "rel": 0.19,
+   "peak_token": " which",
+   "context": 13199
+  },
+  {
+   "text": " only exist until the majority discovers it can vote itself largess out of the public treasury",
+   "act": 4.54,
+   "rel": 0.204,
+   "peak_token": " majority",
+   "context": 18193
+  },
+  {
+   "text": " affiliates not directly owned by a",
+   "act": 5.34,
+   "rel": 0.239,
+   "peak_token": " a",
+   "context": 2849
+  },
+  {
+   "text": " a longer neck and scale length, and four, five, or six strings. In",
+   "act": 6.15,
+   "rel": 0.276,
+   "peak_token": " six",
+   "context": 12348
+  },
+  {
+   "text": ".\nDry bulk carriers are typically used to transport dry particulates, such as dry",
+   "act": 6.33,
+   "rel": 0.284,
+   "peak_token": "ulates",
+   "context": 1767
+  },
+  {
+   "text": " game in perfect condition in its original packaging and with all original packaging materials included. Most",
+   "act": 3.77,
+   "rel": 0.169,
+   "peak_token": " its",
+   "context": 11638
+  },
+  {
+   "text": "I_p \\in \\mathbb{R}^{p \\times p}$ is the",
+   "act": 3.13,
+   "rel": 0.14,
+   "peak_token": "R",
+   "context": 1262
+  },
+  {
+   "text": " etc., and multiple signal components, such as reflectivities at different wavelengths or collection",
+   "act": 4.8,
+   "rel": 0.215,
+   "peak_token": " and",
+   "context": 912
+  },
+  {
+   "text": " the query: “What fraction of the total effect of smoking cessation $A_{1",
+   "act": 3.77,
+   "rel": 0.169,
+   "peak_token": " total",
+   "context": 16029
+  },
+  {
+   "text": " custom weights,\n   *   instead of using presets in @FT_Library_",
+   "act": 3.48,
+   "rel": 0.156,
+   "peak_token": " using",
+   "context": 1882
+  },
+  {
+   "text": ", question-and-answer format sessions where anyone within the company can ask top leadership",
+   "act": 5.95,
+   "rel": 0.267,
+   "peak_token": " within",
+   "context": 17021
+  },
+  {
+   "text": "rophobia' can also be manifested as 'neuroanxiety' because the negative emotions that",
+   "act": 3.76,
+   "rel": 0.168,
+   "peak_token": " negative",
+   "context": 5231
+  },
+  {
+   "text": " officials to trap insects for testing, tested positive on Aug. 31, the",
+   "act": 3.56,
+   "rel": 0.159,
+   "peak_token": " for",
+   "context": 12965
+  },
+  {
+   "text": " dense have a greater risk of developing breast cancer than women whose breasts contain more fatty tissue",
+   "act": 3.12,
+   "rel": 0.14,
+   "peak_token": " contain",
+   "context": 4904
+  },
+  {
+   "text": " go to position with profile stopped MADE IN PORTUGALHighly selective hydrolytic kinetic resolution of",
+   "act": 3.66,
+   "rel": 0.164,
+   "peak_token": " with",
+   "context": 17068
+  }
+ ],
+ "neighbor": [
+  {
+   "text": "\n Distribution mechanism\n\nThe operator interacts with the machine via the keyboard, composing lines of",
+   "of": 14700,
+   "cos": 0.289,
+   "label": "technical terminology related to computer systems and their components"
+  },
+  {
+   "text": "s name, add the introduction phrase, say the other person’s name and\n",
+   "of": 13888,
+   "cos": 0.277,
+   "label": "keywords and phrases related to responsibility and possession in a context of legal or formal criteria"
+  },
+  {
+   "text": " of machines and the branch of computer science which",
+   "of": 10653,
+   "cos": 0.27,
+   "label": "concepts related to health care ethics and spirituality"
+  },
+  {
+   "text": " Group, Inc. We provide articles, research and events for sophisticated professionals driving digital customer",
+   "of": 3620,
+   "cos": 0.262,
+   "label": "phrases related to healthcare and support initiatives for improving education"
+  },
+  {
+   "text": ".\n\nfigure   a representation of a human or animal form in drawing or sculpture  ",
+   "of": 13439,
+   "cos": 0.239,
+   "label": "terms related to art and representation, particularly involving human or animal figures"
+  },
+  {
+   "text": " packet headers.\nComputer systems on modern data packet networks typically exchange data in accordance with",
+   "of": 14700,
+   "cos": 0.289,
+   "label": "technical terminology related to computer systems and their components"
+  },
+  {
+   "text": "’s very common to find patterns that are repeated on several regex so quepy",
+   "of": 13888,
+   "cos": 0.277,
+   "label": "keywords and phrases related to responsibility and possession in a context of legal or formal criteria"
+  },
+  {
+   "text": "97 Cotton candy\n\nCotton candy is a soft confection made from sugar that is heated",
+   "of": 10653,
+   "cos": 0.27,
+   "label": "concepts related to health care ethics and spirituality"
+  },
+  {
+   "text": " destination for caregivers seeking information and support as they care for aging parents, spouses, and",
+   "of": 3620,
+   "cos": 0.262,
+   "label": "phrases related to healthcare and support initiatives for improving education"
+  },
+  {
+   "text": "ɛn(d)ʃɪp/\nnoun\nthe emotions or conduct of",
+   "of": 13439,
+   "cos": 0.239,
+   "label": "terms related to art and representation, particularly involving human or animal figures"
+  },
+  {
+   "text": " Object Container?\n\nScene graph contains game nodes representing game objects. At a first glance",
+   "of": 14700,
+   "cos": 0.289,
+   "label": "technical terminology related to computer systems and their components"
+  },
+  {
+   "text": " bright side (focus on the positive) of bothersome (causing trouble) coworkers and",
+   "of": 13439,
+   "cos": 0.239,
+   "label": "terms related to art and representation, particularly involving human or animal figures"
+  }
+ ]
+}

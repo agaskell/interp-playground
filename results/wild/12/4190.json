@@ -1,0 +1,404 @@
+{
+ "feature": 4190,
+ "layer": 12,
+ "seed": 1,
+ "max_act": 38.49,
+ "contexts_scanned": 18042,
+ "contexts_firing": {
+  "strong": 174,
+  "weak": 2010
+ },
+ "neighbors": [
+  {
+   "feature": 11921,
+   "cos": 0.196
+  },
+  {
+   "feature": 8178,
+   "cos": 0.186
+  },
+  {
+   "feature": 5781,
+   "cos": 0.185
+  },
+  {
+   "feature": 14145,
+   "cos": 0.17
+  },
+  {
+   "feature": 11409,
+   "cos": 0.167
+  }
+ ],
+ "neighbors_unreachable": [],
+ "strong": [
+  {
+   "text": "or EMI) the only real way to fix the problem is to either remove the RF",
+   "act": 24.62,
+   "rel": 0.64,
+   "peak_token": " way",
+   "context": 2774
+  },
+  {
+   "text": " the entire world, there's nothing\nleft but go to an orphanage, to",
+   "act": 25.93,
+   "rel": 0.674,
+   "peak_token": " but",
+   "context": 17380
+  },
+  {
+   "text": "\\], the only divisor not yet considered is $d=\\frac{m}",
+   "act": 12.68,
+   "rel": 0.329,
+   "peak_token": " is",
+   "context": 13784
+  },
+  {
+   "text": " stop any further risk, the diseased artery had to be blocked immediately. However, the",
+   "act": 11.65,
+   "rel": 0.303,
+   "peak_token": " to",
+   "context": 8100
+  },
+  {
+   "text": " number of death sentences continue to be imposed in a fashion that can only be described as",
+   "act": 23.32,
+   "rel": 0.606,
+   "peak_token": " be",
+   "context": 16030
+  },
+  {
+   "text": " be substantially less than in 1969 unless rate increases have occurred. Exactly",
+   "act": 24.23,
+   "rel": 0.629,
+   "peak_token": " unless",
+   "context": 11196
+  },
+  {
+   "text": " to see it would be activists that are already doing this type of work. We needed",
+   "act": 17.74,
+   "rel": 0.461,
+   "peak_token": " be",
+   "context": 11186
+  },
+  {
+   "text": "Thus if you really want to use .contains you need to override .equals method in",
+   "act": 13.14,
+   "rel": 0.342,
+   "peak_token": " need",
+   "context": 11999
+  },
+  {
+   "text": " is sewing from economic necessity these days - so you are sewing because:\n\n- you",
+   "act": 18.7,
+   "rel": 0.486,
+   "peak_token": ":",
+   "context": 8992
+  },
+  {
+   "text": " friends, they become a tribe unto themselves. Because they only have each other for company",
+   "act": 11.96,
+   "rel": 0.311,
+   "peak_token": " other",
+   "context": 17677
+  },
+  {
+   "text": " Genmar Kansas would have been profitable absent defendants' breach of the purchase agreement.\n",
+   "act": 12.11,
+   "rel": 0.315,
+   "peak_token": " absent",
+   "context": 1344
+  },
+  {
+   "text": " there is only one place he can do that.\n\nThe house on Jacob Street calls",
+   "act": 17.14,
+   "rel": 0.445,
+   "peak_token": " place",
+   "context": 1605
+  },
+  {
+   "text": " it only makes sense to widen the field and bring the",
+   "act": 12.8,
+   "rel": 0.332,
+   "peak_token": " sense",
+   "context": 17726
+  },
+  {
+   "text": "Si skeletons that characterize most hexactinellid sponges can only be built at slow rates",
+   "act": 15.31,
+   "rel": 0.398,
+   "peak_token": " be",
+   "context": 6413
+  },
+  {
+   "text": " IDE).\nOnly option you've got is adding the created batch file as the",
+   "act": 20.42,
+   "rel": 0.531,
+   "peak_token": " is",
+   "context": 1987
+  },
+  {
+   "text": " his kingship, left with only the city of Ur. In 194",
+   "act": 13.39,
+   "rel": 0.348,
+   "peak_token": " only",
+   "context": 7816
+  },
+  {
+   "text": "A:\n\nThis isn't really resolvable except as a business question. However",
+   "act": 18.75,
+   "rel": 0.487,
+   "peak_token": " except",
+   "context": 73
+  },
+  {
+   "text": ", which made the game less fun for everyone but those who'd been there the",
+   "act": 15.65,
+   "rel": 0.407,
+   "peak_token": " but",
+   "context": 1614
+  },
+  {
+   "text": " fraud or of violence.  They are linked only by the specific circumstances of this case",
+   "act": 15.16,
+   "rel": 0.394,
+   "peak_token": " only",
+   "context": 11681
+  },
+  {
+   "text": " the only means to do this is by placing the telephone handset on and off the hook",
+   "act": 14.52,
+   "rel": 0.377,
+   "peak_token": " is",
+   "context": 6904
+  }
+ ],
+ "weak": [
+  {
+   "text": ". From my research, it looks like this could be because the Media is getting unset",
+   "act": 4.93,
+   "rel": 0.128,
+   "peak_token": ",",
+   "context": 5879
+  },
+  {
+   "text": " and Holder's proxy assassins come for him, and 4] the fascist Democrat",
+   "act": 4.87,
+   "rel": 0.127,
+   "peak_token": "4",
+   "context": 1786
+  },
+  {
+   "text": " cannot help it!” To me, the only beliefs that ought to be adopted are those",
+   "act": 11.38,
+   "rel": 0.296,
+   "peak_token": " only",
+   "context": 7040
+  },
+  {
+   "text": "% and about 100% of the total seed. Most preferably, an",
+   "act": 5.65,
+   "rel": 0.147,
+   "peak_token": " preferably",
+   "context": 13248
+  },
+  {
+   "text": " all but eliminates the symptoms produced by this failure. The only draw back is that the",
+   "act": 8.71,
+   "rel": 0.226,
+   "peak_token": " only",
+   "context": 2766
+  },
+  {
+   "text": ", so he had to prove that he",
+   "act": 3.93,
+   "rel": 0.102,
+   "peak_token": " to",
+   "context": 2705
+  },
+  {
+   "text": " a developer you have to do this. We have setup for Genesys and Avaya",
+   "act": 6.05,
+   "rel": 0.157,
+   "peak_token": " to",
+   "context": 4175
+  },
+  {
+   "text": " find his daughter.\n\n\"I have to believe that Ayla is with somebody and",
+   "act": 7.69,
+   "rel": 0.2,
+   "peak_token": " believe",
+   "context": 895
+  },
+  {
+   "text": " value in o, -1/3, v?\nv\nLet q =",
+   "act": 4.08,
+   "rel": 0.106,
+   "peak_token": ",",
+   "context": 4514
+  },
+  {
+   "text": " record. That makes a bowl game unlikely. So it's up to the Gators",
+   "act": 7.03,
+   "rel": 0.183,
+   "peak_token": " to",
+   "context": 3092
+  },
+  {
+   "text": " lack of access to information, lack of familiarity with the information available, or an actual",
+   "act": 5.89,
+   "rel": 0.153,
+   "peak_token": " or",
+   "context": 11575
+  },
+  {
+   "text": " going to require the specifications of the hardware to be reduced.  In\nrecognition of",
+   "act": 7.58,
+   "rel": 0.197,
+   "peak_token": " of",
+   "context": 9598
+  },
+  {
+   "text": " this is true for every $j$, we deduce $\\operatorname{codim}(\\D",
+   "act": 7.31,
+   "rel": 0.19,
+   "peak_token": " $\\",
+   "context": 1454
+  },
+  {
+   "text": " confidence-interval for the difference.)\nYour best bet is likely to work directly with",
+   "act": 7.72,
+   "rel": 0.2,
+   "peak_token": " is",
+   "context": 7497
+  },
+  {
+   "text": " the class of death-eligible invites the possibility that some defendants will receive the death penalty",
+   "act": 5.68,
+   "rel": 0.147,
+   "peak_token": " the",
+   "context": 9944
+  },
+  {
+   "text": ", produced at trial [to demonstrate] that someone other than\n\n[Mr. Kirby",
+   "act": 8.03,
+   "rel": 0.209,
+   "peak_token": " than",
+   "context": 13741
+  },
+  {
+   "text": "\nchip (which presumably would be the point of such a feature).\n\nJust have",
+   "act": 4.59,
+   "rel": 0.119,
+   "peak_token": " the",
+   "context": 11498
+  },
+  {
+   "text": ",k) \\in S(G)$ if and only if $j$ is",
+   "act": 4.89,
+   "rel": 0.127,
+   "peak_token": " $",
+   "context": 9146
+  },
+  {
+   "text": "big)^2\\nu_2(dy)<\\infty,$ then $$H^2",
+   "act": 4.88,
+   "rel": 0.127,
+   "peak_token": " then",
+   "context": 3664
+  },
+  {
+   "text": " the piconet ceases to exist until a new master",
+   "act": 4.25,
+   "rel": 0.111,
+   "peak_token": " until",
+   "context": 524
+  }
+ ],
+ "neighbor": [
+  {
+   "text": " agency.\n\nThis privacy policy applies only to this website. If you do",
+   "of": 11921,
+   "cos": 0.196,
+   "label": "phrases that emphasize exclusivity or limitation in statements"
+  },
+  {
+   "text": " transaction is\neither committed in full or not at all. A transaction may consist of",
+   "of": 8178,
+   "cos": 0.186,
+   "label": "conditional phrases indicating choices or alternatives"
+  },
+  {
+   "text": " autocompletion (other than history autocompletion)\nwhen you use something other than the",
+   "of": 5781,
+   "cos": 0.185,
+   "label": "specific terms related to legal or procedural contexts"
+  },
+  {
+   "text": " the Gorilla paper mentioned above – that I had to implement myself. For reference, it",
+   "of": 14145,
+   "cos": 0.17,
+   "label": "phrases indicating the need for analysis and assessment in various contexts"
+  },
+  {
+   "text": " for which she paid taxes but which forbade classes for black children beyond the seventh grade,",
+   "of": 11409,
+   "cos": 0.167,
+   "label": "phrases indicating limitations or boundaries in various contexts"
+  },
+  {
+   "text": " entropy change is non-trivially bounded only if the initial state is not an",
+   "of": 11921,
+   "cos": 0.196,
+   "label": "phrases that emphasize exclusivity or limitation in statements"
+  },
+  {
+   "text": " daughter. Men, on the other hand, will either pass along an X-chromosome",
+   "of": 8178,
+   "cos": 0.186,
+   "label": "conditional phrases indicating choices or alternatives"
+  },
+  {
+   "text": " a room with a lady for any reason except she is your wife. You think this",
+   "of": 5781,
+   "cos": 0.185,
+   "label": "specific terms related to legal or procedural contexts"
+  },
+  {
+   "text": " not followed up due to feasibility restrictions). Additional information would need to be gathered to assess",
+   "of": 14145,
+   "cos": 0.17,
+   "label": "phrases indicating the need for analysis and assessment in various contexts"
+  },
+  {
+   "text": " the \"entry fiction,\" which has no applicability beyond the stage at which a determination is",
+   "of": 11409,
+   "cos": 0.167,
+   "label": "phrases indicating limitations or boundaries in various contexts"
+  },
+  {
+   "text": "” is the new day dawning. It’s now or never the guitar pleads",
+   "of": 8178,
+   "cos": 0.186,
+   "label": "conditional phrases indicating choices or alternatives"
+  },
+  {
+   "text": ", but it is also not illegal except for in the province of Aceh, which follows",
+   "of": 5781,
+   "cos": 0.185,
+   "label": "specific terms related to legal or procedural contexts"
+  },
+  {
+   "text": " is this factor that must be correlated with an impressively increased overall use of health care services",
+   "of": 14145,
+   "cos": 0.17,
+   "label": "phrases indicating the need for analysis and assessment in various contexts"
+  },
+  {
+   "text": " outside-host dynamics other than the decay rate of the pathogen.\n\nInterspecific interactions",
+   "of": 11409,
+   "cos": 0.167,
+   "label": "phrases indicating limitations or boundaries in various contexts"
+  }
+ ]
+}

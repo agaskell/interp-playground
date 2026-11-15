@@ -1,0 +1,2774 @@
+{
+ "run": "blind-5",
+ "layer": 12,
+ "seed": 1,
+ "pool_version": 5,
+ "n_heldout": 4,
+ "n_wild": 6,
+ "n_neighbor": 5,
+ "n_random": 6,
+ "explanations_from": "results/blind4_run_agents.json",
+ "features": [
+  {
+   "feature": 16333,
+   "label": "instances and discussions about majority and minority perspectives",
+   "pool": [
+    {
+     "id": 0,
+     "text": "vector<int> b = {6,7,4,3,",
+     "source": "random"
+    },
+    {
+     "id": 1,
+     "text": "1The whole plant of Ceylon Spinach (*Basella alba* Linn.) showing its flowers",
+     "source": "random"
+    },
+    {
+     "id": 2,
+     "text": ");\n\nAntioxidant activities of the water-soluble fraction in tempeh-",
+     "source": "random"
+    },
+    {
+     "id": 3,
+     "text": " scientific or type-setting errors. Please note that major changes, or those which affect",
+     "source": "neighbor"
+    },
+    {
+     "id": 4,
+     "text": " a crime against a minority. Funny how that works.\n\nIT IS A SICK SOCIETY",
+     "source": "wild"
+    },
+    {
+     "id": 5,
+     "text": " and get an all inclusive wedding package with a honeymoon. A large number of direct flights",
+     "source": "wild"
+    },
+    {
+     "id": 6,
+     "text": " substantial relationship exists.\n       The majority is swayed by the outcome that José\nT",
+     "source": "heldout"
+    },
+    {
+     "id": 7,
+     "text": " String) = ruleName in this.rules\n}\n\nprivate val multiRule =",
+     "source": "neighbor"
+    },
+    {
+     "id": 8,
+     "text": "1](#tbl1){ref-type=\"table\"}). The majority of patients (",
+     "source": "heldout"
+    },
+    {
+     "id": 9,
+     "text": "        $cache = array();\n        while ($data = $this->_stmt->",
+     "source": "random"
+    },
+    {
+     "id": 10,
+     "text": " the rarity of work absenteeism and loss of productive time to the majority of headaches being",
+     "source": "wild"
+    },
+    {
+     "id": 11,
+     "text": " at night, so I ordered some fleece-lined hemp doublers. Most nights he",
+     "source": "neighbor"
+    },
+    {
+     "id": 12,
+     "text": " be rendered as half-faded into the background colour.\nI'm guessing",
+     "source": "neighbor"
+    },
+    {
+     "id": 13,
+     "text": " diseases if they are the predominant species [@pone.0071621",
+     "source": "wild"
+    },
+    {
+     "id": 14,
+     "text": ", in order to hold more frequent celebrations. Popular legend holds that Gardner and Nichols developed",
+     "source": "neighbor"
+    },
+    {
+     "id": 15,
+     "text": " the other 34, some of which might actually have helped people. In his",
+     "source": "random"
+    },
+    {
+     "id": 16,
+     "text": " a wafer transfer chamber, a plurality of parallel PVD or other process chambers connected with",
+     "source": "heldout"
+    },
+    {
+     "id": 17,
+     "text": " then a handful of people who helped the Ernsts grow both crownvetch seed and",
+     "source": "wild"
+    },
+    {
+     "id": 18,
+     "text": ", Missouri; the two families had previously been minority owners in Mountain Lakes.\n\nAmong",
+     "source": "heldout"
+    },
+    {
+     "id": 19,
+     "text": "Update\", \"GetTime\", new AjaxOptions { UpdateTargetId = \"MyAjax",
+     "source": "random"
+    },
+    {
+     "id": 20,
+     "text": " the scene. Yet the majority is content to note that \"there is no indication that",
+     "source": "wild"
+    }
+   ],
+   "explanations": {
+    "examples": "Token-level feature for the word \"majority\": every top example peaks on \" majority\" (the/a/vast/mass majority, legal \"majority\" vs dissent), all at near-max activation, and the direction promotes majority/Majority. Expect strong firing on any \" majority\" token regardless of context. Likely weaker firing on close relatives: \"minority\" (in promotes list, lower rank) and possibly \"plurality\" as a quantifier. Should NOT fire on code, math, LaTeX, biology text, or generic quantity words without the majority token (\"some of which\", numbers).",
+    "investigated": "Lexical feature for the word \"majority\". Peak lands on the \" majority\"/\" Majority\" token in any sense (statistical, political title, court opinion, sentence-initial): 0.80-0.86 of max in my prompts, up to 1.0 in top examples. Weaker tiers: \"majorities\" (on \"ities\") 0.55; \" minority\" 0.37; \"preponderance\" 0.33; \"plurality\" 0.24-0.29; \"Minorities\", \"bulk\", pre-modifier \"overwhelming\" 0.22-0.27; \"thirds\" 0.18; spillover on the following token (\"of\", \"Leader\") 0.15-0.25. Does NOT fire: \"Most\" (0.05), \"major\", \"minor\", \"half\", \"multiple\", \"mostly\", and presumably code/math/unrelated prose. Causal: ablating it after \"the majority held ... while the\" halved \" minority\" (0.59 to 0.29), KL 0.22."
+   }
+  },
+  {
+   "feature": 10140,
+   "label": "elements related to programming structures and their definitions",
+   "pool": [
+    {
+     "id": 0,
+     "text": " alike with the necessary impetus.\n\nThe base vehicle for Boulevard Customs,",
+     "source": "random"
+    },
+    {
+     "id": 1,
+     "text": " along channel cross sections. The bathymetric accuracy was assessed at 18.",
+     "source": "random"
+    },
+    {
+     "id": 2,
+     "text": ")\"]\n    #[doc = \"\"]\n    #[doc = \"*This API",
+     "source": "random"
+    },
+    {
+     "id": 3,
+     "text": " @api\n     */\n    public function __construct",
+     "source": "neighbor"
+    },
+    {
+     "id": 4,
+     "text": "Protobuf._ProtoNameProviding {\n  static let _protobuf_nameMap: Swift",
+     "source": "wild"
+    },
+    {
+     "id": 5,
+     "text": "        {\n            enum type\n            {\n                unknown,\n                thread,",
+     "source": "wild"
+    },
+    {
+     "id": 6,
+     "text": "Checker([FOLDER_TYPE])\n\n\nclass FolderController(Controller):\n    @ha",
+     "source": "heldout"
+    },
+    {
+     "id": 7,
+     "text": "\n\t\t\t\t\tright: 0,\n\t\t\t\t\ttop: totalTopBoxesHeight,\n",
+     "source": "neighbor"
+    },
+    {
+     "id": 8,
+     "text": "\n\nclass KissListView(ListView):\n    template_name = 'project/home",
+     "source": "heldout"
+    },
+    {
+     "id": 9,
+     "text": " after the course. Then, with",
+     "source": "random"
+    },
+    {
+     "id": 10,
+     "text": "MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {\n  static let protoMessage",
+     "source": "wild"
+    },
+    {
+     "id": 11,
+     "text": "constructor(private http: Http) {\n    }\n\n    getMyObjs(query",
+     "source": "neighbor"
+    },
+    {
+     "id": 12,
+     "text": "\n * @api\n */\nclass Request\n{\n    protected $uri;",
+     "source": "neighbor"
+    },
+    {
+     "id": 13,
+     "text": " obj = {};\r\nObject.defineProperty(obj, 'lastName', {\r\n  enumerable",
+     "source": "wild"
+    },
+    {
+     "id": 14,
+     "text": "time=None, repeat=None):\n        self.name = name\n        ",
+     "source": "neighbor"
+    },
+    {
+     "id": 15,
+     "text": "Feed/{type}\")]\npublic IActionResult GetRssFeed(ArticleStatusTypes type)",
+     "source": "random"
+    },
+    {
+     "id": 16,
+     "text": "\n\ntemplate<typename T> void test_minres_T()\n{\n",
+     "source": "heldout"
+    },
+    {
+     "id": 17,
+     "text": " siteanalytics = {}; };\n        siteanalytics.gn_tracking_defaults =",
+     "source": "wild"
+    },
+    {
+     "id": 18,
+     "text": ".db import models\n\nclass Kiss(models.Model):\n    latitude    =",
+     "source": "heldout"
+    },
+    {
+     "id": 19,
+     "text": ".\n\nEarlier this month, the rapper was arrested on numerous motor vehicle charges stemming from",
+     "source": "random"
+    },
+    {
+     "id": 20,
+     "text": " IncomingForm;\n\nIncomingForm.prototype.parse = function(req, cb)",
+     "source": "wild"
+    }
+   ],
+   "explanations": {
+    "examples": "Every top example peaks on the indentation whitespace token immediately after a Python class header line (\"class Name(Base):\\n\" then the 4-space indent), i.e. the position where the class body or docstring is about to start. The promoted tokens (triple quotes, \"#![\", BOM+\"#\") are body-opening or file-opening tokens, which fits. I expect strong firing on the indent after \"class X(Y):\" in Python, weaker firing on analogous body-start positions in other languages (Elixir \"module ... do\", C++ \"{\"), and nothing on prose, math, hex constants, PHP statement bodies or Rust doc attributes. The label's \"programming structures\" is much broader than what the examples show. Not tested: only one feature_info call was made.",
+    "investigated": "Fires on the indentation-whitespace token that opens a class body: the indent right after a Python `class X(Base):` header line. Tiers: 0.85-0.9 of max inside a clean Python file (also 0.83 on the later indent before the first method); 0.6 on the deeper indent after a nested class; 0.3 with a truncated header or mixed-language context; 0.1-0.27 for Elixir module-body indent/`@` and for one-line class headers with no newline (`):`, `=`, `:`). Does not fire: function-body indents, C++ templates, Rust attributes, structs, C# methods (all <0.1), prose. Ablation: KL 0.035, small effect. Caveats: a fifth run_prompt was blocked by the permission classifier and never ran; probe 3 was structurally close to pool items 5 and 15."
+   }
+  },
+  {
+   "feature": 9261,
+   "label": "dialogue or conversational exchanges",
+   "pool": [
+    {
+     "id": 0,
+     "text": "0 wineries that will be pouring at the event.\n\nIt's all going down",
+     "source": "random"
+    },
+    {
+     "id": 1,
+     "text": "Malley recently brokered an $85 million settlement of legal claims brought by more than",
+     "source": "random"
+    },
+    {
+     "id": 2,
+     "text": "App {\n    public static void main(String args[]) {\n        ApplicationContext",
+     "source": "random"
+    },
+    {
+     "id": 3,
+     "text": "and the birthplace of AIDS.\n\nStillModerated\n\nAnd ebola virus.\n\n",
+     "source": "neighbor"
+    },
+    {
+     "id": 4,
+     "text": " just never expected actually to be arrested.\n\nAutomaticSlim\n\nThat’s a very",
+     "source": "wild"
+    },
+    {
+     "id": 5,
+     "text": " do the\nsame.\n\n------\nteaneedz\nWhat will Microsoft be",
+     "source": "wild"
+    },
+    {
+     "id": 6,
+     "text": " wore nothing that would imply my station.\"\n\n\"That's very good. We",
+     "source": "heldout"
+    },
+    {
+     "id": 7,
+     "text": " can play themselves out of that slot.\n\nNot necessarily. Just look at a guy",
+     "source": "neighbor"
+    },
+    {
+     "id": 8,
+     "text": ". The answer is no.\n\nSTEPHANOPOULOS: No?\n\nWEBB",
+     "source": "heldout"
+    },
+    {
+     "id": 9,
+     "text": " error')\n  )\n})\n\nmodule.exports =",
+     "source": "random"
+    },
+    {
+     "id": 10,
+     "text": ". When's the next meeting?\" \"Next week ... a combination KKK and",
+     "source": "wild"
+    },
+    {
+     "id": 11,
+     "text": " economic struggles of working-class families.\n\n\"It was exactly 50 years",
+     "source": "neighbor"
+    },
+    {
+     "id": 12,
+     "text": " Jose family.\n\n\"It's in the best interest of justice,\" Dudley said",
+     "source": "neighbor"
+    },
+    {
+     "id": 13,
+     "text": " getting limited.\n\nA:\n\nOK, I think I figured out what's",
+     "source": "wild"
+    },
+    {
+     "id": 14,
+     "text": "li>\n<li>A number of refinements of services and filters</li>",
+     "source": "neighbor"
+    },
+    {
+     "id": 15,
+     "text": "buf_pos(b), ngx_buf_last(b) - ng",
+     "source": "random"
+    },
+    {
+     "id": 16,
+     "text": " de licence de voiture :)\n<GringoStar> J'ai vu qu'",
+     "source": "heldout"
+    },
+    {
+     "id": 17,
+     "text": " the macs where never used\n\nWhich is one of the saddest things about the project",
+     "source": "wild"
+    },
+    {
+     "id": 18,
+     "text": " on.”\n\n“No. No come on.\nI saw on Facebook, a",
+     "source": "heldout"
+    },
+    {
+     "id": 19,
+     "text": "imgs = []\n\nbold_imgs.append( pygame.image",
+     "source": "random"
+    },
+    {
+     "id": 20,
+     "text": " ho ??\n<Ankman> and i fear they gave up on enigmail\n",
+     "source": "wild"
+    }
+   ],
+   "explanations": {
+    "examples": "Only two distinct top examples, both showing the same thing: the opening words of a reply turn in quoted dialogue, right after another speaker's quotation closes (”  “What [[moments]]?”, ”\\n\\n“[[But]] you made). Peak is on the first content tokens of the response, especially a rejoinder that picks up or challenges the previous speaker. Similar features (witness testimony responses, dialogue and quotations) suggest transcript Q/A turns fire too, more weakly. Expect no firing on code, addresses, patent boilerplate, news prose or narrative without a speaker change; a lone quotation without a preceding turn should be weak or silent. The promotes list is code-identifier noise and uninformative.",
+    "investigated": "Fires on the first 1-4 words of a reply turn in back-and-forth dialogue: the opening of a quoted or speaker-labelled utterance that responds to the previous speaker. Strongest (0.7-1.0 of max) on rebuttal/echo openers (\"But you promised\", \"You did not\", \"They are\", \"What moments\"); mid (0.35-0.55) on other reply openers (\"That's fine\", \"Because\", \"you believe\" in a Q line); weak (0.15-0.3) on first-turn openers, one-word answers (\"No\", \"Yes\"), Japanese script replies. Zero on narration, reported speech, embedded non-dialogue quotes, addresses, code. Decays within a few tokens of the turn start. Causally weak: ablation barely moves next-token probabilities (KL 0.006), though the greedy continuation changed."
+   }
+  },
+  {
+   "feature": 13412,
+   "label": "patterns and structures in the text",
+   "pool": [
+    {
+     "id": 0,
+     "text": " anything for destroyed your relationship with him! \" - Suho\n\" Please Suho",
+     "source": "random"
+    },
+    {
+     "id": 1,
+     "text": "Xingquan Zhu]{}, [Gong-Qing Wu]{}, [Wei Ding]{},",
+     "source": "random"
+    },
+    {
+     "id": 2,
+     "text": " = ChattingUI.a.e(lBA.lAY).getFirstVisible",
+     "source": "random"
+    },
+    {
+     "id": 3,
+     "text": " for mips32 with flags -mno-ldc1-sdc1 -soft",
+     "source": "neighbor"
+    },
+    {
+     "id": 4,
+     "text": "035}\n===================================\n\nIn this study, we developed a comprehensive",
+     "source": "wild"
+    },
+    {
+     "id": 5,
+     "text": "8, respectively.\n\nStatistical considerations\n--------------------------\n\nUsing the hypothesis that the response",
+     "source": "wild"
+    },
+    {
+     "id": 6,
+     "text": "_DATA_HPP */\r\n////////////////////////////////////////////////////////////////////////////////\n//  Copyright (",
+     "source": "heldout"
+    },
+    {
+     "id": 7,
+     "text": "-3392]). The most",
+     "source": "neighbor"
+    },
+    {
+     "id": 8,
+     "text": "cio\r\n///////////////////////////////////////////////////////////////////////////////////\r\n\r\n#pragma once\r\n",
+     "source": "heldout"
+    },
+    {
+     "id": 9,
+     "text": " Germany), dissolved in phosphate buffer saline (PBS; Invitrogen, Eggenstein, Germany",
+     "source": "random"
+    },
+    {
+     "id": 10,
+     "text": "g}\n\n  --------------------------------------------------------------------------------------------------------------------------------\n  Variable[^a",
+     "source": "wild"
+    },
+    {
+     "id": 11,
+     "text": "93, -5068, -",
+     "source": "neighbor"
+    },
+    {
+     "id": 12,
+     "text": "320px;\">\r\n  \r\n  <p>\r\n    <button",
+     "source": "neighbor"
+    },
+    {
+     "id": 13,
+     "text": "\n======================\n\nTo investigate the optical effect of RNRs on glass, the",
+     "source": "wild"
+    },
+    {
+     "id": 14,
+     "text": ".model;\n\nimport android.database.Cursor;\n\nimport com.google.",
+     "source": "neighbor"
+    },
+    {
+     "id": 15,
+     "text": "5) NOT NULL,\n  PRIMARY KEY (`FeedItem_ID`),\n  ",
+     "source": "random"
+    },
+    {
+     "id": 16,
+     "text": ")\n\n;;; End initial eval-region\n\n;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;",
+     "source": "heldout"
+    },
+    {
+     "id": 17,
+     "text": "Experimental Section {#sec4}\n====================\n\nMaterials {#sec4.1}",
+     "source": "wild"
+    },
+    {
+     "id": 18,
+     "text": "\\].\n\n  --------- ---------------------------------------- --------------------------------------------------------------------------------------------------------",
+     "source": "heldout"
+    },
+    {
+     "id": 19,
+     "text": " student faces expulsion after a shotgun, 140 rounds of ammunition and other weaponry",
+     "source": "random"
+    },
+    {
+     "id": 20,
+     "text": "---------------------------------------------------\n\nA bootstrapping approach was employed to assess the statistical significance of",
+     "source": "wild"
+    }
+   ],
+   "explanations": {
+    "examples": "Fires on long horizontal separator/rule lines made of one repeated character (----, ====, ////, ****), mostly code-comment banners. The top examples all peak on a 16-character chunk partway into the run (after roughly 32 characters), so the run must be long; activation builds with length. I expect it to generalise, somewhat weaker, to other repeated-character rules (;;;;, ____) and to rules outside code (LaTeX/markdown/legal dividers). It should NOT fire on ordinary prose, code identifiers, SQL, HTML, names, citations, or short punctuation. Label \"patterns and structures in the text\" is too vague; the real trigger is the divider line itself.",
+    "investigated": "Fires inside long horizontal-rule / separator runs of one repeated punctuation character (---- ==== //// **** ____ ~~~~ #### ....), as in code comment banners and document dividers. The first 16-char chunk of a run is ~0 (0-0.07); the second chunk is 0.5-0.75 of max and the third 0.6-0.95 (peak), then it decays (0.1-0.3) toward the line end. Weaker tiers: ;;;; runs 0.3-0.4, repeated letters \"aaaa\" ~0.24, \"-=-=\" ~0.4, spaced \"* * *\" ~0.1. Does NOT fire on short runs (----, ========), table rules |-----|, repeated digits, ordinary prose or code, or the words \"pattern\"/\"structure\". Ablating it mid-rule barely matters: P(another 16-dash chunk) 0.68 -> 0.78, KL 0.055, so it mildly pushes toward ending the rule."
+   }
+  },
+  {
+   "feature": 9739,
+   "label": "transitional phrases that indicate the passage of time",
+   "pool": [
+    {
+     "id": 0,
+     "text": " null,\n\trootElement: null,\n\trules: [],\n\trunners",
+     "source": "random"
+    },
+    {
+     "id": 1,
+     "text": "Every year, Kuala Lumpur plays host to a global halal conference, an indication of how",
+     "source": "random"
+    },
+    {
+     "id": 2,
+     "text": " of documentary footage of gliders in the air, which they matched up with similar looking",
+     "source": "random"
+    },
+    {
+     "id": 3,
+     "text": " new, longer acting anti-VEGF medications and drug delivery systems are needed to improve outcomes",
+     "source": "neighbor"
+    },
+    {
+     "id": 4,
+     "text": " of cash. Grant later fled the\ncountry to avoid prosecution.\n\fnever stated",
+     "source": "wild"
+    },
+    {
+     "id": 5,
+     "text": "2.7% of all neurological cases seen in the latter and 9^th",
+     "source": "wild"
+    },
+    {
+     "id": 6,
+     "text": " four cedar posts were erected to mark Joseph’s grave. Later, in the early",
+     "source": "heldout"
+    },
+    {
+     "id": 7,
+     "text": " glacial lake...\n\nRecent Trail Reviews\n\nKinstone Recreational Path\n\nSide trail that",
+     "source": "neighbor"
+    },
+    {
+     "id": 8,
+     "text": " change. Later on you may recognise these \"concentration\" signals when working your dog in",
+     "source": "heldout"
+    },
+    {
+     "id": 9,
+     "text": ": Pure Communications Jennifer Paganelli jpaganelli@purecommunications.com (3",
+     "source": "random"
+    },
+    {
+     "id": 10,
+     "text": " and defeating his past self. Kukulga later fights Shishi Red Orion on Ka",
+     "source": "wild"
+    },
+    {
+     "id": 11,
+     "text": "19.\n\nEarly on Monday morning, 20 November, the leaders of",
+     "source": "neighbor"
+    },
+    {
+     "id": 12,
+     "text": " better. Further work should investigate whether",
+     "source": "neighbor"
+    },
+    {
+     "id": 13,
+     "text": " diagnosis and subsequent treatment.Alcohol expectancies pre-",
+     "source": "wild"
+    },
+    {
+     "id": 14,
+     "text": " and our findings. For example, previous results were obtained from VHL-related hem",
+     "source": "neighbor"
+    },
+    {
+     "id": 15,
+     "text": "er.game.BattingStats;\n\n@Configuration\npublic abstract class DatabaseConfiguration",
+     "source": "random"
+    },
+    {
+     "id": 16,
+     "text": " He was relegated to third-string center duty until late into last season when a string",
+     "source": "heldout"
+    },
+    {
+     "id": 17,
+     "text": ", but it was too late for me to fall head over heels for them. It",
+     "source": "wild"
+    },
+    {
+     "id": 18,
+     "text": " charges against Shrien Dewani based on the later-discredited confessions of Tongo",
+     "source": "heldout"
+    },
+    {
+     "id": 19,
+     "text": " Trigger, left, was today 'advised' over comments he made about immigration while sentencing",
+     "source": "random"
+    },
+    {
+     "id": 20,
+     "text": " her son (later Paul I",
+     "source": "wild"
+    }
+   ],
+   "explanations": {
+    "examples": "Fires on the token \"later\" itself. All top examples are sentence-initial \"Later\" (\"Later on I\", \"Later, in August\", \"Later that day\") right after a full stop or paragraph break, and the direction promotes later/Later/afterward. I expect capitalised sentence-initial \"Later\" at full strength, lowercase mid-sentence \"later\" (\"later verified\", \"later on\") somewhat weaker, and possibly a weak response on the related \"late\". Should NOT fire on code, email/contact text, or prose without \"later\", including other time words (\"Every year\", \"today\") and the look-alike \"latter\". Density (0.00076) is close to the frequency of \"later\" alone, so little beyond that token.",
+    "investigated": "Token detector for the word \"later\", not a general time-transition feature. Sentence-initial \"Later\" is strongest (0.75-1.0 of max); mid-sentence adverbial \"later\" (\"later that night\", \"much later\", \"a later version\", \"see you later\") 0.6-0.8; \"N weeks later\" and \"sooner or later\" weaker (0.2-0.45). The token right after \"later\" carries spillover (0.2-0.35). Weak tier, 0.12-0.3: afterward(s), Subsequently, Earlier, late, latter, latest. Does NOT fire: then, eventually, soon, after, next day, ago, previously, recently, today, early, last season, code. Causal: zero-ablating on a prompt ending \"Two hours\" changed nothing (KL 0, no active positions): it reads the token \"later\" rather than predicting it, despite its decoder promoting \"later\"."
+   }
+  },
+  {
+   "feature": 11469,
+   "label": "keywords related to corporate social responsibility and ethical business practices",
+   "pool": [
+    {
+     "id": 0,
+     "text": "Big)^2\\bigg).$$\n\n\\[fact:ch4gaussiane\\]",
+     "source": "random"
+    },
+    {
+     "id": 1,
+     "text": " experience.Endovascular treatment of popliteal artery aneur",
+     "source": "random"
+    },
+    {
+     "id": 2,
+     "text": " ]{} (C); (A) edge \\[bend right = -25,",
+     "source": "random"
+    },
+    {
+     "id": 3,
+     "text": " corn is made primarily from sugar, corn syrup, artificial coloring and binders. It",
+     "source": "neighbor"
+    },
+    {
+     "id": 4,
+     "text": " series.\nThis limited edition cassette release comes with a \"plantable\" download card",
+     "source": "wild"
+    },
+    {
+     "id": 5,
+     "text": " legitimate companies only, it cannot be held responsible for how CVs are used",
+     "source": "wild"
+    },
+    {
+     "id": 6,
+     "text": " fashion and related issues such as ecology and human rights but maybe that will go with a",
+     "source": "heldout"
+    },
+    {
+     "id": 7,
+     "text": " have linked declines in biodiversity and abundance--especially of birds--with intensification of agricultural practices",
+     "source": "neighbor"
+    },
+    {
+     "id": 8,
+     "text": " and also because I liked the feeling of a slightly more ethical, durable wardrobe.\n\n",
+     "source": "heldout"
+    },
+    {
+     "id": 9,
+     "text": " Demarais, Ph.D\nWhat You Don’t Know About How Others",
+     "source": "random"
+    },
+    {
+     "id": 10,
+     "text": "podes to the south, its extensive menu is locally sourced as much as possible and includes",
+     "source": "wild"
+    },
+    {
+     "id": 11,
+     "text": " reactors – to meet existing demand and climate change targets. However, only eighteen nuclear power",
+     "source": "neighbor"
+    },
+    {
+     "id": 12,
+     "text": ", and there’s an end to poverty, and an end to environmental destructions",
+     "source": "neighbor"
+    },
+    {
+     "id": 13,
+     "text": " than in crops grown on higher ground and",
+     "source": "wild"
+    },
+    {
+     "id": 14,
+     "text": " Able-bodied except for some neurodivergence. Those marginalized statuses I have, you",
+     "source": "neighbor"
+    },
+    {
+     "id": 15,
+     "text": ", 1976). R. Akashi and R. Arita,",
+     "source": "random"
+    },
+    {
+     "id": 16,
+     "text": "inated diphenyl ethers (PBDEs) have been described to act through the induction",
+     "source": "heldout"
+    },
+    {
+     "id": 17,
+     "text": " lesbian, transgender, or bisexual parents are critically examined",
+     "source": "wild"
+    },
+    {
+     "id": 18,
+     "text": " fossil fuels like oil and coal whose extraction processes - from mountaintop removal, which clogs",
+     "source": "heldout"
+    },
+    {
+     "id": 19,
+     "text": "of-counsel claim. “A defendant is ‘unavoidably prevented’\n\n",
+     "source": "random"
+    },
+    {
+     "id": 20,
+     "text": "Partially produced with genetic engineering. Rich & creamy. Scooping since 19",
+     "source": "wild"
+    }
+   ],
+   "explanations": {
+    "examples": "Fires on ethical/sustainable-production vocabulary in consumer or business contexts: descriptors like \"fairtrade\", \"responsible manufacturing\", organic, ecology, human rights, ethical/social/environmental responsibility. Strongest on the ethical adjective inside a list of such virtues (\"vegan, organic and [[fair]]trade\"). Promoted outputs (sustainable, sourcing, suppliers, carbon) support a sustainability/ethical-sourcing reading rather than corporate jargon alone. Expected NOT to fire on code, LaTeX, legal citations, chat logs, clinical or medical text, author names, or pure chemistry/toxicology without an ethical-consumption frame (PBDEs is at most marginal). Peak-token guesses in the pool are uncertain: the examples only show the peak landing on the ethical descriptor itself.",
+    "investigated": "Fires on the theme of ethical/sustainable production and consumption (fair trade, ethical sourcing, recycled, pesticide-free, living wages, labor rights, wildlife protection), not on a single word. Once the theme starts it stays on across the following tokens, including function words and punctuation. Tiers: ~1.0 of max on \"ethical sourcing\" / \"fair\" (trade) in a list of green virtues; 0.5-0.75 on recycled, pesticide, rights, protection, sustainability; ~0.15-0.2 on handmade-vs-factory talk. Does NOT fire on \"fair\"/\"responsible\" in a courtroom sense, climate-science description (melting glaciers), code, math, citations or medicine. Causal: ablation barely changed the next-token prediction (KL 0.009), slightly lowering \" sourced\"."
+   }
+  },
+  {
+   "feature": 7957,
+   "label": "references to health-related topics, particularly viruses and diseases",
+   "pool": [
+    {
+     "id": 0,
+     "text": "tron's teams.\n\nThe objective of this strategy is to accelerate the numerous initiatives",
+     "source": "random"
+    },
+    {
+     "id": 1,
+     "text": "}{x^3})^\\gamma}$$\nThen by symmetry you can permute circular",
+     "source": "random"
+    },
+    {
+     "id": 2,
+     "text": ".view.View;\nimport android.widget.DatePicker;\nimport android.",
+     "source": "random"
+    },
+    {
+     "id": 3,
+     "text": "org.apache.commons.math.distribution.PascalDistributionTest)\ntestDe",
+     "source": "neighbor"
+    },
+    {
+     "id": 4,
+     "text": " next target: Utah power forward Paul Millsap.\n\nAlthough Millsap is a restricted",
+     "source": "wild"
+    },
+    {
+     "id": 5,
+     "text": ". Thus, the inventor of duckpin bowling, John Van Sant, used a wood",
+     "source": "wild"
+    },
+    {
+     "id": 6,
+     "text": " for an exhibit at the National Gallery of Art entitled Sally Mann: A Thousand Crossings",
+     "source": "heldout"
+    },
+    {
+     "id": 7,
+     "text": "\n\nMy name is Andy Puckett, and I’m a professional astronomer. When",
+     "source": "neighbor"
+    },
+    {
+     "id": 8,
+     "text": "\n\nUse free budgeting tools to help you stay on budget - CIBC CreditSmart,",
+     "source": "heldout"
+    },
+    {
+     "id": 9,
+     "text": " plate with a whole fried chicken leg. Their sambal is pretty good, but the rice",
+     "source": "random"
+    },
+    {
+     "id": 10,
+     "text": "’s rock band standards,” says Cymbals Eat Guitars bassist Matthew Whipple of his band",
+     "source": "wild"
+    },
+    {
+     "id": 11,
+     "text": "Tim Smith, The Baltimore Sun\n\nFor most of John Ruppert's career,",
+     "source": "neighbor"
+    },
+    {
+     "id": 12,
+     "text": " moving away from the current employer-based health insurance system in America? Aside from the",
+     "source": "neighbor"
+    },
+    {
+     "id": 13,
+     "text": " page reveals that Harry and Meghan could be enjoying such features like a sunken bath, a",
+     "source": "wild"
+    },
+    {
+     "id": 14,
+     "text": " (diamond-shaped) A pantograph is a device that collects electric current from overhead",
+     "source": "neighbor"
+    },
+    {
+     "id": 15,
+     "text": " in FIG. 1 as the unit cell, and bias conditions for programming the cells",
+     "source": "random"
+    },
+    {
+     "id": 16,
+     "text": " alleleExpected frequencyObserved frequency***BRAF*V600EA03:",
+     "source": "heldout"
+    },
+    {
+     "id": 17,
+     "text": "s disease. According to Alzheimer's Disease International, current global costs of caring for",
+     "source": "wild"
+    },
+    {
+     "id": 18,
+     "text": " observation of both conformations in DENV2 NS5.\n\n![Virus proliferation analyses",
+     "source": "heldout"
+    },
+    {
+     "id": 19,
+     "text": " most ethical way possible in order to minimize the suffering.\n\nI'm possibly coming",
+     "source": "random"
+    },
+    {
+     "id": 20,
+     "text": "\n\nPower 96’s Ivy Unleashed interviewed Lil Duval live on-air",
+     "source": "wild"
+    }
+   ],
+   "explanations": {
+    "examples": "All eight top examples peak on a literal <bos> token appearing mid-text (document boundary), regardless of topic: code, Q&A, math, medical. Density (~1/138 tokens) matches one BOS per context window, so this is mainly a BOS/document-start feature; the health label looks like an artifact of surrounding text. No pool sentence contains a mid-text <bos>, so most should be silent. Hedge: the pool has two biomedical sentences (virus, BRAF mutation), which suggests a weak secondary response to virus/disease/genetics vocabulary, so I predict those fire weakly. Not expected to fire: code, math, finance, food, sport, art, general prose.",
+    "investigated": "The label is wrong. The feature is a mid-text <bos> detector: a literal <bos> token appearing after other text (a document boundary) fires at 0.65-0.80 of max (52.5, 42.8, 53.1 of 65.5), matching all 8 top examples. Otherwise it is near-silent, with weak sporadic firing on a few rare proper-noun tokens: \" Zika\" 0.11-0.23, \"bola\" (Ebola) 0.20, \"riche\" (Barrichello) 0.12, \" Python\" 0.08, \" Java\" 0.06, \"engue\" 0.05. Does NOT fire: virus, disease, HIV, hepatitis, influenza, malaria, SARS, gene names, acronyms, code, \"Q:\" without <bos>, ordinary prose. Causally inert: ablating it at <bos> left next-token predictions unchanged (KL 0.0002)."
+   }
+  },
+  {
+   "feature": 3584,
+   "label": "mentions of specific individuals and their actions or roles within a narrative",
+   "pool": [
+    {
+     "id": 0,
+     "text": " faces of the object change diagram. The $2$-simplices are the $f",
+     "source": "random"
+    },
+    {
+     "id": 1,
+     "text": " is as\n\nm of 103, 753, ",
+     "source": "random"
+    },
+    {
+     "id": 2,
+     "text": "\nr = random.choice(room)\n\nmySet = set(r)",
+     "source": "random"
+    },
+    {
+     "id": 3,
+     "text": " including:\n\nAn underwriting alongside the application number of the candidate saying the name of the",
+     "source": "neighbor"
+    },
+    {
+     "id": 4,
+     "text": " jobs and the economy. DuPont's chairman, Irving Shapiro, announced to several major",
+     "source": "wild"
+    },
+    {
+     "id": 5,
+     "text": " by a candidate that his opponent is \"the Liberal\n\nDemocrat for Judge\"",
+     "source": "wild"
+    },
+    {
+     "id": 6,
+     "text": " one-half years after he was sentenced,\n\nMcDougald filed his fifth petition",
+     "source": "heldout"
+    },
+    {
+     "id": 7,
+     "text": " adorable Katie and Nick scheduled to get married this coming fall. That morning I",
+     "source": "neighbor"
+    },
+    {
+     "id": 8,
+     "text": " needed some medication. Shortly thereafter, Robinson went to the aerobics room to determine what",
+     "source": "heldout"
+    },
+    {
+     "id": 9,
+     "text": " satisfied, develop products that will attract new members, and to gauge changes of course in",
+     "source": "random"
+    },
+    {
+     "id": 10,
+     "text": " On April 10, 1790, President George Washington signed the",
+     "source": "wild"
+    },
+    {
+     "id": 11,
+     "text": " gets sent to Apple's data farm for analysis. Apple creates a random string of",
+     "source": "neighbor"
+    },
+    {
+     "id": 12,
+     "text": " complaint be dismissed if the court finds that the plaintiff is not in compliance with the pres",
+     "source": "neighbor"
+    },
+    {
+     "id": 13,
+     "text": " the Viking chieftain Olaf from Svealand. Olaf's",
+     "source": "wild"
+    },
+    {
+     "id": 14,
+     "text": " appropriate for all questions. Clinicians were asked what percentage of their working time was spent",
+     "source": "neighbor"
+    },
+    {
+     "id": 15,
+     "text": "\tfuture.Future, err = azure.NewFutureFromResponse(resp)\n",
+     "source": "random"
+    },
+    {
+     "id": 16,
+     "text": " spells. A con of this can be that she lacks the normal amount of other types",
+     "source": "heldout"
+    },
+    {
+     "id": 17,
+     "text": " and its surrounding lipid bilayer. No specific interaction is observed between KcsA and",
+     "source": "wild"
+    },
+    {
+     "id": 18,
+     "text": " question that Daphne loved writing stories of adventure and danger in the West of forty and fifty",
+     "source": "heldout"
+    },
+    {
+     "id": 19,
+     "text": "(1872) + sqrt(1872))*2)) +",
+     "source": "random"
+    },
+    {
+     "id": 20,
+     "text": " the expired collective bargaining agreement and Stella Doro officials decision to close the plant and",
+     "source": "wild"
+    }
+   ],
+   "explanations": {
+    "examples": "Fires on the name (or title-like designation) of a specific agent standing as the grammatical subject of a clause, just before its verb: \"the [[Conqueror]] removed\", \"and [[Napier]]\", \"that [[Grant]] did not\", \"Gen[[mar]] Kansas was not\", \"and [[Joshua]] couldn't\". Peak is on the name token (final fragment of a multi-token name). Promoted tokens are subject-following verbs (decided, chose, wanted). Common in narrative and legal prose. Expect no firing on code, math, numbers, generic scientific/abstract prose, and little on pronouns, common-noun subjects, or place names in non-subject position.",
+    "investigated": "Fires on a referent standing as the grammatical subject of a clause, just before its verb, usually after a comma/conjunction/\"that\"/\"when\". Strongest on person or company names and capitalised epithets (\"the Butcher\"): 0.4-0.53 of max in my tests (top examples reach 1.0); multi-token names peak on the last fragment. Names as objects ~0.24; role nouns as subjects (teacher, trainee, supervisor) 0.17-0.31; a chemical name 0.2; the following verb often 0.1-0.3. Does NOT fire on pronouns, place names (even as subject), a name as the very first token, code or maths. Causal: ablation at a subject name barely changed next-token predictions (KL 0.005), so the feature is a weak readout there."
+   }
+  },
+  {
+   "feature": 13087,
+   "label": "terms related to payment processing and financial transactions",
+   "pool": [
+    {
+     "id": 0,
+     "text": ", I wouldn’t have had a career in senior football, so I owe everything",
+     "source": "random"
+    },
+    {
+     "id": 1,
+     "text": "“In 2010 I signed a five-year, $",
+     "source": "random"
+    },
+    {
+     "id": 2,
+     "text": " labor.Occasional bird treats award your conure with extra attention, and birds",
+     "source": "random"
+    },
+    {
+     "id": 3,
+     "text": " variety of mechanisms which can produce this phonotype. I will attempt to isolate a variant",
+     "source": "neighbor"
+    },
+    {
+     "id": 4,
+     "text": " try to enter a measurement into InfluxDB using the result Python gives",
+     "source": "wild"
+    },
+    {
+     "id": 5,
+     "text": " from his shoulders.\n\nAs the Conqueror wiped the blood off her sword and",
+     "source": "wild"
+    },
+    {
+     "id": 6,
+     "text": " as the payment receiver.\n\nCreate a Buyer test account. This is the simulated customer",
+     "source": "heldout"
+    },
+    {
+     "id": 7,
+     "text": "charset\")){\n            charset = mediaType.getParameters().get(\"charset\");\n        ",
+     "source": "neighbor"
+    },
+    {
+     "id": 8,
+     "text": "\n    var params = Form.serialize(payment.form);\n    if (",
+     "source": "heldout"
+    },
+    {
+     "id": 9,
+     "text": " that NGS might function less reliably with certain other genes or specific mutations that were not",
+     "source": "random"
+    },
+    {
+     "id": 10,
+     "text": " the computational burden of computing the structure geometry and applying electromagnetic simulation within the measurement optimization loop",
+     "source": "wild"
+    },
+    {
+     "id": 11,
+     "text": " processing software may require the customer to submit additional information, such as a purchase order number",
+     "source": "neighbor"
+    },
+    {
+     "id": 12,
+     "text": ", adres, etc). The query should also have a limit in results (1,",
+     "source": "neighbor"
+    },
+    {
+     "id": 13,
+     "text": " excellent rejection of electromagnetic backgrounds, i.e., photons, electrons and alpha particles,",
+     "source": "wild"
+    },
+    {
+     "id": 14,
+     "text": "<key> <string>message_values</string> </key>\n            ",
+     "source": "neighbor"
+    },
+    {
+     "id": 15,
+     "text": " in urban land. The negative correlation was stronger than the",
+     "source": "random"
+    },
+    {
+     "id": 16,
+     "text": ". To check whether the packets are being correctly formed and received, I have another process",
+     "source": "heldout"
+    },
+    {
+     "id": 17,
+     "text": " measurements. High",
+     "source": "wild"
+    },
+    {
+     "id": 18,
+     "text": "{\\tau}_0)$ is the probability that $(\\widetilde{X_j})$ hits",
+     "source": "heldout"
+    },
+    {
+     "id": 19,
+     "text": " amine and the electrophilic carbonyl carbon of MTB in the transition state. A simultaneous elimination",
+     "source": "random"
+    },
+    {
+     "id": 20,
+     "text": " some cases, and coverage probabilities substantially closer to nominal. For machine learning estimators of the",
+     "source": "wild"
+    }
+   ],
+   "explanations": {
+    "examples": "Token-level feature for the word \"payment\" itself (Payment/payment/payments, any casing), not finance in general. All top examples peak on the \"payment\" token, either as a section heading (\"Payment Options\", \"Payment Notices\") or in \"payment processing\"; the promotes list is nothing but payment/Payments variants. Expect strong firing on any literal \"payment(s)\" token, possibly weaker on close morphological relatives (\"repayment\", \"paying\", \"paid\"). Expect NO firing on general money or transaction text without that word (dollar amounts, contracts, \"owe\", fees), nor on unrelated code, science, sports or pet text.",
+    "investigated": "Lexical feature for the noun \"payment\". Tiers (fraction of max 32.4): \" payment\"/\" Payment\"/line-initial \"Payment\" 0.85-1.0; plural \" payments\" ~0.6; \"payment\" as a subword or in \"repayment\", \"prepayment\", \"nonpayment\" 0.45-0.57; weak synonyms 0.12-0.26 (\"installment\", \"payout\", \"remittance\", \"invoice\", \"disbursement\"); \"due\" right after payment ~0.1. Does NOT fire on the verb forms \"pay\", \"paid\", \"paying\", nor on \"owe\", \"fee\", \"deposit\", \"cash\", \"credit card\", \"transaction\", \"refund\", \"PayPal\", \"salary\" or dollar amounts, so the label's \"financial transactions\" is too broad. Causal: zero-ablating it on a prompt ending in \" payment\" (act 29.7) barely changed the next-token distribution (KL 0.0018; methods 0.544 to 0.538), so its output effect there is negligible."
+   }
+  },
+  {
+   "feature": 4409,
+   "label": "copyright symbols and copyright-related text",
+   "pool": [
+    {
+     "id": 0,
+     "text": " on the subject. Ask them what’s the most compelling to them and why.",
+     "source": "random"
+    },
+    {
+     "id": 1,
+     "text": " of Buffalo State University of New York, told LiveScience.\n\nThe archaeologists found that",
+     "source": "random"
+    },
+    {
+     "id": 2,
+     "text": " again, using Force to delete",
+     "source": "random"
+    },
+    {
+     "id": 3,
+     "text": " ComVisible attribute to true on that type.\r\n[assembly: ComVisible(false)]\r\n",
+     "source": "neighbor"
+    },
+    {
+     "id": 4,
+     "text": "\n﻿/**\r\n *   Copyright (c) Rich Hickey. All rights reserved.\r",
+     "source": "wild"
+    },
+    {
+     "id": 5,
+     "text": "(C) 1991  Linus Torvalds\n */\n\n",
+     "source": "wild"
+    },
+    {
+     "id": 6,
+     "text": "\n * Copyright (c) 2016-present, Facebook,",
+     "source": "heldout"
+    },
+    {
+     "id": 7,
+     "text": "<>(); // list incase of persons with the same name\n    for (Person p",
+     "source": "neighbor"
+    },
+    {
+     "id": 8,
+     "text": "ate, Anshul Tandon\n//  Copyright (c) 201",
+     "source": "heldout"
+    },
+    {
+     "id": 9,
+     "text": " credit cards, 41 percent of the financial institutions said that losses rose, while",
+     "source": "random"
+    },
+    {
+     "id": 10,
+     "text": " unit/quantity manipulation and conversion\n//\n// Copyright (C) 20",
+     "source": "wild"
+    },
+    {
+     "id": 11,
+     "text": "=\"JavaScript\" type=\"text/javascript\">\n\t\t\t// Dojo configuration\n\t\t\tdj",
+     "source": "neighbor"
+    },
+    {
+     "id": 12,
+     "text": " effective,\" Rasheed said.// Copyright 2018 The Go Authors",
+     "source": "neighbor"
+    },
+    {
+     "id": 13,
+     "text": "\n\n<?php\n\nheader('Content-Type: text/html; charset=utf",
+     "source": "wild"
+    },
+    {
+     "id": 14,
+     "text": " It has a backrest that can be tilted",
+     "source": "neighbor"
+    },
+    {
+     "id": 15,
+     "text": " • We have a duty to obsolete our own technologies future successes honestly and respectfully • We",
+     "source": "random"
+    },
+    {
+     "id": 16,
+     "text": "\n\n    try:\n        while 1:\n            time.sleep(1",
+     "source": "heldout"
+    },
+    {
+     "id": 17,
+     "text": "© Robert C Soriano\n\nLicensed under the [MIT License](LICENSE).",
+     "source": "wild"
+    },
+    {
+     "id": 18,
+     "text": " Copyright (c) 2004-2008 Chelsio",
+     "source": "heldout"
+    },
+    {
+     "id": 19,
+     "text": "ACE) Linotype, Teletype, Intertype and more\n Linotype machine patents",
+     "source": "random"
+    },
+    {
+     "id": 20,
+     "text": "copyright  Copyright (c) 2005-2012 Zend",
+     "source": "wild"
+    }
+   ],
+   "explanations": {
+    "examples": "Fires on the copyright mark that directly follows the word \"Copyright\" in source-file header comments: strongest on the \"©\" symbol (top examples, ~76), weaker on the \"c\" inside \"(c)\" (~44, about 0.57 of max). The pool has no \"©\", only \"(c)\"/\"(C)\", so I expect mid-strength peaks on the letter inside the parentheses, slightly lower for uppercase \"(C)\". The word \"Copyright\" itself, the year and the holder name are not the peak. Not expected to fire: ordinary prose, code without a copyright line, maths, install logs, or related IP words such as \"patents\" with no copyright notice.",
+    "investigated": "Fires on the copyright SYMBOL that follows the word \"Copyright\" in source-file header comments, not on the word itself. Tiers (fraction of max): \"Copyright ©\" in a // header ~0.94 on \" ©\"; \"Copyright (c)\" ~0.46-0.56 on \"c\" (\")\" ~0.4-0.48, \"(\" ~0.2-0.3); uppercase \"(C)\" ~0.34-0.37; lowercase \"copyright (c)\" ~0.22; \"COPYRIGHT (c)\", bare \"©\", bare \"(c) 2015\", \"&copy;\" ~0.15-0.23; weak spill on following year digits (<=0.18). Does NOT fire: the word \"Copyright\" alone, \"Copyright 2020\" without symbol (~0.05), \"@copyright\", prose about copyright law, \"(c)\" as list option or f(c) (0-0.07), ordinary prose/code. Causal: ablating at \"Copyright ©\" collapses the next-token prediction of the space before the year (0.999 -> 0.17), KL 1.79."
+   }
+  },
+  {
+   "feature": 276,
+   "label": "terms related to medical conditions, particularly types of dementia and immune cell characteristics",
+   "pool": [
+    {
+     "id": 0,
+     "text": ", and revise, revise, revise. As the article notes, we've learned",
+     "source": "random"
+    },
+    {
+     "id": 1,
+     "text": " a colonial power ruling over land they had no right to.",
+     "source": "random"
+    },
+    {
+     "id": 2,
+     "text": " a \"pie fork\", is a fork designed for eating pastries and other desserts while holding",
+     "source": "random"
+    },
+    {
+     "id": 3,
+     "text": "\n\n\"I ask everyone who calls me how they heard about Catch a Wave‚ and",
+     "source": "neighbor"
+    },
+    {
+     "id": 4,
+     "text": " cancer cells and can bind to a death domain containing serine-threonine kinase, Receptor",
+     "source": "wild"
+    },
+    {
+     "id": 5,
+     "text": "{a5}$$ In the case of a quintessence (phantom) field with",
+     "source": "wild"
+    },
+    {
+     "id": 6,
+     "text": "medullary tumor which had no relation with the cerebellar cortex and dura matter. The",
+     "source": "heldout"
+    },
+    {
+     "id": 7,
+     "text": "Opal: What were you doing in the bathroom for so long?\n\nEarl: Sha",
+     "source": "neighbor"
+    },
+    {
+     "id": 8,
+     "text": ". CT scans revealed a large enhancing nasopharyngeal mass involving adenoid and several small",
+     "source": "heldout"
+    },
+    {
+     "id": 9,
+     "text": "'] : '{{%message}}';\n    }\n\n    /**\n     * @",
+     "source": "random"
+    },
+    {
+     "id": 10,
+     "text": " election result we want is Bush retired. However bad his replacement may turn out, replacing",
+     "source": "wild"
+    },
+    {
+     "id": 11,
+     "text": " to humans and/or animals.\nThus, there remains a need for an economical",
+     "source": "neighbor"
+    },
+    {
+     "id": 12,
+     "text": " mechanism is the considerable lack of information about which substrates they protect in the cell.\n\n",
+     "source": "neighbor"
+    },
+    {
+     "id": 13,
+     "text": "pecific binding proteins. The target protein was eluted with elution buffer (50",
+     "source": "wild"
+    },
+    {
+     "id": 14,
+     "text": " 272)\n\nAustria, the other leading state of the German Confederation",
+     "source": "neighbor"
+    },
+    {
+     "id": 15,
+     "text": "        });\n\n        it('should add a non-enumerable, writable enclosingScope if",
+     "source": "random"
+    },
+    {
+     "id": 16,
+     "text": " results as microleakage, marginal discoloration, debonding, secondary caries, pul",
+     "source": "heldout"
+    },
+    {
+     "id": 17,
+     "text": "\n                                } catch (InvocationTargetException ex) {\n                                    // Ignore\n                               ",
+     "source": "wild"
+    },
+    {
+     "id": 18,
+     "text": "        android:id=\"@+id/currentValue\"\n        android:layout_width=\"",
+     "source": "heldout"
+    },
+    {
+     "id": 19,
+     "text": "X^{(n)})  + \\sum_{\\ell = n + 1}^{\\tau",
+     "source": "random"
+    },
+    {
+     "id": 20,
+     "text": "uin. A 7 fold increase in liver radioactivity was observed 6 hrs after the",
+     "source": "wild"
+    }
+   ],
+   "explanations": {
+    "examples": "Top examples show only two contexts: \"dementia\" after \"Early-onset\", and \"leuk/ocytes\" after \"Lamina propria\" (subject of \"were isolated/harvested\"). So the trigger looks like the head noun of a modified biomedical noun phrase naming a disease or cell population, strongest on cell-type words ending in -ocytes and on \"dementia\". The promotes list is uninformative noise and similar features have low cosine, so the generalisation beyond these two phrases is a guess: I expect weaker firing on other cell types (lymphocytes, hepatocytes, cells) and disease nouns (tumor, caries). I expect no firing on code, math/LaTeX, addresses, dialogue, or general non-medical prose.",
+    "investigated": "Noisy, context-dependent feature for biomedical research prose, firing sporadically on disease/immune-cell nouns. Strongest on \"dementia\" in clinical/epidemiology text (top examples 1.0; my tests 0.5-0.63 after \"Late-onset\"/\"Young-onset\", on \"dementias\", and \"predicts dementia\") and on leukocyte terms after a tissue modifier (top examples 0.85; my \"lymphocytes\" 0.42). Weak tier 0.15-0.35: digits in CD markers, \"decline\", \"mice\", \"expansions\", \"onset\", following \"was\"/\"(\". Does NOT fire: lay-register \"has dementia\", \"vascular dementia\" (0), \"Mucosal leukocytes\" (0), monocytes, macrophages, tumor/cortex, dental terms, non-medical hyphenated compounds, code, math. Firing is unreliable even on the same word. Causal: ablation is essentially null (KL 0.002)."
+   }
+  },
+  {
+   "feature": 11243,
+   "label": "punctuation marks and other non-word tokens",
+   "pool": [
+    {
+     "id": 0,
+     "text": "\n\n\\usepackage{graphicx}\n\\usepackage{caption}\n\n\\begin{document",
+     "source": "neighbor"
+    },
+    {
+     "id": 1,
+     "text": ".Registry) error {\n\n\tif err := validate.Required(\"identity\", \"",
+     "source": "wild"
+    },
+    {
+     "id": 2,
+     "text": "r+2)} - \\frac{1}{r+2} = \n",
+     "source": "random"
+    },
+    {
+     "id": 3,
+     "text": " updating set that sends messages immediately                *\r\n **********************************************************************/\r\n",
+     "source": "random"
+    },
+    {
+     "id": 4,
+     "text": "\n    */\n\n    System.out.println(isStronglyConnected",
+     "source": "neighbor"
+    },
+    {
+     "id": 5,
+     "text": " encContext)\n\tassert.Nil(t, err)\n\tassert.",
+     "source": "heldout"
+    },
+    {
+     "id": 6,
+     "text": " lot or say how great he is — to get an advantage in the workplace.\n\n",
+     "source": "random"
+    },
+    {
+     "id": 7,
+     "text": "(tableName), true)\n\tassert.Nil(t, err)\n\t",
+     "source": "heldout"
+    },
+    {
+     "id": 8,
+     "text": "* Get name\r\n     *\r\n     * @return Name\r\n     */\r",
+     "source": "random"
+    },
+    {
+     "id": 9,
+     "text": ") { e.preventDefault(); }\n\n            this.classList.remove('over');",
+     "source": "wild"
+    },
+    {
+     "id": 10,
+     "text": " = np.array",
+     "source": "neighbor"
+    },
+    {
+     "id": 11,
+     "text": " call it whatever you want to the button\n <button type=\"button\" class=\"",
+     "source": "neighbor"
+    },
+    {
+     "id": 12,
+     "text": ", he was a member of the debating team and the Glee Club, a star athlete",
+     "source": "random"
+    },
+    {
+     "id": 13,
+     "text": "\">\r\n            </div>\r\n            <button type=\"submit\" class=\"btn",
+     "source": "neighbor"
+    },
+    {
+     "id": 14,
+     "text": ")) {\r\n            logger.warn(\"No effects found for skill \" + statusEffect",
+     "source": "wild"
+    },
+    {
+     "id": 15,
+     "text": "\n        t.equal(pkg && pkg.main, './baz.js');",
+     "source": "wild"
+    },
+    {
+     "id": 16,
+     "text": "StatusCode(http.StatusOK, http.StatusCreated),\n\t\tautorest",
+     "source": "wild"
+    },
+    {
+     "id": 17,
+     "text": "endDateStr;                     //结束时间\n//    @property (nonatomic",
+     "source": "heldout"
+    },
+    {
+     "id": 18,
+     "text": " Department, Government of Kerala as the Vice-Chairman.\n\nWednesday, 9 August",
+     "source": "random"
+    },
+    {
+     "id": 19,
+     "text": "}\n\n\t\tassert.Nil(t, err)\n\t}\n\n\tcred",
+     "source": "wild"
+    }
+   ],
+   "explanations": {
+    "examples": "The label is misleading. All eight top examples peak on a mid-context <bos> token (a document boundary inside the window), after ends such as \"/* END */\", \"#endif\" or a Category line. None of the pool sentences shows a mid-text <bos>, so no strong activation is expected. My guess for weak firing is code residue: comment terminators \"*/\" and end-of-statement code such as \"assert.Nil(t, err)\"; this rests on the promoted tokens (closing bracket plus period) and code-like similar features, not on any example. Ordinary prose, names, dates and recipe text should not fire. Confidence is low for every non-zero prediction.",
+    "investigated": "Not general punctuation. Main trigger: a <bos> token appearing mid-text (document boundary), 0.65-0.77 of max in my tests, 1.0 in top examples. Secondary: the \".\" after Go test-assertion package names: \"require.\" 0.45-0.5 inside a real test function, 0.16-0.2 in a jumble, \"expect.\" 0.14. Flaky: \":\" in \"<xsl:\" (0-0.2, stronger on a repeat). Does NOT fire: prose, sentence punctuation, \"error:\", comment stars and \"*/\", LaTeX, \"fmt.\", \"os.\", \"self.\", \"check.\", \"std::\". Causal: zero-ablation is near-null (KL 0.0023). Caveat: only 3 run_prompts ran; a fourth, plain-prose test was blocked by the permission classifier as too close to pool sentences, so prose zeros rest on one sentence plus density 0.00045."
+   }
+  },
+  {
+   "feature": 970,
+   "label": "concise summaries and key points within a larger text",
+   "pool": [
+    {
+     "id": 0,
+     "text": "JackSwagger@WWEZeb because you two made a mistake, I'm still on",
+     "source": "random"
+    },
+    {
+     "id": 1,
+     "text": ".#!/bin/",
+     "source": "random"
+    },
+    {
+     "id": 2,
+     "text": "    public String getName() {\n        return Name;\n    }\n\n    public",
+     "source": "random"
+    },
+    {
+     "id": 3,
+     "text": " of me, and basically on the same path as me, and competing against them was",
+     "source": "neighbor"
+    },
+    {
+     "id": 4,
+     "text": " quality. In other words, when deterrence is weak, there is an opportunity for rent",
+     "source": "wild"
+    },
+    {
+     "id": 5,
+     "text": " plates and therefore changing the capacitance. Specifically, when the plates are closer together, capacitance",
+     "source": "wild"
+    },
+    {
+     "id": 6,
+     "text": " feared by some never materialized. In short:\n\nThe district spent $85.",
+     "source": "heldout"
+    },
+    {
+     "id": 7,
+     "text": " opportunity cost of labor (women's time in general is \"worth more\" than",
+     "source": "neighbor"
+    },
+    {
+     "id": 8,
+     "text": " improve the performance of hash tables.\n\nIn short:\nThe hash codes for ",
+     "source": "heldout"
+    },
+    {
+     "id": 9,
+     "text": ")\n\n\"The public remarks by President Dmitry Medvedev of Russia at his state of",
+     "source": "random"
+    },
+    {
+     "id": 10,
+     "text": " experiences were the same.\n\nAll this to say that it felt both natural and forced",
+     "source": "wild"
+    },
+    {
+     "id": 11,
+     "text": " in a sequential manner; i.e., under acceleration: 1st → ",
+     "source": "neighbor"
+    },
+    {
+     "id": 12,
+     "text": " it's just something I take for granted that I can do, even if never",
+     "source": "neighbor"
+    },
+    {
+     "id": 13,
+     "text": " substantial competent evidence. In the final analysis, the trial court concluded that the parties had",
+     "source": "wild"
+    },
+    {
+     "id": 14,
+     "text": " of joy, a permanent state of great happiness and contentment. It is like living in",
+     "source": "neighbor"
+    },
+    {
+     "id": 15,
+     "text": " motor which comprises an electrical motor including shaft means, stator means encircling the shaft means",
+     "source": "random"
+    },
+    {
+     "id": 16,
+     "text": " have what is called electronic hook-switching. This is basically a button, that when",
+     "source": "heldout"
+    },
+    {
+     "id": 17,
+     "text": "Attendees of CPAC, or as Chris Matthewsonce called it a \"Star Trek",
+     "source": "wild"
+    },
+    {
+     "id": 18,
+     "text": " meaningless. In the language of counterfactuals, they were saying (i)",
+     "source": "heldout"
+    },
+    {
+     "id": 19,
+     "text": "mol/L (**14**; R = 3-NO~2",
+     "source": "random"
+    },
+    {
+     "id": 20,
+     "text": "'s after the loop.\nEssentially i'd like the order to be\n",
+     "source": "wild"
+    }
+   ],
+   "explanations": {
+    "examples": "Fires on sentence-initial summarising/reformulating discourse markers, peaking on the final word of the marker just before the comma: \"In [[short]]\", \"Simply [[put]]\", \"Simply [[stated]]\". Promotes \"Basically\", \"Essentially\", \"nutshell\", \"in other words\" equivalents, so it marks \"a condensed restatement is coming\". Expect strong firing on \"In short\" (even \"In short order\", since the peak token precedes \"order\"), moderate on \"In other words\" and mid-sentence \"basically\", weak on \"In general\". Should NOT fire on code, citations, chemical notation, patent prose, quoted statements, tweets, or actual summary content lacking such a marker; \"Talking Points:\" is likely near zero.",
+    "investigated": "Fires on the final word of sentence-initial summarising/reformulating discourse markers, strongest on \"short\" in \"In short\" (0.6-0.7 of max; 0.33 when followed by a colon late in a marker-heavy text) and \"put\" in \"Simply put\" (0.68), with spillover on the following comma. Tiers: \"In brief\" 0.55; \"In other words\" 0.4; \"nutshell\" 0.34; \"To sum up\" 0.26; \"In general\" 0.23; mid-sentence \"basically\" 0.16-0.22; \"Essentially\"/\"Generally\" 0.14-0.2; headers like \"Key Points:\"/\"Takeaways:\"/\"Summary\" 0.14-0.18. It is lexical, not semantic: \"In short order\" still fires 0.62. Does NOT fire on adjective \"short\" (\"a short walk\"), \"said in a ...\", recipes, code. Causal: ablation at \"In short\" barely moves next-token prediction (KL 0.005)."
+   }
+  },
+  {
+   "feature": 2011,
+   "label": "comparative and superlative adjectives to identify effectiveness and performance metrics",
+   "pool": [
+    {
+     "id": 0,
+     "text": " This book will be of great interest to scholars",
+     "source": "random"
+    },
+    {
+     "id": 1,
+     "text": " model in which Ang II-induced increases in expression of SM alpha-actin are mediated",
+     "source": "random"
+    },
+    {
+     "id": 2,
+     "text": "  On the other hand, dealing with the flush can be tricky.  On the",
+     "source": "random"
+    },
+    {
+     "id": 3,
+     "text": "1$. Suppose that the largest numbers in $T$ form an $r$-bar",
+     "source": "neighbor"
+    },
+    {
+     "id": 4,
+     "text": " are the largest. When the fringing electrostatic force near *d* = 0",
+     "source": "wild"
+    },
+    {
+     "id": 5,
+     "text": " largest percentage of which are for\nmarijuana possession,\"",
+     "source": "wild"
+    },
+    {
+     "id": 6,
+     "text": " study period. Cultivated land consistently had the highest proportion of cases. In urban areas",
+     "source": "heldout"
+    },
+    {
+     "id": 7,
+     "text": " Schur functions to be the sum of the lowest degree terms in the expansion of the Schur",
+     "source": "neighbor"
+    },
+    {
+     "id": 8,
+     "text": "CO~3~-accelerated PF resin showed the largest equilibrium contact angle, and the",
+     "source": "heldout"
+    },
+    {
+     "id": 9,
+     "text": "adjacent possible\" principle at work.\n\n~~~\nTeMPOraL\n\"",
+     "source": "random"
+    },
+    {
+     "id": 10,
+     "text": " the awareness of the excavators. Residues containing obvious plant tissue are most easily recognizable",
+     "source": "wild"
+    },
+    {
+     "id": 11,
+     "text": " higher in studies that performed more frequently a diagnostic polymerase chain reaction assay compared to all the",
+     "source": "neighbor"
+    },
+    {
+     "id": 12,
+     "text": " largest number of car crashes (demolition\nderby style) in film history. One",
+     "source": "neighbor"
+    },
+    {
+     "id": 13,
+     "text": " #7 Peugeot – probably the favourite to claim outright victory – is made up entirely of",
+     "source": "wild"
+    },
+    {
+     "id": 14,
+     "text": " a living but it’s only a new generation of Indians that is internalising it",
+     "source": "neighbor"
+    },
+    {
+     "id": 15,
+     "text": "'t want it, I suggest removing the entire smolt package. (But",
+     "source": "random"
+    },
+    {
+     "id": 16,
+     "text": "^−/−^* mice scored significantly higher than WT counterparts ([Fig. 2",
+     "source": "heldout"
+    },
+    {
+     "id": 17,
+     "text": " Ndiaye out of Rutgers and DeQuan Jones out of Florida are the only late additions",
+     "source": "wild"
+    },
+    {
+     "id": 18,
+     "text": ". agrarius* was the most predominant species (Figs. [3](#Fig",
+     "source": "heldout"
+    },
+    {
+     "id": 19,
+     "text": " Chevy Camero's, Monte Carlo's, Ford Pinto's or even",
+     "source": "random"
+    },
+    {
+     "id": 20,
+     "text": " change. Tension reduction and affective change expectancies may be particularly important for abstinence and useful",
+     "source": "wild"
+    }
+   ],
+   "explanations": {
+    "examples": "Fires on the superlative token itself in quantity-ranking statements: \" highest\" (also \" greatest\") in \"showed/had the highest level/proportion/efficacy of ...\", mostly scientific or statistical prose. All top examples peak on the superlative, before the measured noun. Expect weaker firing on other superlatives/comparatives of degree (\"most often\", \"higher\"), and little on plain \"great\". Should NOT fire on code, general narrative, non-comparative adjectives, or text with no ranking/extreme-value word. The label's \"effectiveness and performance metrics\" is too narrow: the trigger is the superlative word, not the metric.",
+    "investigated": "Fires on superlative/extremum-ranking words that single out one member of a compared set, peaking on the superlative token. Strongest on \"highest\" in \"X showed/had the highest [metric]\" (0.6-0.8 of max; top examples 1.0), also \"lowest\" (0.55), \"greatest\" (0.46), \"ranked first\" and \"the most [noun]\" (0.65-0.7). Weaker: \"largest\" (0.26), \"most frequently\" (0.28), \"worst/smallest\" (0.25), \"most common\" (0.2). Preceding \"the\" and the following noun carry 0.15-0.35 spillover. Does NOT fire (<=0.1): comparatives (\"higher than\", \"greater\" ~0.1), \"best\", \"top\", \"maximum\", \"peaked\", plain \"high\", \"of major importance\", code. Label's \"comparative\" and \"effectiveness\" parts are wrong. Causal: ablation barely changes next-token predictions (KL 0.014)."
+   }
+  },
+  {
+   "feature": 16214,
+   "label": "occurrences of empty string or null values in code",
+   "pool": [
+    {
+     "id": 0,
+     "text": ".00% per year thereafter. Assuming a required return of 15.",
+     "source": "random"
+    },
+    {
+     "id": 1,
+     "text": " or two.\n>\n> First assignment is to read:\n> *\t",
+     "source": "random"
+    },
+    {
+     "id": 2,
+     "text": " style=\"display: none;\">asd</div>\r\n<div>test</div",
+     "source": "random"
+    },
+    {
+     "id": 3,
+     "text": "-2\")\n\t\t}\n\t\tret = append(ret,",
+     "source": "neighbor"
+    },
+    {
+     "id": 4,
+     "text": "ex), 'data': ''})\n\nNow, i need to expose some of these",
+     "source": "wild"
+    },
+    {
+     "id": 5,
+     "text": " gravity model described by the action $$S=\\frac{1}{2} \\int",
+     "source": "wild"
+    },
+    {
+     "id": 6,
+     "text": "(['1', '0'])\nelements = ''\nfor i in sett:\n",
+     "source": "heldout"
+    },
+    {
+     "id": 7,
+     "text": " \"*cost her",
+     "source": "neighbor"
+    },
+    {
+     "id": 8,
+     "text": "+{\n+    s = \"\"\n+    for (i = 0;",
+     "source": "heldout"
+    },
+    {
+     "id": 9,
+     "text": " photography Captain Rob can make it happen. Along with the bears wandering the tideflats and",
+     "source": "random"
+    },
+    {
+     "id": 10,
+     "text": "keypresses: 0,\n  text: '',\n  arrows: [],\n",
+     "source": "wild"
+    },
+    {
+     "id": 11,
+     "text": "text)\n\nlemma_ner_list = [] \n\nfor entity in doc.",
+     "source": "neighbor"
+    },
+    {
+     "id": 12,
+     "text": "remained unchanged.”\n\n![image](505f05.eps)",
+     "source": "neighbor"
+    },
+    {
+     "id": 13,
+     "text": " as follows: $$\\begin{aligned}\nP_S \n&\\le",
+     "source": "wild"
+    },
+    {
+     "id": 14,
+     "text": "d MMM y\",\n    \"mediumTime\":",
+     "source": "neighbor"
+    },
+    {
+     "id": 15,
+     "text": ".rob of picking 1 x and 2",
+     "source": "random"
+    },
+    {
+     "id": 16,
+     "text": " for zero disorder. Fig. 1 curve [*c* ]{}shows a plot",
+     "source": "heldout"
+    },
+    {
+     "id": 17,
+     "text": "} \\|a\\|_{N, \\ell^2}$$ and $$\\|f_",
+     "source": "wild"
+    },
+    {
+     "id": 18,
+     "text": " analysis (MMSE, Ref\"\"",
+     "source": "heldout"
+    },
+    {
+     "id": 19,
+     "text": " $\\phi^W_m:W_m\\longrightarrow W_{m-1",
+     "source": "random"
+    },
+    {
+     "id": 20,
+     "text": "\",\"facing_price\":\"\",\"downloaded\":false}},\"is_allowed_and_",
+     "source": "wild"
+    }
+   ],
+   "explanations": {
+    "examples": "Fires on the empty-string literal token in code: every top example peaks on ` \"\"` (space + two double quotes) as an assigned, returned, default or JSON value. Promoted tokens are also empty-string forms (` \"\"`, `:\"\"`, `(\"\")`). I expect it to generalise, somewhat weaker, to single-quote `''` and to no-space variants like `=\"\"`. Should NOT fire on non-empty strings or attribute values (style=\"...\"), ordinary quotes in prose, other code punctuation, exceptions/null-ish code without an empty literal, math/LaTeX, citations, or plain prose and numbers.",
+    "investigated": "Fires on empty-string literal tokens: a pair of quotes with nothing between, peak on the quote token itself. Tiers: code ` \"\"` after = or return ~0.8-1.0; variants `''`, `=\"\"`, `\"\",`, `\"\";`, `\"\"));`, `(\"\")` ~0.5-0.8; HTML `=\"\"` and prose `\"\"`/`''` ~0.3-0.45; triple-quote closer and empty `{}` ~0.15-0.4; `\" \"`, `[]`, closing quotes <=0.12. Does NOT fire on null/None, 0/False, the words \"empty string\", non-empty strings or attributes, `{ }`, `()`. Causal: ablation barely changes the next token (KL 0.0017), so weak downstream effect at the prompt end. Note: one extra run_prompt attempt was blocked as too close to pool phrasing and never executed; 4 ran."
+   }
+  },
+  {
+   "feature": 4678,
+   "label": "expressions of liking or affection",
+   "pool": [
+    {
+     "id": 0,
+     "text": " up up a paragraph? It's a fast-paced, dramatic, funny,",
+     "source": "random"
+    },
+    {
+     "id": 1,
+     "text": " in Sec. \\[sec:sim\\] and analysis procedures in Sec. \\[",
+     "source": "random"
+    },
+    {
+     "id": 2,
+     "text": ", BOOK!\n\n[INTRO MUSIC]\n\nIt might seem foolhardy to undertake three",
+     "source": "random"
+    },
+    {
+     "id": 3,
+     "text": "\n\nHave access to one--but prefer chopping by hand. There is something satisfying about",
+     "source": "neighbor"
+    },
+    {
+     "id": 4,
+     "text": " you don't like it, start your own blog. I'm certainly not",
+     "source": "wild"
+    },
+    {
+     "id": 5,
+     "text": " PTB. He says that he doesn't consider himself a friend of Valério",
+     "source": "wild"
+    },
+    {
+     "id": 6,
+     "text": " not always sincere. He likes to make food or cooking-related metaphors which appear to",
+     "source": "heldout"
+    },
+    {
+     "id": 7,
+     "text": " start chatting with Chiefs fans from all over the world! Enjoy your stay!\n\nThe",
+     "source": "neighbor"
+    },
+    {
+     "id": 8,
+     "text": ". Asin likes to remain active, especially outdoors). From scuba diving to skiing,",
+     "source": "heldout"
+    },
+    {
+     "id": 9,
+     "text": " incorporates aspects of both. The x-coordinate of a point is based on its exact",
+     "source": "random"
+    },
+    {
+     "id": 10,
+     "text": " for modern experiments.\n\nWe would like to stress that the underlying mechanism responsible for the",
+     "source": "wild"
+    },
+    {
+     "id": 11,
+     "text": " Prairie or Salt Creek but nice rolling up and down both ways. We easily found Sag",
+     "source": "neighbor"
+    },
+    {
+     "id": 12,
+     "text": " world. love—not form—will lead to exaltation. form, ritual,",
+     "source": "neighbor"
+    },
+    {
+     "id": 13,
+     "text": "mine dinitrate and which method avoids undesirably high processing temperatures, i.",
+     "source": "wild"
+    },
+    {
+     "id": 14,
+     "text": " happen. I want to get back on that horse, so hopefully will resume publishing a",
+     "source": "neighbor"
+    },
+    {
+     "id": 15,
+     "text": " experienced programmers don't have time for this",
+     "source": "random"
+    },
+    {
+     "id": 16,
+     "text": " and\n“um.” They also include words such as “like,” “you know",
+     "source": "heldout"
+    },
+    {
+     "id": 17,
+     "text": " and “likewise the opportunity for the development\nof a relationship between citizen parent and",
+     "source": "wild"
+    },
+    {
+     "id": 18,
+     "text": ", and (as my father would have liked)\na good education.\n\nWe",
+     "source": "heldout"
+    },
+    {
+     "id": 19,
+     "text": " Nutr 2012;15(10):1810",
+     "source": "random"
+    },
+    {
+     "id": 20,
+     "text": " practice my english... thancks for your support :D I'd like to find",
+     "source": "wild"
+    }
+   ],
+   "explanations": {
+    "examples": "Fires on the verb \"like\" in its preference sense (\" like\", \" likes\", \" liked\"), right on that token, after a subject: \"I like X\", \"he likes music\", \"a person who likes to...\". All eight top examples peak on like/likes at 38-40; promoted tokens are liked/likes/dislike/gusta. Expect strongest for first-person or third-person \"like(s)\" plus object or \"to\" infinitive, slightly weaker for past \"liked\". Uncertain, weak guesses: \"like\" quoted as a filler word, and German \"mögen\" in a modal-verb list. Should NOT fire on \"love\" or other positive sentiment without the verb like, comparative/preposition \"like\", nor on code, citations, or technical prose lacking the word.",
+    "investigated": "Fires on the verb \"like\" in its preference sense (like/likes/liked), peaking on the verb token itself. Tiers: \"I like\"/\"likes\"/\"do you like\" 0.8-1.0 of max; \"liked\", \"don't like\", \"would like\" 0.65-0.75; \"dislike\", German \"mögen\" (even in a bare word list), Spanish \"gusta\" 0.5; noun \"likes\", \"likable\", quoted mention of \"like\" 0.4; \"mag\" 0.4. Weak or off: filler \"like\" 0.15, \"enjoys\" 0.17, and zero on comparative \"looks like\", \"Unlike\", \"love\", \"prefers\". The token after the verb often carries a 0.1-0.4 spill. So it is lexical (the like-verb and its translations), not affection generally. Ablating it on \"Personally, I like\" shifted next-token mass from \" to\" toward \" the\"/\" a\", KL 0.09."
+   }
+  },
+  {
+   "feature": 4190,
+   "label": "conditional statements and possibilities in reasoning or argumentation",
+   "pool": [
+    {
+     "id": 0,
+     "text": "7: {region: 0x4d55, code: 0",
+     "source": "random"
+    },
+    {
+     "id": 1,
+     "text": " In Batten disease, compelling proof of concept has been demonstrated in preclinical studies in",
+     "source": "random"
+    },
+    {
+     "id": 2,
+     "text": ",\n \t       inet_ntoa (client_sai.sin_",
+     "source": "random"
+    },
+    {
+     "id": 3,
+     "text": " transaction is\neither committed in full or not at all. A transaction may consist of",
+     "source": "neighbor"
+    },
+    {
+     "id": 4,
+     "text": " the entire world, there's nothing\nleft but go to an orphanage, to",
+     "source": "wild"
+    },
+    {
+     "id": 5,
+     "text": ", so he had to prove that he",
+     "source": "wild"
+    },
+    {
+     "id": 6,
+     "text": ", can be squeezed out of him by violence only, and not by any interest of",
+     "source": "heldout"
+    },
+    {
+     "id": 7,
+     "text": " for which she paid taxes but which forbade classes for black children beyond the seventh grade,",
+     "source": "neighbor"
+    },
+    {
+     "id": 8,
+     "text": " wealthiest Americans. And the only way to keep it revenue neutral is to balance their plan",
+     "source": "heldout"
+    },
+    {
+     "id": 9,
+     "text": " plugins and usb mixer. Waves platinum plugin bundle, 50.waves dugan",
+     "source": "random"
+    },
+    {
+     "id": 10,
+     "text": "\\], the only divisor not yet considered is $d=\\frac{m}",
+     "source": "wild"
+    },
+    {
+     "id": 11,
+     "text": " agency.\n\nThis privacy policy applies only to this website. If you do",
+     "source": "neighbor"
+    },
+    {
+     "id": 12,
+     "text": " the Gorilla paper mentioned above – that I had to implement myself. For reference, it",
+     "source": "neighbor"
+    },
+    {
+     "id": 13,
+     "text": " cannot help it!” To me, the only beliefs that ought to be adopted are those",
+     "source": "wild"
+    },
+    {
+     "id": 14,
+     "text": " autocompletion (other than history autocompletion)\nwhen you use something other than the",
+     "source": "neighbor"
+    },
+    {
+     "id": 15,
+     "text": " // <== Note the plural\n                var deleteClub = true;\n                for",
+     "source": "random"
+    },
+    {
+     "id": 16,
+     "text": " only one man left, the lieutenant himself, fighting whatever it",
+     "source": "heldout"
+    },
+    {
+     "id": 17,
+     "text": " all but eliminates the symptoms produced by this failure. The only draw back is that the",
+     "source": "wild"
+    },
+    {
+     "id": 18,
+     "text": " greatest tribulation in human history and that only the matchless return of the King can deliver",
+     "source": "heldout"
+    },
+    {
+     "id": 19,
+     "text": "2.0%) reduced arrhythmias, mortality, and \"S-T\" segment",
+     "source": "random"
+    },
+    {
+     "id": 20,
+     "text": "or EMI) the only real way to fix the problem is to either remove the RF",
+     "source": "wild"
+    }
+   ],
+   "explanations": {
+    "examples": "Fires on restrictive/exclusive \"only\" stating a necessary condition or sole possibility: \"only possible if\", \"possible only if\", \"could only mean\". Peak sits on \" only\" itself, or on the word right after it (\"only [[possible]]\"). The direction promotes \" only\", \" either\", \" unless\", so it is about exclusivity/limitation rather than conditionals in general. Strongest after modals or in reasoning (\"can only\", \"the only way/place ... is if\"); weaker expected for quantity \"only one man\" and trailing \"by violence only\". Not expected to fire on code, hex constants, product lists, medical or travel prose without \"only\", or on a bare \"if\" lacking an exclusivity word. Based on top examples only; nothing was run.",
+    "investigated": "Fires on restrictive \"only\" (also \"sole\") when it marks the single possible option or outcome, and on the words completing that construction (the following verb, noun, \"is/was\", \"to\", \"if\"). Tiers: ~0.7 of max on \"could only mean\"; 0.35-0.45 on \"only possible if\", \"can only wonder\", \"has only a single purpose\", \"sole hope ... was to\"; 0.12-0.25 on plain \"the only road ... was\", \"had only three\", trailing \"taxes only\". Does NOT fire: conditionals without \"only\" (if/unless/might), \"just/merely\", \"the one spot ... is if\", \"may bring only two\", sentence-initial \"Only then\"/\"only four\", code. Even \"works only if\" gave 0. Causal: ablation barely matters (KL 0.006)."
+   }
+  },
+  {
+   "feature": 12043,
+   "label": "programming-related keywords and structures",
+   "pool": [
+    {
+     "id": 0,
+     "text": " => Wire a b m r -> Wire b c m r -> Wire a c m",
+     "source": "random"
+    },
+    {
+     "id": 1,
+     "text": "4*(-1 + 4*sqrt(1300) + sqrt",
+     "source": "random"
+    },
+    {
+     "id": 2,
+     "text": " thought that the heart has come when the abso of the day proving the swelling of",
+     "source": "random"
+    },
+    {
+     "id": 3,
+     "text": "_id'=>$row['genre_id']))->row()->name;\n//I",
+     "source": "neighbor"
+    },
+    {
+     "id": 4,
+     "text": "m looking for something like\ncommonA = dfA.select('time', ",
+     "source": "wild"
+    },
+    {
+     "id": 5,
+     "text": " numbers shown in Table [1](#Tab1){ref-type=\"table\"",
+     "source": "wild"
+    },
+    {
+     "id": 6,
+     "text": "sql = \"SELECT * FROM users WHERE email = :email AND password= :password",
+     "source": "heldout"
+    },
+    {
+     "id": 7,
+     "text": "intent.putExtra(AppConstants.KEY_ITEMS, items);\n\nAndroid creates a",
+     "source": "neighbor"
+    },
+    {
+     "id": 8,
+     "text": " int, value int)\nPARTITIONED BY (dt string)\nROW FORMAT DEL",
+     "source": "heldout"
+    },
+    {
+     "id": 9,
+     "text": " had a fun and wonderful season and we hope to see you all back next year!",
+     "source": "random"
+    },
+    {
+     "id": 10,
+     "text": "\n\t\t\t\t<param name=\"icache_config\" value=\"1638",
+     "source": "wild"
+    },
+    {
+     "id": 11,
+     "text": " (int)event->x, (int)event->y, &pressed_",
+     "source": "neighbor"
+    },
+    {
+     "id": 12,
+     "text": "\n\n\tgtk_tree_view_get_cursor(treeview, &path,",
+     "source": "neighbor"
+    },
+    {
+     "id": 13,
+     "text": "\nJOIN tbl3 on (tbl3.t3_pk = tbl2.",
+     "source": "wild"
+    },
+    {
+     "id": 14,
+     "text": "NAME, displayName);\n            shape.setPathType(AVKey.LINEAR);\n",
+     "source": "neighbor"
+    },
+    {
+     "id": 15,
+     "text": " better, anyway – what..? Yeah, sure, maybe even lottery tickets..! But failing",
+     "source": "random"
+    },
+    {
+     "id": 16,
+     "text": "TABLE(of, unimac_mdio_ids);\n\nstatic",
+     "source": "heldout"
+    },
+    {
+     "id": 17,
+     "text": " - The subpoenaed bank records of Marcos Valério and his businesses reveal connections to the",
+     "source": "wild"
+    },
+    {
+     "id": 18,
+     "text": " explicit type casts.\n\ntable definition:\nCREATE TABLE public.managers(\n  ",
+     "source": "heldout"
+    },
+    {
+     "id": 19,
+     "text": "   *\n\"(3) For purposes of this subsection, a `physical or mental",
+     "source": "random"
+    },
+    {
+     "id": 20,
+     "text": "({});\n            descriptor = Object.getOwnPropertyDescriptor(node, 'parentId');\n\n",
+     "source": "wild"
+    }
+   ],
+   "explanations": {
+    "examples": "The top examples do not support the broad \"programming keywords\" label. The feature peaks where a named parameter or argument is about to be given: the `,'` after `window.open(url` (window-name argument), ` ($` opening a GraphQL variable list (`subscription ($clientId`), and the word \"parameter\" in \"Missing parameter %s\". The promoted tokens (propOrder, HasForeignKey, invokingState) are identifier-like. I expect it to fire on parameter declarations and placeholders (SQL `IN col`, `:email`, `<param name=`, `($`), weakly on other code punctuation, and not on prose, citations, maths, legal text or code comments.",
+    "investigated": "Fires on code tokens that open a NAMED parameter/placeholder slot, not on code in general. Strong (0.6-0.8 of max): regex named groups \"(?P\" (P 0.78-0.83, \"=\" 0.56), SQL \"IN\"/\"OUT\" parameter modes (0.68/0.47), \",'\" before a second call argument (0.74), the word \"parameter\" inside a code string (0.61), \"<arg name=\\\"\" (0.41-0.58), SQL bind \" :\" (0.56). Mid (0.25-0.4): GraphQL \"($\", macro \"NAME(\" openers. Weak (0.1-0.2): \"parameter\"/\"argument\" in prose, non-param name= attributes, Elixir \" :atom\". Zero: plain function signatures, PHP \"($\", Haskell types, math, comments, prose. Causal: ablation at \"(?P\" barely moves the output (KL 0.0003), so it is a readout, not a driver there."
+   }
+  },
+  {
+   "feature": 2788,
+   "label": "URLs and reference identifiers",
+   "pool": [
+    {
+     "id": 0,
+     "text": "c_0 \\,",
+     "source": "random"
+    },
+    {
+     "id": 1,
+     "text": "    Court    of     Appeals    of   Maryland     further\n\nexplains that",
+     "source": "random"
+    },
+    {
+     "id": 2,
+     "text": " it’s something they do with their own kids today.”\n\nThe business continued to",
+     "source": "random"
+    },
+    {
+     "id": 3,
+     "text": "com/videos/view/passive-solar-glass-home-watching-sun",
+     "source": "neighbor"
+    },
+    {
+     "id": 4,
+     "text": "_Psychoactive_Substance_U.html?id",
+     "source": "wild"
+    },
+    {
+     "id": 5,
+     "text": ".42\n\n[Table 3](#T3){ref-type=\"table",
+     "source": "wild"
+    },
+    {
+     "id": 6,
+     "text": "type=artist&page=3\",\"next\":\"https:\\/\\/api.discogs.",
+     "source": "heldout"
+    },
+    {
+     "id": 7,
+     "text": " {#sec6-toxics-07-00005}\n",
+     "source": "neighbor"
+    },
+    {
+     "id": 8,
+     "text": ".00552/full#supplementary-material>\n\n###### ",
+     "source": "heldout"
+    },
+    {
+     "id": 9,
+     "text": " lunch on the weekends. You can make a reservation for lunch for this Saturday, March",
+     "source": "random"
+    },
+    {
+     "id": 10,
+     "text": "suvorova?load_type=author\",\"is_premium\":false,\"possible",
+     "source": "wild"
+    },
+    {
+     "id": 11,
+     "text": "Seq Designer (<https://www.ampliseq.com/browse.action>) for",
+     "source": "neighbor"
+    },
+    {
+     "id": 12,
+     "text": " political expediency.{{#with tryGetTargetReflectionDeep}}\n    {{#",
+     "source": "neighbor"
+    },
+    {
+     "id": 13,
+     "text": " registered trademark of Oracle and/or its affiliates in the US and other countries.<br",
+     "source": "wild"
+    },
+    {
+     "id": 14,
+     "text": "5){ref-type=\"fig\"}. Because the experimental conditions are limited, the",
+     "source": "neighbor"
+    },
+    {
+     "id": 15,
+     "text": " inform a drug-associated risk for major birth defects and miscarriage. Advise women of",
+     "source": "random"
+    },
+    {
+     "id": 16,
+     "text": " ([Table 2](#t0010){ref-type=\"table",
+     "source": "heldout"
+    },
+    {
+     "id": 17,
+     "text": "03534,\n          \"parent_id\": \"dc37",
+     "source": "wild"
+    },
+    {
+     "id": 18,
+     "text": " [S1A](#MOESM1){ref-type=\"media\"}).",
+     "source": "heldout"
+    },
+    {
+     "id": 19,
+     "text": "\"></script>\r\n\r\n<link href=\"https://maxcdn.bootstrapcdn.com",
+     "source": "random"
+    },
+    {
+     "id": 20,
+     "text": "\n\nhttp://www.youtube.com/watch?v=xKkwT",
+     "source": "wild"
+    }
+   ],
+   "explanations": {
+    "examples": "Top examples are dominated by a mid-context <bos> token (document boundary), which cannot occur inside pool sentences. The only in-text example peaks on \"_\" inside a URL-encoded query string (utm_source), so I expect weaker firing inside URL query parameters, paths and fragments, and possibly on markup reference anchors like (#t0010){ref-type=...}. Similar features (URL / web-link / code syntax) support this. I expect NO firing on ordinary prose (news, legal, medical, restaurant text), plain list numbering, LaTeX fragments, or a bare \"([Table\" without the anchor identifier.",
+    "investigated": "Fires inside URL query strings, not on URLs in general. Strongest (0.8-0.96 of max) on tracking parameters in percent-encoded links: \"utm\", \"_\", \"medium\", \"campaign\", \"=\". Generic key=value&key=value parameters reach 0.3-0.4 (peak on \"=\" or the key). Weak tier, 0.12-0.2: JATS-style {ref-type=\"...\"} attributes (\"ref\", \"-\", \"type\"), article-URL tails like /full#anchor-name, escaped \":\\/\\/\" in JSON, CDN hostnames. Zero on scheme, host and path of ordinary URLs, snake_case identifiers outside URLs (user_id), LaTeX subscripts, and prose. Top examples also show it on mid-document <bos>, which I could not test. Causal: zero-ablating it at a \"&utm\" prompt left the next-token distribution unchanged (KL 0.0001), so no measurable output role there."
+   }
+  },
+  {
+   "feature": 5976,
+   "label": "technical terms related to communication systems and leadership styles",
+   "pool": [
+    {
+     "id": 0,
+     "text": " the caveats of the previous paragraph. Also, are administrators\nreally going around and loading",
+     "source": "random"
+    },
+    {
+     "id": 1,
+     "text": "\n    Intent intent = new Intent(getBaseContext(), AlarmReceiver.class);\n",
+     "source": "random"
+    },
+    {
+     "id": 2,
+     "text": " conditions in a periurban area served by the Family Health Program, in the city of",
+     "source": "random"
+    },
+    {
+     "id": 3,
+     "text": "s name, add the introduction phrase, say the other person’s name and\n",
+     "source": "neighbor"
+    },
+    {
+     "id": 4,
+     "text": ". *Subset selectors* return a non-ordered subset of features from the original set",
+     "source": "wild"
+    },
+    {
+     "id": 5,
+     "text": ".\nDry bulk carriers are typically used to transport dry particulates, such as dry",
+     "source": "wild"
+    },
+    {
+     "id": 6,
+     "text": " manufacturing process in which interchangeable parts are added to a product in a sequential manner in order",
+     "source": "heldout"
+    },
+    {
+     "id": 7,
+     "text": ".\n\nfigure   a representation of a human or animal form in drawing or sculpture  ",
+     "source": "neighbor"
+    },
+    {
+     "id": 8,
+     "text": " A tow truck is a vehicle used to transport motor vehicles to another location, generally a",
+     "source": "heldout"
+    },
+    {
+     "id": 9,
+     "text": "this.requestField(field, value);\n      }\n      return this;",
+     "source": "random"
+    },
+    {
+     "id": 10,
+     "text": " still liquid metal is introduced between two cooled work rolls and in which a metal plating strip",
+     "source": "wild"
+    },
+    {
+     "id": 11,
+     "text": "\n Distribution mechanism\n\nThe operator interacts with the machine via the keyboard, composing lines of",
+     "source": "neighbor"
+    },
+    {
+     "id": 12,
+     "text": " Group, Inc. We provide articles, research and events for sophisticated professionals driving digital customer",
+     "source": "neighbor"
+    },
+    {
+     "id": 13,
+     "text": " isolators that provide ground isolation and noise abatement for audio and video in broadcast, home",
+     "source": "wild"
+    },
+    {
+     "id": 14,
+     "text": " of machines and the branch of computer science which",
+     "source": "neighbor"
+    },
+    {
+     "id": 15,
+     "text": " and efficient numerical method. Several numerical tests showing the effectiveness of the proposed method are presented",
+     "source": "random"
+    },
+    {
+     "id": 16,
+     "text": " keys that are in one set but not the other. In reconciliation, the difference is",
+     "source": "heldout"
+    },
+    {
+     "id": 17,
+     "text": " that excludable aliens could be detained for an indefinite period of time pending removal,",
+     "source": "wild"
+    },
+    {
+     "id": 18,
+     "text": " group of diseases which are characterized by the pathological extracellular deposition of autologous proteins. Basically",
+     "source": "heldout"
+    },
+    {
+     "id": 19,
+     "text": " + 3\nWhat is the s'th term of -2489",
+     "source": "random"
+    },
+    {
+     "id": 20,
+     "text": ": Reliability is a measurement of the reproducibility of the data. The UW QOL questionnaire",
+     "source": "wild"
+    }
+   ],
+   "explanations": {
+    "examples": "All top examples are one repeated sentence: \"...leadership refers to the leader's skills to influence others [[towards]] achieving goals\", so the evidence is thin. My reading: the feature fires inside the body of a definitional/encyclopedic gloss (the text explaining what a term is, after \"refers to\"/\"is a\"), peaking on the function word or verb that continues the defining clause (towards, to, in which, that, whose, involving). The label's \"communication systems and leadership\" topic is probably incidental. Not expected to fire: code, math problems, citations, sports/date facts, quotes and news, conversational text, or abstract-style sentences that report results rather than define a concept.",
+    "investigated": "Fires across the body of a definition or descriptive gloss: the words that say what a thing is or does after \"X refers to the...\", \"is a device that...\", \"in which...\", \"whose ... depends on\". It is sustained over the whole clause and resets to zero at the period. Label's leadership/communication topic is incidental. Tiers: 0.6-0.8 of max late in a \"refers to\" definition (peak on \"towards\"), 0.4-0.7 in \"that/whose/in which\" clauses and headless definition fragments, 0.15-0.35 on follow-up elaborations (\"may include ... where\"). Zero on the defined term and \"is a\", narrative, dates/sport, code, arithmetic questions, abstract-style method claims. Ablation barely changes predictions (KL 0.009). One extra run_prompt attempt was blocked by the permission classifier and never ran."
+   }
+  },
+  {
+   "feature": 115,
+   "label": "numerical data and statistical references",
+   "pool": [
+    {
+     "id": 0,
+     "text": "valued tech sector and allegations of Chinese chip-makers including devices in products to spy on",
+     "source": "random"
+    },
+    {
+     "id": 1,
+     "text": " stringWriter = new StringWriter())\n         using (var xmlTextWriter = Xml",
+     "source": "random"
+    },
+    {
+     "id": 2,
+     "text": " the results of HPLC showed that the active ingredient content met the standard. SQW is",
+     "source": "random"
+    },
+    {
+     "id": 3,
+     "text": " and J. M. Robins (2010a). Dynamic regime marginal",
+     "source": "neighbor"
+    },
+    {
+     "id": 4,
+     "text": "$$ leads to the regularized stokeslet [@cortez2005method",
+     "source": "wild"
+    },
+    {
+     "id": 5,
+     "text": " the defendants is warranted. In re Spigel, 260 F.3",
+     "source": "wild"
+    },
+    {
+     "id": 6,
+     "text": "-initiation events (Nomaguchi et al. 2003).",
+     "source": "heldout"
+    },
+    {
+     "id": 7,
+     "text": " of Marín et al. \\[[@pone.0235320.",
+     "source": "neighbor"
+    },
+    {
+     "id": 8,
+     "text": ") and Chernozhukov et al. (2017, 2",
+     "source": "heldout"
+    },
+    {
+     "id": 9,
+     "text": " the Prussian Customs Union. On this basis, with Austria's support, the whole",
+     "source": "random"
+    },
+    {
+     "id": 10,
+     "text": "2002; @Struzhkin2002; @De",
+     "source": "wild"
+    },
+    {
+     "id": 11,
+     "text": "eko et al. [@CR22]; Kotani et al. [@CR2",
+     "source": "neighbor"
+    },
+    {
+     "id": 12,
+     "text": " (e.g., Cuevas et al. \\[[@B68-viruses-",
+     "source": "neighbor"
+    },
+    {
+     "id": 13,
+     "text": " § 1983 claim. Page v. Sharpe, 487",
+     "source": "wild"
+    },
+    {
+     "id": 14,
+     "text": " be formed (Véronèse and Perlot, 1999, Enzyme",
+     "source": "neighbor"
+    },
+    {
+     "id": 15,
+     "text": "4–6, 7–5, 6–0 against Nicole Arendt",
+     "source": "random"
+    },
+    {
+     "id": 16,
+     "text": " observed [@Dujmic2008-327;",
+     "source": "heldout"
+    },
+    {
+     "id": 17,
+     "text": " believe that this position was approached in Krueger v. Richardson, 326 Ill",
+     "source": "wild"
+    },
+    {
+     "id": 18,
+     "text": " the CMC, and [@Richardson1996; @Richardson199",
+     "source": "heldout"
+    },
+    {
+     "id": 19,
+     "text": "\n\nThis all made me super happy. I’ve made a couple",
+     "source": "random"
+    },
+    {
+     "id": 20,
+     "text": "; @Baxter2016; @Schaan2016;",
+     "source": "wild"
+    }
+   ],
+   "explanations": {
+    "examples": "Fires on the year inside an academic in-text citation, peaking on the year's second digit (the \"0\" of 20xx, the \"9\" of 19xx). All eight top examples are \"Author et al. YEAR\" in parenthetical citation lists, so the label \"numerical data and statistics\" is too broad. Expect strongest after \"et al.\" plus a year; weaker for years in other citation formats (citation keys like @Dujmic2008, markdown bib links, reference-list entries such as \"Timothy C. 2011.\"). Expect no firing on non-citation numbers (sports scores, cell counts, list numbers, footnote digits), code, or ordinary prose without years.",
+    "investigated": "Fires on the SECOND digit of a publication year inside an author-year citation (digits are single tokens: the \"0\" of 2014, the \"9\" of 1998), decaying over the third digit (~0.25) and fourth (~0.08). Tiers: \"Author et al. 20xx\" 0.7-0.85 of max; \"et al., 19xx\", \"Author (2006)\", \"Author 2013\" 0.55-0.65; pandoc keys like [@Name2003] and markdown-link years 0.3-0.45; bibliography \"Surname, First M. 1987.\" 0.2-0.26; \"et al. in 2016\" 0.15. Does NOT fire on plain years in prose (1945, 1990s), \"Table 2019\", statistics, percentages, sample sizes, scores, numeric ranges or bracketed [12] references, so the label is wrong. Causal: ablation barely changes the next token (KL 0.005)."
+   }
+  },
+  {
+   "feature": 312,
+   "label": "terms related to counterfactual reasoning and concepts in quantum mechanics",
+   "pool": [
+    {
+     "id": 0,
+     "text": " only one to have developed cybersecurity-breaking schemes, even on these early machines; the",
+     "source": "random"
+    },
+    {
+     "id": 1,
+     "text": ", market economy has penetrated into the Muong villages that are gradually losing the cultural characteristics",
+     "source": "random"
+    },
+    {
+     "id": 2,
+     "text": "Entity;\nimport javax.persistence.Id;\nimport javax.persistence.Id",
+     "source": "random"
+    },
+    {
+     "id": 3,
+     "text": "The true statement is:\n\n2. M and N CANNOT be placed on shelves three",
+     "source": "neighbor"
+    },
+    {
+     "id": 4,
+     "text": " centimeters are there in 1.289613 micrometers?\n",
+     "source": "wild"
+    },
+    {
+     "id": 5,
+     "text": "almost surely for all large $n$, $$L(\\tau_n) \\",
+     "source": "wild"
+    },
+    {
+     "id": 6,
+     "text": " surjective function between a sample space $S$ and a set of real values in",
+     "source": "heldout"
+    },
+    {
+     "id": 7,
+     "text": "The syntax if [ -z \"string\" ] checks if a string is empty or",
+     "source": "neighbor"
+    },
+    {
+     "id": 8,
+     "text": "\nWe want to be able to take any (invertible) linear transformation of the",
+     "source": "heldout"
+    },
+    {
+     "id": 9,
+     "text": " model it.  I'd recommend looking for something canned in JavaScript before coding it",
+     "source": "random"
+    },
+    {
+     "id": 10,
+     "text": " key, and I can decrypt is using your public key.\nb) You can",
+     "source": "wild"
+    },
+    {
+     "id": 11,
+     "text": " to answer and the method I have is to draw out venn diagrams one by one and",
+     "source": "neighbor"
+    },
+    {
+     "id": 12,
+     "text": "\n Distribution mechanism\n\nThe operator interacts with the machine via the keyboard, composing lines of",
+     "source": "neighbor"
+    },
+    {
+     "id": 13,
+     "text": " test of the Standard Model gauge structure. Electroweak gauge couplings have been measured directly",
+     "source": "wild"
+    },
+    {
+     "id": 14,
+     "text": " it being a reality whose ground is completely external to me. Belief, now more than",
+     "source": "neighbor"
+    },
+    {
+     "id": 15,
+     "text": " and [SMR]{} assumptions {#SubSecMDRSMR}\n----------------",
+     "source": "random"
+    },
+    {
+     "id": 16,
+     "text": " $n\\cdot m$ solutions and among these $b$:\n$$\\exists y",
+     "source": "heldout"
+    },
+    {
+     "id": 17,
+     "text": ";{\\text{Decrease\\ of\\ adherence\\ =}\\mspace{6mu",
+     "source": "wild"
+    },
+    {
+     "id": 18,
+     "text": "generacy refers to multiple states having equal energies. Does the term degeneracy have different meanings",
+     "source": "heldout"
+    },
+    {
+     "id": 19,
+     "text": "Capacity:256];\n\n    [buffer appendString:@\"{\"];\n    ",
+     "source": "random"
+    },
+    {
+     "id": 20,
+     "text": " based on two insights: The first was that the consequent of Bell’s theorem could",
+     "source": "wild"
+    }
+   ],
+   "explanations": {
+    "examples": "Evidence is thin: all 8 top examples are the same text, peaking on \" space\" in \"function from a sample space\". The label (counterfactuals, quantum mechanics) is not supported by anything shown. Best guess: fires on \"space\" as a mathematical object noun (sample space, probably null space / vector space), strongest right after \"sample\". Similar features point to maths/logic text, so weak sub-threshold activity on other abstract maths nouns (function, bound, set) is possible. Density 0.56% suggests it is somewhat broader than this one phrase, but I cannot tell how. Expected NOT to fire: code, imports, prose narrative, news, biology, section headers, and LaTeX formulas with no named space.",
+    "investigated": "Not counterfactuals or quantum mechanics. Fires diffusely across expository prose about abstract mathematical objects and definitions (probability, analysis, linear algebra), peaking on concept nouns: \"sample space\" 0.67 of max, \"distribution\" 0.71, \"measurable\" 0.73, \"greatest lower bound\" 0.64, \"eigenspace\" 0.63; surrounding function words sit at 0.3-0.5. Weak tier (0.15-0.3) on symbol-heavy LaTeX and counting statements. Zero on everyday \"space\" (office, parking, outer), everyday counterfactuals, programming advice, quantum-computing news prose, biology, and section headings; \"Let $f$ be...\" openers barely fire (under 0.2). Causal: zeroing it on a sample-space definition prompt changed nothing measurable (KL 0.0003, \" space\" stayed at 0.992), so no evidence it drives the next-token prediction there."
+   }
+  },
+  {
+   "feature": 2616,
+   "label": "words and phrases that consistently appear multiple times in relation to quantities or time duration",
+   "pool": [
+    {
+     "id": 0,
+     "text": " Owen in Confronting Political Islam, is that foreign interventions are inevitable at times of grand",
+     "source": "random"
+    },
+    {
+     "id": 1,
+     "text": " in every route we are in, this is the merit of what we have done by",
+     "source": "random"
+    },
+    {
+     "id": 2,
+     "text": " voters.Not known Facts About engineering assignment help\n\nMenu\n\nNot known Facts About",
+     "source": "random"
+    },
+    {
+     "id": 3,
+     "text": " areas and under fertilizing in others. A blotchy appearance results. Furthermore, the",
+     "source": "neighbor"
+    },
+    {
+     "id": 4,
+     "text": ". When she looked up at last, she saw that night had fallen over Bethlehem Springs",
+     "source": "wild"
+    },
+    {
+     "id": 5,
+     "text": "0 (1927), the Supreme Court overturned a verdict in favor of the",
+     "source": "wild"
+    },
+    {
+     "id": 6,
+     "text": " rolled out nationally across all offices, over 50 client sites and 30",
+     "source": "heldout"
+    },
+    {
+     "id": 7,
+     "text": ").\n\n[^14]: Above we have assumed the variables $A_{1}$,",
+     "source": "neighbor"
+    },
+    {
+     "id": 8,
+     "text": " of Technology, were interested in better understanding the global sulfur cycle over the last 5",
+     "source": "heldout"
+    },
+    {
+     "id": 9,
+     "text": " Points: You're setting the punch alight",
+     "source": "random"
+    },
+    {
+     "id": 10,
+     "text": "ing to be a criticism of the Rittenburg lecture has extended over a number of",
+     "source": "wild"
+    },
+    {
+     "id": 11,
+     "text": " Pompe and CDD. • Preclinical work across additional neurologic LSDs. About",
+     "source": "neighbor"
+    },
+    {
+     "id": 12,
+     "text": " this supermodel sedan. Continue Reading...\n\nAs it tends to do around this time",
+     "source": "neighbor"
+    },
+    {
+     "id": 13,
+     "text": " acceptance....\" Blondell v. Turover, supra, 195 Md",
+     "source": "wild"
+    },
+    {
+     "id": 14,
+     "text": " them as possible when you spin so they can cover as many reels as possible. After",
+     "source": "neighbor"
+    },
+    {
+     "id": 15,
+     "text": " and logical generalizations are still possible in the sense of \\\"if it happens there, it",
+     "source": "random"
+    },
+    {
+     "id": 16,
+     "text": ".html\">Overview</a></li>\n<li",
+     "source": "heldout"
+    },
+    {
+     "id": 17,
+     "text": " this unique model system to show that above a critical concentration populations of motile colloids",
+     "source": "wild"
+    },
+    {
+     "id": 18,
+     "text": " two weeks of living hell to get over. I had no \"lesser drugs\"",
+     "source": "heldout"
+    },
+    {
+     "id": 19,
+     "text": "\t\tthw.Write(crlf)",
+     "source": "random"
+    },
+    {
+     "id": 20,
+     "text": " of s-IBM over PM/DM.Q:\n\nC: My struct'",
+     "source": "wild"
+    }
+   ],
+   "explanations": {
+    "examples": "Token-level feature for the word \" over\". All eight top examples peak on \" over\" at near-identical strength (53-54) across senses: temporal (\"over a few days\"), spatial (\"over large compost piles\"), comparative (\"one technique over another\"), legal (\"over his objection\"), locative (\"over in the School\"). The label's quantity/duration framing is too narrow. Expect strong firing on any standalone \" over\" as preposition, slightly weaker for capitalised sentence-initial \" Over\", the particle use (\"handed over\") and the \"more than\" sense. Expect no firing on sentences without the word; \"Overview\" as a single token probably stays below threshold. Other prepositions, quantities and durations without \"over\" should not fire.",
+    "investigated": "Lexical feature for the token \" over\"/\" Over\" (with leading space), in every sense. Tiers: preposition of duration/space/preference and legal \"over his objection\" ~1.0 of max; math \"space over a field\" 0.83; sentence-initial \"Over\" 0.75-0.88; particle \"gave ... over to\" 0.76; quantity \"over 40\" and predicative \"is over\" ~0.61. Weak spillover onto the following token (0.08-0.45). Compounds barely fire: \" Overview\", \" takeover\", \" overcame\" ~0.10-0.12; \"Overview\" without leading space, \" Overall\", \"moreover\", \"above\", \"across\", \"during\", \"throughout\", \"more than\" = 0. Causal: ablation drops \" over\" after \"over and\" from 0.99 to 0.36. Note: one extra run_prompt attempt was blocked before running (it contained HTML resembling pool item 5); it returned no data."
+   }
+  },
+  {
+   "feature": 4446,
+   "label": "past tense verbs indicating personal experiences or usage",
+   "pool": [
+    {
+     "id": 0,
+     "text": " didn’t bite. Just as she was about to leave in search of the Cult",
+     "source": "random"
+    },
+    {
+     "id": 1,
+     "text": ".01in}n+1}}{\\partial \\zeta }=\\frac{\\partial S",
+     "source": "random"
+    },
+    {
+     "id": 2,
+     "text": " app)\n\n\"The public remarks by President Dmitry Medvedev of Russia at his state",
+     "source": "random"
+    },
+    {
+     "id": 3,
+     "text": " who think sanctions will help Russian producers – remember the car industry. They’ve been",
+     "source": "neighbor"
+    },
+    {
+     "id": 4,
+     "text": "I've used FreeRTOS a lot and I can tell you I feel good",
+     "source": "wild"
+    },
+    {
+     "id": 5,
+     "text": "’m sorry that you found that thread hurtful, Amy. As someone who commented on",
+     "source": "wild"
+    },
+    {
+     "id": 6,
+     "text": " for any help!\n\nAttachments\n\nGenius\n\nI had a series 1 Watch in",
+     "source": "heldout"
+    },
+    {
+     "id": 7,
+     "text": " fun the first couple of times. Nowadays I just install xubuntu and add\nbsp",
+     "source": "neighbor"
+    },
+    {
+     "id": 8,
+     "text": " husband likes the bummi super brights). We've tried AIOs and pockets",
+     "source": "heldout"
+    },
+    {
+     "id": 9,
+     "text": "When Gordhan",
+     "source": "random"
+    },
+    {
+     "id": 10,
+     "text": ". Bah humbug!\n\nPersonally I have only bought their product second hand, so",
+     "source": "wild"
+    },
+    {
+     "id": 11,
+     "text": " and clams. Sixteen varieties to choose from. We ordered a full size (90",
+     "source": "neighbor"
+    },
+    {
+     "id": 12,
+     "text": "> dejuren: funny I am fighting with ssh host keys with ssh remote acces,",
+     "source": "neighbor"
+    },
+    {
+     "id": 13,
+     "text": ". I ended up with extraction of the 'content' part of the page without touching",
+     "source": "wild"
+    },
+    {
+     "id": 14,
+     "text": " I used to use a scraper, but in the last move, it disappeared (it",
+     "source": "neighbor"
+    },
+    {
+     "id": 15,
+     "text": "2008 shares of SXC on the NASDAQ could be",
+     "source": "random"
+    },
+    {
+     "id": 16,
+     "text": " wife already has that.\n\nHeck I have access to her bookstore on my tablet,",
+     "source": "heldout"
+    },
+    {
+     "id": 17,
+     "text": " during your tour in the US?\n\nMF: We did our tour last fall from",
+     "source": "wild"
+    },
+    {
+     "id": 18,
+     "text": " your regular covers with extra absorbency inside?\n\nI only had two covers that",
+     "source": "heldout"
+    },
+    {
+     "id": 19,
+     "text": "\n</tr>\n<tr>\n<td valign=\"top\"><a href=\"/pack/\"><",
+     "source": "random"
+    },
+    {
+     "id": 20,
+     "text": " so, do you use the fancy things on it? (Mine came with a mini",
+     "source": "wild"
+    }
+   ],
+   "explanations": {
+    "examples": "Fires on first-person statements of owning or having used a product/item, forum-review style: \"I used to [[have]] one\", \"I have [[a]] stainless steel...\". Peak lands on the possession verb or the token right after it (the article/object), once \"I have/had/used (to have)\" is established. Only two distinct top examples, so the breadth is inferred: I expect weaker firing for \"I've used them\", \"Been using it\", and third-person possession (\"my wife has that\"), and possibly French \"j'ai\". Should NOT fire on code, math, HTML, news prose, third-person narrative, finance text, or \"have\" as a pure auxiliary without an ownership/usage sense.",
+    "investigated": "Fires on first-person owner/user testimony, forum style: \"I used to have one\", \"I have a...\", \"I've been using/had them\", \"Mine/Ours are...\". Not a past-tense detector: it peaks on the possession/usage verb, its object, or a possessive pronoun, and smears across the rest of the clause. Tiers: 0.75-0.87 of max (\"Ours\", \"using\" after I've been, \"have one\"); 0.4-0.6 (\"I've had\", \"I have a\", \"Been running it\" with dropped subject); 0.2-0.35 (French \"j'ai acheté\", \"I owned\" in cold context, obligation \"I have to\"). Strongly context-boosted by preceding first-person ownership sentences. Silent on third-person narrative, news, finance, code, maths, and mostly on third-person possession. Causal: ablation did essentially nothing (KL 0.0001)."
+   }
+  }
+ ],
+ "refused": [
+  {
+   "feature": 11411,
+   "reason": "feature 11411: only 4 of the 6 wild sentences asked for were found (the scan has 20 strong and 20 weak candidates); it fires too rarely in the scanned text to be evaluated this way."
+  }
+ ]
+}

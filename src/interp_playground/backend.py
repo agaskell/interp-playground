@@ -445,9 +445,9 @@ class Backend:
             )
         if len(wild) < n_wild:
             raise ValueError(
-                f"feature {feature}: only {len(wild)} of the {n_wild} wild sentences asked for were found "
-                f"(the scan has {len(found['strong'])} strong and {len(found['weak'])} weak candidates); "
-                "it fires too rarely in the scanned text to be evaluated this way."
+                f"feature {feature}: only {len(wild)} of the {n_wild} wild sentences asked for were found: "
+                f"of the scan's {len(found['strong'])} strong and {len(found['weak'])} weak candidates, too few are "
+                f"unseen and keep half their in-context activation in a {WINDOW_TOKENS}-token window."
             )
         # Neighbor sentences are taken as they come: whether this feature fires on them is the question.
         neighbor = [c["text"] for c in found["neighbor"] if fresh(c)][:n_neighbor]

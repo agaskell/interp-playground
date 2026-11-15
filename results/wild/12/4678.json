@@ -1,0 +1,404 @@
+{
+ "feature": 4678,
+ "layer": 12,
+ "seed": 1,
+ "max_act": 40.08,
+ "contexts_scanned": 18000,
+ "contexts_firing": {
+  "strong": 267,
+  "weak": 355
+ },
+ "neighbors": [
+  {
+   "feature": 14469,
+   "cos": 0.419
+  },
+  {
+   "feature": 15530,
+   "cos": 0.355
+  },
+  {
+   "feature": 4993,
+   "cos": 0.346
+  },
+  {
+   "feature": 7863,
+   "cos": 0.313
+  },
+  {
+   "feature": 11485,
+   "cos": 0.309
+  }
+ ],
+ "neighbors_unreachable": [],
+ "strong": [
+  {
+   "text": " practice my english... thancks for your support :D I'd like to find",
+   "act": 21.13,
+   "rel": 0.527,
+   "peak_token": " like",
+   "context": 5544
+  },
+  {
+   "text": " you don't like it, start your own blog. I'm certainly not",
+   "act": 31.71,
+   "rel": 0.791,
+   "peak_token": " like",
+   "context": 2534
+  },
+  {
+   "text": " for modern experiments.\n\nWe would like to stress that the underlying mechanism responsible for the",
+   "act": 17.07,
+   "rel": 0.426,
+   "peak_token": " like",
+   "context": 17020
+  },
+  {
+   "text": " back for one last game in a season that many of them would like to forget.",
+   "act": 22.75,
+   "rel": 0.568,
+   "peak_token": " like",
+   "context": 18032
+  },
+  {
+   "text": " script and I would like to ask if it's possible to replace or automate the",
+   "act": 16.96,
+   "rel": 0.423,
+   "peak_token": " like",
+   "context": 3246
+  },
+  {
+   "text": " time. Having been programming for a while, I like to believe I got to a",
+   "act": 34.79,
+   "rel": 0.868,
+   "peak_token": " like",
+   "context": 655
+  },
+  {
+   "text": " halogen lighting.\n\nPanoramic Opening Glass Roof\n\nIf you’d like to add",
+   "act": 17.26,
+   "rel": 0.431,
+   "peak_token": " like",
+   "context": 16126
+  },
+  {
+   "text": " approach by using the this pointer too. Now I would like to know which approach should",
+   "act": 17.49,
+   "rel": 0.436,
+   "peak_token": " like",
+   "context": 17552
+  },
+  {
+   "text": " face of resistance. “People won’t like",
+   "act": 35.28,
+   "rel": 0.88,
+   "peak_token": " like",
+   "context": 16500
+  },
+  {
+   "text": " anywhere, without any ads or sponsored content. If you liked what you just read,",
+   "act": 33.05,
+   "rel": 0.825,
+   "peak_token": " liked",
+   "context": 3995
+  },
+  {
+   "text": "\nStationery Download Site\n\nKathy\nand I would like to formally welcome you to",
+   "act": 18.86,
+   "rel": 0.471,
+   "peak_token": " like",
+   "context": 9857
+  },
+  {
+   "text": " handlers who, if anyone, would like\n * to run with it. If no",
+   "act": 19.9,
+   "rel": 0.496,
+   "peak_token": " like",
+   "context": 6796
+  },
+  {
+   "text": "0's to the result.  But I would like to know why I can",
+   "act": 18.98,
+   "rel": 0.474,
+   "peak_token": " like",
+   "context": 15098
+  },
+  {
+   "text": " only lesser compiler fixes. I like this work but it's not official tree.",
+   "act": 32.09,
+   "rel": 0.801,
+   "peak_token": " like",
+   "context": 642
+  },
+  {
+   "text": " in condition Expression\n\nI would like to write expression like this:\n{REPORT_",
+   "act": 17.1,
+   "rel": 0.427,
+   "peak_token": " like",
+   "context": 1569
+  },
+  {
+   "text": " iOS releases. Tell your friends if you like this.</td>\n</tr>\n<tr>\n",
+   "act": 35.01,
+   "rel": 0.873,
+   "peak_token": " like",
+   "context": 15401
+  },
+  {
+   "text": " Solitaire online right now.\n\nIf you liked it please do help us grow by sharing",
+   "act": 30.45,
+   "rel": 0.76,
+   "peak_token": " liked",
+   "context": 8068
+  },
+  {
+   "text": ". I like men who show up in the middle of the night if you’re",
+   "act": 35.28,
+   "rel": 0.88,
+   "peak_token": " like",
+   "context": 13942
+  },
+  {
+   "text": " to draw confidence areas. I would like to explecitly compute the",
+   "act": 17.87,
+   "rel": 0.446,
+   "peak_token": " like",
+   "context": 2955
+  },
+  {
+   "text": " you then had housing and like some sort of security, it was quite enough. (",
+   "act": 16.46,
+   "rel": 0.411,
+   "peak_token": " like",
+   "context": 2682
+  }
+ ],
+ "weak": [
+  {
+   "text": " an aerosol is released. Developed in 1941 by Lyle D. Good",
+   "act": 4.18,
+   "rel": 0.104,
+   "peak_token": " Lyle",
+   "context": 9898
+  },
+  {
+   "text": "mine dinitrate and which method avoids undesirably high processing temperatures, i.",
+   "act": 7.08,
+   "rel": 0.177,
+   "peak_token": "ira",
+   "context": 18159
+  },
+  {
+   "text": " and “likewise the opportunity for the development\nof a relationship between citizen parent and",
+   "act": 7.1,
+   "rel": 0.177,
+   "peak_token": "like",
+   "context": 2936
+  },
+  {
+   "text": " a lover of books, chocolate, reality TV, black labs, and cold weather.",
+   "act": 4.39,
+   "rel": 0.109,
+   "peak_token": " of",
+   "context": 3831
+  },
+  {
+   "text": " investigation whereas the increase in the ATP affinity was brought about by only high-intensity exercise",
+   "act": 4.8,
+   "rel": 0.12,
+   "peak_token": " affinity",
+   "context": 1731
+  },
+  {
+   "text": " PTB. He says that he doesn't consider himself a friend of Valério",
+   "act": 4.78,
+   "rel": 0.119,
+   "peak_token": " of",
+   "context": 2062
+  },
+  {
+   "text": " incurred his father's displeasure, left his family",
+   "act": 5.71,
+   "rel": 0.143,
+   "peak_token": " displeasure",
+   "context": 4116
+  },
+  {
+   "text": " doing things spur of the moment. Like this afternoon, for instance. I decided I",
+   "act": 4.45,
+   "rel": 0.111,
+   "peak_token": " Like",
+   "context": 1202
+  },
+  {
+   "text": " ISEQ benchmark. Particularly pleasing was the sight of my favourite, the Smart Alpha portfolio",
+   "act": 4.23,
+   "rel": 0.105,
+   "peak_token": " pleasing",
+   "context": 15869
+  },
+  {
+   "text": " years.\n\n‘People like you, and",
+   "act": 8.52,
+   "rel": 0.212,
+   "peak_token": " like",
+   "context": 3794
+  },
+  {
+   "text": " and now was in practice mode, the dogs again got along as long as they shared",
+   "act": 5.19,
+   "rel": 0.129,
+   "peak_token": " along",
+   "context": 7900
+  },
+  {
+   "text": "idae. It was described by",
+   "act": 4.79,
+   "rel": 0.12,
+   "peak_token": "idae",
+   "context": 11020
+  },
+  {
+   "text": " like Mr. Singh have suddenly become a crucial link in the energy production",
+   "act": 7.58,
+   "rel": 0.189,
+   "peak_token": " like",
+   "context": 6462
+  },
+  {
+   "text": ". It includes some one like Kunwer Sachdev of Su-Kam who created a",
+   "act": 5.78,
+   "rel": 0.144,
+   "peak_token": " like",
+   "context": 8162
+  },
+  {
+   "text": " a long list of dishes that’ll suit even the most hardcore vegan’s...",
+   "act": 8.48,
+   "rel": 0.212,
+   "peak_token": " suit",
+   "context": 751
+  },
+  {
+   "text": " I would enjoy so thoroughly. There is such a huge leap from regular store-bought",
+   "act": 4.5,
+   "rel": 0.112,
+   "peak_token": " enjoy",
+   "context": 7557
+  },
+  {
+   "text": " right and left ventricles that function generally like and may replace the right",
+   "act": 5.44,
+   "rel": 0.136,
+   "peak_token": " and",
+   "context": 3116
+  },
+  {
+   "text": " a bunch and cost does not suit the purpose.\n\nIs there any other way to",
+   "act": 8.6,
+   "rel": 0.215,
+   "peak_token": " suit",
+   "context": 8492
+  },
+  {
+   "text": " wardrobe or Katy's figure lol! I could get along with Presley and a few",
+   "act": 4.31,
+   "rel": 0.107,
+   "peak_token": " along",
+   "context": 14496
+  },
+  {
+   "text": " fabulous idea, and Kári quickly got the backing of the Icelandic government. Before you",
+   "act": 5.0,
+   "rel": 0.125,
+   "peak_token": " backing",
+   "context": 760
+  }
+ ],
+ "neighbor": [
+  {
+   "text": " Prairie or Salt Creek but nice rolling up and down both ways. We easily found Sag",
+   "of": 14469,
+   "cos": 0.419,
+   "label": "expressions of positive sentiment, particularly variations of the word \"nice.\""
+  },
+  {
+   "text": "\n\nHave access to one--but prefer chopping by hand. There is something satisfying about",
+   "of": 15530,
+   "cos": 0.355,
+   "label": "expressions of personal preference or choice"
+  },
+  {
+   "text": " happen. I want to get back on that horse, so hopefully will resume publishing a",
+   "of": 4993,
+   "cos": 0.346,
+   "label": "expressions of desire or intention"
+  },
+  {
+   "text": " world. love—not form—will lead to exaltation. form, ritual,",
+   "of": 7863,
+   "cos": 0.313,
+   "label": "instances and expressions of love"
+  },
+  {
+   "text": " start chatting with Chiefs fans from all over the world! Enjoy your stay!\n\nThe",
+   "of": 11485,
+   "cos": 0.309,
+   "label": "expressions of enjoyment and appreciation"
+  },
+  {
+   "text": ". While the Primary inbox does a nice job of filtering out automatic emails from social networks",
+   "of": 14469,
+   "cos": 0.419,
+   "label": "expressions of positive sentiment, particularly variations of the word \"nice.\""
+  },
+  {
+   "text": " if you would prefer a larger print and I can",
+   "of": 15530,
+   "cos": 0.355,
+   "label": "expressions of personal preference or choice"
+  },
+  {
+   "text": " smell bad. I want to make the switch to cloth at night, so I ordered",
+   "of": 4993,
+   "cos": 0.346,
+   "label": "expressions of desire or intention"
+  },
+  {
+   "text": " what we consider to be “values.” Values like love, charity, compassion, forgiveness",
+   "of": 7863,
+   "cos": 0.313,
+   "label": "instances and expressions of love"
+  },
+  {
+   "text": " great Recording Engineer/Producer (RE/P) magazine, enjoy this in-depth",
+   "of": 11485,
+   "cos": 0.309,
+   "label": "expressions of enjoyment and appreciation"
+  },
+  {
+   "text": ".\nThe invention, in accordance with another alternative preferred embodiment of the invention, still",
+   "of": 15530,
+   "cos": 0.355,
+   "label": "expressions of personal preference or choice"
+  },
+  {
+   "text": " newly widowed Queen Ellyria just wants her sick triplet sons to live, each ruling",
+   "of": 4993,
+   "cos": 0.346,
+   "label": "expressions of desire or intention"
+  },
+  {
+   "text": ".\n\nSelection of loving you and a suitable couch, will support the looks of a",
+   "of": 7863,
+   "cos": 0.313,
+   "label": "instances and expressions of love"
+  },
+  {
+   "text": " only one reason – I truly enjoy it. I enjoy my clients getting the deal that",
+   "of": 11485,
+   "cos": 0.309,
+   "label": "expressions of enjoyment and appreciation"
+  }
+ ]
+}

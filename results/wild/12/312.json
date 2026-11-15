@@ -1,0 +1,380 @@
+{
+ "feature": 312,
+ "layer": 12,
+ "seed": 1,
+ "max_act": 21.3,
+ "contexts_scanned": 18088,
+ "contexts_firing": {
+  "strong": 296,
+  "weak": 1601
+ },
+ "neighbors": [
+  {
+   "feature": 15988,
+   "cos": 0.31
+  },
+  {
+   "feature": 4878,
+   "cos": 0.271
+  },
+  {
+   "feature": 141,
+   "cos": 0.245
+  },
+  {
+   "feature": 14700,
+   "cos": 0.228
+  },
+  {
+   "feature": 15751,
+   "cos": 0.226
+  }
+ ],
+ "neighbors_unreachable": [],
+ "strong": [
+  {
+   "text": " based on two insights: The first was that the consequent of Bell’s theorem could",
+   "act": 8.28,
+   "rel": 0.389,
+   "peak_token": " the",
+   "context": 283
+  },
+  {
+   "text": " centimeters are there in 1.289613 micrometers?\n",
+   "act": 8.56,
+   "rel": 0.402,
+   "peak_token": " there",
+   "context": 9627
+  },
+  {
+   "text": " it needs to be a single expression, you can't just do\nputStr",
+   "act": 7.92,
+   "rel": 0.372,
+   "peak_token": " expression",
+   "context": 7096
+  },
+  {
+   "text": " return type must ALWAYS return",
+   "act": 9.35,
+   "rel": 0.439,
+   "peak_token": " return",
+   "context": 11960
+  },
+  {
+   "text": " key, and I can decrypt is using your public key.\nb) You can",
+   "act": 6.66,
+   "rel": 0.313,
+   "peak_token": " public",
+   "context": 2300
+  },
+  {
+   "text": "end{aligned}$$ Where T is the temperature of the superconductor and L is the",
+   "act": 6.46,
+   "rel": 0.303,
+   "peak_token": " temperature",
+   "context": 8114
+  },
+  {
+   "text": "\\] Assume that ${\\mathcal{C}}$ is connected and simply connected, and let $",
+   "act": 6.75,
+   "rel": 0.317,
+   "peak_token": " connected",
+   "context": 5102
+  },
+  {
+   "text": " Find the common denominator of (71/u)/(5/(-2)) and",
+   "act": 7.54,
+   "rel": 0.354,
+   "peak_token": " denominator",
+   "context": 14368
+  },
+  {
+   "text": " range [1..(N + 1)], which means that exactly one element is missing",
+   "act": 7.15,
+   "rel": 0.336,
+   "peak_token": " exactly",
+   "context": 1178
+  },
+  {
+   "text": "1 a factor of z?\nFalse\nLet y = -1318",
+   "act": 7.8,
+   "rel": 0.366,
+   "peak_token": " factor",
+   "context": 1427
+  },
+  {
+   "text": " common divisor of 177",
+   "act": 8.13,
+   "rel": 0.382,
+   "peak_token": " divisor",
+   "context": 16017
+  },
+  {
+   "text": " atoms, which are themselves made up of charged particles. Atoms have a nucleus consisting of",
+   "act": 12.68,
+   "rel": 0.595,
+   "peak_token": " charged",
+   "context": 16395
+  },
+  {
+   "text": "Does -1 = 44/413?\nFalse",
+   "act": 7.18,
+   "rel": 0.337,
+   "peak_token": " =",
+   "context": 14879
+  },
+  {
+   "text": "1) the lack of an arrow from node $V_{j}$ to $V",
+   "act": 6.79,
+   "rel": 0.319,
+   "peak_token": " the",
+   "context": 6619
+  },
+  {
+   "text": " electrical networks, a dependent source  is a voltage source or a current source whose value",
+   "act": 10.58,
+   "rel": 0.497,
+   "peak_token": " voltage",
+   "context": 8335
+  },
+  {
+   "text": " derivative of an inverse, $(f^{-1})'(x)={1\\over",
+   "act": 8.03,
+   "rel": 0.377,
+   "peak_token": " inverse",
+   "context": 10619
+  },
+  {
+   "text": "Thanks.\n\nA:\n\nPart of the structure of a vector bundle $(",
+   "act": 12.23,
+   "rel": 0.574,
+   "peak_token": " bundle",
+   "context": 4180
+  },
+  {
+   "text": "`, só que para streams:\n\n```js\nconst map = require('through2",
+   "act": 6.77,
+   "rel": 0.318,
+   "peak_token": " streams",
+   "context": 13648
+  },
+  {
+   "text": " if $\\lambda$ has an even number of even parts; otherwise, $\\varepsilon(\\",
+   "act": 7.05,
+   "rel": 0.331,
+   "peak_token": "$",
+   "context": 7742
+  },
+  {
+   "text": ":\n\nNo, there must be a counterexample, under the mild assumption that",
+   "act": 6.53,
+   "rel": 0.307,
+   "peak_token": ",",
+   "context": 4603
+  }
+ ],
+ "weak": [
+  {
+   "text": " estimation is zero and equivalently first step estimation has no effect on the influence function. This",
+   "act": 3.16,
+   "rel": 0.148,
+   "peak_token": " zero",
+   "context": 11784
+  },
+  {
+   "text": " test of the Standard Model gauge structure. Electroweak gauge couplings have been measured directly",
+   "act": 4.0,
+   "rel": 0.188,
+   "peak_token": " gauge",
+   "context": 10231
+  },
+  {
+   "text": "1/2\n0/(3*5/(-30)*90/",
+   "act": 4.3,
+   "rel": 0.202,
+   "peak_token": "0",
+   "context": 14379
+  },
+  {
+   "text": ";{\\text{Decrease\\ of\\ adherence\\ =}\\mspace{6mu",
+   "act": 3.58,
+   "rel": 0.168,
+   "peak_token": "text",
+   "context": 14647
+  },
+  {
+   "text": " that patients who did not return to the clinic and were thus censored differed from other patients",
+   "act": 5.69,
+   "rel": 0.267,
+   "peak_token": " censored",
+   "context": 2411
+  },
+  {
+   "text": "almost surely for all large $n$, $$L(\\tau_n) \\",
+   "act": 4.1,
+   "rel": 0.192,
+   "peak_token": " surely",
+   "context": 15212
+  },
+  {
+   "text": " their 1899 glider that used ropes to pull on the wings. Later",
+   "act": 3.59,
+   "rel": 0.169,
+   "peak_token": " the",
+   "context": 12175
+  },
+  {
+   "text": "BasicInequality\\]) is $$\\log (\\operatorname{w}_{\\Gamma,X",
+   "act": 3.54,
+   "rel": 0.166,
+   "peak_token": " $",
+   "context": 1468
+  },
+  {
+   "text": "-time diagrams consist of horizontal lines describing the forward and backward propagation of the quantum",
+   "act": 6.36,
+   "rel": 0.299,
+   "peak_token": " propagation",
+   "context": 15569
+  },
+  {
+   "text": " odd parts and $e$ even parts (including $0$ as a part).",
+   "act": 5.51,
+   "rel": 0.259,
+   "peak_token": "including",
+   "context": 6628
+  },
+  {
+   "text": " action. If there is no action, you haven’t truly decided.” So whatever",
+   "act": 3.67,
+   "rel": 0.172,
+   "peak_token": "t",
+   "context": 13500
+  },
+  {
+   "text": " similarly, . Summing up and using , one obtains concluding the optimality proof of",
+   "act": 3.94,
+   "rel": 0.185,
+   "peak_token": "ality",
+   "context": 3526
+  },
+  {
+   "text": "d{\\ensuremath{\\textnormal{Leb}}}}(x)=x^{-1}{\\ensuremath {\\",
+   "act": 5.19,
+   "rel": 0.244,
+   "peak_token": "Leb",
+   "context": 1275
+  },
+  {
+   "text": "\ntestAddInfinite(org.apache.commons.math.complex.ComplexTest",
+   "act": 3.61,
+   "rel": 0.169,
+   "peak_token": "Infinite",
+   "context": 2464
+  },
+  {
+   "text": " (0/(28/7))/1.\n0\nEvaluate (3/",
+   "act": 3.41,
+   "rel": 0.16,
+   "peak_token": "0",
+   "context": 11631
+  },
+  {
+   "text": "1}$, say $d = \\frac{m}{c}.$ Then each divisor",
+   "act": 3.2,
+   "rel": 0.15,
+   "peak_token": " say",
+   "context": 16916
+  },
+  {
+   "text": " root system.\n\nWeyl groupoids of root systems properly generalize Weyl groups. The",
+   "act": 5.79,
+   "rel": 0.272,
+   "peak_token": " groups",
+   "context": 16779
+  },
+  {
+   "text": "}$$\n\nwhere *R*~*ij*~ is the proportion of HFRS cases",
+   "act": 4.44,
+   "rel": 0.209,
+   "peak_token": "*~",
+   "context": 5258
+  },
+  {
+   "text": " certain output gate is 0 or 1. This is generally #P-hard",
+   "act": 4.31,
+   "rel": 0.202,
+   "peak_token": "1",
+   "context": 9394
+  },
+  {
+   "text": " the material is subjected to electromagnetic radiation 12 having a magnetic field component H which",
+   "act": 4.66,
+   "rel": 0.219,
+   "peak_token": " component",
+   "context": 14620
+  }
+ ],
+ "neighbor": [
+  {
+   "text": " to answer and the method I have is to draw out venn diagrams one by one and",
+   "of": 15988,
+   "cos": 0.31,
+   "label": "questions and expressions related to mathematical concepts and calculations"
+  },
+  {
+   "text": "The true statement is:\n\n2. M and N CANNOT be placed on shelves three",
+   "of": 4878,
+   "cos": 0.271,
+   "label": "statements and questions related to logical reasoning and problem-solving"
+  },
+  {
+   "text": " it being a reality whose ground is completely external to me. Belief, now more than",
+   "of": 141,
+   "cos": 0.245,
+   "label": "terms related to belief, observation, and science"
+  },
+  {
+   "text": "\n Distribution mechanism\n\nThe operator interacts with the machine via the keyboard, composing lines of",
+   "of": 14700,
+   "cos": 0.228,
+   "label": "technical terminology related to computer systems and their components"
+  },
+  {
+   "text": "The syntax if [ -z \"string\" ] checks if a string is empty or",
+   "of": 15751,
+   "cos": 0.226,
+   "label": "technical terms and concepts related to programming and software structures"
+  },
+  {
+   "text": "ker}(T)$ and $\\text{Im}(T)$.\nAttempt at solution:",
+   "of": 15988,
+   "cos": 0.31,
+   "label": "questions and expressions related to mathematical concepts and calculations"
+  },
+  {
+   "text": ": D\n\nExplanation: At any time when you are planning what to test, you",
+   "of": 4878,
+   "cos": 0.271,
+   "label": "statements and questions related to logical reasoning and problem-solving"
+  },
+  {
+   "text": " networks typically exchange data in accordance with several different protocols operating at all layers of the network",
+   "of": 14700,
+   "cos": 0.228,
+   "label": "technical terminology related to computer systems and their components"
+  },
+  {
+   "text": " them together.\n\nA:\n\nBy AM-GM $$2x^5+",
+   "of": 4878,
+   "cos": 0.271,
+   "label": "statements and questions related to logical reasoning and problem-solving"
+  },
+  {
+   "text": " Object Container?\n\nScene graph contains game nodes representing game objects. At a first glance",
+   "of": 14700,
+   "cos": 0.228,
+   "label": "technical terminology related to computer systems and their components"
+  }
+ ]
+}

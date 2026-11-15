@@ -1,0 +1,380 @@
+{
+ "feature": 3584,
+ "layer": 12,
+ "seed": 1,
+ "max_act": 26.53,
+ "contexts_scanned": 18015,
+ "contexts_firing": {
+  "strong": 2529,
+  "weak": 4918
+ },
+ "neighbors": [
+  {
+   "feature": 10363,
+   "cos": 0.247
+  },
+  {
+   "feature": 10461,
+   "cos": 0.239
+  },
+  {
+   "feature": 8996,
+   "cos": 0.239
+  },
+  {
+   "feature": 5556,
+   "cos": 0.228
+  },
+  {
+   "feature": 7365,
+   "cos": 0.202
+  }
+ ],
+ "neighbors_unreachable": [],
+ "strong": [
+  {
+   "text": " the expired collective bargaining agreement and Stella Doro officials decision to close the plant and",
+   "act": 11.26,
+   "rel": 0.425,
+   "peak_token": "oro",
+   "context": 4935
+  },
+  {
+   "text": " jobs and the economy. DuPont's chairman, Irving Shapiro, announced to several major",
+   "act": 12.56,
+   "rel": 0.473,
+   "peak_token": " DuPont",
+   "context": 7694
+  },
+  {
+   "text": " On April 10, 1790, President George Washington signed the",
+   "act": 8.28,
+   "rel": 0.312,
+   "peak_token": " Washington",
+   "context": 7154
+  },
+  {
+   "text": " The \"true\" believers stay in their seats.\n\nBedley says he's",
+   "act": 9.13,
+   "rel": 0.344,
+   "peak_token": "ley",
+   "context": 15238
+  },
+  {
+   "text": " the NJLAD claim. The defendant contends, therefore, that all claims of discrimination that",
+   "act": 11.22,
+   "rel": 0.423,
+   "peak_token": " defendant",
+   "context": 8286
+  },
+  {
+   "text": " for decision making\n\nThe GDG agreed on 12 priority questions covering trust,",
+   "act": 9.47,
+   "rel": 0.357,
+   "peak_token": "DG",
+   "context": 10956
+  },
+  {
+   "text": " As the Houses scramble to maintain their rule, it becomes clear that things will change forever",
+   "act": 9.88,
+   "rel": 0.372,
+   "peak_token": " Houses",
+   "context": 2891
+  },
+  {
+   "text": " white contact lenses used by Andre as part of his Bigfoot makeup gave Johnson the idea",
+   "act": 17.76,
+   "rel": 0.67,
+   "peak_token": " Johnson",
+   "context": 2890
+  },
+  {
+   "text": "2016, Morris signed with Seattle Sounders FC, being given MLS'",
+   "act": 13.34,
+   "rel": 0.503,
+   "peak_token": " Morris",
+   "context": 7695
+  },
+  {
+   "text": " that the trial court erred in not allowing appellant to introduce evidence of respondent's prior",
+   "act": 9.59,
+   "rel": 0.361,
+   "peak_token": " appellant",
+   "context": 17125
+  },
+  {
+   "text": "” strategy, with the party’",
+   "act": 10.36,
+   "rel": 0.39,
+   "peak_token": " party",
+   "context": 1611
+  },
+  {
+   "text": " with a couple more beers, chatted about not much of anything until Rick suggested I spend",
+   "act": 10.16,
+   "rel": 0.383,
+   "peak_token": " Rick",
+   "context": 10670
+  },
+  {
+   "text": " he worked as a shipping broker. Lohden later became the mayor of Sutton and Che",
+   "act": 14.35,
+   "rel": 0.541,
+   "peak_token": "den",
+   "context": 8185
+  },
+  {
+   "text": " This is no longer permitted under Cullen. Thus,\n\nMr. Kirby is not entitled",
+   "act": 13.18,
+   "rel": 0.497,
+   "peak_token": " Kirby",
+   "context": 6921
+  },
+  {
+   "text": " allegations, Century Exploration is granted leave to amend. An amended complaint must be filed by",
+   "act": 12.56,
+   "rel": 0.474,
+   "peak_token": " Century",
+   "context": 9809
+  },
+  {
+   "text": " course of four years training among child soldiers, Elliot, unsurprisingly, grows up.",
+   "act": 13.25,
+   "rel": 0.499,
+   "peak_token": " Elliot",
+   "context": 4205
+  },
+  {
+   "text": " of such an extremely prejudicial nature that defendant was deprived of a fair and impartial trial.",
+   "act": 8.55,
+   "rel": 0.322,
+   "peak_token": " defendant",
+   "context": 17567
+  },
+  {
+   "text": "\n[4]  The Court also notes that the record demonstrates that plaintiff fails §",
+   "act": 11.49,
+   "rel": 0.433,
+   "peak_token": " plaintiff",
+   "context": 14422
+  },
+  {
+   "text": " religious fundamentalist”. Mann stated, \"I didn't expect the controversy over the",
+   "act": 13.71,
+   "rel": 0.517,
+   "peak_token": " Mann",
+   "context": 14435
+  },
+  {
+   "text": ", the patient developed exfoliative dermatitis again after rechallenge test with isoniazid and",
+   "act": 8.5,
+   "rel": 0.32,
+   "peak_token": " patient",
+   "context": 2030
+  }
+ ],
+ "weak": [
+  {
+   "text": " protein phosphatase calcineurin (PP2b) slices were pre-exposed\nto",
+   "act": 3.62,
+   "rel": 0.136,
+   "peak_token": " slices",
+   "context": 2372
+  },
+  {
+   "text": " main image using old olive and also stamped the larger flower stamp using real red and ",
+   "act": 3.81,
+   "rel": 0.144,
+   "peak_token": " stamp",
+   "context": 1209
+  },
+  {
+   "text": "53* G105C mutation are predicted to bind to 47",
+   "act": 4.58,
+   "rel": 0.173,
+   "peak_token": "*",
+   "context": 1118
+  },
+  {
+   "text": " Ulrikke Eikeri and Tereza Mrdeža retired in the final at",
+   "act": 4.35,
+   "rel": 0.164,
+   "peak_token": "eri",
+   "context": 4569
+  },
+  {
+   "text": "3?\n53*s**2 + 3*s - 1",
+   "act": 5.62,
+   "rel": 0.212,
+   "peak_token": "s",
+   "context": 15516
+  },
+  {
+   "text": "^{ \\binom{n+1}{2} } [n]!_q }{",
+   "act": 3.21,
+   "rel": 0.121,
+   "peak_token": "]!",
+   "context": 12300
+  },
+  {
+   "text": " the Viking chieftain Olaf from Svealand. Olaf's",
+   "act": 7.54,
+   "rel": 0.284,
+   "peak_token": " Olaf",
+   "context": 9610
+  },
+  {
+   "text": " and its surrounding lipid bilayer. No specific interaction is observed between KcsA and",
+   "act": 3.21,
+   "rel": 0.121,
+   "peak_token": "cs",
+   "context": 15684
+  },
+  {
+   "text": "_list')\n        g.command('run', 'acr_task_run",
+   "act": 3.05,
+   "rel": 0.115,
+   "peak_token": "task",
+   "context": 12250
+  },
+  {
+   "text": " = $(inherited) COCOAPODS=1\nOTHER_SWIFT_FLAGS",
+   "act": 3.88,
+   "rel": 0.146,
+   "peak_token": "inherited",
+   "context": 3221
+  },
+  {
+   "text": " by a candidate that his opponent is \"the Liberal\n\nDemocrat for Judge\"",
+   "act": 6.17,
+   "rel": 0.233,
+   "peak_token": " candidate",
+   "context": 18095
+  },
+  {
+   "text": "irc10526> no raspberry ;)\n<Ankman> ok\n",
+   "act": 5.32,
+   "rel": 0.2,
+   "peak_token": "kman",
+   "context": 8862
+  },
+  {
+   "text": "' worldwide public sector business. Prior to working for Amazon, Carlson served as Microsoft'",
+   "act": 5.66,
+   "rel": 0.213,
+   "peak_token": " Carlson",
+   "context": 16412
+  },
+  {
+   "text": " Frederick William IV the risks of a collision; Great Britain, though the Danes rejected her",
+   "act": 6.79,
+   "rel": 0.256,
+   "peak_token": " Danes",
+   "context": 517
+  },
+  {
+   "text": "018){ref-type=\"fig\"}, the result of the MMS agrees well",
+   "act": 4.67,
+   "rel": 0.176,
+   "peak_token": " MMS",
+   "context": 407
+  },
+  {
+   "text": "-binding motifs.\n\nWe observed that HSP16.6 preferentially binds longer,",
+   "act": 3.78,
+   "rel": 0.143,
+   "peak_token": "6",
+   "context": 8882
+  },
+  {
+   "text": " (1987) (emphasis added). Thus, the government was\nrequired",
+   "act": 7.02,
+   "rel": 0.265,
+   "peak_token": " government",
+   "context": 10269
+  },
+  {
+   "text": " where the\nEuropean likes to live.\n\nI am not one for statistics I must",
+   "act": 3.29,
+   "rel": 0.124,
+   "peak_token": " likes",
+   "context": 579
+  },
+  {
+   "text": "1,430\n「前川俊夫」…。\n\n424",
+   "act": 4.54,
+   "rel": 0.171,
+   "peak_token": "川",
+   "context": 12986
+  },
+  {
+   "text": " storms, Poteet says. Many residents already heard plenty of thunder overnight: Thousands were",
+   "act": 6.37,
+   "rel": 0.24,
+   "peak_token": "et",
+   "context": 5510
+  }
+ ],
+ "neighbor": [
+  {
+   "text": " gets sent to Apple's data farm for analysis. Apple creates a random string of",
+   "of": 10363,
+   "cos": 0.247,
+   "label": "references to organizations and companies"
+  },
+  {
+   "text": " including:\n\nAn underwriting alongside the application number of the candidate saying the name of the",
+   "of": 10461,
+   "cos": 0.239,
+   "label": "references to individuals and their characteristics or conditions"
+  },
+  {
+   "text": " appropriate for all questions. Clinicians were asked what percentage of their working time was spent",
+   "of": 8996,
+   "cos": 0.239,
+   "label": "references to healthcare professionals and their roles in patient care"
+  },
+  {
+   "text": " complaint be dismissed if the court finds that the plaintiff is not in compliance with the pres",
+   "of": 5556,
+   "cos": 0.228,
+   "label": "legal terms and references related to court cases and plaintiffs"
+  },
+  {
+   "text": " adorable Katie and Nick scheduled to get married this coming fall. That morning I",
+   "of": 7365,
+   "cos": 0.202,
+   "label": "personal pronouns and possessive forms in the text"
+  },
+  {
+   "text": " > Siri.\n\nWhile its understandable that Apple would want to keep Siri data in order",
+   "of": 10363,
+   "cos": 0.247,
+   "label": "references to organizations and companies"
+  },
+  {
+   "text": " dog collar tightens across the neck of your dog in a very accurate and delicate manner",
+   "of": 10461,
+   "cos": 0.239,
+   "label": "references to individuals and their characteristics or conditions"
+  },
+  {
+   "text": " layer produced an unprecedented problem for human society. The public and governments were being told that",
+   "of": 8996,
+   "cos": 0.239,
+   "label": "references to healthcare professionals and their roles in patient care"
+  },
+  {
+   "text": " 10.20\n\nMarie also asked me to send to Nicky Hammond,",
+   "of": 7365,
+   "cos": 0.202,
+   "label": "personal pronouns and possessive forms in the text"
+  },
+  {
+   "text": " and repressive domestic policy should cause the left to take responsibility for helping to oust this far",
+   "of": 8996,
+   "cos": 0.239,
+   "label": "references to healthcare professionals and their roles in patient care"
+  }
+ ]
+}

@@ -1,0 +1,350 @@
+{
+ "feature": 11411,
+ "layer": 12,
+ "seed": 1,
+ "max_act": 22.05,
+ "contexts_scanned": 18066,
+ "contexts_firing": {
+  "strong": 219,
+  "weak": 2742
+ },
+ "neighbors": [
+  {
+   "feature": 8840,
+   "cos": 0.189
+  },
+  {
+   "feature": 6734,
+   "cos": 0.167
+  },
+  {
+   "feature": 12862,
+   "cos": 0.16
+  },
+  {
+   "feature": 8514,
+   "cos": 0.16
+  },
+  {
+   "feature": 1291,
+   "cos": 0.151
+  }
+ ],
+ "neighbors_unreachable": [],
+ "strong": [
+  {
+   "text": " and with his unemployment insurance running out, he surprisingly was able to obtain a prestigious residency",
+   "act": 7.21,
+   "rel": 0.327,
+   "peak_token": " was",
+   "context": 7503
+  },
+  {
+   "text": "ve come to the conclusion (and I'm never wrong) that the clock line",
+   "act": 11.61,
+   "rel": 0.526,
+   "peak_token": " that",
+   "context": 2509
+  },
+  {
+   "text": ", I realised I was hooked!\n\nThis game is immense - not just in the",
+   "act": 9.05,
+   "rel": 0.411,
+   "peak_token": " hooked",
+   "context": 4643
+  },
+  {
+   "text": " long because these requests came from my very good friends and family. I also realized that",
+   "act": 7.43,
+   "rel": 0.337,
+   "peak_token": ".",
+   "context": 17799
+  },
+  {
+   "text": " when Markto was struck. Spire then switched back to its cultist form (an",
+   "act": 7.95,
+   "rel": 0.36,
+   "peak_token": "to",
+   "context": 4599
+  },
+  {
+   "text": " are looking for Argo, Scorpio reveals his true objective is to dispose of Don Armage",
+   "act": 13.12,
+   "rel": 0.595,
+   "peak_token": " objective",
+   "context": 11562
+  },
+  {
+   "text": " plastic bags I mean. Though that's not to underestimate those muesli bars.\"",
+   "act": 7.23,
+   "rel": 0.328,
+   "peak_token": " mean",
+   "context": 17493
+  },
+  {
+   "text": " ICE-SAR member was on her doorstep to collect the sample. Which brings me to",
+   "act": 9.98,
+   "rel": 0.453,
+   "peak_token": " collect",
+   "context": 8383
+  },
+  {
+   "text": ", and said “hi.” They actually said quite a bit more, but in a",
+   "act": 7.66,
+   "rel": 0.348,
+   "peak_token": " They",
+   "context": 15957
+  },
+  {
+   "text": " Queen asked.\n\nThe Conqueror smiled for she understood the meaning and the reason for the",
+   "act": 9.04,
+   "rel": 0.41,
+   "peak_token": " meaning",
+   "context": 17987
+  },
+  {
+   "text": " about– until I discovered the power of giving circles.\n\nI'm dedicated to",
+   "act": 8.39,
+   "rel": 0.381,
+   "peak_token": " of",
+   "context": 15201
+  },
+  {
+   "text": " my eye, but the fact that it looked like it was dripping in cum! Guess",
+   "act": 12.75,
+   "rel": 0.578,
+   "peak_token": " that",
+   "context": 15388
+  },
+  {
+   "text": " most to try to impress her proved to be those who registered the biggest jump in testosterone",
+   "act": 8.77,
+   "rel": 0.398,
+   "peak_token": " those",
+   "context": 1734
+  },
+  {
+   "text": " the main road, two armed men hijacked the vehicle. After driving a short distance",
+   "act": 9.96,
+   "rel": 0.452,
+   "peak_token": " two",
+   "context": 15370
+  },
+  {
+   "text": " But I say - 'Nope if your data sucks ass'. Lets project our data into",
+   "act": 7.16,
+   "rel": 0.325,
+   "peak_token": "'.",
+   "context": 16005
+  },
+  {
+   "text": " the other end of that dog’s leash made me embarrassed anyway. I tugged",
+   "act": 8.35,
+   "rel": 0.379,
+   "peak_token": " leash",
+   "context": 6179
+  },
+  {
+   "text": " Messalina threw a glance at the two of you,\" said the Conqueror. \"That",
+   "act": 7.44,
+   "rel": 0.338,
+   "peak_token": ".",
+   "context": 9294
+  },
+  {
+   "text": "program to be the premier program in the industry, we have increased the\nspecifications",
+   "act": 7.91,
+   "rel": 0.359,
+   "peak_token": " have",
+   "context": 9598
+  },
+  {
+   "text": " of the Team USA practice facility in Colorado, it will be on the sandy beaches of",
+   "act": 8.46,
+   "rel": 0.384,
+   "peak_token": " be",
+   "context": 7261
+  },
+  {
+   "text": " on the phone when he actually spoke to South Korean Moon Jae-in, he announced",
+   "act": 8.4,
+   "rel": 0.381,
+   "peak_token": " spoke",
+   "context": 12142
+  }
+ ],
+ "weak": [
+  {
+   "text": "worker timed out\nworker timed out\n\nThe pool is still trying to send requests to",
+   "act": 4.7,
+   "rel": 0.213,
+   "peak_token": " trying",
+   "context": 2150
+  },
+  {
+   "text": " heard the knock at the door and Rick stood there, Henry because master was home,",
+   "act": 6.31,
+   "rel": 0.286,
+   "peak_token": ",",
+   "context": 7900
+  },
+  {
+   "text": "), tells the Post Office CPI of having received US$4.863 million",
+   "act": 3.56,
+   "rel": 0.162,
+   "peak_token": " US",
+   "context": 5230
+  },
+  {
+   "text": "s affidavit\n\nstatements, however, finding",
+   "act": 3.66,
+   "rel": 0.166,
+   "peak_token": " finding",
+   "context": 12933
+  },
+  {
+   "text": " the \"selected\" class is applied, as I only want it applied to",
+   "act": 5.78,
+   "rel": 0.262,
+   "peak_token": ",",
+   "context": 4035
+  },
+  {
+   "text": ". The complication rate was 3.2% in the ESG and 33",
+   "act": 3.35,
+   "rel": 0.152,
+   "peak_token": " ",
+   "context": 2117
+  },
+  {
+   "text": " imagine having diarrhea cramps for weeks. However, 3 cm isn’t enough to",
+   "act": 4.28,
+   "rel": 0.194,
+   "peak_token": " ",
+   "context": 15874
+  },
+  {
+   "text": " seems like a terribly interesting guy. The problem here is one of choosing an appropriate medium",
+   "act": 4.65,
+   "rel": 0.211,
+   "peak_token": " is",
+   "context": 16274
+  },
+  {
+   "text": " reincarcerated on January 26, 2002, and",
+   "act": 4.95,
+   "rel": 0.225,
+   "peak_token": "2",
+   "context": 13253
+  },
+  {
+   "text": "Court of Appeal of Louisiana, First Circuit.\nMarch 25, 1",
+   "act": 3.34,
+   "rel": 0.152,
+   "peak_token": " First",
+   "context": 13887
+  },
+  {
+   "text": " hospital bed.\n\n            Although      Suburban    claims    Mrs.     LaClair",
+   "act": 3.45,
+   "rel": 0.157,
+   "peak_token": "Although",
+   "context": 11971
+  },
+  {
+   "text": " next answer:\ncannot load such file -- google/api_client (LoadError",
+   "act": 4.44,
+   "rel": 0.201,
+   "peak_token": ":",
+   "context": 13153
+  },
+  {
+   "text": "beads for the removal of detergent led to the formation of a cloudy suspension of prote",
+   "act": 4.62,
+   "rel": 0.21,
+   "peak_token": " the",
+   "context": 358
+  },
+  {
+   "text": " things going almost alone throughout the war exhausted him, and he asked for early retirement at",
+   "act": 3.17,
+   "rel": 0.144,
+   "peak_token": " he",
+   "context": 11287
+  },
+  {
+   "text": " is currently no answer to this question as it is complex to explicitly characterize properties of the",
+   "act": 3.6,
+   "rel": 0.164,
+   "peak_token": " is",
+   "context": 16020
+  },
+  {
+   "text": " Heisenberg that the uncertainty principle was a manifestation of the deeper concept of complementarity.[6",
+   "act": 6.37,
+   "rel": 0.289,
+   "peak_token": "arity",
+   "context": 462
+  },
+  {
+   "text": " a few minutes later. They've packed Wleh in a green body bag and",
+   "act": 4.36,
+   "rel": 0.198,
+   "peak_token": "ve",
+   "context": 11415
+  },
+  {
+   "text": " for Germany and just 20% for Denmark, primarily in Flensburg. While",
+   "act": 5.27,
+   "rel": 0.239,
+   "peak_token": ",",
+   "context": 7512
+  },
+  {
+   "text": " which thus requires constant power. For this purpose, an RTC Crystal Oscillator (RT",
+   "act": 4.07,
+   "rel": 0.185,
+   "peak_token": ",",
+   "context": 817
+  },
+  {
+   "text": " in stark contrast to the larger scale agricultural societies where an estimated 70% are",
+   "act": 5.47,
+   "rel": 0.248,
+   "peak_token": " the",
+   "context": 16632
+  }
+ ],
+ "neighbor": [
+  {
+   "text": ",\" she suggested quietly and shrugged.\n\nBoth men burst into laughter.\n\n\"Young",
+   "of": 8840,
+   "cos": 0.189,
+   "label": "emotional conflicts and physical confrontations"
+  },
+  {
+   "text": " never discuss are the days that are just really hard, and the days where you’",
+   "of": 8514,
+   "cos": 0.16,
+   "label": "sentences that discuss societal issues and personal challenges, particularly those pertaining to family dynamics and parenting"
+  },
+  {
+   "text": "\ndays later, he terminated her without explanation.\n\n\n      Hager sued Dr.",
+   "of": 1291,
+   "cos": 0.151,
+   "label": "mentions of criminal activity and investigations"
+  },
+  {
+   "text": "oked swans crash into Cedric, causing him to lose control of the floating tables, causing",
+   "of": 8840,
+   "cos": 0.189,
+   "label": "emotional conflicts and physical confrontations"
+  },
+  {
+   "text": " and highways before running a red light and crashing into four cars. She managed to continue",
+   "of": 1291,
+   "cos": 0.151,
+   "label": "mentions of criminal activity and investigations"
+  }
+ ]
+}

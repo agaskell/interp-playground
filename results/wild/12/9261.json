@@ -1,0 +1,362 @@
+{
+ "feature": 9261,
+ "layer": 12,
+ "seed": 1,
+ "max_act": 26.55,
+ "contexts_scanned": 18055,
+ "contexts_firing": {
+  "strong": 219,
+  "weak": 962
+ },
+ "neighbors": [
+  {
+   "feature": 2918,
+   "cos": 0.276
+  },
+  {
+   "feature": 15658,
+   "cos": 0.251
+  },
+  {
+   "feature": 12837,
+   "cos": 0.224
+  },
+  {
+   "feature": 3412,
+   "cos": 0.208
+  },
+  {
+   "feature": 3464,
+   "cos": 0.193
+  }
+ ],
+ "neighbors_unreachable": [],
+ "strong": [
+  {
+   "text": "uren> MagicFab: hi, what's up\n<MagicFab> learning",
+   "act": 15.69,
+   "rel": 0.591,
+   "peak_token": " hi",
+   "context": 4191
+  },
+  {
+   "text": " ho ??\n<Ankman> and i fear they gave up on enigmail\n",
+   "act": 11.0,
+   "rel": 0.414,
+   "peak_token": " and",
+   "context": 14247
+  },
+  {
+   "text": ":01,406\n本当だ。　なんでしょうね？\n\n29",
+   "act": 11.13,
+   "rel": 0.419,
+   "peak_token": "本当",
+   "context": 14659
+  },
+  {
+   "text": " just never expected actually to be arrested.\n\nAutomaticSlim\n\nThat’s a very",
+   "act": 8.67,
+   "rel": 0.327,
+   "peak_token": "s",
+   "context": 8050
+  },
+  {
+   "text": ". When's the next meeting?\" \"Next week ... a combination KKK and",
+   "act": 20.28,
+   "rel": 0.764,
+   "peak_token": "Next",
+   "context": 6740
+  },
+  {
+   "text": "3% of men like to ---- other men!\" \"Would you like a free appetizer",
+   "act": 13.11,
+   "rel": 0.494,
+   "peak_token": "Would",
+   "context": 7055
+  },
+  {
+   "text": "\n\nJss\n\nWell what makes blacks owning slaves less terrible then Whites owning slaves is",
+   "act": 9.7,
+   "rel": 0.365,
+   "peak_token": " what",
+   "context": 15520
+  },
+  {
+   "text": " par Windows\n<GringoStar> Est-ce que ce c'est plus",
+   "act": 12.39,
+   "rel": 0.467,
+   "peak_token": "ce",
+   "context": 18036
+  },
+  {
+   "text": "526> what about U ?\n<Ankman> cool\n<An",
+   "act": 10.91,
+   "rel": 0.411,
+   "peak_token": " about",
+   "context": 10976
+  },
+  {
+   "text": "301\nだから　うるせえから\n止めろっつってんだよ",
+   "act": 10.24,
+   "rel": 0.386,
+   "peak_token": "だから",
+   "context": 10115
+  },
+  {
+   "text": "saxonsun\n\nAnd no one speaks about the poor white problem in this country and",
+   "act": 8.52,
+   "rel": 0.321,
+   "peak_token": "And",
+   "context": 2049
+  },
+  {
+   "text": " So what do you do in this consulting firm you own?\" \"I solve problems ...",
+   "act": 10.94,
+   "rel": 0.412,
+   "peak_token": "I",
+   "context": 12718
+  },
+  {
+   "text": "\n（村瀬）なんだ？\n\n418\n00:24",
+   "act": 9.6,
+   "rel": 0.362,
+   "peak_token": "なんだ",
+   "context": 13360
+  },
+  {
+   "text": " \"Yes, it's an entirely decent motive",
+   "act": 12.76,
+   "rel": 0.481,
+   "peak_token": ",",
+   "context": 307
+  },
+  {
+   "text": "\n\nA:\n\nMan kann deinen Beispielsatz einfach erweitern:\n\nEr war",
+   "act": 9.76,
+   "rel": 0.368,
+   "peak_token": "Man",
+   "context": 13282
+  },
+  {
+   "text": "29,346\n（矢沢）今　そこ？\n\n6",
+   "act": 9.24,
+   "rel": 0.348,
+   "peak_token": "今",
+   "context": 5392
+  },
+  {
+   "text": "mn> Et il est interdit d'utiliser une encryption sur un lien publique\n<",
+   "act": 8.67,
+   "rel": 0.327,
+   "peak_token": " Et",
+   "context": 7999
+  },
+  {
+   "text": " his shoes?\n\"A No, sir.\n\"Q But you say you",
+   "act": 14.95,
+   "rel": 0.563,
+   "peak_token": " But",
+   "context": 8465
+  },
+  {
+   "text": " it.\n\n“That sounds great, Rick,” I said as I pocketed the",
+   "act": 15.54,
+   "rel": 0.585,
+   "peak_token": "That",
+   "context": 7736
+  },
+  {
+   "text": "\"Q Okay, do you recall if he had on jeans?\n\"",
+   "act": 11.22,
+   "rel": 0.422,
+   "peak_token": " Okay",
+   "context": 759
+  }
+ ],
+ "weak": [
+  {
+   "text": ",420\nご両親が　演奏旅行で\nご不在がちでした",
+   "act": 6.97,
+   "rel": 0.263,
+   "peak_token": "ご",
+   "context": 10131
+  },
+  {
+   "text": " getting limited.\n\nA:\n\nOK, I think I figured out what's",
+   "act": 3.64,
+   "rel": 0.137,
+   "peak_token": "OK",
+   "context": 17515
+  },
+  {
+   "text": "else{ // for single record.\n    $this->db->where('genre",
+   "act": 3.83,
+   "rel": 0.144,
+   "peak_token": " for",
+   "context": 12287
+  },
+  {
+   "text": "5*z**3\nCollect the terms in 1286*w",
+   "act": 3.72,
+   "rel": 0.14,
+   "peak_token": " ",
+   "context": 17414
+  },
+  {
+   "text": "\n\nThis is why Gates is hated by blacks.\n\nWhile he tries to frame historical",
+   "act": 6.27,
+   "rel": 0.236,
+   "peak_token": " why",
+   "context": 5493
+  },
+  {
+   "text": "\n\nThere was no question that Daphne loved writing stories of adventure and danger in the West",
+   "act": 3.15,
+   "rel": 0.119,
+   "peak_token": " question",
+   "context": 5723
+  },
+  {
+   "text": " L3: 5′- GGTTGTGGGAAAACGCGGG-",
+   "act": 3.78,
+   "rel": 0.142,
+   "peak_token": "TT",
+   "context": 3487
+  },
+  {
+   "text": "></match></read>\n    <write><data>9 15\\",
+   "act": 4.49,
+   "rel": 0.169,
+   "peak_token": ">",
+   "context": 13788
+  },
+  {
+   "text": " 237?\n235\nLet g(x) be the",
+   "act": 4.09,
+   "rel": 0.154,
+   "peak_token": "3",
+   "context": 5666
+  },
+  {
+   "text": " says any such changes would be dictated only by circumstances or changes in the",
+   "act": 5.7,
+   "rel": 0.215,
+   "peak_token": " would",
+   "context": 13085
+  },
+  {
+   "text": "  display: none;\r\n}\r\n.hidden + div {\r\n  color:",
+   "act": 3.71,
+   "rel": 0.14,
+   "peak_token": "hidden",
+   "context": 13452
+  },
+  {
+   "text": " the macs where never used\n\nWhich is one of the saddest things about the project",
+   "act": 4.81,
+   "rel": 0.181,
+   "peak_token": " is",
+   "context": 16188
+  },
+  {
+   "text": "SF. Please, help!\n\nA:\n\nThe exception appears because the component is",
+   "act": 3.67,
+   "rel": 0.138,
+   "peak_token": " appears",
+   "context": 16605
+  },
+  {
+   "text": "\n-3*k**3\nCollect the terms in 8",
+   "act": 3.08,
+   "rel": 0.116,
+   "peak_token": "8",
+   "context": 7396
+  },
+  {
+   "text": " do the\nsame.\n\n------\nteaneedz\nWhat will Microsoft be",
+   "act": 7.03,
+   "rel": 0.265,
+   "peak_token": " will",
+   "context": 6746
+  },
+  {
+   "text": "\nlallysingh\nIs this why US export encryption had to be 4",
+   "act": 5.61,
+   "rel": 0.211,
+   "peak_token": " why",
+   "context": 14760
+  },
+  {
+   "text": " closest to -2?  (a) u  (b) z  (",
+   "act": 3.1,
+   "rel": 0.117,
+   "peak_token": " u",
+   "context": 17078
+  },
+  {
+   "text": " tried to minimize McCain’s death with the petty act of lowering the flag for only",
+   "act": 3.41,
+   "rel": 0.128,
+   "peak_token": " McCain",
+   "context": 6477
+  },
+  {
+   "text": " the lowest common multiple of i and 44?\n44\nSuppose -",
+   "act": 5.4,
+   "rel": 0.203,
+   "peak_token": "4",
+   "context": 14388
+  },
+  {
+   "text": " come back inside… “there are things that need to be said.” I guess I",
+   "act": 3.56,
+   "rel": 0.134,
+   "peak_token": " are",
+   "context": 13942
+  }
+ ],
+ "neighbor": [
+  {
+   "text": " economic struggles of working-class families.\n\n\"It was exactly 50 years",
+   "of": 2918,
+   "cos": 0.276,
+   "label": "phrases expressing opinions or arguments regarding political issues"
+  },
+  {
+   "text": "and the birthplace of AIDS.\n\nStillModerated\n\nAnd ebola virus.\n\n",
+   "of": 3412,
+   "cos": 0.208,
+   "label": "numerical data or references to statistics"
+  },
+  {
+   "text": "li>\n<li>A number of refinements of services and filters</li>",
+   "of": 3464,
+   "cos": 0.193,
+   "label": "references to scientific studies and clinical trial details"
+  },
+  {
+   "text": " Jose family.\n\n\"It's in the best interest of justice,\" Dudley said",
+   "of": 2918,
+   "cos": 0.276,
+   "label": "phrases expressing opinions or arguments regarding political issues"
+  },
+  {
+   "text": " can play themselves out of that slot.\n\nNot necessarily. Just look at a guy",
+   "of": 3412,
+   "cos": 0.208,
+   "label": "numerical data or references to statistics"
+  },
+  {
+   "text": "ator coil.\n\n• Have the air conditioner checked and\ncleaned at the start of",
+   "of": 3464,
+   "cos": 0.193,
+   "label": "references to scientific studies and clinical trial details"
+  },
+  {
+   "text": " charges lodged against his colleague earlier today.\n\n“It is unfortunate that these types of",
+   "of": 2918,
+   "cos": 0.276,
+   "label": "phrases expressing opinions or arguments regarding political issues"
+  }
+ ]
+}

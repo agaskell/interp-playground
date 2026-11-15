@@ -1,0 +1,392 @@
+{
+ "feature": 11243,
+ "layer": 12,
+ "seed": 1,
+ "max_act": 38.65,
+ "contexts_scanned": 18054,
+ "contexts_firing": {
+  "strong": 49,
+  "weak": 399
+ },
+ "neighbors": [
+  {
+   "feature": 7736,
+   "cos": 0.343
+  },
+  {
+   "feature": 15450,
+   "cos": 0.338
+  },
+  {
+   "feature": 5355,
+   "cos": 0.318
+  },
+  {
+   "feature": 12751,
+   "cos": 0.27
+  },
+  {
+   "feature": 7883,
+   "cos": 0.257
+  }
+ ],
+ "neighbors_unreachable": [],
+ "strong": [
+  {
+   "text": "\n        t.equal(pkg && pkg.main, './baz.js');",
+   "act": 20.44,
+   "rel": 0.529,
+   "peak_token": ".",
+   "context": 15011
+  },
+  {
+   "text": "options.postData) {\n\t\t\t\toptions.log.debug('Setting request POST data",
+   "act": 12.17,
+   "rel": 0.315,
+   "peak_token": ".",
+   "context": 1138
+  },
+  {
+   "text": "}\n\n\t\tassert.Nil(t, err)\n\t}\n\n\tcred",
+   "act": 18.19,
+   "rel": 0.471,
+   "peak_token": ".",
+   "context": 1559
+  },
+  {
+   "text": ".Registry) error {\n\n\tif err := validate.Required(\"identity\", \"",
+   "act": 11.82,
+   "rel": 0.306,
+   "peak_token": ".",
+   "context": 14589
+  },
+  {
+   "text": "', function (t) {\n    t.plan(2);\n\n    var",
+   "act": 25.55,
+   "rel": 0.661,
+   "peak_token": ".",
+   "context": 13460
+  },
+  {
+   "text": "acr_repository_list')\n        g.command('show-tags', '",
+   "act": 11.8,
+   "rel": 0.305,
+   "peak_token": ".",
+   "context": 15277
+  },
+  {
+   "text": ")\nplt.show()\n\nCart\n\nPolicy\n\nOrders\n\nAnchor prides itself on",
+   "act": 17.67,
+   "rel": 0.457,
+   "peak_token": ".",
+   "context": 11291
+  },
+  {
+   "text": ");\n        t.equal(res, path.resolve('/foo/",
+   "act": 13.83,
+   "rel": 0.358,
+   "peak_token": ".",
+   "context": 9900
+  },
+  {
+   "text": "\", MANY: \"many\", OTHER: \"other\"};\n$provide.value(\"$",
+   "act": 11.61,
+   "rel": 0.301,
+   "peak_token": ".",
+   "context": 7783
+  },
+  {
+   "text": " {\n\t\tt.Errorf(\"failed to check certificate request signature: %s\",",
+   "act": 14.75,
+   "rel": 0.382,
+   "peak_token": ".",
+   "context": 16685
+  },
+  {
+   "text": ")\n        configurator.add_view(self.set_folder_status",
+   "act": 12.25,
+   "rel": 0.317,
+   "peak_token": "_",
+   "context": 6095
+  },
+  {
+   "text": "\t\t\t\t\t.CreateCriteria<Student>()\n\t\t\t\t\t.Add(Restrictions.Like(\"String",
+   "act": 12.69,
+   "rel": 0.328,
+   "peak_token": ".",
+   "context": 12517
+  },
+  {
+   "text": "5, $test->getRecords());\n        $this->assertTrue($test->",
+   "act": 12.9,
+   "rel": 0.334,
+   "peak_token": "->",
+   "context": 4413
+  },
+  {
+   "text": ";\n\n    /** @ORM\\Column(nullable=true) */\n    protected",
+   "act": 14.89,
+   "rel": 0.385,
+   "peak_token": "\\",
+   "context": 4423
+  },
+  {
+   "text": " size == \" + pagination.getItems() );\n            Log.i(TAG,",
+   "act": 16.76,
+   "rel": 0.434,
+   "peak_token": ".",
+   "context": 13521
+  },
+  {
+   "text": "public function getLanguage0()\n    {\n        return $this->hasOne",
+   "act": 18.63,
+   "rel": 0.482,
+   "peak_token": "->",
+   "context": 537
+  },
+  {
+   "text": "\n    t.plan(2);\n\n    var files = {};\n    files",
+   "act": 25.14,
+   "rel": 0.651,
+   "peak_token": ".",
+   "context": 13458
+  },
+  {
+   "text": " 'priceCtrl'});\n}]);\n\n$routeProvider.when('/price', {templateUrl:",
+   "act": 13.57,
+   "rel": 0.351,
+   "peak_token": ".",
+   "context": 15658
+  },
+  {
+   "text": "function create() {\n\n    var graphics = this.add.graphics();\n\n    ",
+   "act": 12.75,
+   "rel": 0.33,
+   "peak_token": ".",
+   "context": 11
+  },
+  {
+   "text": "(Exception e) {\n            Log.e(\"INIT\", \"Initialization error.\",",
+   "act": 16.32,
+   "rel": 0.422,
+   "peak_token": ".",
+   "context": 8531
+  }
+ ],
+ "weak": [
+  {
+   "text": "    if !self.packedFloat.isEmpty {\n      try visitor.visitPacked",
+   "act": 4.01,
+   "rel": 0.104,
+   "peak_token": ".",
+   "context": 13609
+  },
+  {
+   "text": "repeatedStringPiece)\n        case 55: try decoder.decodeRepeatedStringField",
+   "act": 7.85,
+   "rel": 0.203,
+   "peak_token": ".",
+   "context": 16387
+  },
+  {
+   "text": "\tdev_info(&pdev->dev, \"Broadcom UniMAC MDIO bus",
+   "act": 5.05,
+   "rel": 0.131,
+   "peak_token": "_",
+   "context": 12230
+  },
+  {
+   "text": "/Microsoft.Network/vpnSites\", pathParameters),\n\t\tautorest.WithQuery",
+   "act": 5.97,
+   "rel": 0.154,
+   "peak_token": ".",
+   "context": 5203
+  },
+  {
+   "text": "case 2: try decoder.decodeSingularMessageField(value: &_storage._",
+   "act": 10.85,
+   "rel": 0.281,
+   "peak_token": ".",
+   "context": 708
+  },
+  {
+   "text": "    android:layout_height=\"match_parent\"\n    android:background=\"@",
+   "act": 7.17,
+   "rel": 0.186,
+   "peak_token": "_",
+   "context": 15723
+  },
+  {
+   "text": "=\"xyz\" %>\nLine 3:  <%@ Import Namespace=\"System.Web",
+   "act": 4.16,
+   "rel": 0.108,
+   "peak_token": ":",
+   "context": 4838
+  },
+  {
+   "text": " afterwards:\ntarget_link_libraries(extra_lib some_lib)\n\n",
+   "act": 4.35,
+   "rel": 0.113,
+   "peak_token": "_",
+   "context": 14781
+  },
+  {
+   "text": "hasWarningRecords());\n        $this->assertTrue($test->hasInfoRecords());",
+   "act": 9.07,
+   "rel": 0.235,
+   "peak_token": "->",
+   "context": 4411
+  },
+  {
+   "text": ") { e.preventDefault(); }\n\n            this.classList.remove('over');",
+   "act": 8.18,
+   "rel": 0.212,
+   "peak_token": ".",
+   "context": 17964
+  },
+  {
+   "text": ")) {\r\n            logger.warn(\"No effects found for skill \" + statusEffect",
+   "act": 8.53,
+   "rel": 0.221,
+   "peak_token": ".",
+   "context": 5245
+  },
+  {
+   "text": " current {v = m}\n          }\n          try decoder.decodeSingularMessage",
+   "act": 5.61,
+   "rel": 0.145,
+   "peak_token": ".",
+   "context": 3126
+  },
+  {
+   "text": "StatusCode(http.StatusOK, http.StatusCreated),\n\t\tautorest",
+   "act": 4.52,
+   "rel": 0.117,
+   "peak_token": ".",
+   "context": 3979
+  },
+  {
+   "text": "options.log.debug('Running Pa11y on the page');\n\n\t",
+   "act": 10.94,
+   "rel": 0.283,
+   "peak_token": ".",
+   "context": 15070
+  },
+  {
+   "text": "ContentIdPathSchema())\n    @hapic.output_body(TextBased",
+   "act": 8.09,
+   "rel": 0.209,
+   "peak_token": ".",
+   "context": 12764
+  },
+  {
+   "text": "header.h\"\n\nG_DEFINE_TYPE (\n\tEComposerSpellHeader",
+   "act": 7.16,
+   "rel": 0.185,
+   "peak_token": "_",
+   "context": 17226
+  },
+  {
+   "text": "isEmpty {\n        try visitor.visitSingularBytesField(value: _storage._",
+   "act": 5.21,
+   "rel": 0.135,
+   "peak_token": ".",
+   "context": 2137
+  },
+  {
+   "text": " result;\n    try {\n      result = await axios.request({\n        ",
+   "act": 11.46,
+   "rel": 0.296,
+   "peak_token": ".",
+   "context": 7743
+  },
+  {
+   "text": "clrscr(void) {\n\tSerial.println(\"\\e[H\\",
+   "act": 4.06,
+   "rel": 0.105,
+   "peak_token": ".",
+   "context": 11278
+  },
+  {
+   "text": "oneofField != nil {try decoder.handleConflictingOneOf()}\n          var",
+   "act": 4.54,
+   "rel": 0.117,
+   "peak_token": ".",
+   "context": 715
+  }
+ ],
+ "neighbor": [
+  {
+   "text": "\n    */\n\n    System.out.println(isStronglyConnected",
+   "of": 7736,
+   "cos": 0.343,
+   "label": "instances of printed output in the code"
+  },
+  {
+   "text": " = np.array",
+   "of": 15450,
+   "cos": 0.338,
+   "label": "numerical arrays and operations involving them"
+  },
+  {
+   "text": "\n\n\\usepackage{graphicx}\n\\usepackage{caption}\n\n\\begin{document",
+   "of": 5355,
+   "cos": 0.318,
+   "label": "LaTeX commands and structures related to document formatting"
+  },
+  {
+   "text": "\">\r\n            </div>\r\n            <button type=\"submit\" class=\"btn",
+   "of": 12751,
+   "cos": 0.27,
+   "label": "HTML tags and attributes"
+  },
+  {
+   "text": " call it whatever you want to the button\n <button type=\"button\" class=\"",
+   "of": 7883,
+   "cos": 0.257,
+   "label": "equalities or assignments in mathematical or programming contexts"
+  },
+  {
+   "text": "System.out.println(\"Game over!\");\n}\n\npublic static char determineFirst",
+   "of": 7736,
+   "cos": 0.343,
+   "label": "instances of printed output in the code"
+  },
+  {
+   "text": " '6')]\n\nChange the dataset a bit.\narray = np.array([[",
+   "of": 15450,
+   "cos": 0.338,
+   "label": "numerical arrays and operations involving them"
+  },
+  {
+   "text": " as\n\\documentclass{article}\n\n\\usepackage{graphicx}\n\\usepackage{",
+   "of": 5355,
+   "cos": 0.318,
+   "label": "LaTeX commands and structures related to document formatting"
+  },
+  {
+   "text": "    <li>\n        <a href=\"{{ '/music/' + tag.keyword",
+   "of": 12751,
+   "cos": 0.27,
+   "label": "HTML tags and attributes"
+  },
+  {
+   "text": ") {\n    String answer;\n    System.out.println(\"Welcome to",
+   "of": 7736,
+   "cos": 0.343,
+   "label": "instances of printed output in the code"
+  },
+  {
+   "text": "_32FC3);\nstd::vector<cv::Mat1f>",
+   "of": 15450,
+   "cos": 0.338,
+   "label": "numerical arrays and operations involving them"
+  },
+  {
+   "text": "好的語言</string>\n    <string name=\"pref_language_fallback\">",
+   "of": 12751,
+   "cos": 0.27,
+   "label": "HTML tags and attributes"
+  }
+ ]
+}

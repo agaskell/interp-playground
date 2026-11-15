@@ -1,0 +1,374 @@
+{
+ "feature": 276,
+ "layer": 12,
+ "seed": 1,
+ "max_act": 22.32,
+ "contexts_scanned": 18047,
+ "contexts_firing": {
+  "strong": 524,
+  "weak": 7242
+ },
+ "neighbors": [
+  {
+   "feature": 10927,
+   "cos": 0.142
+  },
+  {
+   "feature": 1811,
+   "cos": 0.136
+  },
+  {
+   "feature": 347,
+   "cos": 0.13
+  },
+  {
+   "feature": 12626,
+   "cos": 0.126
+  },
+  {
+   "feature": 8782,
+   "cos": 0.125
+  }
+ ],
+ "neighbors_unreachable": [],
+ "strong": [
+  {
+   "text": "uin. A 7 fold increase in liver radioactivity was observed 6 hrs after the",
+   "act": 7.53,
+   "rel": 0.337,
+   "peak_token": " radioactivity",
+   "context": 4312
+  },
+  {
+   "text": " cancer cells and can bind to a death domain containing serine-threonine kinase, Receptor",
+   "act": 6.72,
+   "rel": 0.301,
+   "peak_token": " containing",
+   "context": 10358
+  },
+  {
+   "text": " election result we want is Bush retired. However bad his replacement may turn out, replacing",
+   "act": 7.09,
+   "rel": 0.318,
+   "peak_token": " replacement",
+   "context": 15127
+  },
+  {
+   "text": "=\"sec\"}, is part of a lineage of Old World cucurbit viruses. It",
+   "act": 7.72,
+   "rel": 0.346,
+   "peak_token": " viruses",
+   "context": 939
+  },
+  {
+   "text": " Alexa-647 over DAPI fluorescence was calculated (WT: n = 3",
+   "act": 10.22,
+   "rel": 0.458,
+   "peak_token": "7",
+   "context": 17451
+  },
+  {
+   "text": " stable provisionals. An important element in IDS is the advancement of an efficient resin-",
+   "act": 7.59,
+   "rel": 0.34,
+   "peak_token": "als",
+   "context": 5635
+  },
+  {
+   "text": "′ ends of extracellular HBV RNAs. (A) Northern blot detection of extracellular HBV RNAs",
+   "act": 7.43,
+   "rel": 0.333,
+   "peak_token": " RNAs",
+   "context": 10007
+  },
+  {
+   "text": " and to explore the demographic and clinical characteristics associated with R5 infection. In addition,",
+   "act": 7.83,
+   "rel": 0.351,
+   "peak_token": " infection",
+   "context": 15902
+  },
+  {
+   "text": " dissolved organic N (DON), the ratio of DOC to DON (DOC/DON),",
+   "act": 7.19,
+   "rel": 0.322,
+   "peak_token": " N",
+   "context": 18105
+  },
+  {
+   "text": " rifles, killing 13 people. They later captured and executed 24 members",
+   "act": 7.61,
+   "rel": 0.341,
+   "peak_token": " people",
+   "context": 14725
+  },
+  {
+   "text": " other year. The number of HFRS cases declined from 2007",
+   "act": 6.7,
+   "rel": 0.3,
+   "peak_token": "S",
+   "context": 3270
+  },
+  {
+   "text": " reports indicated the diagnosis of PG and the description of highly vascular proliferation that resembles granulation",
+   "act": 8.0,
+   "rel": 0.358,
+   "peak_token": " proliferation",
+   "context": 15619
+  },
+  {
+   "text": " noticed a strange sensation, and saw that a peanut candy bar he had in his pocket",
+   "act": 6.84,
+   "rel": 0.306,
+   "peak_token": " and",
+   "context": 6979
+  },
+  {
+   "text": " instead of four. Total chloroplast dimensions for individual cells (small circles) are distributed",
+   "act": 6.77,
+   "rel": 0.303,
+   "peak_token": " cells",
+   "context": 4287
+  },
+  {
+   "text": " post-weaning multisystemic wasting syndrome (PMWS) and swine dermatitis and",
+   "act": 8.89,
+   "rel": 0.398,
+   "peak_token": "WS",
+   "context": 16429
+  },
+  {
+   "text": " is ripe for revolution. But their anger is misplaced and they’re attacking the wrong",
+   "act": 7.57,
+   "rel": 0.339,
+   "peak_token": " But",
+   "context": 10433
+  },
+  {
+   "text": "0000);\n            shape1.setValue(AVKey.DISPLAY_",
+   "act": 6.73,
+   "rel": 0.301,
+   "peak_token": "shape",
+   "context": 17655
+  },
+  {
+   "text": "// Remove old deadlock tabs\n                            while (threadListTabbedPane.getTabCount()",
+   "act": 7.07,
+   "rel": 0.317,
+   "peak_token": "Tab",
+   "context": 16451
+  },
+  {
+   "text": "arbonitrile* (**5**). Ochre crystalline solid. Yield 61",
+   "act": 7.03,
+   "rel": 0.315,
+   "peak_token": " crystalline",
+   "context": 17585
+  },
+  {
+   "text": " unit of energy deposited by Dark Matter recoils as by low LET radiation such as",
+   "act": 9.15,
+   "rel": 0.41,
+   "peak_token": " Matter",
+   "context": 3722
+  }
+ ],
+ "weak": [
+  {
+   "text": " is about; a combination of tantalising, distinct flavours. Once you get used to",
+   "act": 3.53,
+   "rel": 0.158,
+   "peak_token": " flavours",
+   "context": 751
+  },
+  {
+   "text": "pecific binding proteins. The target protein was eluted with elution buffer (50",
+   "act": 4.66,
+   "rel": 0.209,
+   "peak_token": " proteins",
+   "context": 2795
+  },
+  {
+   "text": "\n                                } catch (InvocationTargetException ex) {\n                                    // Ignore\n                               ",
+   "act": 5.86,
+   "rel": 0.263,
+   "peak_token": ")",
+   "context": 1545
+  },
+  {
+   "text": " 1--3 times a week) of soft drinks in the past week compared with",
+   "act": 3.82,
+   "rel": 0.171,
+   "peak_token": " soft",
+   "context": 7766
+  },
+  {
+   "text": "{a5}$$ In the case of a quintessence (phantom) field with",
+   "act": 4.46,
+   "rel": 0.2,
+   "peak_token": "essence",
+   "context": 14389
+  },
+  {
+   "text": " east along Wisconsin Avenue to Jackson/Van Buren, then north to Ogden, then east",
+   "act": 3.51,
+   "rel": 0.157,
+   "peak_token": " Avenue",
+   "context": 6877
+  },
+  {
+   "text": "Class II *FBA*(type B)   Class II fructose-bisphosphate ald",
+   "act": 3.69,
+   "rel": 0.165,
+   "peak_token": "BA",
+   "context": 10579
+  },
+  {
+   "text": "\" button. Try changing the text for the text button, and you'll see",
+   "act": 3.56,
+   "rel": 0.16,
+   "peak_token": " text",
+   "context": 16365
+  },
+  {
+   "text": " significant differences in MP were found among the control, SQW-treated, and model",
+   "act": 3.22,
+   "rel": 0.144,
+   "peak_token": ",",
+   "context": 6464
+  },
+  {
+   "text": " limited (16). Anemia is the most prevalent micronutrient deficiency in the Middle",
+   "act": 5.13,
+   "rel": 0.23,
+   "peak_token": " Anemia",
+   "context": 5350
+  },
+  {
+   "text": "ADH2 by facilitating transfer of protons and electrons. Cells typically switch from OXPHOS",
+   "act": 5.22,
+   "rel": 0.234,
+   "peak_token": " electrons",
+   "context": 17298
+  },
+  {
+   "text": " transplantation and a readily available source of \"off-the-shelf\" stem cells for",
+   "act": 5.77,
+   "rel": 0.259,
+   "peak_token": " stem",
+   "context": 7852
+  },
+  {
+   "text": " The purchase doubled the acreage Ernst had in production at the time. Over the next three",
+   "act": 4.14,
+   "rel": 0.185,
+   "peak_token": " production",
+   "context": 5707
+  },
+  {
+   "text": " parties are somehow identical may be a rationale for building a third party, but it insults",
+   "act": 3.65,
+   "rel": 0.163,
+   "peak_token": " third",
+   "context": 10784
+  },
+  {
+   "text": "ggy though, with many older buildings black with pollution. Budapest was formed in 1",
+   "act": 3.96,
+   "rel": 0.178,
+   "peak_token": " black",
+   "context": 1192
+  },
+  {
+   "text": " at Oregon, including a handful of short, fast wideouts. Second, a pair",
+   "act": 3.54,
+   "rel": 0.159,
+   "peak_token": " fast",
+   "context": 15729
+  },
+  {
+   "text": " the plasmid encoded TTSS and test for restoration of apoptosis-inducing activity.Q:",
+   "act": 5.44,
+   "rel": 0.244,
+   "peak_token": "inducing",
+   "context": 15784
+  },
+  {
+   "text": " my Zumba nite, but I’m going to jiggle my wiggle for a P",
+   "act": 3.94,
+   "rel": 0.177,
+   "peak_token": " jig",
+   "context": 11289
+  },
+  {
+   "text": "11 && index > -1){\n        Sprites[index]....\n\nis",
+   "act": 5.32,
+   "rel": 0.238,
+   "peak_token": "]",
+   "context": 6727
+  },
+  {
+   "text": ",3,4])\n\nfor item in l:\n  print( len(",
+   "act": 3.91,
+   "rel": 0.175,
+   "peak_token": ":",
+   "context": 4392
+  }
+ ],
+ "neighbor": [
+  {
+   "text": " to humans and/or animals.\nThus, there remains a need for an economical",
+   "of": 10927,
+   "cos": 0.142,
+   "label": "elements of need and solution, particularly in contexts requiring alternative treatments and support"
+  },
+  {
+   "text": "\n\n\"I ask everyone who calls me how they heard about Catch a Wave‚ and",
+   "of": 1811,
+   "cos": 0.136,
+   "label": "medical treatments and conditions"
+  },
+  {
+   "text": " 272)\n\nAustria, the other leading state of the German Confederation",
+   "of": 347,
+   "cos": 0.13,
+   "label": "references to historical political entities and organizations"
+  },
+  {
+   "text": " mechanism is the considerable lack of information about which substrates they protect in the cell.\n\n",
+   "of": 12626,
+   "cos": 0.126,
+   "label": "terms related to interactions and relationships within biological contexts"
+  },
+  {
+   "text": "Opal: What were you doing in the bathroom for so long?\n\nEarl: Sha",
+   "of": 8782,
+   "cos": 0.125,
+   "label": "conversations or interactions occurring in specific locations, often related to either humor or tension"
+  },
+  {
+   "text": "; time since HIV diagnosis (months); mode of transmission; and Centers for Disease Control",
+   "of": 1811,
+   "cos": 0.136,
+   "label": "medical treatments and conditions"
+  },
+  {
+   "text": " small interfering RNA (siRNA) binds a target mRNA, guiding mRNA cleavage via an",
+   "of": 12626,
+   "cos": 0.126,
+   "label": "terms related to interactions and relationships within biological contexts"
+  },
+  {
+   "text": " and head into a bedroom.\n\nThey emerge a few minutes later. They've",
+   "of": 8782,
+   "cos": 0.125,
+   "label": "conversations or interactions occurring in specific locations, often related to either humor or tension"
+  },
+  {
+   "text": "})$ *give an efficient estimator in the class of IV estimators with orthogonal instruments.*\n\n",
+   "of": 12626,
+   "cos": 0.126,
+   "label": "terms related to interactions and relationships within biological contexts"
+  }
+ ]
+}

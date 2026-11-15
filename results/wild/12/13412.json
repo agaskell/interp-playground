@@ -1,0 +1,362 @@
+{
+ "feature": 13412,
+ "layer": 12,
+ "seed": 1,
+ "max_act": 59.93,
+ "contexts_scanned": 18037,
+ "contexts_firing": {
+  "strong": 382,
+  "weak": 496
+ },
+ "neighbors": [
+  {
+   "feature": 2317,
+   "cos": 0.264
+  },
+  {
+   "feature": 8991,
+   "cos": 0.245
+  },
+  {
+   "feature": 13768,
+   "cos": 0.244
+  },
+  {
+   "feature": 9341,
+   "cos": 0.236
+  },
+  {
+   "feature": 14531,
+   "cos": 0.233
+  }
+ ],
+ "neighbors_unreachable": [],
+ "strong": [
+  {
+   "text": "---------------------------------------------------\n\nA bootstrapping approach was employed to assess the statistical significance of",
+   "act": 42.65,
+   "rel": 0.712,
+   "peak_token": "----------------",
+   "context": 321
+  },
+  {
+   "text": "035}\n===================================\n\nIn this study, we developed a comprehensive",
+   "act": 37.0,
+   "rel": 0.617,
+   "peak_token": "================",
+   "context": 5697
+  },
+  {
+   "text": "g}\n\n  --------------------------------------------------------------------------------------------------------------------------------\n  Variable[^a",
+   "act": 46.06,
+   "rel": 0.769,
+   "peak_token": "----------------",
+   "context": 16305
+  },
+  {
+   "text": "\n------------------------------------------------------------------------------------------------------------------\n\nDespite empirical support for the conclusion that",
+   "act": 43.43,
+   "rel": 0.725,
+   "peak_token": "----------------",
+   "context": 9855
+  },
+  {
+   "text": "remarks$\n  ------- -------------- ----------- ------------ ----------------------------------------\n  m12",
+   "act": 25.19,
+   "rel": 0.42,
+   "peak_token": "----------------",
+   "context": 4064
+  },
+  {
+   "text": "s3b}\n---------------------------------------------------\n\nPeak inspiratory pressure (PIP)",
+   "act": 42.8,
+   "rel": 0.714,
+   "peak_token": "----------------",
+   "context": 4315
+  },
+  {
+   "text": " complaint {#s3d}\n-------------------------------------\n\nCats had a higher proportion of",
+   "act": 38.58,
+   "rel": 0.644,
+   "peak_token": "----------------",
+   "context": 3263
+  },
+  {
+   "text": "SS8}\n---------------------------------\n\n3D4/21 cells were cultivated",
+   "act": 36.4,
+   "rel": 0.607,
+   "peak_token": "----------------",
+   "context": 9006
+  },
+  {
+   "text": "132}\n=================================\n\n",
+   "act": 39.27,
+   "rel": 0.655,
+   "peak_token": "================",
+   "context": 2627
+  },
+  {
+   "text": "\n-------------------------\n\nWe were able to recruit as many as ",
+   "act": 21.81,
+   "rel": 0.364,
+   "peak_token": "---------",
+   "context": 14037
+  },
+  {
+   "text": "_________________________________________________________________\n\n\n\n     JUSTICE HUTCHINSON delivered the opinion of",
+   "act": 35.1,
+   "rel": 0.586,
+   "peak_token": "________________",
+   "context": 17703
+  },
+  {
+   "text": "}\n\n// *************************************************",
+   "act": 50.09,
+   "rel": 0.836,
+   "peak_token": "****************",
+   "context": 16960
+  },
+  {
+   "text": "                                                                    ",
+   "act": 18.47,
+   "rel": 0.308,
+   "peak_token": "    ",
+   "context": 14989
+  },
+  {
+   "text": " NPR-B variant {#s15}\n----------------------------------------------------------------------------------------------------------------",
+   "act": 45.08,
+   "rel": 0.752,
+   "peak_token": "----------------",
+   "context": 1750
+  },
+  {
+   "text": " for survival after infection {#s2c}\n-------------------------------------------------------------------------------------\n\n",
+   "act": 44.58,
+   "rel": 0.744,
+   "peak_token": "----------------",
+   "context": 9714
+  },
+  {
+   "text": "18.\n\n\n\n                                                      ___________________________________\n                                                      KEITH E. H",
+   "act": 24.17,
+   "rel": 0.403,
+   "peak_token": "________________",
+   "context": 14197
+  },
+  {
+   "text": " {#Sec6}\n------------------------------------------\n\nSouth Central -- Hampshire B Research Ethics Committee",
+   "act": 34.86,
+   "rel": 0.582,
+   "peak_token": "----------------",
+   "context": 13851
+  },
+  {
+   "text": " g-2\n======================================\n\nThe Brookhaven E821 experiment has",
+   "act": 41.38,
+   "rel": 0.691,
+   "peak_token": "================",
+   "context": 647
+  },
+  {
+   "text": "*********************************************************************\n!!!!!! DO NOT MODIFY !!!!!!\n\nGacGen.",
+   "act": 43.42,
+   "rel": 0.724,
+   "peak_token": "****************",
+   "context": 8367
+  },
+  {
+   "text": "12}\n-----------------------------------------------------------\n\nBecause of the similarities with the phenotypes of",
+   "act": 44.97,
+   "rel": 0.75,
+   "peak_token": "----------------",
+   "context": 16871
+  }
+ ],
+ "weak": [
+  {
+   "text": "\n======================\n\nTo investigate the optical effect of RNRs on glass, the",
+   "act": 16.63,
+   "rel": 0.278,
+   "peak_token": "======",
+   "context": 4804
+  },
+  {
+   "text": "Experimental Section {#sec4}\n====================\n\nMaterials {#sec4.1}",
+   "act": 10.94,
+   "rel": 0.183,
+   "peak_token": "====",
+   "context": 14534
+  },
+  {
+   "text": "8, respectively.\n\nStatistical considerations\n--------------------------\n\nUsing the hypothesis that the response",
+   "act": 14.59,
+   "rel": 0.244,
+   "peak_token": "----------",
+   "context": 3860
+  },
+  {
+   "text": ".\n                                            2\n\fCir. 2009).      In",
+   "act": 6.52,
+   "rel": 0.109,
+   "peak_token": "             ",
+   "context": 3124
+  },
+  {
+   "text": "***********************\n\nQuestion    : 2",
+   "act": 17.73,
+   "rel": 0.296,
+   "peak_token": "*******",
+   "context": 8401
+  },
+  {
+   "text": " review to this\nclaim.\n\n                                         13\n\f1240",
+   "act": 10.32,
+   "rel": 0.172,
+   "peak_token": "          ",
+   "context": 6190
+  },
+  {
+   "text": " 58)\n \n \n \n\nExhibition catalogues\n The Lewis Law",
+   "act": 6.45,
+   "rel": 0.108,
+   "peak_token": " ",
+   "context": 8714
+  },
+  {
+   "text": "SymbolId()),\n                                                    _klass_list(NULL),\n                                                    _",
+   "act": 8.24,
+   "rel": 0.138,
+   "peak_token": "                     ",
+   "context": 13551
+  },
+  {
+   "text": "5.10.0 -I..\\..\\..\\include\\QtCore\\5",
+   "act": 6.82,
+   "rel": 0.114,
+   "peak_token": "..\\",
+   "context": 3213
+  },
+  {
+   "text": "6           68 ± 6           0.30\n                                                            \n  ",
+   "act": 6.31,
+   "rel": 0.105,
+   "peak_token": "                             ",
+   "context": 761
+  },
+  {
+   "text": "\n\nEnvironmental Growth {#s4c}\n--------------------\n\nOutside-host growth of",
+   "act": 10.04,
+   "rel": 0.168,
+   "peak_token": "----",
+   "context": 12634
+  },
+  {
+   "text": " ) in this line:\n//                     -- This one\n//                     v\nplay",
+   "act": 6.31,
+   "rel": 0.105,
+   "peak_token": "                     ",
+   "context": 13760
+  },
+  {
+   "text": "\n\f                                                                                         ",
+   "act": 15.49,
+   "rel": 0.258,
+   "peak_token": "                               ",
+   "context": 2090
+  },
+  {
+   "text": ".\n\nConflict of Interest {#conf1}\n====================\n\nThe authors declare that",
+   "act": 11.6,
+   "rel": 0.194,
+   "peak_token": "====",
+   "context": 6564
+  },
+  {
+   "text": "s3a}\n-------------------\n\nNo significant differences were found between the three groups",
+   "act": 9.97,
+   "rel": 0.166,
+   "peak_token": "---",
+   "context": 3438
+  },
+  {
+   "text": "a>&nbsp;|&nbsp;</li>\n<li>Method</li>",
+   "act": 6.97,
+   "rel": 0.116,
+   "peak_token": "nbsp",
+   "context": 12224
+  },
+  {
+   "text": " your neighbourhood.                                                                                  27                                                                11.9   \n",
+   "act": 15.9,
+   "rel": 0.265,
+   "peak_token": "                               ",
+   "context": 2922
+  },
+  {
+   "text": "ijerph-17-04838}\n------------------------------\n\n###",
+   "act": 15.98,
+   "rel": 0.267,
+   "peak_token": "--------------",
+   "context": 15584
+  },
+  {
+   "text": "Characteristics                                                                                                                   Current use any method        ",
+   "act": 10.43,
+   "rel": 0.174,
+   "peak_token": "                               ",
+   "context": 16722
+  },
+  {
+   "text": "571                                      IL1B        interleukin 1 beta                                                            \n",
+   "act": 7.62,
+   "rel": 0.127,
+   "peak_token": "       ",
+   "context": 1521
+  }
+ ],
+ "neighbor": [
+  {
+   "text": "93, -5068, -",
+   "of": 2317,
+   "cos": 0.264,
+   "label": "numerical data and mathematical expressions or equations"
+  },
+  {
+   "text": " for mips32 with flags -mno-ldc1-sdc1 -soft",
+   "of": 8991,
+   "cos": 0.245,
+   "label": "repeated patterns or sequences within structured data"
+  },
+  {
+   "text": ".model;\n\nimport android.database.Cursor;\n\nimport com.google.",
+   "of": 13768,
+   "cos": 0.244,
+   "label": "technical terms and keywords related to programming and software development"
+  },
+  {
+   "text": "320px;\">\r\n  \r\n  <p>\r\n    <button",
+   "of": 9341,
+   "cos": 0.236,
+   "label": "patterns of whitespace and layout in the document"
+  },
+  {
+   "text": "-3392]). The most",
+   "of": 2317,
+   "cos": 0.264,
+   "label": "numerical data and mathematical expressions or equations"
+  },
+  {
+   "text": ">\r\n  </p>\r\n  \r\n  <p>\r\n    <",
+   "of": 9341,
+   "cos": 0.236,
+   "label": "patterns of whitespace and layout in the document"
+  },
+  {
+   "text": "with systemtap):\n+\n+    # make the stap-nginx script vis",
+   "of": 9341,
+   "cos": 0.236,
+   "label": "patterns of whitespace and layout in the document"
+  }
+ ]
+}

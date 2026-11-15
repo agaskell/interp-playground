@@ -1,0 +1,392 @@
+{
+ "feature": 11469,
+ "layer": 12,
+ "seed": 1,
+ "max_act": 29.32,
+ "contexts_scanned": 18071,
+ "contexts_firing": {
+  "strong": 49,
+  "weak": 930
+ },
+ "neighbors": [
+  {
+   "feature": 7911,
+   "cos": 0.268
+  },
+  {
+   "feature": 11903,
+   "cos": 0.231
+  },
+  {
+   "feature": 395,
+   "cos": 0.222
+  },
+  {
+   "feature": 12609,
+   "cos": 0.219
+  },
+  {
+   "feature": 3943,
+   "cos": 0.209
+  }
+ ],
+ "neighbors_unreachable": [],
+ "strong": [
+  {
+   "text": "Partially produced with genetic engineering. Rich & creamy. Scooping since 19",
+   "act": 12.59,
+   "rel": 0.429,
+   "peak_token": " with",
+   "context": 2092
+  },
+  {
+   "text": " series.\nThis limited edition cassette release comes with a \"plantable\" download card",
+   "act": 11.4,
+   "rel": 0.389,
+   "peak_token": "table",
+   "context": 17891
+  },
+  {
+   "text": "podes to the south, its extensive menu is locally sourced as much as possible and includes",
+   "act": 13.53,
+   "rel": 0.461,
+   "peak_token": " possible",
+   "context": 4468
+  },
+  {
+   "text": " back in stock!\n\nSo many of our products are created by small business and creators",
+   "act": 11.9,
+   "rel": 0.406,
+   "peak_token": " small",
+   "context": 11929
+  },
+  {
+   "text": " extensive connections, animal",
+   "act": 10.19,
+   "rel": 0.348,
+   "peak_token": " animal",
+   "context": 3311
+  },
+  {
+   "text": "We use locally sourced seasonal produce whenever possible, catering for vegetarian, vegan and gluten-",
+   "act": 12.61,
+   "rel": 0.43,
+   "peak_token": " possible",
+   "context": 7725
+  },
+  {
+   "text": " soon through the Colleges official website. Although, says Erica,\"It really wouldn't",
+   "act": 11.1,
+   "rel": 0.379,
+   "peak_token": " wouldn",
+   "context": 5282
+  },
+  {
+   "text": " when he was bitten there.Economical and green biodiesel production process using river snail shells",
+   "act": 9.9,
+   "rel": 0.338,
+   "peak_token": " production",
+   "context": 11809
+  },
+  {
+   "text": " still source milk daily from local farms and use many of",
+   "act": 10.15,
+   "rel": 0.346,
+   "peak_token": " many",
+   "context": 9488
+  },
+  {
+   "text": " ethically and carefully as they can, since they are recording brain waves, and pain will",
+   "act": 10.62,
+   "rel": 0.362,
+   "peak_token": ",",
+   "context": 4007
+  },
+  {
+   "text": " entire campus now recycles about 11% of total waste produced, which according",
+   "act": 10.16,
+   "rel": 0.346,
+   "peak_token": " recy",
+   "context": 16133
+  },
+  {
+   "text": "S. consumers saying that they prefer to buy greener goods, actual purchase rates are at",
+   "act": 15.28,
+   "rel": 0.521,
+   "peak_token": " greener",
+   "context": 6348
+  },
+  {
+   "text": ".\n\nToday, vertical construction has been widely\naccepted because it is greener",
+   "act": 12.23,
+   "rel": 0.417,
+   "peak_token": " greener",
+   "context": 16550
+  },
+  {
+   "text": " people/planet harmony, that financial flow from sites and resources must visit each of us",
+   "act": 8.93,
+   "rel": 0.305,
+   "peak_token": "planet",
+   "context": 6106
+  },
+  {
+   "text": " youth to teach them how food grows, where it comes from and about healthy",
+   "act": 10.81,
+   "rel": 0.369,
+   "peak_token": " from",
+   "context": 12127
+  },
+  {
+   "text": " result, no non-recyclable waste is generated. Efficient use of materials is also",
+   "act": 16.31,
+   "rel": 0.556,
+   "peak_token": ".",
+   "context": 14640
+  },
+  {
+   "text": " reduced.Navegador de artículos\n\nWhy constraining your sustainability strategy is a smart move",
+   "act": 12.13,
+   "rel": 0.414,
+   "peak_token": " sustainability",
+   "context": 7076
+  },
+  {
+   "text": " because that way environmentally unfriendly pests and diseases can be harboured. The ash contains",
+   "act": 11.43,
+   "rel": 0.39,
+   "peak_token": " unfriendly",
+   "context": 4651
+  },
+  {
+   "text": " assessment” from their crack security team. The nuns had filed a shareholder resolution that was",
+   "act": 12.85,
+   "rel": 0.438,
+   "peak_token": " shareholder",
+   "context": 12783
+  },
+  {
+   "text": "Look-up \"Factory Farming\" Look-up \"Vegan\"\n\"Naming a",
+   "act": 12.95,
+   "rel": 0.442,
+   "peak_token": " Farming",
+   "context": 7564
+  }
+ ],
+ "weak": [
+  {
+   "text": ")\n\nno matter how pure bott’s intent was when he uttered those words,",
+   "act": 3.74,
+   "rel": 0.128,
+   "peak_token": " was",
+   "context": 6870
+  },
+  {
+   "text": " than in crops grown on higher ground and",
+   "act": 3.19,
+   "rel": 0.109,
+   "peak_token": " grown",
+   "context": 3302
+  },
+  {
+   "text": "t to experience things for the sake of experimentation or fact-finding. My current position",
+   "act": 3.29,
+   "rel": 0.112,
+   "peak_token": ".",
+   "context": 298
+  },
+  {
+   "text": " “democracy” as an excuse to de-legitimize extremely democratic groups and governments",
+   "act": 4.39,
+   "rel": 0.15,
+   "peak_token": " democratic",
+   "context": 11186
+  },
+  {
+   "text": " SuperPoint also crashes in a similar manner. These results suggest that the orientation learning step",
+   "act": 3.7,
+   "rel": 0.126,
+   "peak_token": " that",
+   "context": 4572
+  },
+  {
+   "text": " registered charity in the US, Canada, UK or Australia\n\nHow do we promote your",
+   "act": 3.24,
+   "rel": 0.111,
+   "peak_token": " Australia",
+   "context": 13880
+  },
+  {
+   "text": "phenomena, team building or just connecting with the natural world.\n\nThere is ample",
+   "act": 3.78,
+   "rel": 0.129,
+   "peak_token": " the",
+   "context": 6512
+  },
+  {
+   "text": " and Ratledge, 1992, pp. 15-2",
+   "act": 4.11,
+   "rel": 0.14,
+   "peak_token": " ",
+   "context": 8464
+  },
+  {
+   "text": " into the past does it actually go? As Hrdy explained:\n\nKeep in",
+   "act": 3.82,
+   "rel": 0.13,
+   "peak_token": " past",
+   "context": 17894
+  },
+  {
+   "text": "lular slave-sugar-rum trade?\n\nThe fact that so many people reflex",
+   "act": 5.33,
+   "rel": 0.182,
+   "peak_token": "sugar",
+   "context": 13617
+  },
+  {
+   "text": " lesbian, transgender, or bisexual parents are critically examined",
+   "act": 3.24,
+   "rel": 0.11,
+   "peak_token": " parents",
+   "context": 13068
+  },
+  {
+   "text": " legitimate companies only, it cannot be held responsible for how CVs are used",
+   "act": 5.09,
+   "rel": 0.174,
+   "peak_token": " how",
+   "context": 7755
+  },
+  {
+   "text": " did not pay much attention to the living conditions of the Soviet POWs at the beginning",
+   "act": 4.79,
+   "rel": 0.163,
+   "peak_token": " of",
+   "context": 12130
+  },
+  {
+   "text": " always cheaper to sew then to buy ready to wear.\n\nIn 195",
+   "act": 3.44,
+   "rel": 0.117,
+   "peak_token": " buy",
+   "context": 4232
+  },
+  {
+   "text": " the best ways SnackNation is able to check the pulse of their company culture is through",
+   "act": 3.64,
+   "rel": 0.124,
+   "peak_token": " to",
+   "context": 17021
+  },
+  {
+   "text": " Part I and Jim Loney's Prayer Part II were chosen as bookends to",
+   "act": 4.91,
+   "rel": 0.168,
+   "peak_token": "'",
+   "context": 156
+  },
+  {
+   "text": " Loney's sexual orientation upon his return from captivity. The Ontario Knights of Columbus",
+   "act": 4.02,
+   "rel": 0.137,
+   "peak_token": "s",
+   "context": 2673
+  },
+  {
+   "text": "35bn metric tonnes of CO2-equivalent emissions from escaping to the atmosphere in",
+   "act": 6.1,
+   "rel": 0.208,
+   "peak_token": "bn",
+   "context": 12051
+  },
+  {
+   "text": " nothing\n# - Symbol: matches single target/method exactly\n# - Array of",
+   "act": 3.5,
+   "rel": 0.119,
+   "peak_token": "/",
+   "context": 941
+  },
+  {
+   "text": " time, because at this very moment, the clothing industry was very different in USA and",
+   "act": 7.96,
+   "rel": 0.271,
+   "peak_token": " industry",
+   "context": 8981
+  }
+ ],
+ "neighbor": [
+  {
+   "text": " reactors – to meet existing demand and climate change targets. However, only eighteen nuclear power",
+   "of": 7911,
+   "cos": 0.268,
+   "label": "references to climate change and environmental impacts"
+  },
+  {
+   "text": " corn is made primarily from sugar, corn syrup, artificial coloring and binders. It",
+   "of": 11903,
+   "cos": 0.231,
+   "label": "terms related to specific chemicals and their effects on health and safety"
+  },
+  {
+   "text": " Able-bodied except for some neurodivergence. Those marginalized statuses I have, you",
+   "of": 395,
+   "cos": 0.222,
+   "label": "the beginning of a document or a new section"
+  },
+  {
+   "text": ", and there’s an end to poverty, and an end to environmental destructions",
+   "of": 12609,
+   "cos": 0.219,
+   "label": "concepts related to environmental issues and climate change"
+  },
+  {
+   "text": " have linked declines in biodiversity and abundance--especially of birds--with intensification of agricultural practices",
+   "of": 3943,
+   "cos": 0.209,
+   "label": "terms related to biodiversity and ecosystem conservation"
+  },
+  {
+   "text": " to achieve global cooperation on climate change. For this to happen, the public will need",
+   "of": 7911,
+   "cos": 0.268,
+   "label": "references to climate change and environmental impacts"
+  },
+  {
+   "text": " of its concentration in blood. Parabens, which are effective preservatives widely used in cosmetic",
+   "of": 11903,
+   "cos": 0.231,
+   "label": "terms related to specific chemicals and their effects on health and safety"
+  },
+  {
+   "text": " future.\n\n“The environmental climate and professionals",
+   "of": 12609,
+   "cos": 0.219,
+   "label": "concepts related to environmental issues and climate change"
+  },
+  {
+   "text": " on its conservation interests. This ‘buffer zone’ extends from 400 metres",
+   "of": 3943,
+   "cos": 0.209,
+   "label": "terms related to biodiversity and ecosystem conservation"
+  },
+  {
+   "text": " like the current climate change debate, it looked as if action on the issue was about",
+   "of": 7911,
+   "cos": 0.268,
+   "label": "references to climate change and environmental impacts"
+  },
+  {
+   "text": " prosper, and the planet to heal and stay well; that way is geonomics.",
+   "of": 12609,
+   "cos": 0.219,
+   "label": "concepts related to environmental issues and climate change"
+  },
+  {
+   "text": " and naturalized species of plants for restoration, reclamation, conservation, wildlife and pollinator",
+   "of": 3943,
+   "cos": 0.209,
+   "label": "terms related to biodiversity and ecosystem conservation"
+  }
+ ]
+}

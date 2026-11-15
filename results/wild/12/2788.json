@@ -1,0 +1,362 @@
+{
+ "feature": 2788,
+ "layer": 12,
+ "seed": 1,
+ "max_act": 32.59,
+ "contexts_scanned": 18057,
+ "contexts_firing": {
+  "strong": 83,
+  "weak": 1086
+ },
+ "neighbors": [
+  {
+   "feature": 15486,
+   "cos": 0.276
+  },
+  {
+   "feature": 15870,
+   "cos": 0.273
+  },
+  {
+   "feature": 14412,
+   "cos": 0.27
+  },
+  {
+   "feature": 11277,
+   "cos": 0.267
+  },
+  {
+   "feature": 4279,
+   "cos": 0.233
+  }
+ ],
+ "neighbors_unreachable": [],
+ "strong": [
+  {
+   "text": "\n\nhttp://www.youtube.com/watch?v=xKkwT",
+   "act": 11.1,
+   "rel": 0.341,
+   "peak_token": "v",
+   "context": 14924
+  },
+  {
+   "text": "_Psychoactive_Substance_U.html?id",
+   "act": 24.85,
+   "rel": 0.763,
+   "peak_token": "id",
+   "context": 15532
+  },
+  {
+   "text": "suvorova?load_type=author\",\"is_premium\":false,\"possible",
+   "act": 21.38,
+   "rel": 0.656,
+   "peak_token": "=",
+   "context": 3036
+  },
+  {
+   "text": "tour%2F%3Futm_source%3Dexample%",
+   "act": 31.14,
+   "rel": 0.955,
+   "peak_token": "_",
+   "context": 17541
+  },
+  {
+   "text": "://ubuntuforums.org/showthread.php?p=97758",
+   "act": 12.16,
+   "rel": 0.373,
+   "peak_token": "=",
+   "context": 851
+  },
+  {
+   "text": "tellations\nhttps://www.youtube.com/watch?v=q1jj",
+   "act": 11.63,
+   "rel": 0.357,
+   "peak_token": "v",
+   "context": 7489
+  },
+  {
+   "text": ".cfm?id=1327452.132",
+   "act": 14.02,
+   "rel": 0.43,
+   "peak_token": "=",
+   "context": 4501
+  },
+  {
+   "text": ".cfm?id=844379.84468",
+   "act": 14.07,
+   "rel": 0.432,
+   "peak_token": "id",
+   "context": 5827
+  },
+  {
+   "text": "FdbhBKI/edit?usp=sharing][1]\nAnd here is",
+   "act": 35.97,
+   "rel": 1.104,
+   "peak_token": "usp",
+   "context": 14923
+  },
+  {
+   "text": "up-vinyl-skin-sticker-decal?ref=sr_gallery_5",
+   "act": 42.41,
+   "rel": 1.302,
+   "peak_token": "=",
+   "context": 10705
+  },
+  {
+   "text": "v=O5txQlEI7bc&feature=channel)\n\n------\n",
+   "act": 44.0,
+   "rel": 1.35,
+   "peak_token": "=",
+   "context": 3464
+  },
+  {
+   "text": "\n\t\t\t$.get(\"new_channel/autofill.json?f=&name",
+   "act": 10.25,
+   "rel": 0.315,
+   "peak_token": "f",
+   "context": 1825
+  },
+  {
+   "text": "/modernizr?v=wBEWDufH_8Md-Pbio",
+   "act": 13.24,
+   "rel": 0.406,
+   "peak_token": "v",
+   "context": 6954
+  },
+  {
+   "text": "e6429a70a7?hl=en\nI am",
+   "act": 23.25,
+   "rel": 0.714,
+   "peak_token": "hl",
+   "context": 9015
+  },
+  {
+   "text": "6utm_medium%3Dbanner\n\nQ:\n\nWhy is Android Studio",
+   "act": 22.32,
+   "rel": 0.685,
+   "peak_token": "D",
+   "context": 1755
+  },
+  {
+   "text": "aspx?n=Pelco\nrtsp://IPADDRESS:55",
+   "act": 11.7,
+   "rel": 0.359,
+   "peak_token": "=",
+   "context": 11309
+  },
+  {
+   "text": "i.python.org/pypi?:action=display&name=copper",
+   "act": 15.29,
+   "rel": 0.469,
+   "peak_token": "=",
+   "context": 13995
+  },
+  {
+   "text": ".dll\" /R:\"C:\\Windows\\Microsoft.Net\\assembly\\GAC",
+   "act": 10.42,
+   "rel": 0.32,
+   "peak_token": "R",
+   "context": 3214
+  },
+  {
+   "text": "cloth?ref=v1_other_2 Now I don't quite understand",
+   "act": 42.97,
+   "rel": 1.319,
+   "peak_token": "=",
+   "context": 3130
+  },
+  {
+   "text": "\n        String editName='/e?retURL=%2F'+proposal.Id",
+   "act": 11.33,
+   "rel": 0.348,
+   "peak_token": "ret",
+   "context": 6385
+  }
+ ],
+ "weak": [
+  {
+   "text": ".t006){ref-type=\"table\"}), and the SF-",
+   "act": 7.77,
+   "rel": 0.238,
+   "peak_token": "ref",
+   "context": 4431
+  },
+  {
+   "text": " registered trademark of Oracle and/or its affiliates in the US and other countries.<br",
+   "act": 3.36,
+   "rel": 0.103,
+   "peak_token": " US",
+   "context": 4216
+  },
+  {
+   "text": "03534,\n          \"parent_id\": \"dc37",
+   "act": 5.41,
+   "rel": 0.166,
+   "peak_token": " \"",
+   "context": 14810
+  },
+  {
+   "text": ".42\n\n[Table 3](#T3){ref-type=\"table",
+   "act": 5.77,
+   "rel": 0.177,
+   "peak_token": "ref",
+   "context": 7849
+  },
+  {
+   "text": "19827737-img1.jpg) <https://",
+   "act": 5.16,
+   "rel": 0.158,
+   "peak_token": "img",
+   "context": 9594
+  },
+  {
+   "text": "ref-type=\"table\"}). Although the majority of dose reductions in each group were",
+   "act": 7.35,
+   "rel": 0.225,
+   "peak_token": "type",
+   "context": 9088
+  },
+  {
+   "text": " on rehearing, 88 Utah 213, 53 P.",
+   "act": 3.61,
+   "rel": 0.111,
+   "peak_token": " ",
+   "context": 16571
+  },
+  {
+   "text": "47-g004){ref-type=\"fig\"}).\n\n![",
+   "act": 8.18,
+   "rel": 0.251,
+   "peak_token": "ref",
+   "context": 17706
+  },
+  {
+   "text": "05){ref-type=\"disp-formula\"}) in panels (C) and",
+   "act": 5.75,
+   "rel": 0.177,
+   "peak_token": "-",
+   "context": 14816
+  },
+  {
+   "text": "-307-g001){#F1}\n\n![The",
+   "act": 3.46,
+   "rel": 0.106,
+   "peak_token": "1",
+   "context": 66
+  },
+  {
+   "text": " $\\documentclass[12pt]{minimal}\n                \\usepackage{amsmath}\n",
+   "act": 3.91,
+   "rel": 0.12,
+   "peak_token": "}",
+   "context": 321
+  },
+  {
+   "text": "mkern2mu\\underline{\\mkern-2mu\\smash{C}\\",
+   "act": 4.38,
+   "rel": 0.134,
+   "peak_token": "2",
+   "context": 10034
+  },
+  {
+   "text": ") (alterations omitted)). This accurately reflects the holding. The Ninth Circuit distinguished the",
+   "act": 3.26,
+   "rel": 0.1,
+   "peak_token": "alter",
+   "context": 11605
+  },
+  {
+   "text": " EXTRA_MESSAGE = \"EXTRA_MESSAGE\";\n    public static final String EXTRA_",
+   "act": 4.43,
+   "rel": 0.136,
+   "peak_token": "MESSAGE",
+   "context": 6539
+  },
+  {
+   "text": "ref-type=\"fig\"}, where differences in short T~1~ values (5",
+   "act": 6.19,
+   "rel": 0.19,
+   "peak_token": "type",
+   "context": 3447
+  },
+  {
+   "text": "-72.\n\n<span style=\"font-variant:small-caps;\">",
+   "act": 4.18,
+   "rel": 0.128,
+   "peak_token": "variant",
+   "context": 8204
+  },
+  {
+   "text": "[1](#Tab1){ref-type=\"table\"}) was conducted to assess the",
+   "act": 7.34,
+   "rel": 0.225,
+   "peak_token": "-",
+   "context": 17393
+  },
+  {
+   "text": "4-bib-0011){ref-type=\"ref\"} An abs",
+   "act": 7.29,
+   "rel": 0.224,
+   "peak_token": "type",
+   "context": 13447
+  },
+  {
+   "text": ".g001){ref-type=\"fig\"}). The owners of this",
+   "act": 6.99,
+   "rel": 0.215,
+   "peak_token": "-",
+   "context": 114
+  },
+  {
+   "text": "bib-0009){ref-type=\"ref\"} These results suggest that",
+   "act": 6.7,
+   "rel": 0.206,
+   "peak_token": "type",
+   "context": 7249
+  }
+ ],
+ "neighbor": [
+  {
+   "text": "Seq Designer (<https://www.ampliseq.com/browse.action>) for",
+   "of": 15486,
+   "cos": 0.276,
+   "label": "URLs and actions associated with web browsing and navigation"
+  },
+  {
+   "text": "com/videos/view/passive-solar-glass-home-watching-sun",
+   "of": 15870,
+   "cos": 0.273,
+   "label": "keywords and specific terms related to technology and software development"
+  },
+  {
+   "text": "5){ref-type=\"fig\"}. Because the experimental conditions are limited, the",
+   "of": 14412,
+   "cos": 0.27,
+   "label": "references to code syntax and structure"
+  },
+  {
+   "text": " political expediency.{{#with tryGetTargetReflectionDeep}}\n    {{#",
+   "of": 4279,
+   "cos": 0.233,
+   "label": "code-related terms and structures"
+  },
+  {
+   "text": " {#sec6-toxics-07-00005}\n",
+   "of": 15870,
+   "cos": 0.273,
+   "label": "keywords and specific terms related to technology and software development"
+  },
+  {
+   "text": " convergence.\n\n<span style=\"font-variant:small-caps;\">Lemma ",
+   "of": 4279,
+   "cos": 0.233,
+   "label": "code-related terms and structures"
+  },
+  {
+   "text": "{\\mkern2mu\\underline{\\mkern-2mu\\smash{\\phi",
+   "of": 4279,
+   "cos": 0.233,
+   "label": "code-related terms and structures"
+  }
+ ]
+}

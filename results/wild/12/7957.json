@@ -1,0 +1,362 @@
+{
+ "feature": 7957,
+ "layer": 12,
+ "seed": 1,
+ "max_act": 65.52,
+ "contexts_scanned": 18029,
+ "contexts_firing": {
+  "strong": 120,
+  "weak": 3350
+ },
+ "neighbors": [
+  {
+   "feature": 678,
+   "cos": 0.267
+  },
+  {
+   "feature": 12661,
+   "cos": 0.249
+  },
+  {
+   "feature": 13595,
+   "cos": 0.247
+  },
+  {
+   "feature": 1273,
+   "cos": 0.246
+  },
+  {
+   "feature": 1170,
+   "cos": 0.245
+  }
+ ],
+ "neighbors_unreachable": [],
+ "strong": [
+  {
+   "text": "\n\nPower 96’s Ivy Unleashed interviewed Lil Duval live on-air",
+   "act": 21.14,
+   "rel": 0.323,
+   "peak_token": " Duval",
+   "context": 16854
+  },
+  {
+   "text": " a neighbourhood in the city of Patras.  It is named after one of the",
+   "act": 23.17,
+   "rel": 0.354,
+   "peak_token": "ras",
+   "context": 17648
+  },
+  {
+   "text": "I.E.L.D. the clear victor in terms of diversity. In",
+   "act": 21.02,
+   "rel": 0.321,
+   "peak_token": "D",
+   "context": 12455
+  },
+  {
+   "text": " next target: Utah power forward Paul Millsap.\n\nAlthough Millsap is a restricted",
+   "act": 21.69,
+   "rel": 0.331,
+   "peak_token": "ap",
+   "context": 9517
+  },
+  {
+   "text": "’s rock band standards,” says Cymbals Eat Guitars bassist Matthew Whipple of his band",
+   "act": 23.22,
+   "rel": 0.354,
+   "peak_token": " Eat",
+   "context": 16279
+  },
+  {
+   "text": " their newest album, Sing Noël, Point of Grace wanted to spend a few minutes –",
+   "act": 26.34,
+   "rel": 0.402,
+   "peak_token": " Grace",
+   "context": 12586
+  },
+  {
+   "text": " two years, 070 Shake has racked up millions of Soundcloud plays;",
+   "act": 27.27,
+   "rel": 0.416,
+   "peak_token": " Shake",
+   "context": 6484
+  },
+  {
+   "text": " Rick Diamond/Getty Images\n\nWillie Nelson, pictured at the Glastonbury Festival on June ",
+   "act": 25.59,
+   "rel": 0.391,
+   "peak_token": " Nelson",
+   "context": 8591
+  },
+  {
+   "text": " Drawing\nwas executed by artist Jasper Johns (b. ",
+   "act": 22.76,
+   "rel": 0.347,
+   "peak_token": " Johns",
+   "context": 8156
+  },
+  {
+   "text": " are global — and moving at a relentless pace.\nWith Avaya IP Office,",
+   "act": 20.57,
+   "rel": 0.314,
+   "peak_token": "aya",
+   "context": 5760
+  },
+  {
+   "text": " promotional codes. You will be acquiring plenty of details about Mario Badescu Coupon Code",
+   "act": 23.6,
+   "rel": 0.36,
+   "peak_token": "cu",
+   "context": 6006
+  },
+  {
+   "text": " Direction Plan,\" he said.\n\nDavid Jones shares gained four cents to $3.",
+   "act": 26.22,
+   "rel": 0.4,
+   "peak_token": " Jones",
+   "context": 9562
+  },
+  {
+   "text": "ierta America); Telemundo, which has a daily flagship evening newscast Noticiero",
+   "act": 22.0,
+   "rel": 0.336,
+   "peak_token": "mundo",
+   "context": 7690
+  },
+  {
+   "text": "gaisha Tōshiba?, (commonly referred to as Toshiba, stylized as TOS",
+   "act": 21.79,
+   "rel": 0.333,
+   "peak_token": " Toshiba",
+   "context": 13996
+  },
+  {
+   "text": "Listen to Tom Odell Constellations\nhttps://www.youtube.com/watch",
+   "act": 27.85,
+   "rel": 0.425,
+   "peak_token": "dell",
+   "context": 7489
+  },
+  {
+   "text": ", 070 Shake’s honesty and heart are desperately needed.\n\n“",
+   "act": 26.93,
+   "rel": 0.411,
+   "peak_token": " Shake",
+   "context": 15951
+  },
+  {
+   "text": ".\n\nEvan Longoria drove in a run",
+   "act": 20.25,
+   "rel": 0.309,
+   "peak_token": "oria",
+   "context": 3253
+  },
+  {
+   "text": "\n Verdi's Rigoletto (Duke of Mantoue), with Renée Doria,",
+   "act": 20.92,
+   "rel": 0.319,
+   "peak_token": "letto",
+   "context": 9895
+  },
+  {
+   "text": " Winner in 2005\n Sally Mann Exhibition at G",
+   "act": 21.02,
+   "rel": 0.321,
+   "peak_token": " Mann",
+   "context": 8710
+  },
+  {
+   "text": " These Mario Badescu Coupon Code can also be thought to be the key reason powering",
+   "act": 20.58,
+   "rel": 0.314,
+   "peak_token": "cu",
+   "context": 9222
+  }
+ ],
+ "weak": [
+  {
+   "text": "\"Battle Over Ballymena's Heroes.\" (8 March 2000",
+   "act": 10.49,
+   "rel": 0.16,
+   "peak_token": "mena",
+   "context": 8075
+  },
+  {
+   "text": " product of -0.4 and -179389558",
+   "act": 6.59,
+   "rel": 0.101,
+   "peak_token": "4",
+   "context": 8915
+  },
+  {
+   "text": " fields. In addition, the GAMA fields are being observed to $K \\sim",
+   "act": 7.47,
+   "rel": 0.114,
+   "peak_token": "AMA",
+   "context": 11553
+  },
+  {
+   "text": " page reveals that Harry and Meghan could be enjoying such features like a sunken bath, a",
+   "act": 7.64,
+   "rel": 0.117,
+   "peak_token": " Meghan",
+   "context": 6421
+  },
+  {
+   "text": "s disease. According to Alzheimer's Disease International, current global costs of caring for",
+   "act": 8.23,
+   "rel": 0.126,
+   "peak_token": " Alzheimer",
+   "context": 11383
+  },
+  {
+   "text": ". Thus, the inventor of duckpin bowling, John Van Sant, used a wood",
+   "act": 7.15,
+   "rel": 0.109,
+   "peak_token": "pin",
+   "context": 13007
+  },
+  {
+   "text": " plan launched by Nick Clegg at the Lib Dem annual conference. Clegg told party activists:",
+   "act": 12.98,
+   "rel": 0.198,
+   "peak_token": " Clegg",
+   "context": 17493
+  },
+  {
+   "text": "----------------------------------\n\nIsogenic *Synechocystis* strains were used in which",
+   "act": 9.74,
+   "rel": 0.149,
+   "peak_token": "choc",
+   "context": 334
+  },
+  {
+   "text": " large, unique LQTS founder population in South Africa (SA-LQTS). We",
+   "act": 9.54,
+   "rel": 0.146,
+   "peak_token": "TS",
+   "context": 2844
+  },
+  {
+   "text": " you’re having fun,” Blount said. “When you have guys that are losing",
+   "act": 8.43,
+   "rel": 0.129,
+   "peak_token": " Blount",
+   "context": 10316
+  },
+  {
+   "text": " so on ([@bib0115]).\n\n2. PRRSV interference with",
+   "act": 10.09,
+   "rel": 0.154,
+   "peak_token": "RSV",
+   "context": 3148
+  },
+  {
+   "text": " like Artprice, as World Leader in Art Market Information.\n\nNever mentioned in the",
+   "act": 10.51,
+   "rel": 0.16,
+   "peak_token": "price",
+   "context": 17243
+  },
+  {
+   "text": " a snooker player\nCao Cao (died 220), founder of Cao",
+   "act": 15.2,
+   "rel": 0.232,
+   "peak_token": " Cao",
+   "context": 3731
+  },
+  {
+   "text": " here and now.\n\nDeuteronomy makes more sense if we think about the social-",
+   "act": 8.27,
+   "rel": 0.126,
+   "peak_token": "Deuter",
+   "context": 5309
+  },
+  {
+   "text": " you made this day even more meaningful.”\n\nPrince William and Kate Middleton change their names",
+   "act": 15.86,
+   "rel": 0.242,
+   "peak_token": " William",
+   "context": 11040
+  },
+  {
+   "text": "\nEin Zitat aus \"Der Prozess\" von Franz Kafka:\n\nAls ich mich",
+   "act": 13.46,
+   "rel": 0.205,
+   "peak_token": " Kafka",
+   "context": 13281
+  },
+  {
+   "text": " Timor-Leste. She said the streets went crazy for it, the folk banging",
+   "act": 8.16,
+   "rel": 0.125,
+   "peak_token": "Les",
+   "context": 7312
+  },
+  {
+   "text": " “We are delighted to have been appointed the New Zealand distributor for DPA Microphones and",
+   "act": 17.29,
+   "rel": 0.264,
+   "peak_token": " DPA",
+   "context": 8582
+  },
+  {
+   "text": " limited to the employment-at-will context.\nIn Cincinnati Bell, the Delaware",
+   "act": 12.55,
+   "rel": 0.191,
+   "peak_token": " Bell",
+   "context": 6173
+  },
+  {
+   "text": "oxorubicin 9",
+   "act": 8.91,
+   "rel": 0.136,
+   "peak_token": "icin",
+   "context": 2357
+  }
+ ],
+ "neighbor": [
+  {
+   "text": "Tim Smith, The Baltimore Sun\n\nFor most of John Ruppert's career,",
+   "of": 678,
+   "cos": 0.267,
+   "label": "names of individuals and their associated biographies or accomplishments"
+  },
+  {
+   "text": "org.apache.commons.math.distribution.PascalDistributionTest)\ntestDe",
+   "of": 13595,
+   "cos": 0.247,
+   "label": "references to specific software libraries and frameworks related to carbon and identity systems"
+  },
+  {
+   "text": " (diamond-shaped) A pantograph is a device that collects electric current from overhead",
+   "of": 1273,
+   "cos": 0.246,
+   "label": "keywords related to digital technology and systems"
+  },
+  {
+   "text": " moving away from the current employer-based health insurance system in America? Aside from the",
+   "of": 1170,
+   "cos": 0.245,
+   "label": "references to governmental and jurisdictional entities, particularly in relation to laws and public policy"
+  },
+  {
+   "text": "\n\nMy name is Andy Puckett, and I’m a professional astronomer. When",
+   "of": 678,
+   "cos": 0.267,
+   "label": "names of individuals and their associated biographies or accomplishments"
+  },
+  {
+   "text": "7 Electrostatic precipitator An electrostatic precipitator (ESP), or electrostatic air cleaner is",
+   "of": 1273,
+   "cos": 0.246,
+   "label": "keywords related to digital technology and systems"
+  },
+  {
+   "text": "askill of Missouri, Sherrod Brown of Ohio, Joe Donnelly Indiana, Elizabeth Warren",
+   "of": 1170,
+   "cos": 0.245,
+   "label": "references to governmental and jurisdictional entities, particularly in relation to laws and public policy"
+  }
+ ]
+}

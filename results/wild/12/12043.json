@@ -1,0 +1,356 @@
+{
+ "feature": 12043,
+ "layer": 12,
+ "seed": 1,
+ "max_act": 31.16,
+ "contexts_scanned": 18057,
+ "contexts_firing": {
+  "strong": 364,
+  "weak": 2880
+ },
+ "neighbors": [
+  {
+   "feature": 7865,
+   "cos": 0.178
+  },
+  {
+   "feature": 13350,
+   "cos": 0.168
+  },
+  {
+   "feature": 11839,
+   "cos": 0.158
+  },
+  {
+   "feature": 737,
+   "cos": 0.154
+  },
+  {
+   "feature": 15513,
+   "cos": 0.153
+  }
+ ],
+ "neighbors_unreachable": [],
+ "strong": [
+  {
+   "text": "({});\n            descriptor = Object.getOwnPropertyDescriptor(node, 'parentId');\n\n",
+   "act": 13.04,
+   "rel": 0.419,
+   "peak_token": ",",
+   "context": 12561
+  },
+  {
+   "text": "m looking for something like\ncommonA = dfA.select('time', ",
+   "act": 11.64,
+   "rel": 0.374,
+   "peak_token": "('",
+   "context": 6172
+  },
+  {
+   "text": ".1:test (default-test) @ tika-app ---\n[INFO",
+   "act": 9.74,
+   "rel": 0.313,
+   "peak_token": " (",
+   "context": 8364
+  },
+  {
+   "text": "\n\t\t\t\t<param name=\"icache_config\" value=\"1638",
+   "act": 10.87,
+   "rel": 0.349,
+   "peak_token": " name",
+   "context": 807
+  },
+  {
+   "text": " new OpenLayers.Map('map');\n",
+   "act": 15.47,
+   "rel": 0.496,
+   "peak_token": "('",
+   "context": 12758
+  },
+  {
+   "text": ".rb:2:in `<main>'\n\nAny help is much appreciated.\n",
+   "act": 10.76,
+   "rel": 0.345,
+   "peak_token": "in",
+   "context": 8620
+  },
+  {
+   "text": "]+\"' as columns_name,(select exists ( select distinct table_schema from information",
+   "act": 16.92,
+   "rel": 0.543,
+   "peak_token": " as",
+   "context": 1581
+  },
+  {
+   "text": "\n\t\t\t<param name=\"capacity_per_channel\" value=\"409",
+   "act": 11.3,
+   "rel": 0.363,
+   "peak_token": " name",
+   "context": 10191
+  },
+  {
+   "text": "\n             )\n\n    mutation = \"\"\"\n    mutation ($userId: ID!) {",
+   "act": 16.15,
+   "rel": 0.518,
+   "peak_token": "mutation",
+   "context": 10750
+  },
+  {
+   "text": " Empire.\n\nCast\n Warwick Ward as Col André de Sevigne\n",
+   "act": 13.52,
+   "rel": 0.434,
+   "peak_token": " as",
+   "context": 14907
+  },
+  {
+   "text": " msg\n  end\n\n  @query \"\"\"\n  subscription ($clientId: ID",
+   "act": 12.7,
+   "rel": 0.408,
+   "peak_token": " ($",
+   "context": 17445
+  },
+  {
+   "text": "\n        <?php\n        $message = $_POST['message'];\n        $",
+   "act": 10.15,
+   "rel": 0.326,
+   "peak_token": "['",
+   "context": 16574
+  },
+  {
+   "text": " tag. 1 directory cache -->\t\n\t\t\t\t<param name=\"Dir_config",
+   "act": 10.92,
+   "rel": 0.35,
+   "peak_token": " name",
+   "context": 804
+  },
+  {
+   "text": " view instance.\n         * @method locateViewForObject\n         * @param",
+   "act": 11.48,
+   "rel": 0.368,
+   "peak_token": "method",
+   "context": 1869
+  },
+  {
+   "text": " values a list of values\n     * @return a new list with {@link Tuple",
+   "act": 15.22,
+   "rel": 0.488,
+   "peak_token": "return",
+   "context": 1857
+  },
+  {
+   "text": "96780\" multiple=\"multiple\" name=\"a9678",
+   "act": 17.16,
+   "rel": 0.551,
+   "peak_token": "=\"",
+   "context": 13455
+  },
+  {
+   "text": " The options we want to pass to \"fetch\"\n * @return {object}",
+   "act": 10.65,
+   "rel": 0.342,
+   "peak_token": "return",
+   "context": 13812
+  },
+  {
+   "text": " \"$project\": {\n        \"date\": {\n            \"year\"  :",
+   "act": 15.09,
+   "rel": 0.484,
+   "peak_token": " {",
+   "context": 3109
+  },
+  {
+   "text": "Unsupported Content-Type specified by parameter \" +\n                    \"encoding=%s (supported",
+   "act": 20.51,
+   "rel": 0.658,
+   "peak_token": " parameter",
+   "context": 15442
+  },
+  {
+   "text": "pace;\r\n}\n<select name=\"mySelect\">\r\n  <option value",
+   "act": 13.31,
+   "rel": 0.427,
+   "peak_token": " name",
+   "context": 8561
+  }
+ ],
+ "weak": [
+  {
+   "text": "35320.g005){ref-type=\"fig\"",
+   "act": 3.36,
+   "rel": 0.108,
+   "peak_token": "0",
+   "context": 14273
+  },
+  {
+   "text": "_i$. For example, the bar tableau in Figure \\[weight\\] is of type",
+   "act": 3.38,
+   "rel": 0.108,
+   "peak_token": " \\[",
+   "context": 14143
+  },
+  {
+   "text": "\nJOIN tbl3 on (tbl3.t3_pk = tbl2.",
+   "act": 3.57,
+   "rel": 0.114,
+   "peak_token": " (",
+   "context": 14486
+  },
+  {
+   "text": " - The subpoenaed bank records of Marcos Valério and his businesses reveal connections to the",
+   "act": 4.03,
+   "rel": 0.129,
+   "peak_token": "ed",
+   "context": 9374
+  },
+  {
+   "text": " numbers shown in Table [1](#Tab1){ref-type=\"table\"",
+   "act": 3.18,
+   "rel": 0.102,
+   "peak_token": "ref",
+   "context": 12883
+  },
+  {
+   "text": ".math.linear.RealMatrixImplTest)\ntestLUDecomposition(org.",
+   "act": 4.29,
+   "rel": 0.138,
+   "peak_token": "test",
+   "context": 16068
+  },
+  {
+   "text": "=\"numberlist\">\r\n  <li id=\"test1\" style=\"display:",
+   "act": 3.43,
+   "rel": 0.11,
+   "peak_token": "=\"",
+   "context": 4358
+  },
+  {
+   "text": " wt. % (based on total oxidizer content) of a transition metal diammine",
+   "act": 5.3,
+   "rel": 0.17,
+   "peak_token": " on",
+   "context": 16799
+  },
+  {
+   "text": " on it the skill object will reflect the changes I made to it's name and",
+   "act": 4.36,
+   "rel": 0.14,
+   "peak_token": "s",
+   "context": 6283
+  },
+  {
+   "text": "configuration/server/ServerConfiguration.html#setGeolocationDatabasePath-java.",
+   "act": 4.33,
+   "rel": 0.139,
+   "peak_token": "set",
+   "context": 17211
+  },
+  {
+   "text": ".math.linear.InvalidMatrixExceptionTest)\ntestConstructorMessage(org.",
+   "act": 6.01,
+   "rel": 0.193,
+   "peak_token": "test",
+   "context": 12999
+  },
+  {
+   "text": ".out.println(\"Enter an empty position number (0-8) \");\n",
+   "act": 6.32,
+   "rel": 0.203,
+   "peak_token": "Enter",
+   "context": 10339
+  },
+  {
+   "text": "\nPlease respond to \"Martin Jermakyan\" <martin@electrapart",
+   "act": 5.92,
+   "rel": 0.19,
+   "peak_token": " \"",
+   "context": 4853
+  },
+  {
+   "text": " that I have configured, the root is 'root' and record is o1.",
+   "act": 6.44,
+   "rel": 0.207,
+   "peak_token": " o",
+   "context": 8834
+  },
+  {
+   "text": "\n * Function implementation.\n *\n * @author BaseX Team 20",
+   "act": 3.22,
+   "rel": 0.103,
+   "peak_token": " @",
+   "context": 4087
+  },
+  {
+   "text": "So let's say that I have a table, BMST. I use",
+   "act": 6.64,
+   "rel": 0.213,
+   "peak_token": ".",
+   "context": 10466
+  },
+  {
+   "text": "\" scope=\"row\"><code><span class=\"memberNameLink\"><a href=\"#",
+   "act": 9.08,
+   "rel": 0.291,
+   "peak_token": "\">",
+   "context": 8546
+  },
+  {
+   "text": " in the kinetic experiment (as indicated in [Fig. 2A](#F2",
+   "act": 6.59,
+   "rel": 0.212,
+   "peak_token": "](#",
+   "context": 4168
+  },
+  {
+   "text": " talus fracture with malunion (arrow).\n\nPreoperative Setup {#sec1.",
+   "act": 4.29,
+   "rel": 0.138,
+   "peak_token": "arrow",
+   "context": 15563
+  },
+  {
+   "text": "_j} {\\rm d}u \\,u^{\\lambda - 1} \\,\\",
+   "act": 4.13,
+   "rel": 0.132,
+   "peak_token": "}",
+   "context": 10631
+  }
+ ],
+ "neighbor": [
+  {
+   "text": " (int)event->x, (int)event->y, &pressed_",
+   "of": 13350,
+   "cos": 0.168,
+   "label": "references to iterators and pointers in programming context"
+  },
+  {
+   "text": "_id'=>$row['genre_id']))->row()->name;\n//I",
+   "of": 11839,
+   "cos": 0.158,
+   "label": "elements related to data validation and manipulation within code"
+  },
+  {
+   "text": "NAME, displayName);\n            shape.setPathType(AVKey.LINEAR);\n",
+   "of": 15513,
+   "cos": 0.153,
+   "label": "lines of code related to object property settings and configuration in programming contexts"
+  },
+  {
+   "text": "\n\n\tgtk_tree_view_get_cursor(treeview, &path,",
+   "of": 13350,
+   "cos": 0.168,
+   "label": "references to iterators and pointers in programming context"
+  },
+  {
+   "text": "intent.putExtra(AppConstants.KEY_ITEMS, items);\n\nAndroid creates a",
+   "of": 15513,
+   "cos": 0.153,
+   "label": "lines of code related to object property settings and configuration in programming contexts"
+  },
+  {
+   "text": "_buf, \"%s %d\", write_buf, &codenum);\n",
+   "of": 13350,
+   "cos": 0.168,
+   "label": "references to iterators and pointers in programming context"
+  }
+ ]
+}

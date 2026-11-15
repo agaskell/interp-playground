@@ -1,0 +1,281 @@
+{
+ "feature": 10140,
+ "layer": 12,
+ "seed": 1,
+ "max_act": 54.98,
+ "contexts_scanned": 18092,
+ "contexts_firing": {
+  "strong": 5,
+  "weak": 202
+ },
+ "neighbors": [
+  {
+   "feature": 15566,
+   "cos": 0.297
+  },
+  {
+   "feature": 376,
+   "cos": 0.209
+  },
+  {
+   "feature": 9651,
+   "cos": 0.185
+  },
+  {
+   "feature": 2732,
+   "cos": 0.174
+  },
+  {
+   "feature": 14294,
+   "cos": 0.163
+  }
+ ],
+ "neighbors_unreachable": [],
+ "strong": [
+  {
+   "text": " IncomingForm;\n\nIncomingForm.prototype.parse = function(req, cb)",
+   "act": 17.31,
+   "rel": 0.315,
+   "peak_token": ".",
+   "context": 11363
+  },
+  {
+   "text": "Protobuf._ProtoNameProviding {\n  static let _protobuf_nameMap: Swift",
+   "act": 19.15,
+   "rel": 0.348,
+   "peak_token": " let",
+   "context": 10488
+  },
+  {
+   "text": "MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {\n  static let protoMessage",
+   "act": 19.14,
+   "rel": 0.348,
+   "peak_token": " let",
+   "context": 10486
+  },
+  {
+   "text": "AllTypes.OneOf_OneofField?\n\n    static let defaultInstance = _",
+   "act": 17.38,
+   "rel": 0.316,
+   "peak_token": " let",
+   "context": 779
+  },
+  {
+   "text": "ProtoNameProviding {\n  static let proto",
+   "act": 19.61,
+   "rel": 0.357,
+   "peak_token": " let",
+   "context": 17962
+  }
+ ],
+ "weak": [
+  {
+   "text": "/aip/journal/apl/105/5/10.1",
+   "act": 6.14,
+   "rel": 0.112,
+   "peak_token": "/",
+   "context": 5824
+  },
+  {
+   "text": "Visitor : DetektVisitor() {\n    val containsMultiRule\n        get()",
+   "act": 10.8,
+   "rel": 0.197,
+   "peak_token": "    ",
+   "context": 12753
+  },
+  {
+   "text": " obj = {};\r\nObject.defineProperty(obj, 'lastName', {\r\n  enumerable",
+   "act": 7.09,
+   "rel": 0.129,
+   "peak_token": ",",
+   "context": 5756
+  },
+  {
+   "text": " siteanalytics = {}; };\n        siteanalytics.gn_tracking_defaults =",
+   "act": 5.9,
+   "rel": 0.107,
+   "peak_token": ".",
+   "context": 14047
+  },
+  {
+   "text": "        {\n            enum type\n            {\n                unknown,\n                thread,",
+   "act": 8.61,
+   "rel": 0.157,
+   "peak_token": "{",
+   "context": 6040
+  },
+  {
+   "text": "r\")\n\n  File \"setup_posix.py\", line 25,",
+   "act": 6.1,
+   "rel": 0.111,
+   "peak_token": "File",
+   "context": 1806
+  },
+  {
+   "text": " RouteValueDictionaryExtensions\n  {\n     public static Route",
+   "act": 6.55,
+   "rel": 0.119,
+   "peak_token": "     ",
+   "context": 2263
+  },
+  {
+   "text": "//=========================================================================\n\n\ntemplate<class VDA, class Base_it",
+   "act": 9.53,
+   "rel": 0.173,
+   "peak_token": "<",
+   "context": 4830
+  },
+  {
+   "text": "\n\n  enum NestedEnum: SwiftProtobuf.Enum {\n    typealias RawValue",
+   "act": 5.6,
+   "rel": 0.102,
+   "peak_token": "alias",
+   "context": 13463
+  },
+  {
+   "text": "FormController',\n    resolve: {\n         isCreate: (function(){ return",
+   "act": 9.18,
+   "rel": 0.167,
+   "peak_token": " {",
+   "context": 13152
+  },
+  {
+   "text": " UNRECOGNIZED case.\n  static var allCases: [Proto3Arena",
+   "act": 8.49,
+   "rel": 0.154,
+   "peak_token": "static",
+   "context": 6034
+  },
+  {
+   "text": "return {\n      restrict: 'A',\n      templateUrl: function (element,",
+   "act": 5.87,
+   "rel": 0.107,
+   "peak_token": "      ",
+   "context": 3117
+  },
+  {
+   "text": " unknownFields.traverse(visitor: &visitor)\n  }\n\n  static func ==",
+   "act": 9.92,
+   "rel": 0.18,
+   "peak_token": "static",
+   "context": 14593
+  },
+  {
+   "text": " = parser;\n};\n\nIncomingForm.prototype._initOctetStream = function",
+   "act": 10.75,
+   "rel": 0.196,
+   "peak_token": ".",
+   "context": 11356
+  },
+  {
+   "text": "\n{\r\n    static class Program\r\n    {\r\n        /// <summary>\r",
+   "act": 7.6,
+   "rel": 0.138,
+   "peak_token": "        ",
+   "context": 2125
+  },
+  {
+   "text": ".TXT for details.\n//\n//===----------------------------------------------------------------------===//",
+   "act": 7.02,
+   "rel": 0.128,
+   "peak_token": "===",
+   "context": 17310
+  },
+  {
+   "text": "pable', function () {\nreturn {\n    scope: {\n        drop:",
+   "act": 6.93,
+   "rel": 0.126,
+   "peak_token": " {",
+   "context": 17825
+  },
+  {
+   "text": " sorted */\n};\n\nenum CPL_error {\n\tCPL_ERR_NONE",
+   "act": 5.88,
+   "rel": 0.107,
+   "peak_token": "enum",
+   "context": 8021
+  },
+  {
+   "text": "'\n\t'''\n\n\tvol, chp, frag, postfix = extractVol",
+   "act": 6.29,
+   "rel": 0.114,
+   "peak_token": "\t",
+   "context": 16279
+  },
+  {
+   "text": "1,41 @@\n     if (connect (sock, (struct sockaddr *)",
+   "act": 6.15,
+   "rel": 0.112,
+   "peak_token": " @@",
+   "context": 8847
+  }
+ ],
+ "neighbor": [
+  {
+   "text": "constructor(private http: Http) {\n    }\n\n    getMyObjs(query",
+   "of": 15566,
+   "cos": 0.297,
+   "label": "programming constructs and structures, particularly in Angular-related code"
+  },
+  {
+   "text": " @api\n     */\n    public function __construct",
+   "of": 376,
+   "cos": 0.209,
+   "label": "definitions of functions in programming code"
+  },
+  {
+   "text": "time=None, repeat=None):\n        self.name = name\n        ",
+   "of": 9651,
+   "cos": 0.185,
+   "label": "code-related constructs and Python class attributes"
+  },
+  {
+   "text": "\n * @api\n */\nclass Request\n{\n    protected $uri;",
+   "of": 2732,
+   "cos": 0.174,
+   "label": "keywords related to function declarations and visibility modifiers in programming code"
+  },
+  {
+   "text": "\n\t\t\t\t\tright: 0,\n\t\t\t\t\ttop: totalTopBoxesHeight,\n",
+   "of": 14294,
+   "cos": 0.163,
+   "label": "numerical values and structural elements related to programming or data"
+  },
+  {
+   "text": ": Product[];\n  readonly columns$: Observable<number>;\n  readonly breakpoints",
+   "of": 15566,
+   "cos": 0.297,
+   "label": "programming constructs and structures, particularly in Angular-related code"
+  },
+  {
+   "text": "* @api\n     */\n    public function getFiles()\n    {\n",
+   "of": 376,
+   "cos": 0.209,
+   "label": "definitions of functions in programming code"
+  },
+  {
+   "text": "){\n    super(props);\n        this.state={\n      data :",
+   "of": 9651,
+   "cos": 0.185,
+   "label": "code-related constructs and Python class attributes"
+  },
+  {
+   "text": "                        template: modalHtml,\n                        controller: ModalInstanceCtrl\n                    });\n\n",
+   "of": 14294,
+   "cos": 0.163,
+   "label": "numerical values and structural elements related to programming or data"
+  },
+  {
+   "text": " Seta uma propriedade na sessão\n     */\n    public static function setPropriedade",
+   "of": 376,
+   "cos": 0.209,
+   "label": "definitions of functions in programming code"
+  },
+  {
+   "text": "    ],\n    \"fullDate\": \"EEEE d MMMM y\",\n    \"",
+   "of": 14294,
+   "cos": 0.163,
+   "label": "numerical values and structural elements related to programming or data"
+  }
+ ]
+}

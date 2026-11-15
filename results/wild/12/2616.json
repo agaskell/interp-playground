@@ -1,0 +1,410 @@
+{
+ "feature": 2616,
+ "layer": 12,
+ "seed": 1,
+ "max_act": 54.45,
+ "contexts_scanned": 17990,
+ "contexts_firing": {
+  "strong": 1063,
+  "weak": 455
+ },
+ "neighbors": [
+  {
+   "feature": 1904,
+   "cos": 0.468
+  },
+  {
+   "feature": 2810,
+   "cos": 0.454
+  },
+  {
+   "feature": 13047,
+   "cos": 0.44
+  },
+  {
+   "feature": 10248,
+   "cos": 0.376
+  },
+  {
+   "feature": 7629,
+   "cos": 0.364
+  }
+ ],
+ "neighbors_unreachable": [],
+ "strong": [
+  {
+   "text": " of s-IBM over PM/DM.Q:\n\nC: My struct'",
+   "act": 49.01,
+   "rel": 0.9,
+   "peak_token": " over",
+   "context": 7431
+  },
+  {
+   "text": ". When she looked up at last, she saw that night had fallen over Bethlehem Springs",
+   "act": 38.66,
+   "rel": 0.71,
+   "peak_token": " over",
+   "context": 3500
+  },
+  {
+   "text": "ing to be a criticism of the Rittenburg lecture has extended over a number of",
+   "act": 38.01,
+   "rel": 0.698,
+   "peak_token": " over",
+   "context": 5305
+  },
+  {
+   "text": " will pay over, once the payment free period (12 months) has ended.",
+   "act": 45.46,
+   "rel": 0.835,
+   "peak_token": " over",
+   "context": 15634
+  },
+  {
+   "text": " future with greater control over the country’s natural resources.\n\nWhen the plot to",
+   "act": 23.71,
+   "rel": 0.435,
+   "peak_token": " over",
+   "context": 1700
+  },
+  {
+   "text": " built in wizard\n\nHere's a few I shot over the past 6 months",
+   "act": 48.8,
+   "rel": 0.896,
+   "peak_token": " over",
+   "context": 6408
+  },
+  {
+   "text": " fault, over time a crack in the transmissions",
+   "act": 50.95,
+   "rel": 0.936,
+   "peak_token": " over",
+   "context": 8072
+  },
+  {
+   "text": " second group and they control the voice that comes over the city-wide PA system telling",
+   "act": 38.98,
+   "rel": 0.716,
+   "peak_token": " over",
+   "context": 1772
+  },
+  {
+   "text": " has included over 100 dates in Europe and North America to date. After",
+   "act": 35.08,
+   "rel": 0.644,
+   "peak_token": " over",
+   "context": 16986
+  },
+  {
+   "text": " English, cultivated\nfrom years of pouring over the Romantics, is mocked. She",
+   "act": 29.73,
+   "rel": 0.546,
+   "peak_token": " over",
+   "context": 3498
+  },
+  {
+   "text": " the facts was to prevail over defendant's countervailing proof of due care.\n",
+   "act": 30.34,
+   "rel": 0.557,
+   "peak_token": " over",
+   "context": 10067
+  },
+  {
+   "text": "?\n\nKegarding writer where can i buy nureflex over the counter in",
+   "act": 43.66,
+   "rel": 0.802,
+   "peak_token": " over",
+   "context": 8932
+  },
+  {
+   "text": " drove the boat over to him and accused him of trying to run over them. They",
+   "act": 38.63,
+   "rel": 0.709,
+   "peak_token": " over",
+   "context": 7416
+  },
+  {
+   "text": " 47 instances where the judge imposed a death sentence over a jury recommendation of life",
+   "act": 48.83,
+   "rel": 0.897,
+   "peak_token": " over",
+   "context": 16658
+  },
+  {
+   "text": " and has existed over recent years.\n\n‘People like you, and",
+   "act": 46.22,
+   "rel": 0.849,
+   "peak_token": " over",
+   "context": 3794
+  },
+  {
+   "text": ".    LaClair’s\n\nmedical bills totaled over $1.05 million",
+   "act": 31.96,
+   "rel": 0.587,
+   "peak_token": " over",
+   "context": 1107
+  },
+  {
+   "text": " terms) overqualified for traditional homemaking tasks; the prevalence of cheap, high quality",
+   "act": 36.69,
+   "rel": 0.674,
+   "peak_token": " over",
+   "context": 8646
+  },
+  {
+   "text": " into position. With open legs she reached over and grabbed hold of Rick’s pec",
+   "act": 41.14,
+   "rel": 0.755,
+   "peak_token": " over",
+   "context": 1608
+  },
+  {
+   "text": "\n\nGAME CONTINUEHold A at the game over screen.\nWhile keeping that button held",
+   "act": 28.48,
+   "rel": 0.523,
+   "peak_token": " over",
+   "context": 7137
+  },
+  {
+   "text": " own money to pay off the Schlitz indebtedness they would turn the policies over to Mr",
+   "act": 24.29,
+   "rel": 0.446,
+   "peak_token": " over",
+   "context": 7738
+  }
+ ],
+ "weak": [
+  {
+   "text": " acceptance....\" Blondell v. Turover, supra, 195 Md",
+   "act": 11.68,
+   "rel": 0.215,
+   "peak_token": "ver",
+   "context": 13945
+  },
+  {
+   "text": " this unique model system to show that above a critical concentration populations of motile colloids",
+   "act": 8.48,
+   "rel": 0.156,
+   "peak_token": " a",
+   "context": 15777
+  },
+  {
+   "text": "0 (1927), the Supreme Court overturned a verdict in favor of the",
+   "act": 8.32,
+   "rel": 0.153,
+   "peak_token": " overturned",
+   "context": 2861
+  },
+  {
+   "text": " the age of crossover this term can still be used. More music, with the ultra",
+   "act": 6.75,
+   "rel": 0.124,
+   "peak_token": " crossover",
+   "context": 17890
+  },
+  {
+   "text": " have sat in\nreception areas and overheard employees talk about things",
+   "act": 15.21,
+   "rel": 0.279,
+   "peak_token": " overheard",
+   "context": 12432
+  },
+  {
+   "text": " such function. Even though $X$ is surjective and thus does not necessarily have",
+   "act": 7.21,
+   "rel": 0.132,
+   "peak_token": " sur",
+   "context": 457
+  },
+  {
+   "text": " myriad of you, as the developers receive explicit on top of and another time that Connor",
+   "act": 11.25,
+   "rel": 0.207,
+   "peak_token": " of",
+   "context": 14785
+  },
+  {
+   "text": " had 18 picks...Surrounded by a heck of alot more talent than T",
+   "act": 7.37,
+   "rel": 0.135,
+   "peak_token": "Sur",
+   "context": 9019
+  },
+  {
+   "text": " supporting native client\n\nThe facts is that despite the obvious maintenance overhead ... we have talked",
+   "act": 9.42,
+   "rel": 0.173,
+   "peak_token": " overhead",
+   "context": 10970
+  },
+  {
+   "text": " on top of the ribs. No Results Found The page you requested could not be.",
+   "act": 6.24,
+   "rel": 0.115,
+   "peak_token": " of",
+   "context": 754
+  },
+  {
+   "text": " their inner strength and overcoming extraordinary challenges, in order",
+   "act": 7.87,
+   "rel": 0.144,
+   "peak_token": " overcoming",
+   "context": 4395
+  },
+  {
+   "text": " specifically to a single row of overhead bars designed to be swung across. The jungle gym",
+   "act": 13.66,
+   "rel": 0.251,
+   "peak_token": " overhead",
+   "context": 640
+  },
+  {
+   "text": " in turn results from the detailed hybridization and/or overlap of orbitals on different lattice sites",
+   "act": 15.03,
+   "rel": 0.276,
+   "peak_token": " overlap",
+   "context": 2966
+  },
+  {
+   "text": " say you pay for greater than 10 orders for your duration of a training course",
+   "act": 7.57,
+   "rel": 0.139,
+   "peak_token": " than",
+   "context": 12408
+  },
+  {
+   "text": ", what will happen to the previous results? Is their an overhead.\nAlso,",
+   "act": 11.94,
+   "rel": 0.219,
+   "peak_token": " overhead",
+   "context": 4359
+  },
+  {
+   "text": " ridge\", overlooking the Illinois River, hence the name.  The sand ridge is believed",
+   "act": 14.51,
+   "rel": 0.267,
+   "peak_token": " overlooking",
+   "context": 6789
+  },
+  {
+   "text": " a barometric altimeter which provides the distance above a pre-determined datum, usually",
+   "act": 7.62,
+   "rel": 0.14,
+   "peak_token": " a",
+   "context": 986
+  },
+  {
+   "text": ". I have a filtering section above the div list. I am not sure which approach",
+   "act": 6.37,
+   "rel": 0.117,
+   "peak_token": " the",
+   "context": 2940
+  },
+  {
+   "text": "-blind, crossover fashion. The results show that",
+   "act": 6.22,
+   "rel": 0.114,
+   "peak_token": " crossover",
+   "context": 3145
+  },
+  {
+   "text": " Diamond Incorporated.\n\nSilhouette must overcome her greatest fears and use all her skills to",
+   "act": 7.51,
+   "rel": 0.138,
+   "peak_token": " overcome",
+   "context": 1617
+  }
+ ],
+ "neighbor": [
+  {
+   "text": " Pompe and CDD. • Preclinical work across additional neurologic LSDs. About",
+   "of": 1904,
+   "cos": 0.468,
+   "label": "phrases indicating geographical or contextual movement across different locations"
+  },
+  {
+   "text": " areas and under fertilizing in others. A blotchy appearance results. Furthermore, the",
+   "of": 2810,
+   "cos": 0.454,
+   "label": "phrases that indicate a specific context or conditions"
+  },
+  {
+   "text": " them as possible when you spin so they can cover as many reels as possible. After",
+   "of": 13047,
+   "cos": 0.44,
+   "label": "terms related to covering or concealing something"
+  },
+  {
+   "text": " this supermodel sedan. Continue Reading...\n\nAs it tends to do around this time",
+   "of": 10248,
+   "cos": 0.376,
+   "label": "phrases and contexts related to the concept of surrounding or being around something"
+  },
+  {
+   "text": ").\n\n[^14]: Above we have assumed the variables $A_{1}$,",
+   "of": 7629,
+   "cos": 0.364,
+   "label": "references to content or data that is clearly identified as being above a certain threshold or standard"
+  },
+  {
+   "text": " rates for headache prevalence across cultures and continents \\[[@CR1], [@CR3],",
+   "of": 1904,
+   "cos": 0.468,
+   "label": "phrases indicating geographical or contextual movement across different locations"
+  },
+  {
+   "text": " window as she scorched the goblins with her magic. Under the combined assault, the vigil",
+   "of": 2810,
+   "cos": 0.454,
+   "label": "phrases that indicate a specific context or conditions"
+  },
+  {
+   "text": "4-1 was intended to cover indirect injuries, actions on the case. Thus,",
+   "of": 13047,
+   "cos": 0.44,
+   "label": "terms related to covering or concealing something"
+  },
+  {
+   "text": " shows you the triboelectric series for many materials you find around the house. Positive",
+   "of": 10248,
+   "cos": 0.376,
+   "label": "phrases and contexts related to the concept of surrounding or being around something"
+  },
+  {
+   "text": "ref-type=\"fig\"}), as compared with above three groups, thickening and peeling",
+   "of": 7629,
+   "cos": 0.364,
+   "label": "references to content or data that is clearly identified as being above a certain threshold or standard"
+  },
+  {
+   "text": " oxygen concentration gradient across the alveoli \\[[@CR3], [@CR4]\\]",
+   "of": 1904,
+   "cos": 0.468,
+   "label": "phrases indicating geographical or contextual movement across different locations"
+  },
+  {
+   "text": " language governing permissions and\n * limitations under the License.\n */\npackage com.",
+   "of": 2810,
+   "cos": 0.454,
+   "label": "phrases that indicate a specific context or conditions"
+  },
+  {
+   "text": " Fundamentals consists of 45-minute on-line classes that cover a host of",
+   "of": 13047,
+   "cos": 0.44,
+   "label": "terms related to covering or concealing something"
+  },
+  {
+   "text": " one fixed set mounted around the ring and used for continuous monitoring, and another set placed",
+   "of": 10248,
+   "cos": 0.376,
+   "label": "phrases and contexts related to the concept of surrounding or being around something"
+  },
+  {
+   "text": " the last injection. The mice with FBG levels above 11.1 mmol",
+   "of": 7629,
+   "cos": 0.364,
+   "label": "references to content or data that is clearly identified as being above a certain threshold or standard"
+  }
+ ]
+}

@@ -1,0 +1,350 @@
+{
+ "feature": 115,
+ "layer": 12,
+ "seed": 1,
+ "max_act": 64.45,
+ "contexts_scanned": 18057,
+ "contexts_firing": {
+  "strong": 307,
+  "weak": 551
+ },
+ "neighbors": [
+  {
+   "feature": 11648,
+   "cos": 0.509
+  },
+  {
+   "feature": 2758,
+   "cos": 0.385
+  },
+  {
+   "feature": 5666,
+   "cos": 0.354
+  },
+  {
+   "feature": 5877,
+   "cos": 0.318
+  },
+  {
+   "feature": 3886,
+   "cos": 0.317
+  }
+ ],
+ "neighbors_unreachable": [],
+ "strong": [
+  {
+   "text": "; @Baxter2016; @Schaan2016;",
+   "act": 34.4,
+   "rel": 0.534,
+   "peak_token": "0",
+   "context": 17866
+  },
+  {
+   "text": "$$ leads to the regularized stokeslet [@cortez2005method",
+   "act": 20.29,
+   "rel": 0.315,
+   "peak_token": "0",
+   "context": 10036
+  },
+  {
+   "text": ". 2002,[*Phys.Rev.E*]{} ,6",
+   "act": 19.58,
+   "rel": 0.304,
+   "peak_token": "0",
+   "context": 3595
+  },
+  {
+   "text": "carter1994gibbs",
+   "act": 21.86,
+   "rel": 0.339,
+   "peak_token": "9",
+   "context": 15068
+  },
+  {
+   "text": "2002; @Struzhkin2002; @De",
+   "act": 30.56,
+   "rel": 0.474,
+   "peak_token": "0",
+   "context": 4611
+  },
+  {
+   "text": " by a pluralizer.\n\nVocabulary\nLoukotka (1968)",
+   "act": 30.51,
+   "rel": 0.473,
+   "peak_token": "9",
+   "context": 10835
+  },
+  {
+   "text": "schoeller_transport_1997; @konig_quantum_1",
+   "act": 32.69,
+   "rel": 0.507,
+   "peak_token": "9",
+   "context": 8936
+  },
+  {
+   "text": " Newey, and Robins (2018) introduce machine learning methods for choosing",
+   "act": 49.35,
+   "rel": 0.766,
+   "peak_token": "0",
+   "context": 10236
+  },
+  {
+   "text": ". Richardson (2012). General theory for interactions in sufficient cause models with",
+   "act": 20.41,
+   "rel": 0.317,
+   "peak_token": "0",
+   "context": 5816
+  },
+  {
+   "text": " D. R. and N. Wermuth (1999).",
+   "act": 23.58,
+   "rel": 0.366,
+   "peak_token": "9",
+   "context": 16528
+  },
+  {
+   "text": "superpoint] and LF-Net [@ono2018lf]. LIFT contribution",
+   "act": 27.51,
+   "rel": 0.427,
+   "peak_token": "0",
+   "context": 3850
+  },
+  {
+   "text": " censoring. An important insight in @robins:1986 ([-",
+   "act": 34.06,
+   "rel": 0.528,
+   "peak_token": "9",
+   "context": 12106
+  },
+  {
+   "text": " Y. 1953, , 21, 164",
+   "act": 21.58,
+   "rel": 0.335,
+   "peak_token": "9",
+   "context": 3545
+  },
+  {
+   "text": "ins:1987:addendum ([-",
+   "act": 28.43,
+   "rel": 0.441,
+   "peak_token": "9",
+   "context": 6221
+  },
+  {
+   "text": " in specific ranges, as in Hausman and Newey (2017).",
+   "act": 45.66,
+   "rel": 0.709,
+   "peak_token": "0",
+   "context": 4409
+  },
+  {
+   "text": "go2017])[]{data-label=\"fig:columnarTrans\"",
+   "act": 20.74,
+   "rel": 0.322,
+   "peak_token": "0",
+   "context": 10589
+  },
+  {
+   "text": " [@Zaharia2010; @Zaharia2012]",
+   "act": 28.25,
+   "rel": 0.438,
+   "peak_token": "0",
+   "context": 72
+  },
+  {
+   "text": "$ [@bfs (Blair , 2000)] is shown by an asterisk",
+   "act": 33.44,
+   "rel": 0.519,
+   "peak_token": "0",
+   "context": 18226
+  },
+  {
+   "text": " them have been discussed [@Zhang2013]. In particular, one of",
+   "act": 34.02,
+   "rel": 0.528,
+   "peak_token": "0",
+   "context": 12111
+  },
+  {
+   "text": " score metric introduced in [@mikolajczyk2005comparison]. The final",
+   "act": 25.23,
+   "rel": 0.391,
+   "peak_token": "0",
+   "context": 11124
+  }
+ ],
+ "weak": [
+  {
+   "text": " § 1983 claim. Page v. Sharpe, 487",
+   "act": 9.03,
+   "rel": 0.14,
+   "peak_token": " ",
+   "context": 8240
+  },
+  {
+   "text": " believe that this position was approached in Krueger v. Richardson, 326 Ill",
+   "act": 6.52,
+   "rel": 0.101,
+   "peak_token": " ",
+   "context": 15149
+  },
+  {
+   "text": " the defendants is warranted. In re Spigel, 260 F.3",
+   "act": 8.61,
+   "rel": 0.134,
+   "peak_token": " ",
+   "context": 18132
+  },
+  {
+   "text": " ([-@ritov:2014]) in this volume extends this discussion",
+   "act": 12.36,
+   "rel": 0.192,
+   "peak_token": "0",
+   "context": 4798
+  },
+  {
+   "text": " mandatory.\" Geiger v. DeBusk, 534 S.W.",
+   "act": 6.58,
+   "rel": 0.102,
+   "peak_token": " ",
+   "context": 13656
+  },
+  {
+   "text": "99 ([-@robins:1999]) introduced direct effect structural",
+   "act": 13.95,
+   "rel": 0.216,
+   "peak_token": "9",
+   "context": 4333
+  },
+  {
+   "text": " Bus. Servs., Inc., 135 F.3d 3",
+   "act": 10.1,
+   "rel": 0.157,
+   "peak_token": " ",
+   "context": 12625
+  },
+  {
+   "text": " apigenin, luteolin (Gupta [@CR25])Crude extract has cardiac",
+   "act": 7.11,
+   "rel": 0.11,
+   "peak_token": "2",
+   "context": 11910
+  },
+  {
+   "text": " defendant's appeal would have been successful. Mayo, 13 F.3",
+   "act": 10.7,
+   "rel": 0.166,
+   "peak_token": " ",
+   "context": 15463
+  },
+  {
+   "text": "005)\n\n(quoting Commonwealth v. McDonough, 81",
+   "act": 9.22,
+   "rel": 0.143,
+   "peak_token": " ",
+   "context": 4159
+  },
+  {
+   "text": " v. Ruettgers, 704 F.2d 49",
+   "act": 8.18,
+   "rel": 0.127,
+   "peak_token": ".",
+   "context": 4619
+  },
+  {
+   "text": " the violation of local realism [@Bell64] using energy-time entanglement, based",
+   "act": 14.67,
+   "rel": 0.228,
+   "peak_token": "6",
+   "context": 17436
+  },
+  {
+   "text": "@CIT0017; @CIT0018; @CIT0",
+   "act": 6.64,
+   "rel": 0.103,
+   "peak_token": "0",
+   "context": 11539
+  },
+  {
+   "text": "amship Corp. v. Transamerica Delaval, Inc., 476 U",
+   "act": 10.22,
+   "rel": 0.159,
+   "peak_token": " ",
+   "context": 8082
+  },
+  {
+   "text": "1986 ([-@robins:1986], Section ",
+   "act": 16.64,
+   "rel": 0.258,
+   "peak_token": "9",
+   "context": 10188
+  },
+  {
+   "text": " Press, 1963).\n Price, Arnold. \"Schleswig-",
+   "act": 8.54,
+   "rel": 0.133,
+   "peak_token": "9",
+   "context": 9938
+  },
+  {
+   "text": " may be present in any type of contract. See Corral, 240 Kan",
+   "act": 9.3,
+   "rel": 0.144,
+   "peak_token": " ",
+   "context": 8483
+  },
+  {
+   "text": "1978)\nOne From the Heart (1982)\n",
+   "act": 8.53,
+   "rel": 0.132,
+   "peak_token": "9",
+   "context": 14350
+  },
+  {
+   "text": " Marshall Field & Co., 22 Ill. App.2d 14",
+   "act": 6.99,
+   "rel": 0.108,
+   "peak_token": " ",
+   "context": 18094
+  },
+  {
+   "text": ".\nSwierkiewicz, 534 U.S. at 5",
+   "act": 6.81,
+   "rel": 0.106,
+   "peak_token": " ",
+   "context": 16792
+  }
+ ],
+ "neighbor": [
+  {
+   "text": "eko et al. [@CR22]; Kotani et al. [@CR2",
+   "of": 11648,
+   "cos": 0.509,
+   "label": "references to scientific studies or papers"
+  },
+  {
+   "text": " and J. M. Robins (2010a). Dynamic regime marginal",
+   "of": 2758,
+   "cos": 0.385,
+   "label": "numeric data or statistics in the text"
+  },
+  {
+   "text": " be formed (Véronèse and Perlot, 1999, Enzyme",
+   "of": 5666,
+   "cos": 0.354,
+   "label": "numerical data and references in scientific contexts"
+  },
+  {
+   "text": " (e.g., Cuevas et al. \\[[@B68-viruses-",
+   "of": 3886,
+   "cos": 0.317,
+   "label": "references to scientific authors or collaborators, particularly in the context of publications or citations"
+  },
+  {
+   "text": " of Marín et al. \\[[@pone.0235320.",
+   "of": 3886,
+   "cos": 0.317,
+   "label": "references to scientific authors or collaborators, particularly in the context of publications or citations"
+  }
+ ]
+}

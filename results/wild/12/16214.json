@@ -1,0 +1,410 @@
+{
+ "feature": 16214,
+ "layer": 12,
+ "seed": 1,
+ "max_act": 42.53,
+ "contexts_scanned": 18003,
+ "contexts_firing": {
+  "strong": 132,
+  "weak": 1152
+ },
+ "neighbors": [
+  {
+   "feature": 536,
+   "cos": 0.361
+  },
+  {
+   "feature": 2727,
+   "cos": 0.361
+  },
+  {
+   "feature": 6141,
+   "cos": 0.318
+  },
+  {
+   "feature": 11096,
+   "cos": 0.316
+  },
+  {
+   "feature": 9665,
+   "cos": 0.314
+  }
+ ],
+ "neighbors_unreachable": [],
+ "strong": [
+  {
+   "text": "\",\"facing_price\":\"\",\"downloaded\":false}},\"is_allowed_and_",
+   "act": 21.87,
+   "rel": 0.514,
+   "peak_token": "\",\"",
+   "context": 6012
+  },
+  {
+   "text": "ex), 'data': ''})\n\nNow, i need to expose some of these",
+   "act": 36.77,
+   "rel": 0.865,
+   "peak_token": " ''",
+   "context": 10746
+  },
+  {
+   "text": "keypresses: 0,\n  text: '',\n  arrows: [],\n",
+   "act": 34.99,
+   "rel": 0.823,
+   "peak_token": " '',",
+   "context": 12830
+  },
+  {
+   "text": "\nvar currency tag.Index = \"\" + // Size: 1196",
+   "act": 38.39,
+   "rel": 0.903,
+   "peak_token": " \"\"",
+   "context": 9417
+  },
+  {
+   "text": " node\\[above left\\] [ ]{} (Y2); (Y1) edge",
+   "act": 13.31,
+   "rel": 0.313,
+   "peak_token": "{}",
+   "context": 6240
+  },
+  {
+   "text": "\n    location.hash = '';\n    location.hash = t;\n}",
+   "act": 30.44,
+   "rel": 0.716,
+   "peak_token": " '';",
+   "context": 10791
+  },
+  {
+   "text": " away,\"They said, \"it would be grand!\"\"If seven maids with seven",
+   "act": 15.48,
+   "rel": 0.364,
+   "peak_token": "\"\"",
+   "context": 13499
+  },
+  {
+   "text": "[1] : \"\";\n\n            return 'views/' + typeName;\n        },",
+   "act": 32.72,
+   "rel": 0.769,
+   "peak_token": " \"\";",
+   "context": 1863
+  },
+  {
+   "text": "0)*0.40;\n\n        total1.setText(\"\"+quizTT);",
+   "act": 21.12,
+   "rel": 0.497,
+   "peak_token": "(\"\"+",
+   "context": 11050
+  },
+  {
+   "text": "es.com\nTrieste.\n\"\"\"\n\ndoc = nlp(text).",
+   "act": 12.79,
+   "rel": 0.301,
+   "peak_token": "\"\"\"",
+   "context": 1387
+  },
+  {
+   "text": "         string temp = \"\";\n         using (FileStream fs = new FileStream(path",
+   "act": 29.07,
+   "rel": 0.683,
+   "peak_token": " \"\";",
+   "context": 15651
+  },
+  {
+   "text": ", false);\n\t\t\tstring relativePath = \"\";\n\t\t\tif (obj != null",
+   "act": 35.16,
+   "rel": 0.827,
+   "peak_token": " \"\";",
+   "context": 15857
+  },
+  {
+   "text": " badges only to employees linked to a user.\"\nmsgstr \"\"\n\n#. module: hr",
+   "act": 30.88,
+   "rel": 0.726,
+   "peak_token": " \"\"",
+   "context": 15110
+  },
+  {
+   "text": " not directly observable, or may be scattered outside the detection instrument\"\"s field of view",
+   "act": 15.93,
+   "rel": 0.375,
+   "peak_token": "\"\"",
+   "context": 2770
+  },
+  {
+   "text": "state->visible_on_front && $isVisibleOnFront == '')) {\n",
+   "act": 39.03,
+   "rel": 0.918,
+   "peak_token": " ''",
+   "context": 12285
+  },
+  {
+   "text": " {\n            if (!promptRemoved) {\n                return \"\";\n            } else",
+   "act": 34.22,
+   "rel": 0.805,
+   "peak_token": " \"\";",
+   "context": 14177
+  },
+  {
+   "text": "(Rev) : \"\") + \\\r\n  (STATUS != \"\" ? \" \" +",
+   "act": 38.92,
+   "rel": 0.915,
+   "peak_token": " \"\"",
+   "context": 3614
+  },
+  {
+   "text": "64InstallDir();\r\n  if InstallDir <> '' then\r\n  begin",
+   "act": 36.4,
+   "rel": 0.856,
+   "peak_token": " ''",
+   "context": 15927
+  },
+  {
+   "text": "_object_set(cell, \"text\", \"\", NULL);\n\telse\n",
+   "act": 29.97,
+   "rel": 0.705,
+   "peak_token": " \"\",",
+   "context": 17319
+  },
+  {
+   "text": "\n      '',\n      {},\n      new TitleCard({}),\n      deadline,",
+   "act": 31.88,
+   "rel": 0.75,
+   "peak_token": "'',",
+   "context": 9961
+  }
+ ],
+ "weak": [
+  {
+   "text": " as follows: $$\\begin{aligned}\nP_S \n&\\le",
+   "act": 6.18,
+   "rel": 0.145,
+   "peak_token": "$\\",
+   "context": 10048
+  },
+  {
+   "text": "} \\|a\\|_{N, \\ell^2}$$ and $$\\|f_",
+   "act": 5.45,
+   "rel": 0.128,
+   "peak_token": "|",
+   "context": 3661
+  },
+  {
+   "text": " gravity model described by the action $$S=\\frac{1}{2} \\int",
+   "act": 6.82,
+   "rel": 0.16,
+   "peak_token": " $$",
+   "context": 14989
+  },
+  {
+   "text": " the restriction of the ample class $\\beta$, then $$S(V(\\sigma))",
+   "act": 7.12,
+   "rel": 0.167,
+   "peak_token": " $$",
+   "context": 18073
+  },
+  {
+   "text": " software.\r\n **/\r\n\r\nusing System.Reflection;\r\nusing System.Runtime",
+   "act": 7.32,
+   "rel": 0.172,
+   "peak_token": " **/\r",
+   "context": 11597
+  },
+  {
+   "text": "... reading request data {}ms\",readingCompleted-start",
+   "act": 10.7,
+   "rel": 0.252,
+   "peak_token": " {}",
+   "context": 105
+  },
+  {
+   "text": "\n\t\tstd::string homedir;\n\t\tif (getenv",
+   "act": 5.47,
+   "rel": 0.129,
+   "peak_token": ";",
+   "context": 4820
+  },
+  {
+   "text": "ring~ is rescaled by the overall confinement area , [Fig. 3f",
+   "act": 5.0,
+   "rel": 0.118,
+   "peak_token": " ,",
+   "context": 17909
+  },
+  {
+   "text": " matrices and $$F_",
+   "act": 8.55,
+   "rel": 0.201,
+   "peak_token": " $$",
+   "context": 1399
+  },
+  {
+   "text": " and scalars $\\varphi $ contribute with $$\\begin{aligned}\n&&-\\int",
+   "act": 4.52,
+   "rel": 0.106,
+   "peak_token": "$\\",
+   "context": 14786
+  },
+  {
+   "text": "M))$, where $$\\begin{",
+   "act": 6.99,
+   "rel": 0.164,
+   "peak_token": "$\\",
+   "context": 12314
+  },
+  {
+   "text": "$’s, denoted $(\\emptyset,o)$,\n\n-   an even row filled",
+   "act": 4.98,
+   "rel": 0.117,
+   "peak_token": "emptyset",
+   "context": 5453
+  },
+  {
+   "text": "1\").FormulaLocal = \"=\" & CStr(InVal) & \"-A2",
+   "act": 4.45,
+   "rel": 0.105,
+   "peak_token": " \"=\"",
+   "context": 15182
+  },
+  {
+   "text": "Sulpice ;)\n<MagicFab> On a tous nos secrets :) \n",
+   "act": 7.28,
+   "rel": 0.171,
+   "peak_token": " :)",
+   "context": 5556
+  },
+  {
+   "text": " \\ge 2$). Define $$p := \\inf_{t\\in [0",
+   "act": 6.72,
+   "rel": 0.158,
+   "peak_token": " $$",
+   "context": 11016
+  },
+  {
+   "text": " Q}_+^*$, we have $$\\operatorname{in}(\\J(\\dd^",
+   "act": 5.98,
+   "rel": 0.141,
+   "peak_token": "$\\",
+   "context": 1470
+  },
+  {
+   "text": "2: [Int32] = []\n\n  var repeatedInt64:",
+   "act": 6.23,
+   "rel": 0.146,
+   "peak_token": " []",
+   "context": 16075
+  },
+  {
+   "text": "2–1030.\n\n, , (). . .\n\nRichardson, A",
+   "act": 5.89,
+   "rel": 0.139,
+   "peak_token": " ,",
+   "context": 5828
+  },
+  {
+   "text": "_pandas(\"select '\"+all_schema[i]+\"' as columns_name,(",
+   "act": 4.86,
+   "rel": 0.114,
+   "peak_token": " '\"+",
+   "context": 1583
+  },
+  {
+   "text": " are*$$\\psi(z,\\beta,\\gamma)=A(x_{t})",
+   "act": 7.17,
+   "rel": 0.169,
+   "peak_token": "$\\",
+   "context": 6444
+  }
+ ],
+ "neighbor": [
+  {
+   "text": "text)\n\nlemma_ner_list = [] \n\nfor entity in doc.",
+   "of": 536,
+   "cos": 0.361,
+   "label": "empty lists and array structures in code"
+  },
+  {
+   "text": "-2\")\n\t\t}\n\t\tret = append(ret,",
+   "of": 2727,
+   "cos": 0.361,
+   "label": "the presence of various closing parentheses and brackets in code or text"
+  },
+  {
+   "text": "d MMM y\",\n    \"mediumTime\":",
+   "of": 6141,
+   "cos": 0.318,
+   "label": "punctuation marks, particularly quotation marks and colons"
+  },
+  {
+   "text": "remained unchanged.”\n\n![image](505f05.eps)",
+   "of": 11096,
+   "cos": 0.316,
+   "label": "punctuation marks that signify the end of statements or quotes"
+  },
+  {
+   "text": " \"*cost her",
+   "of": 9665,
+   "cos": 0.314,
+   "label": "special characters and formatting symbols"
+  },
+  {
+   "text": "@calls = []\n    @find_targets = targets\n    @find_",
+   "of": 536,
+   "cos": 0.361,
+   "label": "empty lists and array structures in code"
+  },
+  {
+   "text": "_CREATE_DIR']=\"Ich konntes das Verzeichnis '%s' nicht erstellen",
+   "of": 2727,
+   "cos": 0.361,
+   "label": "the presence of various closing parentheses and brackets in code or text"
+  },
+  {
+   "text": "/loaddata.py\", line 11, in <module>\n",
+   "of": 6141,
+   "cos": 0.318,
+   "label": "punctuation marks, particularly quotation marks and colons"
+  },
+  {
+   "text": "general Kofi Annan, \"perhaps the single most successful international environmental agreement.\" It can also",
+   "of": 11096,
+   "cos": 0.316,
+   "label": "punctuation marks that signify the end of statements or quotes"
+  },
+  {
+   "text": " is my JSON:\n   {\n   \"_id",
+   "of": 9665,
+   "cos": 0.314,
+   "label": "special characters and formatting symbols"
+  },
+  {
+   "text": " lot!\n\nA:\n\nIn lol(a), the line a=[] binds a",
+   "of": 536,
+   "cos": 0.361,
+   "label": "empty lists and array structures in code"
+  },
+  {
+   "text": " () {\n    $(\"thead tr\").clone().appendTo($(\"tfoot tr\"))",
+   "of": 2727,
+   "cos": 0.361,
+   "label": "the presence of various closing parentheses and brackets in code or text"
+  },
+  {
+   "text": "pointsToColumnsNumber = new Map([\n    [ 'xs', 2 ],",
+   "of": 6141,
+   "cos": 0.318,
+   "label": "punctuation marks, particularly quotation marks and colons"
+  },
+  {
+   "text": "-consistent Semiparametric Regression,\" *Econometrica* 56, 93",
+   "of": 11096,
+   "cos": 0.316,
+   "label": "punctuation marks that signify the end of statements or quotes"
+  },
+  {
+   "text": "_D>50)\n        printf(\"\\tTem propencao",
+   "of": 9665,
+   "cos": 0.314,
+   "label": "special characters and formatting symbols"
+  }
+ ]
+}

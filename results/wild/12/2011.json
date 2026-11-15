@@ -1,0 +1,362 @@
+{
+ "feature": 2011,
+ "layer": 12,
+ "seed": 1,
+ "max_act": 37.26,
+ "contexts_scanned": 18035,
+ "contexts_firing": {
+  "strong": 266,
+  "weak": 2181
+ },
+ "neighbors": [
+  {
+   "feature": 9925,
+   "cos": 0.175
+  },
+  {
+   "feature": 14173,
+   "cos": 0.16
+  },
+  {
+   "feature": 15110,
+   "cos": 0.16
+  },
+  {
+   "feature": 10899,
+   "cos": 0.156
+  },
+  {
+   "feature": 129,
+   "cos": 0.146
+  }
+ ],
+ "neighbors_unreachable": [],
+ "strong": [
+  {
+   "text": " change. Tension reduction and affective change expectancies may be particularly important for abstinence and useful",
+   "act": 12.74,
+   "rel": 0.342,
+   "peak_token": " particularly",
+   "context": 7707
+  },
+  {
+   "text": " are the largest. When the fringing electrostatic force near *d* = 0",
+   "act": 16.09,
+   "rel": 0.432,
+   "peak_token": " largest",
+   "context": 10804
+  },
+  {
+   "text": "interfere with your work or cause the most problems) where you work: social butterflies",
+   "act": 12.77,
+   "rel": 0.343,
+   "peak_token": " most",
+   "context": 11943
+  },
+  {
+   "text": " the awareness of the excavators. Residues containing obvious plant tissue are most easily recognizable",
+   "act": 12.47,
+   "rel": 0.335,
+   "peak_token": " most",
+   "context": 8902
+  },
+  {
+   "text": " and the majority of the fingers domain were identified as the structurally most conserved regions in the",
+   "act": 12.03,
+   "rel": 0.323,
+   "peak_token": " most",
+   "context": 18196
+  },
+  {
+   "text": " brother would believe her if she told him. The only soul who might suspect anything was",
+   "act": 13.85,
+   "rel": 0.372,
+   "peak_token": " who",
+   "context": 7499
+  },
+  {
+   "text": " EPSILON dataset (with the highest number of dimensions) matches that of the ECBDL",
+   "act": 17.08,
+   "rel": 0.458,
+   "peak_token": " highest",
+   "context": 5043
+  },
+  {
+   "text": " league-worst 300.1 passing yards per game and are ",
+   "act": 14.18,
+   "rel": 0.381,
+   "peak_token": "worst",
+   "context": 15743
+  },
+  {
+   "text": " becuase we are the only species that kills for revenge, sport and greed,",
+   "act": 11.26,
+   "rel": 0.302,
+   "peak_token": " that",
+   "context": 1225
+  },
+  {
+   "text": " out of the playoffs a while ago. He's obviously our most valuable player.",
+   "act": 14.79,
+   "rel": 0.397,
+   "peak_token": " most",
+   "context": 2822
+  },
+  {
+   "text": " always votes for the candidate promising the most benefits with the result the democracy collapses because of",
+   "act": 11.18,
+   "rel": 0.3,
+   "peak_token": " most",
+   "context": 18193
+  },
+  {
+   "text": " in February 2016 maybe is the last time Otsuka went through",
+   "act": 12.13,
+   "rel": 0.325,
+   "peak_token": " the",
+   "context": 13079
+  },
+  {
+   "text": " even if we think the Bible is outdated. The chapter I liked the most was chapter",
+   "act": 17.9,
+   "rel": 0.48,
+   "peak_token": " most",
+   "context": 1208
+  },
+  {
+   "text": " Boldin fully healthy while Crabtree, Manningham and Kyle Williams (knee) rehabilitate",
+   "act": 20.98,
+   "rel": 0.563,
+   "peak_token": " fully",
+   "context": 13454
+  },
+  {
+   "text": " job. And Taylor, the team’s heaviest offensive lineman at 3",
+   "act": 13.04,
+   "rel": 0.35,
+   "peak_token": " heaviest",
+   "context": 3796
+  },
+  {
+   "text": ", and the three main conditions or complaints they thought they saw most commonly in those species",
+   "act": 14.96,
+   "rel": 0.402,
+   "peak_token": " most",
+   "context": 7840
+  },
+  {
+   "text": " relied on Morgan as probably \"[The] Texas case closest in point.\"  Goodyear",
+   "act": 11.31,
+   "rel": 0.304,
+   "peak_token": " closest",
+   "context": 3015
+  },
+  {
+   "text": "'s floor routine was one of the highlights of the night. It featrued",
+   "act": 16.08,
+   "rel": 0.432,
+   "peak_token": " highlights",
+   "context": 4948
+  },
+  {
+   "text": " droughts under global climate change scenarios.Spain is the EU country where most people live in",
+   "act": 18.65,
+   "rel": 0.5,
+   "peak_token": " where",
+   "context": 579
+  },
+  {
+   "text": " and selecting the duplicate source with the lowest local rms ($\\sigma_{\\rm local}$) from",
+   "act": 12.64,
+   "rel": 0.339,
+   "peak_token": " lowest",
+   "context": 17264
+  }
+ ],
+ "weak": [
+  {
+   "text": " #7 Peugeot – probably the favourite to claim outright victory – is made up entirely of",
+   "act": 10.72,
+   "rel": 0.288,
+   "peak_token": " favourite",
+   "context": 13086
+  },
+  {
+   "text": " Ndiaye out of Rutgers and DeQuan Jones out of Florida are the only late additions",
+   "act": 9.33,
+   "rel": 0.25,
+   "peak_token": " only",
+   "context": 11172
+  },
+  {
+   "text": " but the most important training they received was the the intense ideological commitment and fanaticism which",
+   "act": 4.23,
+   "rel": 0.114,
+   "peak_token": " most",
+   "context": 3341
+  },
+  {
+   "text": " of Malone's Missouri conviction and sentence is almost complete;  the Eighth Circuit has",
+   "act": 4.19,
+   "rel": 0.112,
+   "peak_token": " complete",
+   "context": 11557
+  },
+  {
+   "text": " the West in terms of technology… a vision and an understanding of China that completely disqual",
+   "act": 3.97,
+   "rel": 0.107,
+   "peak_token": " in",
+   "context": 10163
+  },
+  {
+   "text": " largest percentage of which are for\nmarijuana possession,\"",
+   "act": 10.58,
+   "rel": 0.284,
+   "peak_token": " percentage",
+   "context": 4957
+  },
+  {
+   "text": " computer may be physically implemented in arbitrary ways but the common apparatus considered to date features a",
+   "act": 3.92,
+   "rel": 0.105,
+   "peak_token": " date",
+   "context": 6111
+  },
+  {
+   "text": ", the heterozygote can have a higher geometric mean fitness than either homozygote",
+   "act": 4.54,
+   "rel": 0.122,
+   "peak_token": " higher",
+   "context": 10785
+  },
+  {
+   "text": " Grant Ward, though certainly a villain, is another character whose abuse led him down a",
+   "act": 4.84,
+   "rel": 0.13,
+   "peak_token": " whose",
+   "context": 3939
+  },
+  {
+   "text": " but not the MUC2 mucin apoprotein genes were expressed.Power Cables\n\n",
+   "act": 7.14,
+   "rel": 0.192,
+   "peak_token": " were",
+   "context": 11432
+  },
+  {
+   "text": " to major communal festivals. These eight festivals are the most common times for community celebrations.",
+   "act": 5.53,
+   "rel": 0.148,
+   "peak_token": " for",
+   "context": 17875
+  },
+  {
+   "text": " Japan, for example, where water shortage is a transient, not chronic, problem,",
+   "act": 5.84,
+   "rel": 0.157,
+   "peak_token": " example",
+   "context": 12478
+  },
+  {
+   "text": " with a career-best 29 goals last year. Bryan Little, 2",
+   "act": 6.09,
+   "rel": 0.163,
+   "peak_token": "best",
+   "context": 9507
+  },
+  {
+   "text": " of all the many motivational things he said, the single thing I remember from that full",
+   "act": 10.2,
+   "rel": 0.274,
+   "peak_token": " single",
+   "context": 3162
+  },
+  {
+   "text": " billion is considered to have insufficient paperwork to justify the billing,\nthe report said.",
+   "act": 3.95,
+   "rel": 0.106,
+   "peak_token": " insufficient",
+   "context": 3382
+  },
+  {
+   "text": " It is the only 'wild plant' potyvirus which we examined. The results",
+   "act": 11.15,
+   "rel": 0.299,
+   "peak_token": ".",
+   "context": 5886
+  },
+  {
+   "text": " out there\n(alwaysinnovating) which could be used as a computer on a",
+   "act": 9.09,
+   "rel": 0.244,
+   "peak_token": " could",
+   "context": 6359
+  },
+  {
+   "text": " belief in God acted as boosters for self-care in the case of Nepalese adults",
+   "act": 3.77,
+   "rel": 0.101,
+   "peak_token": " boosters",
+   "context": 13690
+  },
+  {
+   "text": " paid girls more money than guys over the years.”\n\n“The truth is, in",
+   "act": 7.53,
+   "rel": 0.202,
+   "peak_token": " more",
+   "context": 13746
+  },
+  {
+   "text": " mass, the measurement is twice as precise as the prediction. It is observed in addition",
+   "act": 4.68,
+   "rel": 0.126,
+   "peak_token": " as",
+   "context": 1319
+  }
+ ],
+ "neighbor": [
+  {
+   "text": " higher in studies that performed more frequently a diagnostic polymerase chain reaction assay compared to all the",
+   "of": 9925,
+   "cos": 0.175,
+   "label": "attributes related to population dynamics and their environmental factors"
+  },
+  {
+   "text": "1$. Suppose that the largest numbers in $T$ form an $r$-bar",
+   "of": 14173,
+   "cos": 0.16,
+   "label": "mathematical concepts related to symmetry and dimensions"
+  },
+  {
+   "text": " a living but it’s only a new generation of Indians that is internalising it",
+   "of": 15110,
+   "cos": 0.16,
+   "label": "phrases or clauses indicating relationships, especially those that signify conditions, classifications, or attributes"
+  },
+  {
+   "text": " largest number of car crashes (demolition\nderby style) in film history. One",
+   "of": 10899,
+   "cos": 0.156,
+   "label": "occurrences of significant historical events or attributes associated with countries and organizations"
+  },
+  {
+   "text": " Schur functions to be the sum of the lowest degree terms in the expansion of the Schur",
+   "of": 14173,
+   "cos": 0.16,
+   "label": "mathematical concepts related to symmetry and dimensions"
+  },
+  {
+   "text": " the largest in the nation with 1.1 million students, over 76",
+   "of": 10899,
+   "cos": 0.156,
+   "label": "occurrences of significant historical events or attributes associated with countries and organizations"
+  },
+  {
+   "text": " is expressed as a percentage of patients treated at that dose level as their highest dose in",
+   "of": 14173,
+   "cos": 0.16,
+   "label": "mathematical concepts related to symmetry and dimensions"
+  }
+ ]
+}

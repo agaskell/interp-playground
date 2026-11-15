@@ -1,0 +1,410 @@
+{
+ "feature": 13087,
+ "layer": 12,
+ "seed": 1,
+ "max_act": 32.4,
+ "contexts_scanned": 18004,
+ "contexts_firing": {
+  "strong": 224,
+  "weak": 940
+ },
+ "neighbors": [
+  {
+   "feature": 4587,
+   "cos": 0.252
+  },
+  {
+   "feature": 12595,
+   "cos": 0.248
+  },
+  {
+   "feature": 6713,
+   "cos": 0.234
+  },
+  {
+   "feature": 3112,
+   "cos": 0.232
+  },
+  {
+   "feature": 12804,
+   "cos": 0.22
+  }
+ ],
+ "neighbors_unreachable": [],
+ "strong": [
+  {
+   "text": " some cases, and coverage probabilities substantially closer to nominal. For machine learning estimators of the",
+   "act": 9.76,
+   "rel": 0.301,
+   "peak_token": " probabilities",
+   "context": 172
+  },
+  {
+   "text": " try to enter a measurement into InfluxDB using the result Python gives",
+   "act": 10.51,
+   "rel": 0.324,
+   "peak_token": " measurement",
+   "context": 15098
+  },
+  {
+   "text": " the computational burden of computing the structure geometry and applying electromagnetic simulation within the measurement optimization loop",
+   "act": 10.76,
+   "rel": 0.332,
+   "peak_token": " measurement",
+   "context": 46
+  },
+  {
+   "text": " inhibitors and TRAIL. For caspase activity measurements, cells were seeded in 96-",
+   "act": 10.86,
+   "rel": 0.335,
+   "peak_token": " measurements",
+   "context": 3449
+  },
+  {
+   "text": " If you use Shopify, you can use Shopify payments for 2.",
+   "act": 23.84,
+   "rel": 0.736,
+   "peak_token": " payments",
+   "context": 2932
+  },
+  {
+   "text": " connecting quantum devices [@Lloyd]. Below we recall the mathematical details of the measurement proposed in",
+   "act": 10.07,
+   "rel": 0.311,
+   "peak_token": " measurement",
+   "context": 17394
+  },
+  {
+   "text": "). [*Probability on Trees and Networks.*]{} (Forthcoming book) [http",
+   "act": 11.03,
+   "rel": 0.34,
+   "peak_token": "Probability",
+   "context": 4497
+  },
+  {
+   "text": "initial\n\n$650,000 payment to the LaClairs and",
+   "act": 22.76,
+   "rel": 0.702,
+   "peak_token": " payment",
+   "context": 7388
+  },
+  {
+   "text": " method for diplegic CP patients. The set of instrumental measurements proposed seems to be",
+   "act": 10.7,
+   "rel": 0.33,
+   "peak_token": " measurements",
+   "context": 3940
+  },
+  {
+   "text": " demonstrate the lesion details and perform related measurements.\n\nPreoperative planning\n---------------------\n\n",
+   "act": 10.24,
+   "rel": 0.316,
+   "peak_token": " measurements",
+   "context": 9259
+  },
+  {
+   "text": "    // Register for notifications\n    [[UIApplication sharedApplication]\n     registerForRemote",
+   "act": 10.45,
+   "rel": 0.322,
+   "peak_token": " notifications",
+   "context": 15275
+  },
+  {
+   "text": ". random variables with probability law $\\frac{1}{\\iota_m} \\hat",
+   "act": 12.29,
+   "rel": 0.379,
+   "peak_token": " probability",
+   "context": 10647
+  },
+  {
+   "text": " the properties not supported. For more\ninformation see the cosNotification user's guide",
+   "act": 10.98,
+   "rel": 0.339,
+   "peak_token": "Notification",
+   "context": 10510
+  },
+  {
+   "text": "HT. Furthermore, the maximum bit-error probability of the DCT and ST are almost",
+   "act": 9.96,
+   "rel": 0.307,
+   "peak_token": " probability",
+   "context": 13229
+  },
+  {
+   "text": " For the same land use type, the probability of HFRS occurrence varied between cities",
+   "act": 11.66,
+   "rel": 0.36,
+   "peak_token": " probability",
+   "context": 2496
+  },
+  {
+   "text": " your required\npayment can reduce your overall interest costs and help you become debt\nfree",
+   "act": 24.58,
+   "rel": 0.759,
+   "peak_token": "payment",
+   "context": 10551
+  },
+  {
+   "text": " thereby affecting the probabilities of infection outbreaks. Therefore, understanding the role of ecological interactions",
+   "act": 12.19,
+   "rel": 0.376,
+   "peak_token": " probabilities",
+   "context": 8666
+  },
+  {
+   "text": " by the sensitivity limitations of the NMR measurement.\n\n3.2",
+   "act": 10.48,
+   "rel": 0.323,
+   "peak_token": " measurement",
+   "context": 10258
+  },
+  {
+   "text": " stopped making his monthly loan payments. The\n\n bank declined to restructure",
+   "act": 20.21,
+   "rel": 0.624,
+   "peak_token": " payments",
+   "context": 11822
+  },
+  {
+   "text": " basis of their diameter class. These measurements were used to calculate total tree volume (VOL",
+   "act": 10.06,
+   "rel": 0.311,
+   "peak_token": " measurements",
+   "context": 12467
+  }
+ ],
+ "weak": [
+  {
+   "text": " excellent rejection of electromagnetic backgrounds, i.e., photons, electrons and alpha particles,",
+   "act": 4.12,
+   "rel": 0.127,
+   "peak_token": " photons",
+   "context": 10637
+  },
+  {
+   "text": " measurements. High",
+   "act": 8.12,
+   "rel": 0.251,
+   "peak_token": " measurements",
+   "context": 16541
+  },
+  {
+   "text": " from his shoulders.\n\nAs the Conqueror wiped the blood off her sword and",
+   "act": 6.5,
+   "rel": 0.2,
+   "peak_token": " wiped",
+   "context": 5700
+  },
+  {
+   "text": " Perfect” was converted into a three-minute short film using Snapchat videos). It could",
+   "act": 5.77,
+   "rel": 0.178,
+   "peak_token": " Snapchat",
+   "context": 7986
+  },
+  {
+   "text": "Is this why US export encryption had to be 40 bits? To push countries",
+   "act": 4.57,
+   "rel": 0.141,
+   "peak_token": " encryption",
+   "context": 14760
+  },
+  {
+   "text": " been noted to be a valid instrument for measurement of pain intensity in patients with headaches \\[",
+   "act": 8.12,
+   "rel": 0.251,
+   "peak_token": " measurement",
+   "context": 16547
+  },
+  {
+   "text": " = \\beta_{0} + \\beta_{1}*{{\\text{log",
+   "act": 4.17,
+   "rel": 0.129,
+   "peak_token": "*{",
+   "context": 7967
+  },
+  {
+   "text": " DokkaContext) : PreMergeDocumentableTransformer {\n    override fun invoke",
+   "act": 4.03,
+   "rel": 0.124,
+   "peak_token": "Merge",
+   "context": 11271
+  },
+  {
+   "text": " of the cells. In the presence of hydrogen peroxide, H~2~DCF",
+   "act": 4.56,
+   "rel": 0.141,
+   "peak_token": " peroxide",
+   "context": 4553
+  },
+  {
+   "text": "ge 0)$, starting from $0$, with transition probability from $i$ to",
+   "act": 8.9,
+   "rel": 0.275,
+   "peak_token": " probability",
+   "context": 6616
+  },
+  {
+   "text": " from the ground and through cracks in the foundation, around pipes and in sump pits.",
+   "act": 4.95,
+   "rel": 0.153,
+   "peak_token": " pipes",
+   "context": 17117
+  },
+  {
+   "text": " 3 + (-2 + 1 + 2)*(2 + 2 -",
+   "act": 4.12,
+   "rel": 0.127,
+   "peak_token": ")*(",
+   "context": 15588
+  },
+  {
+   "text": " sessions and failed handover attempts.Relevance of accurate Monte Carlo modeling in nuclear medical imaging.",
+   "act": 5.45,
+   "rel": 0.168,
+   "peak_token": " Monte",
+   "context": 7069
+  },
+  {
+   "text": "inverse probability of treatment weighted* (IPTW). In actual longitudinal",
+   "act": 3.98,
+   "rel": 0.123,
+   "peak_token": " probability",
+   "context": 6235
+  },
+  {
+   "text": "1/4)/o*o)/o)**(-38)*(o*o",
+   "act": 3.7,
+   "rel": 0.114,
+   "peak_token": ")*(",
+   "context": 7005
+  },
+  {
+   "text": "DistributionTest)\ntestCumulativeProbabilities(org.apache.commons.math.",
+   "act": 4.54,
+   "rel": 0.14,
+   "peak_token": "Probab",
+   "context": 12831
+  },
+  {
+   "text": " Aim 2a: Merge the survey data with the largest existing database of neighborhood measures",
+   "act": 5.8,
+   "rel": 0.179,
+   "peak_token": " Merge",
+   "context": 13848
+  },
+  {
+   "text": " KE. Food fortification improves the intake of all fortified nutrients, but fails to meet the",
+   "act": 7.57,
+   "rel": 0.234,
+   "peak_token": " nutrients",
+   "context": 5810
+  },
+  {
+   "text": "z)/z)))/(z*(",
+   "act": 3.61,
+   "rel": 0.112,
+   "peak_token": "*(",
+   "context": 14243
+  },
+  {
+   "text": " conduction through the devices. Spectra obtained under varying measurement conditions show differences related to the silicon",
+   "act": 8.87,
+   "rel": 0.274,
+   "peak_token": " measurement",
+   "context": 15878
+  }
+ ],
+ "neighbor": [
+  {
+   "text": " processing software may require the customer to submit additional information, such as a purchase order number",
+   "of": 4587,
+   "cos": 0.252,
+   "label": "references to purchasing transactions and agreements"
+  },
+  {
+   "text": " variety of mechanisms which can produce this phonotype. I will attempt to isolate a variant",
+   "of": 12595,
+   "cos": 0.248,
+   "label": "instances of the word \"attempt\" and its variations related to efforts or efforts to accomplish something"
+  },
+  {
+   "text": "<key> <string>message_values</string> </key>\n            ",
+   "of": 6713,
+   "cos": 0.234,
+   "label": "references to messages and message handling within a programming context"
+  },
+  {
+   "text": ", adres, etc). The query should also have a limit in results (1,",
+   "of": 3112,
+   "cos": 0.232,
+   "label": "keywords and parameters related to querying in databases or programming contexts"
+  },
+  {
+   "text": "charset\")){\n            charset = mediaType.getParameters().get(\"charset\");\n        ",
+   "of": 12804,
+   "cos": 0.22,
+   "label": "method calls associated with retrieving or accessing data"
+  },
+  {
+   "text": ", case citation or footnotes. Upon purchase, docket numbers and/or\ncitations allow",
+   "of": 4587,
+   "cos": 0.252,
+   "label": "references to purchasing transactions and agreements"
+  },
+  {
+   "text": " exception any time an attempt is made to access the",
+   "of": 12595,
+   "cos": 0.248,
+   "label": "instances of the word \"attempt\" and its variations related to efforts or efforts to accomplish something"
+  },
+  {
+   "text": "They're both message-passing libraries, and if you're mostly using point",
+   "of": 6713,
+   "cos": 0.234,
+   "label": "references to messages and message handling within a programming context"
+  },
+  {
+   "text": " needs to increment for every step deeper that the query goes, and the end result set",
+   "of": 3112,
+   "cos": 0.232,
+   "label": "keywords and parameters related to querying in databases or programming contexts"
+  },
+  {
+   "text": "\n        propertyId = ApexPages.CurrentPage().getParameters().get('id');\n",
+   "of": 12804,
+   "cos": 0.22,
+   "label": "method calls associated with retrieving or accessing data"
+  },
+  {
+   "text": "        },\n        {\n          \"name\": \"PurchId\",\n          \"",
+   "of": 4587,
+   "cos": 0.252,
+   "label": "references to purchasing transactions and agreements"
+  },
+  {
+   "text": " Elections Democracy Discussion Guide,” which attempts to help people to do just that, Bring Democracy",
+   "of": 12595,
+   "cos": 0.248,
+   "label": "instances of the word \"attempt\" and its variations related to efforts or efforts to accomplish something"
+  },
+  {
+   "text": "};\r\n\r\n  struct handle_messages\r\n  {\r\n    explicit handle",
+   "of": 6713,
+   "cos": 0.234,
+   "label": "references to messages and message handling within a programming context"
+  },
+  {
+   "text": " the DISTINCT operator in the SQL query, and then",
+   "of": 3112,
+   "cos": 0.232,
+   "label": "keywords and parameters related to querying in databases or programming contexts"
+  },
+  {
+   "text": "      derived->receive_update(get(owner, key), key, value);\r",
+   "of": 12804,
+   "cos": 0.22,
+   "label": "method calls associated with retrieving or accessing data"
+  }
+ ]
+}

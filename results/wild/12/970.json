@@ -1,0 +1,404 @@
+{
+ "feature": 970,
+ "layer": 12,
+ "seed": 1,
+ "max_act": 51.96,
+ "contexts_scanned": 18006,
+ "contexts_firing": {
+  "strong": 195,
+  "weak": 1081
+ },
+ "neighbors": [
+  {
+   "feature": 6082,
+   "cos": 0.211
+  },
+  {
+   "feature": 10424,
+   "cos": 0.194
+  },
+  {
+   "feature": 11349,
+   "cos": 0.161
+  },
+  {
+   "feature": 11360,
+   "cos": 0.159
+  },
+  {
+   "feature": 6191,
+   "cos": 0.156
+  }
+ ],
+ "neighbors_unreachable": [],
+ "strong": [
+  {
+   "text": "'s after the loop.\nEssentially i'd like the order to be\n",
+   "act": 34.76,
+   "rel": 0.669,
+   "peak_token": "Essentially",
+   "context": 11542
+  },
+  {
+   "text": " quality. In other words, when deterrence is weak, there is an opportunity for rent",
+   "act": 25.55,
+   "rel": 0.492,
+   "peak_token": " words",
+   "context": 8495
+  },
+  {
+   "text": " experiences were the same.\n\nAll this to say that it felt both natural and forced",
+   "act": 16.0,
+   "rel": 0.308,
+   "peak_token": " say",
+   "context": 18164
+  },
+  {
+   "text": "34-35 (1995). In other\n\nwords, the",
+   "act": 31.82,
+   "rel": 0.612,
+   "peak_token": "words",
+   "context": 16164
+  },
+  {
+   "text": " in $x_3,\\ldots,x_r$. More precisely, one can",
+   "act": 17.54,
+   "rel": 0.338,
+   "peak_token": " precisely",
+   "context": 4076
+  },
+  {
+   "text": " restored. In summary: prevention is better than cure.\n\n[23] Peter",
+   "act": 24.99,
+   "rel": 0.481,
+   "peak_token": " summary",
+   "context": 3524
+  },
+  {
+   "text": ".\n\nYou basically have to disable the audio driver in OSX to disable it, and",
+   "act": 17.33,
+   "rel": 0.333,
+   "peak_token": " basically",
+   "context": 11098
+  },
+  {
+   "text": ", this was a - - for lack of a\n\nbetter term - - this is",
+   "act": 21.74,
+   "rel": 0.418,
+   "peak_token": " term",
+   "context": 16787
+  },
+  {
+   "text": " filed a Rule 59(e) motion, which essentially reargued\n\nseveral",
+   "act": 17.7,
+   "rel": 0.341,
+   "peak_token": " essentially",
+   "context": 5949
+  },
+  {
+   "text": "eeno) in DB2) \n\nTL;DR Probably no.\nWhile",
+   "act": 27.52,
+   "rel": 0.53,
+   "peak_token": "DR",
+   "context": 17741
+  },
+  {
+   "text": "-26')'\n\nSo essentially, I he fixed the problem afterwards, but",
+   "act": 23.43,
+   "rel": 0.451,
+   "peak_token": " essentially",
+   "context": 5218
+  },
+  {
+   "text": " nanotubes for clinical use.In general, absorbent articles should comfortably fit the body of a",
+   "act": 16.25,
+   "rel": 0.313,
+   "peak_token": " general",
+   "context": 11808
+  },
+  {
+   "text": "\n\n19. More specifically, he argues that the district court incorrectly analyzed this\n\n",
+   "act": 21.31,
+   "rel": 0.41,
+   "peak_token": " specifically",
+   "context": 10681
+  },
+  {
+   "text": " additional yields to downstream. Or, less generally, Client a' a -> Pipe a",
+   "act": 20.32,
+   "rel": 0.391,
+   "peak_token": ",",
+   "context": 7293
+  },
+  {
+   "text": " (VDD+VSS)/2) and does not fluctuate. In other words, when",
+   "act": 30.59,
+   "rel": 0.589,
+   "peak_token": " words",
+   "context": 3244
+  },
+  {
+   "text": " fit their black-and-white agenda.\n\nIn other words, most black slave",
+   "act": 30.15,
+   "rel": 0.58,
+   "peak_token": " words",
+   "context": 14670
+  },
+  {
+   "text": "^) in some cases. In other words, the mutation-derived effect on RdRP",
+   "act": 29.14,
+   "rel": 0.561,
+   "peak_token": " words",
+   "context": 8045
+  },
+  {
+   "text": "](#bib21){ref-type=\"other\"}).\n\nIn summary, the",
+   "act": 25.17,
+   "rel": 0.484,
+   "peak_token": " summary",
+   "context": 4481
+  },
+  {
+   "text": "ref-type=\"fig\"}. In other words, the strongly polarized outer ring always",
+   "act": 19.56,
+   "rel": 0.376,
+   "peak_token": " words",
+   "context": 17909
+  },
+  {
+   "text": ", comment. (n.1). In other words, as in United States v",
+   "act": 28.52,
+   "rel": 0.549,
+   "peak_token": " words",
+   "context": 17556
+  }
+ ],
+ "weak": [
+  {
+   "text": " be classified as a mixture of a caster and maker magic, unique to her and her",
+   "act": 8.99,
+   "rel": 0.173,
+   "peak_token": " as",
+   "context": 5618
+  },
+  {
+   "text": " substantial competent evidence. In the final analysis, the trial court concluded that the parties had",
+   "act": 11.17,
+   "rel": 0.215,
+   "peak_token": " analysis",
+   "context": 11215
+  },
+  {
+   "text": "Attendees of CPAC, or as Chris Matthewsonce called it a \"Star Trek",
+   "act": 8.1,
+   "rel": 0.156,
+   "peak_token": " a",
+   "context": 4674
+  },
+  {
+   "text": " plates and therefore changing the capacitance. Specifically, when the plates are closer together, capacitance",
+   "act": 12.82,
+   "rel": 0.247,
+   "peak_token": ",",
+   "context": 14890
+  },
+  {
+   "text": "\n\nJust as an example, compare the Rythmic 15\" sub listed",
+   "act": 5.88,
+   "rel": 0.113,
+   "peak_token": " example",
+   "context": 11244
+  },
+  {
+   "text": " do, because they’re basically arrogant and have a delusionally inflated image of themselves",
+   "act": 5.67,
+   "rel": 0.109,
+   "peak_token": " basically",
+   "context": 13624
+  },
+  {
+   "text": " from the medieval period or before.\n\nIn more recent times in the twentieth century pigs",
+   "act": 5.21,
+   "rel": 0.1,
+   "peak_token": " more",
+   "context": 14357
+  },
+  {
+   "text": " to them, we\nliterally would be fried,\" Gurman said.Q:\n\n",
+   "act": 5.63,
+   "rel": 0.108,
+   "peak_token": "literally",
+   "context": 4844
+  },
+  {
+   "text": "ll post pictures of cap mod.\n\nSummary.\n\nMost people",
+   "act": 14.04,
+   "rel": 0.27,
+   "peak_token": ".",
+   "context": 2772
+  },
+  {
+   "text": ", they are defined as verb modifiers “associated with the domain of aspect, mood,",
+   "act": 6.66,
+   "rel": 0.128,
+   "peak_token": " as",
+   "context": 4700
+  },
+  {
+   "text": ")\nquality of your data.\n\nGenerally you don't",
+   "act": 9.53,
+   "rel": 0.183,
+   "peak_token": "Generally",
+   "context": 10255
+  },
+  {
+   "text": "In Theory\nSimple. Always use the best tool for the job, and just learn",
+   "act": 6.66,
+   "rel": 0.128,
+   "peak_token": ".",
+   "context": 4857
+  },
+  {
+   "text": " deal with “plenty of knocks along the way.” Oh and one more thing: “",
+   "act": 5.25,
+   "rel": 0.101,
+   "peak_token": " and",
+   "context": 9067
+  },
+  {
+   "text": " of an extinct volcano, commonly known as a volcanic plug. According",
+   "act": 5.74,
+   "rel": 0.111,
+   "peak_token": " known",
+   "context": 12034
+  },
+  {
+   "text": " it with custom formatter (simplified to post less code)\npublic class FastJsonFormatter",
+   "act": 8.06,
+   "rel": 0.155,
+   "peak_token": "simplified",
+   "context": 14949
+  },
+  {
+   "text": "count I had problems specifying it in the javascript. As in I was returning for results",
+   "act": 5.58,
+   "rel": 0.107,
+   "peak_token": " I",
+   "context": 13804
+  },
+  {
+   "text": " of GnRH. We conclude that Danazol is able to act at the pituitary level",
+   "act": 5.45,
+   "rel": 0.105,
+   "peak_token": " conclude",
+   "context": 6893
+  },
+  {
+   "text": " equipment, the airplane may be viewed as a member of a fleet subject to the fleet",
+   "act": 5.41,
+   "rel": 0.104,
+   "peak_token": " as",
+   "context": 7100
+  },
+  {
+   "text": " episodes vary in the quality of their surviving prints, generally getting better as the years pass",
+   "act": 6.13,
+   "rel": 0.118,
+   "peak_token": " generally",
+   "context": 3230
+  },
+  {
+   "text": "lecken dürfen dürfen.\n\nSprich: Es wäre besser gewesen, Autoritäts",
+   "act": 14.2,
+   "rel": 0.273,
+   "peak_token": ":",
+   "context": 7061
+  }
+ ],
+ "neighbor": [
+  {
+   "text": " in a sequential manner; i.e., under acceleration: 1st → ",
+   "of": 6082,
+   "cos": 0.211,
+   "label": "phrases related to mathematical notation and evidence"
+  },
+  {
+   "text": " of me, and basically on the same path as me, and competing against them was",
+   "of": 10424,
+   "cos": 0.194,
+   "label": "phrases that indicate a degree of vagueness or approximation in statements"
+  },
+  {
+   "text": " of joy, a permanent state of great happiness and contentment. It is like living in",
+   "of": 11349,
+   "cos": 0.161,
+   "label": "analogies or comparisons in various contexts"
+  },
+  {
+   "text": " it's just something I take for granted that I can do, even if never",
+   "of": 11360,
+   "cos": 0.159,
+   "label": "phrases that express simplicity, familiarity, or common experiences"
+  },
+  {
+   "text": " opportunity cost of labor (women's time in general is \"worth more\" than",
+   "of": 6191,
+   "cos": 0.156,
+   "label": "terms related to overall assessments and general outcomes"
+  },
+  {
+   "text": " was raised about the existence of noiseless quantum networks, i.e., those of",
+   "of": 6082,
+   "cos": 0.211,
+   "label": "phrases related to mathematical notation and evidence"
+  },
+  {
+   "text": " can be recovered economically. Thus, low grade nickel ores, in essence, could then",
+   "of": 10424,
+   "cos": 0.194,
+   "label": "phrases that indicate a degree of vagueness or approximation in statements"
+  },
+  {
+   "text": " be able to hack entire buildings, cities, governments. It was like a simple addiction",
+   "of": 11349,
+   "cos": 0.161,
+   "label": "analogies or comparisons in various contexts"
+  },
+  {
+   "text": " they just don’t feel celebratory. in contrast to the weddings of non-members",
+   "of": 11360,
+   "cos": 0.159,
+   "label": "phrases that express simplicity, familiarity, or common experiences"
+  },
+  {
+   "text": " care and mobility components. This means you might get less money overall than you were getting",
+   "of": 6191,
+   "cos": 0.156,
+   "label": "terms related to overall assessments and general outcomes"
+  },
+  {
+   "text": " key, i.e., elements with the same key are reduced such that the final",
+   "of": 6082,
+   "cos": 0.211,
+   "label": "phrases related to mathematical notation and evidence"
+  },
+  {
+   "text": " be pointing a revisionist course and, in essence, counter-revolutionary. We take",
+   "of": 10424,
+   "cos": 0.194,
+   "label": "phrases that indicate a degree of vagueness or approximation in statements"
+  },
+  {
+   "text": " of my friends just don’t want the burden of taking care of a dog",
+   "of": 11360,
+   "cos": 0.159,
+   "label": "phrases that express simplicity, familiarity, or common experiences"
+  },
+  {
+   "text": ".7)               \n  Overall response rate, % (95% CI",
+   "of": 6191,
+   "cos": 0.156,
+   "label": "terms related to overall assessments and general outcomes"
+  }
+ ]
+}

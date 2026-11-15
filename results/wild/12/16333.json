@@ -1,0 +1,410 @@
+{
+ "feature": 16333,
+ "layer": 12,
+ "seed": 1,
+ "max_act": 56.0,
+ "contexts_scanned": 17993,
+ "contexts_firing": {
+  "strong": 112,
+  "weak": 621
+ },
+ "neighbors": [
+  {
+   "feature": 9307,
+   "cos": 0.325
+  },
+  {
+   "feature": 5470,
+   "cos": 0.304
+  },
+  {
+   "feature": 6544,
+   "cos": 0.259
+  },
+  {
+   "feature": 12702,
+   "cos": 0.255
+  },
+  {
+   "feature": 10693,
+   "cos": 0.254
+  }
+ ],
+ "neighbors_unreachable": [],
+ "strong": [
+  {
+   "text": " the scene. Yet the majority is content to note that \"there is no indication that",
+   "act": 43.1,
+   "rel": 0.77,
+   "peak_token": " majority",
+   "context": 11151
+  },
+  {
+   "text": " a crime against a minority. Funny how that works.\n\nIT IS A SICK SOCIETY",
+   "act": 25.22,
+   "rel": 0.45,
+   "peak_token": " minority",
+   "context": 17811
+  },
+  {
+   "text": " the rarity of work absenteeism and loss of productive time to the majority of headaches being",
+   "act": 41.72,
+   "rel": 0.745,
+   "peak_token": " majority",
+   "context": 9300
+  },
+  {
+   "text": " However, as the\nmajority correctly observes, the gender-based\nclassification at issue",
+   "act": 47.92,
+   "rel": 0.856,
+   "peak_token": "majority",
+   "context": 15405
+  },
+  {
+   "text": " with or without external technique, can be performed in a majority of inverted papilloma cases",
+   "act": 45.55,
+   "rel": 0.813,
+   "peak_token": " majority",
+   "context": 2918
+  },
+  {
+   "text": " summer, Nunes said that Republicans had to keep their House majority to protect DDT from Mueller",
+   "act": 33.41,
+   "rel": 0.597,
+   "peak_token": " majority",
+   "context": 16525
+  },
+  {
+   "text": " revealed that the vast majority of women reported no regular problems or abnormalities with menstruation, and",
+   "act": 39.42,
+   "rel": 0.704,
+   "peak_token": " majority",
+   "context": 10083
+  },
+  {
+   "text": " for Senate Majority Leader Mitch McConnell (R-KY) said:\n\n“Neither Congress",
+   "act": 35.13,
+   "rel": 0.627,
+   "peak_token": " Majority",
+   "context": 615
+  },
+  {
+   "text": " Democrat and House majority leader, in a statement last week.\n\nConnecticut's unemployment",
+   "act": 40.33,
+   "rel": 0.72,
+   "peak_token": " majority",
+   "context": 11042
+  },
+  {
+   "text": ", be managed effectively \\[[@CR8]\\]. In the small minority of patients",
+   "act": 24.97,
+   "rel": 0.446,
+   "peak_token": " minority",
+   "context": 13646
+  },
+  {
+   "text": " one Member of the Scottish Parliament (MSP) by the plurality (first past the post",
+   "act": 17.36,
+   "rel": 0.31,
+   "peak_token": " plurality",
+   "context": 10967
+  },
+  {
+   "text": " site, the diagnosis of BPDCN should not be ruled out since a minority of cases",
+   "act": 27.74,
+   "rel": 0.495,
+   "peak_token": " minority",
+   "context": 3680
+  },
+  {
+   "text": " cats and dogs. [@R16] found that the majority of clinical time in",
+   "act": 42.19,
+   "rel": 0.753,
+   "peak_token": " majority",
+   "context": 7896
+  },
+  {
+   "text": " to the majority of the issues discussed by the parties prior to the execution of the agreement",
+   "act": 46.91,
+   "rel": 0.838,
+   "peak_token": " majority",
+   "context": 3000
+  },
+  {
+   "text": " a great book. A few of those stories are reprints, but the majority are original",
+   "act": 42.58,
+   "rel": 0.76,
+   "peak_token": " majority",
+   "context": 4058
+  },
+  {
+   "text": " fighters came in undefeated and Sosa won a close majority decision.Sosa gives his thoughts",
+   "act": 32.69,
+   "rel": 0.584,
+   "peak_token": " majority",
+   "context": 9252
+  },
+  {
+   "text": " of younger age groups than those in older groups. The majority of the IgM positive sera",
+   "act": 42.51,
+   "rel": 0.759,
+   "peak_token": " majority",
+   "context": 1636
+  },
+  {
+   "text": ". Senate Majority Leader supported DDT in giving the money back to Russia although he had called",
+   "act": 39.99,
+   "rel": 0.714,
+   "peak_token": " Majority",
+   "context": 10359
+  },
+  {
+   "text": "  In dismissing the government’s proffered justification,\nthe majority relies on decisions",
+   "act": 43.2,
+   "rel": 0.771,
+   "peak_token": " majority",
+   "context": 4911
+  },
+  {
+   "text": "7, “who are resisting attempted subjugation by armed minorities or by outside pressures.”",
+   "act": 18.99,
+   "rel": 0.339,
+   "peak_token": " minorities",
+   "context": 1777
+  }
+ ],
+ "weak": [
+  {
+   "text": " diseases if they are the predominant species [@pone.0071621",
+   "act": 15.99,
+   "rel": 0.285,
+   "peak_token": " predominant",
+   "context": 7756
+  },
+  {
+   "text": " then a handful of people who helped the Ernsts grow both crownvetch seed and",
+   "act": 9.09,
+   "rel": 0.162,
+   "peak_token": " handful",
+   "context": 11702
+  },
+  {
+   "text": " most\nbrowsers these days (the exception being IE6/7 users on XP who",
+   "act": 5.82,
+   "rel": 0.104,
+   "peak_token": " exception",
+   "context": 17827
+  },
+  {
+   "text": " and get an all inclusive wedding package with a honeymoon. A large number of direct flights",
+   "act": 9.27,
+   "rel": 0.166,
+   "peak_token": " number",
+   "context": 15823
+  },
+  {
+   "text": " revealed that unihemispheric slow-wave sleep is the dominant sleep type in this species",
+   "act": 14.17,
+   "rel": 0.253,
+   "peak_token": " dominant",
+   "context": 12860
+  },
+  {
+   "text": "ref-type=\"fig\"}). However, a significant fraction (10%) of",
+   "act": 9.14,
+   "rel": 0.163,
+   "peak_token": " fraction",
+   "context": 2204
+  },
+  {
+   "text": " and here for two sample reviews in Italian). The consensus however seems to point towards R",
+   "act": 11.22,
+   "rel": 0.2,
+   "peak_token": " consensus",
+   "context": 5884
+  },
+  {
+   "text": " but I think this is for the greater good, you know?\n\nI mean,",
+   "act": 5.72,
+   "rel": 0.102,
+   "peak_token": " greater",
+   "context": 3460
+  },
+  {
+   "text": " small scales, as expected (this is dominated by the usual “$N^{(0",
+   "act": 8.97,
+   "rel": 0.16,
+   "peak_token": " dominated",
+   "context": 5464
+  },
+  {
+   "text": " diagnostic focus of the primary care physicians is led by a dominant model of somatic disease.^",
+   "act": 14.8,
+   "rel": 0.264,
+   "peak_token": " dominant",
+   "context": 6159
+  },
+  {
+   "text": " lose the Torch compatibility).\n\n------\npred_\nThat's nifty; I",
+   "act": 8.49,
+   "rel": 0.152,
+   "peak_token": "pred",
+   "context": 7322
+  },
+  {
+   "text": "(org.apache.commons.math.util.TransformerMapTest)\n1",
+   "act": 5.74,
+   "rel": 0.102,
+   "peak_token": "commons",
+   "context": 11626
+  },
+  {
+   "text": " acid analyses showed high abundance of serine and threonine in all three fractions (19",
+   "act": 6.32,
+   "rel": 0.113,
+   "peak_token": " fractions",
+   "context": 10356
+  },
+  {
+   "text": " depending on the personality traits the emotional or the mental component may dominate. Also psychic phenomena",
+   "act": 11.35,
+   "rel": 0.203,
+   "peak_token": " dominate",
+   "context": 6817
+  },
+  {
+   "text": " Banking Officer International, was respondent's superior. Only respondent and Boughton knew the",
+   "act": 6.01,
+   "rel": 0.107,
+   "peak_token": " superior",
+   "context": 9893
+  },
+  {
+   "text": " probably present on human gastric mucin. A study shows that a monoclonal antibody recognizing Gl",
+   "act": 8.57,
+   "rel": 0.153,
+   "peak_token": " monoclonal",
+   "context": 14403
+  },
+  {
+   "text": " Its onset during early adolescent years with predominantly bodily pains and aches. Wenzel et al",
+   "act": 6.74,
+   "rel": 0.12,
+   "peak_token": " predominantly",
+   "context": 4537
+  },
+  {
+   "text": "]\\]. The vegetation is*Kobresia*-dominated alpine meadow and roots are",
+   "act": 8.53,
+   "rel": 0.152,
+   "peak_token": "dominated",
+   "context": 2865
+  },
+  {
+   "text": " still be distinguished from the small fraction (generally less than 2% and preferably less",
+   "act": 6.73,
+   "rel": 0.12,
+   "peak_token": " fraction",
+   "context": 17271
+  },
+  {
+   "text": " Access turns off a large percentage of the screen to black (including no lock screen image",
+   "act": 6.4,
+   "rel": 0.114,
+   "peak_token": " percentage",
+   "context": 8942
+  }
+ ],
+ "neighbor": [
+  {
+   "text": " at night, so I ordered some fleece-lined hemp doublers. Most nights he",
+   "of": 9307,
+   "cos": 0.325,
+   "label": "the word \"most\" and its variations"
+  },
+  {
+   "text": " scientific or type-setting errors. Please note that major changes, or those which affect",
+   "of": 5470,
+   "cos": 0.304,
+   "label": "the word \"major\" and its various forms in different contexts"
+  },
+  {
+   "text": ", in order to hold more frequent celebrations. Popular legend holds that Gardner and Nichols developed",
+   "of": 6544,
+   "cos": 0.259,
+   "label": "references to popularity or well-known concepts"
+  },
+  {
+   "text": " be rendered as half-faded into the background colour.\nI'm guessing",
+   "of": 12702,
+   "cos": 0.255,
+   "label": "references to fractions or partial quantities, particularly \"half\""
+  },
+  {
+   "text": " String) = ruleName in this.rules\n}\n\nprivate val multiRule =",
+   "of": 10693,
+   "cos": 0.254,
+   "label": "terms related to \"multi\" or multiple concepts/attributes in various contexts"
+  },
+  {
+   "text": " again and again.\n\nI think that most of this blogging activity has been inspired by",
+   "of": 9307,
+   "cos": 0.325,
+   "label": "the word \"most\" and its variations"
+  },
+  {
+   "text": " study {#sec018}\n---------------------------------------------------------------\n\nThe major route of",
+   "of": 5470,
+   "cos": 0.304,
+   "label": "the word \"major\" and its various forms in different contexts"
+  },
+  {
+   "text": " in Kenya, linking bitcoin with M-Pesa, a popular East African mobile payments",
+   "of": 6544,
+   "cos": 0.259,
+   "label": "references to popularity or well-known concepts"
+  },
+  {
+   "text": " I pretty much spend half of the time writing a line and the other half fixing the",
+   "of": 12702,
+   "cos": 0.255,
+   "label": "references to fractions or partial quantities, particularly \"half\""
+  },
+  {
+   "text": " purpose, we employ a multipole plasmon approximation $$\\begin{aligned}\n",
+   "of": 10693,
+   "cos": 0.254,
+   "label": "terms related to \"multi\" or multiple concepts/attributes in various contexts"
+  },
+  {
+   "text": "ineo proposes would\neffectively invalidate the legitimation requirement in most\ninstances. Rather than",
+   "of": 9307,
+   "cos": 0.325,
+   "label": "the word \"most\" and its variations"
+  },
+  {
+   "text": "'s chairman, Irving Shapiro, announced to several major newspapers that \"the 'ban",
+   "of": 5470,
+   "cos": 0.304,
+   "label": "the word \"major\" and its various forms in different contexts"
+  },
+  {
+   "text": " of 35 b ...\n\nOur client is located in the popular Central London area",
+   "of": 6544,
+   "cos": 0.259,
+   "label": "references to popularity or well-known concepts"
+  },
+  {
+   "text": " Anton, later revealed to be his good-half after separating himself from his evil-",
+   "of": 12702,
+   "cos": 0.255,
+   "label": "references to fractions or partial quantities, particularly \"half\""
+  },
+  {
+   "text": "}). In multivariable analyses (Table [4](#jah",
+   "of": 10693,
+   "cos": 0.254,
+   "label": "terms related to \"multi\" or multiple concepts/attributes in various contexts"
+  }
+ ]
+}

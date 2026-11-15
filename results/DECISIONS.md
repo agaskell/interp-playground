@@ -376,3 +376,24 @@ downloaded the examples of the 125 neighbor features into the cache. Those
 are the passages where a feature is most likely to fire, so leaving them in
 would tilt its "ordinary text". Each feature's scan now leaves out its own
 examples and its five neighbors' examples. Nothing else in the design changed.
+
+## 2026-11-15 Run 5 pools built, before any prediction
+
+- Scan: 18,255 contexts, 2.33 million tokens. Every feature fires in ordinary
+  text, from 60 contexts (4409, the copyright symbol) to 7,766 (276).
+- 24 of the 25 features have a pool (`results/blind5_inputs.json`). 11411 is
+  refused: only 4 of its wild candidates keep half their in-context activation
+  in a 16-token window.
+- **Prediction 1 was wrong, and so was part of the diagnosis in FINDINGS 15.**
+  Pool version 5 does not refuse the two `<bos>` features, 7957 and 11243.
+  Their held-out windows did not lose a trigger. Neuronpedia's example list
+  spans the whole activation range, not only the top: for 7957 the examples
+  from about rank 12 down are weak firings on ordinary tokens, recorded at
+  18 and below against a maximum of 65. The windows reproduce those
+  activations faithfully. So in run 4 those two features were scored on their
+  real weak tail, not on noise from a cut window. What remains true: their
+  main trigger cannot appear in any plain-text sentence, so the pool can only
+  test the tail.
+- Decision by Claude, to keep to the design as written: run all 24, including
+  7957 and 11243, and report the comparisons with and without those two.
+  Whether such features should be refused outright is open for Andy.
