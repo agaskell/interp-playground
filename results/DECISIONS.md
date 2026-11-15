@@ -397,3 +397,34 @@ examples and its five neighbors' examples. Nothing else in the design changed.
 - Decision by Claude, to keep to the design as written: run all 24, including
   7957 and 11243, and report the comparisons with and without those two.
   Whether such features should be refused outright is open for Andy.
+
+## 2026-11-15 Run 5 executed
+
+- Ran as designed: 24 features, run tag `blind-5`, pool version 5, 72
+  tool-less agents, all sets complete, graded locally. Predictions:
+  `results/blind5_predictions.json`. Write-up: FINDINGS 16.
+- **Primary (investigated minus examples, firing F1, new sentences): +0.05,
+  10 wins / 10 ties / 4 losses, p = 0.18. Not significant.**
+- Not predicted: neither explanation beats the label on F1 on the new
+  sentences (label 0.67, examples 0.59, investigated 0.64). Explanations
+  raise precision and Spearman and lower recall on weak firings.
+- Exploratory, chosen after seeing the data and labelled so in FINDINGS 16:
+  the threshold analysis (predictions of 1 or more counted as firing) and the
+  comparison without the two `<bos>` features.
+- Predictions: 3 right, 4 wrong, 1 near miss.
+
+**Open, for Andy.** Nothing below has been started.
+1. *The two thresholds do not match.* Truth fires at 0.1 of max; a prediction
+   counts as firing at 2 of 10. Recommended: keep 2 as the primary so runs
+   stay comparable, and report F1 at 1 beside it from now on.
+2. *Weak firings.* In ordinary text most firings are 0.1 to 0.3 of max and
+   are often unrelated to the feature's main trigger. Recommended: keep
+   scoring them, and always report weak and strong separately.
+3. *Features whose main trigger cannot be written as text* (mid-text
+   `<bos>`). Recommended: refuse a feature when most of its shown examples
+   peak on `<bos>`. Pool version 5 does not do this.
+4. *Whether to run the one experiment that would separate pool from
+   hand-off*: section 15's design (the investigator predicts) on the new
+   pool. About 125 agents and an MCP reconnect. Recommended: not before the
+   residency deadline on 2026-11-22. The five runs already support a clear
+   and honest write-up.

@@ -146,11 +146,19 @@ features, each agent predicting a feature's activations on a 16-sentence pool:
   no experiments, got F1 0.89 against the investigator's 0.90. On this pool,
   reading eight examples accounts for nearly all of the gain.
 - 38 of 48 causal probes barely moved the next token.
+- A follow-up on 24 features tested sentences the examples do not resemble:
+  ordinary text where the feature fires, and text where its nearest features
+  fire. Fresh agents predicted from the stored explanations. Experiments beat
+  examples by +0.05 F1 (p = 0.18, not significant). Neither explanation beat
+  the bare label on F1 (0.67 label, 0.59 examples, 0.64 investigated): they
+  cut false alarms on neighboring features' text from 0.33 to 0.10 and missed
+  more of the weak firings, which are most of what a feature does in ordinary
+  text.
 
-Known limits: the pool is drawn from the same top activations the examples
-come from, whitespace is collapsed, and features whose trigger cannot appear
-in plain text are scored on noise. Records in `results/`, write-up in
-FINDINGS sections 12-15, decisions and predictions written before each run in
+Known limits: one SAE and layer, one model family writing and reading the
+explanations, 24 to 25 features per batch, and a firing threshold that counts
+weak activations no explanation describes. Records in `results/`, write-up in
+FINDINGS sections 12-16, decisions and predictions written before each run in
 `results/DECISIONS.md`.
 
 ## Roadmap

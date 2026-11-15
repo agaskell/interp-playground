@@ -1,0 +1,7058 @@
+[
+ {
+  "feature": 16333,
+  "arm": "label",
+  "predictions": [
+   {
+    "id": 0,
+    "expected": 0
+   },
+   {
+    "id": 1,
+    "expected": 0
+   },
+   {
+    "id": 2,
+    "expected": 0
+   },
+   {
+    "id": 3,
+    "expected": 1
+   },
+   {
+    "id": 4,
+    "expected": 6,
+    "on": " minority"
+   },
+   {
+    "id": 5,
+    "expected": 1
+   },
+   {
+    "id": 6,
+    "expected": 9,
+    "on": " majority"
+   },
+   {
+    "id": 7,
+    "expected": 0
+   },
+   {
+    "id": 8,
+    "expected": 6,
+    "on": " majority"
+   },
+   {
+    "id": 9,
+    "expected": 0
+   },
+   {
+    "id": 10,
+    "expected": 5,
+    "on": " majority"
+   },
+   {
+    "id": 11,
+    "expected": 1
+   },
+   {
+    "id": 12,
+    "expected": 0
+   },
+   {
+    "id": 13,
+    "expected": 2,
+    "on": " predominant"
+   },
+   {
+    "id": 14,
+    "expected": 0
+   },
+   {
+    "id": 15,
+    "expected": 0
+   },
+   {
+    "id": 16,
+    "expected": 2,
+    "on": " plurality"
+   },
+   {
+    "id": 17,
+    "expected": 0
+   },
+   {
+    "id": 18,
+    "expected": 5,
+    "on": " minority"
+   },
+   {
+    "id": 19,
+    "expected": 0
+   },
+   {
+    "id": 20,
+    "expected": 9,
+    "on": " majority"
+   }
+  ]
+ },
+ {
+  "feature": 16333,
+  "arm": "examples",
+  "predictions": [
+   {
+    "id": 0,
+    "expected": 0
+   },
+   {
+    "id": 1,
+    "expected": 0
+   },
+   {
+    "id": 2,
+    "expected": 0
+   },
+   {
+    "id": 3,
+    "expected": 1
+   },
+   {
+    "id": 4,
+    "expected": 3,
+    "on": " minority"
+   },
+   {
+    "id": 5,
+    "expected": 0
+   },
+   {
+    "id": 6,
+    "expected": 10,
+    "on": " majority"
+   },
+   {
+    "id": 7,
+    "expected": 0
+   },
+   {
+    "id": 8,
+    "expected": 10,
+    "on": " majority"
+   },
+   {
+    "id": 9,
+    "expected": 0
+   },
+   {
+    "id": 10,
+    "expected": 9,
+    "on": " majority"
+   },
+   {
+    "id": 11,
+    "expected": 0
+   },
+   {
+    "id": 12,
+    "expected": 0
+   },
+   {
+    "id": 13,
+    "expected": 1
+   },
+   {
+    "id": 14,
+    "expected": 0
+   },
+   {
+    "id": 15,
+    "expected": 0
+   },
+   {
+    "id": 16,
+    "expected": 2,
+    "on": " plurality"
+   },
+   {
+    "id": 17,
+    "expected": 0
+   },
+   {
+    "id": 18,
+    "expected": 3,
+    "on": " minority"
+   },
+   {
+    "id": 19,
+    "expected": 0
+   },
+   {
+    "id": 20,
+    "expected": 10,
+    "on": " majority"
+   }
+  ]
+ },
+ {
+  "feature": 16333,
+  "arm": "investigated",
+  "predictions": [
+   {
+    "id": 0,
+    "expected": 0
+   },
+   {
+    "id": 1,
+    "expected": 0
+   },
+   {
+    "id": 2,
+    "expected": 0
+   },
+   {
+    "id": 3,
+    "expected": 0.5
+   },
+   {
+    "id": 4,
+    "expected": 4,
+    "on": " minority"
+   },
+   {
+    "id": 5,
+    "expected": 0.5
+   },
+   {
+    "id": 6,
+    "expected": 9,
+    "on": " majority"
+   },
+   {
+    "id": 7,
+    "expected": 0
+   },
+   {
+    "id": 8,
+    "expected": 9,
+    "on": " majority"
+   },
+   {
+    "id": 9,
+    "expected": 0
+   },
+   {
+    "id": 10,
+    "expected": 9,
+    "on": " majority"
+   },
+   {
+    "id": 11,
+    "expected": 0.5
+   },
+   {
+    "id": 12,
+    "expected": 0
+   },
+   {
+    "id": 13,
+    "expected": 2,
+    "on": " predominant"
+   },
+   {
+    "id": 14,
+    "expected": 0
+   },
+   {
+    "id": 15,
+    "expected": 0
+   },
+   {
+    "id": 16,
+    "expected": 3,
+    "on": " plurality"
+   },
+   {
+    "id": 17,
+    "expected": 0.5
+   },
+   {
+    "id": 18,
+    "expected": 4,
+    "on": " minority"
+   },
+   {
+    "id": 19,
+    "expected": 0
+   },
+   {
+    "id": 20,
+    "expected": 9,
+    "on": " majority"
+   }
+  ]
+ },
+ {
+  "feature": 10140,
+  "arm": "label",
+  "predictions": [
+   {
+    "id": 0,
+    "expected": 0
+   },
+   {
+    "id": 1,
+    "expected": 0
+   },
+   {
+    "id": 2,
+    "expected": 1
+   },
+   {
+    "id": 3,
+    "expected": 2,
+    "on": "function"
+   },
+   {
+    "id": 4,
+    "expected": 6,
+    "on": "{"
+   },
+   {
+    "id": 5,
+    "expected": 4,
+    "on": "{"
+   },
+   {
+    "id": 6,
+    "expected": 6,
+    "on": "):"
+   },
+   {
+    "id": 7,
+    "expected": 0
+   },
+   {
+    "id": 8,
+    "expected": 6,
+    "on": "):"
+   },
+   {
+    "id": 9,
+    "expected": 0
+   },
+   {
+    "id": 10,
+    "expected": 6,
+    "on": "{"
+   },
+   {
+    "id": 11,
+    "expected": 2,
+    "on": "{"
+   },
+   {
+    "id": 12,
+    "expected": 6,
+    "on": "{"
+   },
+   {
+    "id": 13,
+    "expected": 1
+   },
+   {
+    "id": 14,
+    "expected": 1
+   },
+   {
+    "id": 15,
+    "expected": 1
+   },
+   {
+    "id": 16,
+    "expected": 2,
+    "on": "{"
+   },
+   {
+    "id": 17,
+    "expected": 0
+   },
+   {
+    "id": 18,
+    "expected": 6,
+    "on": "):"
+   },
+   {
+    "id": 19,
+    "expected": 0
+   },
+   {
+    "id": 20,
+    "expected": 1
+   }
+  ]
+ },
+ {
+  "feature": 10140,
+  "arm": "examples",
+  "predictions": [
+   {
+    "id": 0,
+    "expected": 0
+   },
+   {
+    "id": 1,
+    "expected": 0
+   },
+   {
+    "id": 2,
+    "expected": 0
+   },
+   {
+    "id": 3,
+    "expected": 0
+   },
+   {
+    "id": 4,
+    "expected": 3,
+    "on": "  "
+   },
+   {
+    "id": 5,
+    "expected": 2,
+    "on": "                "
+   },
+   {
+    "id": 6,
+    "expected": 9,
+    "on": "    "
+   },
+   {
+    "id": 7,
+    "expected": 0
+   },
+   {
+    "id": 8,
+    "expected": 9,
+    "on": "    "
+   },
+   {
+    "id": 9,
+    "expected": 0
+   },
+   {
+    "id": 10,
+    "expected": 3,
+    "on": "  "
+   },
+   {
+    "id": 11,
+    "expected": 1
+   },
+   {
+    "id": 12,
+    "expected": 3,
+    "on": "    "
+   },
+   {
+    "id": 13,
+    "expected": 0
+   },
+   {
+    "id": 14,
+    "expected": 1
+   },
+   {
+    "id": 15,
+    "expected": 0
+   },
+   {
+    "id": 16,
+    "expected": 1
+   },
+   {
+    "id": 17,
+    "expected": 0
+   },
+   {
+    "id": 18,
+    "expected": 9,
+    "on": "    "
+   },
+   {
+    "id": 19,
+    "expected": 0
+   },
+   {
+    "id": 20,
+    "expected": 0
+   }
+  ]
+ },
+ {
+  "feature": 10140,
+  "arm": "investigated",
+  "predictions": [
+   {
+    "id": 0,
+    "expected": 0
+   },
+   {
+    "id": 1,
+    "expected": 0
+   },
+   {
+    "id": 2,
+    "expected": 0
+   },
+   {
+    "id": 3,
+    "expected": 0.5
+   },
+   {
+    "id": 4,
+    "expected": 1
+   },
+   {
+    "id": 5,
+    "expected": 0.5
+   },
+   {
+    "id": 6,
+    "expected": 8.5,
+    "on": "    "
+   },
+   {
+    "id": 7,
+    "expected": 0
+   },
+   {
+    "id": 8,
+    "expected": 9,
+    "on": "    "
+   },
+   {
+    "id": 9,
+    "expected": 0
+   },
+   {
+    "id": 10,
+    "expected": 1
+   },
+   {
+    "id": 11,
+    "expected": 0.5
+   },
+   {
+    "id": 12,
+    "expected": 2,
+    "on": "    "
+   },
+   {
+    "id": 13,
+    "expected": 0
+   },
+   {
+    "id": 14,
+    "expected": 0.5
+   },
+   {
+    "id": 15,
+    "expected": 0
+   },
+   {
+    "id": 16,
+    "expected": 0
+   },
+   {
+    "id": 17,
+    "expected": 0
+   },
+   {
+    "id": 18,
+    "expected": 9,
+    "on": "    "
+   },
+   {
+    "id": 19,
+    "expected": 0
+   },
+   {
+    "id": 20,
+    "expected": 0
+   }
+  ]
+ },
+ {
+  "feature": 9261,
+  "arm": "label",
+  "predictions": [
+   {
+    "id": 0,
+    "expected": 0
+   },
+   {
+    "id": 1,
+    "expected": 0
+   },
+   {
+    "id": 2,
+    "expected": 0
+   },
+   {
+    "id": 3,
+    "expected": 4,
+    "on": "And"
+   },
+   {
+    "id": 4,
+    "expected": 5,
+    "on": "That"
+   },
+   {
+    "id": 5,
+    "expected": 4,
+    "on": "What"
+   },
+   {
+    "id": 6,
+    "expected": 5,
+    "on": "That"
+   },
+   {
+    "id": 7,
+    "expected": 5,
+    "on": "Not"
+   },
+   {
+    "id": 8,
+    "expected": 5,
+    "on": "No"
+   },
+   {
+    "id": 9,
+    "expected": 0
+   },
+   {
+    "id": 10,
+    "expected": 5,
+    "on": "Next"
+   },
+   {
+    "id": 11,
+    "expected": 2,
+    "on": "It"
+   },
+   {
+    "id": 12,
+    "expected": 2,
+    "on": "It"
+   },
+   {
+    "id": 13,
+    "expected": 4,
+    "on": "OK"
+   },
+   {
+    "id": 14,
+    "expected": 0
+   },
+   {
+    "id": 15,
+    "expected": 0
+   },
+   {
+    "id": 16,
+    "expected": 3,
+    "on": "J"
+   },
+   {
+    "id": 17,
+    "expected": 3,
+    "on": "Which"
+   },
+   {
+    "id": 18,
+    "expected": 5,
+    "on": "No"
+   },
+   {
+    "id": 19,
+    "expected": 0
+   },
+   {
+    "id": 20,
+    "expected": 3,
+    "on": "and"
+   }
+  ]
+ },
+ {
+  "feature": 9261,
+  "arm": "examples",
+  "predictions": [
+   {
+    "id": 0,
+    "expected": 0
+   },
+   {
+    "id": 1,
+    "expected": 0
+   },
+   {
+    "id": 2,
+    "expected": 0
+   },
+   {
+    "id": 3,
+    "expected": 1
+   },
+   {
+    "id": 4,
+    "expected": 2,
+    "on": "That"
+   },
+   {
+    "id": 5,
+    "expected": 1
+   },
+   {
+    "id": 6,
+    "expected": 7,
+    "on": "That"
+   },
+   {
+    "id": 7,
+    "expected": 2,
+    "on": "Not"
+   },
+   {
+    "id": 8,
+    "expected": 4,
+    "on": " No"
+   },
+   {
+    "id": 9,
+    "expected": 0
+   },
+   {
+    "id": 10,
+    "expected": 7,
+    "on": "Next"
+   },
+   {
+    "id": 11,
+    "expected": 2,
+    "on": "It"
+   },
+   {
+    "id": 12,
+    "expected": 2,
+    "on": "It"
+   },
+   {
+    "id": 13,
+    "expected": 1
+   },
+   {
+    "id": 14,
+    "expected": 0
+   },
+   {
+    "id": 15,
+    "expected": 0
+   },
+   {
+    "id": 16,
+    "expected": 1
+   },
+   {
+    "id": 17,
+    "expected": 1
+   },
+   {
+    "id": 18,
+    "expected": 8,
+    "on": "No"
+   },
+   {
+    "id": 19,
+    "expected": 0
+   },
+   {
+    "id": 20,
+    "expected": 1
+   }
+  ]
+ },
+ {
+  "feature": 9261,
+  "arm": "investigated",
+  "predictions": [
+   {
+    "id": 0,
+    "expected": 0.5
+   },
+   {
+    "id": 1,
+    "expected": 0
+   },
+   {
+    "id": 2,
+    "expected": 0
+   },
+   {
+    "id": 3,
+    "expected": 3.5,
+    "on": "And"
+   },
+   {
+    "id": 4,
+    "expected": 4.5,
+    "on": "That"
+   },
+   {
+    "id": 5,
+    "expected": 3,
+    "on": "What"
+   },
+   {
+    "id": 6,
+    "expected": 5,
+    "on": "That"
+   },
+   {
+    "id": 7,
+    "expected": 5.5,
+    "on": "Not"
+   },
+   {
+    "id": 8,
+    "expected": 5,
+    "on": "No"
+   },
+   {
+    "id": 9,
+    "expected": 0
+   },
+   {
+    "id": 10,
+    "expected": 4.5,
+    "on": "Next"
+   },
+   {
+    "id": 11,
+    "expected": 1.5
+   },
+   {
+    "id": 12,
+    "expected": 1.5
+   },
+   {
+    "id": 13,
+    "expected": 3,
+    "on": "OK"
+   },
+   {
+    "id": 14,
+    "expected": 0
+   },
+   {
+    "id": 15,
+    "expected": 0
+   },
+   {
+    "id": 16,
+    "expected": 3,
+    "on": "J"
+   },
+   {
+    "id": 17,
+    "expected": 3,
+    "on": "Which"
+   },
+   {
+    "id": 18,
+    "expected": 5,
+    "on": "No"
+   },
+   {
+    "id": 19,
+    "expected": 0
+   },
+   {
+    "id": 20,
+    "expected": 3,
+    "on": "and"
+   }
+  ]
+ },
+ {
+  "feature": 13412,
+  "arm": "label",
+  "predictions": [
+   {
+    "id": 0,
+    "expected": 0
+   },
+   {
+    "id": 1,
+    "expected": 1
+   },
+   {
+    "id": 2,
+    "expected": 0
+   },
+   {
+    "id": 3,
+    "expected": 0
+   },
+   {
+    "id": 4,
+    "expected": 6,
+    "on": "==================================="
+   },
+   {
+    "id": 5,
+    "expected": 6,
+    "on": "--------------------------"
+   },
+   {
+    "id": 6,
+    "expected": 5,
+    "on": "////////////////////////////////////////////////////////////////////////////////"
+   },
+   {
+    "id": 7,
+    "expected": 0
+   },
+   {
+    "id": 8,
+    "expected": 5,
+    "on": "///////////////////////////////////////////////////////////////////////////////////"
+   },
+   {
+    "id": 9,
+    "expected": 0
+   },
+   {
+    "id": 10,
+    "expected": 7,
+    "on": "--------------------------------------------------------------------------------------------------------------------------------"
+   },
+   {
+    "id": 11,
+    "expected": 1
+   },
+   {
+    "id": 12,
+    "expected": 0
+   },
+   {
+    "id": 13,
+    "expected": 6,
+    "on": "======================"
+   },
+   {
+    "id": 14,
+    "expected": 0
+   },
+   {
+    "id": 15,
+    "expected": 0
+   },
+   {
+    "id": 16,
+    "expected": 4,
+    "on": ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;"
+   },
+   {
+    "id": 17,
+    "expected": 6,
+    "on": "===================="
+   },
+   {
+    "id": 18,
+    "expected": 7,
+    "on": "--------------------------------------------------------------------------------------------------------"
+   },
+   {
+    "id": 19,
+    "expected": 0
+   },
+   {
+    "id": 20,
+    "expected": 6,
+    "on": "---------------------------------------------------"
+   }
+  ]
+ },
+ {
+  "feature": 13412,
+  "arm": "examples",
+  "predictions": [
+   {
+    "id": 0,
+    "expected": 0
+   },
+   {
+    "id": 1,
+    "expected": 0
+   },
+   {
+    "id": 2,
+    "expected": 0
+   },
+   {
+    "id": 3,
+    "expected": 0
+   },
+   {
+    "id": 4,
+    "expected": 5,
+    "on": "================"
+   },
+   {
+    "id": 5,
+    "expected": 4,
+    "on": "----------------"
+   },
+   {
+    "id": 6,
+    "expected": 9,
+    "on": "////////////////"
+   },
+   {
+    "id": 7,
+    "expected": 0
+   },
+   {
+    "id": 8,
+    "expected": 9,
+    "on": "////////////////"
+   },
+   {
+    "id": 9,
+    "expected": 0
+   },
+   {
+    "id": 10,
+    "expected": 9,
+    "on": "----------------"
+   },
+   {
+    "id": 11,
+    "expected": 0
+   },
+   {
+    "id": 12,
+    "expected": 0
+   },
+   {
+    "id": 13,
+    "expected": 3,
+    "on": "================"
+   },
+   {
+    "id": 14,
+    "expected": 0
+   },
+   {
+    "id": 15,
+    "expected": 0
+   },
+   {
+    "id": 16,
+    "expected": 5,
+    "on": ";;;;;;;;;;;;;;;;"
+   },
+   {
+    "id": 17,
+    "expected": 3,
+    "on": "================"
+   },
+   {
+    "id": 18,
+    "expected": 8,
+    "on": "----------------"
+   },
+   {
+    "id": 19,
+    "expected": 0
+   },
+   {
+    "id": 20,
+    "expected": 7,
+    "on": "----------------"
+   }
+  ]
+ },
+ {
+  "feature": 13412,
+  "arm": "investigated",
+  "predictions": [
+   {
+    "id": 0,
+    "expected": 0
+   },
+   {
+    "id": 1,
+    "expected": 0
+   },
+   {
+    "id": 2,
+    "expected": 0
+   },
+   {
+    "id": 3,
+    "expected": 0
+   },
+   {
+    "id": 4,
+    "expected": 6,
+    "on": "================"
+   },
+   {
+    "id": 5,
+    "expected": 4,
+    "on": "----------"
+   },
+   {
+    "id": 6,
+    "expected": 8,
+    "on": "////////////////"
+   },
+   {
+    "id": 7,
+    "expected": 0
+   },
+   {
+    "id": 8,
+    "expected": 8,
+    "on": "////////////////"
+   },
+   {
+    "id": 9,
+    "expected": 0
+   },
+   {
+    "id": 10,
+    "expected": 8,
+    "on": "----------------"
+   },
+   {
+    "id": 11,
+    "expected": 0
+   },
+   {
+    "id": 12,
+    "expected": 0
+   },
+   {
+    "id": 13,
+    "expected": 3,
+    "on": "======"
+   },
+   {
+    "id": 14,
+    "expected": 0
+   },
+   {
+    "id": 15,
+    "expected": 0
+   },
+   {
+    "id": 16,
+    "expected": 3,
+    "on": ";;;;;;;;;;;;;;;;"
+   },
+   {
+    "id": 17,
+    "expected": 3,
+    "on": "===="
+   },
+   {
+    "id": 18,
+    "expected": 7,
+    "on": "----------------"
+   },
+   {
+    "id": 19,
+    "expected": 0
+   },
+   {
+    "id": 20,
+    "expected": 7,
+    "on": "----------------"
+   }
+  ]
+ },
+ {
+  "feature": 9739,
+  "arm": "label",
+  "predictions": [
+   {
+    "id": 0,
+    "expected": 0
+   },
+   {
+    "id": 1,
+    "expected": 1
+   },
+   {
+    "id": 2,
+    "expected": 0
+   },
+   {
+    "id": 3,
+    "expected": 0
+   },
+   {
+    "id": 4,
+    "expected": 7,
+    "on": " later"
+   },
+   {
+    "id": 5,
+    "expected": 1
+   },
+   {
+    "id": 6,
+    "expected": 9,
+    "on": " Later"
+   },
+   {
+    "id": 7,
+    "expected": 0
+   },
+   {
+    "id": 8,
+    "expected": 9,
+    "on": " Later"
+   },
+   {
+    "id": 9,
+    "expected": 0
+   },
+   {
+    "id": 10,
+    "expected": 7,
+    "on": " later"
+   },
+   {
+    "id": 11,
+    "expected": 2,
+    "on": "Early"
+   },
+   {
+    "id": 12,
+    "expected": 1
+   },
+   {
+    "id": 13,
+    "expected": 2,
+    "on": " subsequent"
+   },
+   {
+    "id": 14,
+    "expected": 0
+   },
+   {
+    "id": 15,
+    "expected": 0
+   },
+   {
+    "id": 16,
+    "expected": 2,
+    "on": " late"
+   },
+   {
+    "id": 17,
+    "expected": 1
+   },
+   {
+    "id": 18,
+    "expected": 5,
+    "on": " later"
+   },
+   {
+    "id": 19,
+    "expected": 0
+   },
+   {
+    "id": 20,
+    "expected": 6,
+    "on": "later"
+   }
+  ]
+ },
+ {
+  "feature": 9739,
+  "arm": "examples",
+  "predictions": [
+   {
+    "id": 0,
+    "expected": 0
+   },
+   {
+    "id": 1,
+    "expected": 0
+   },
+   {
+    "id": 2,
+    "expected": 0
+   },
+   {
+    "id": 3,
+    "expected": 0
+   },
+   {
+    "id": 4,
+    "expected": 6,
+    "on": " later"
+   },
+   {
+    "id": 5,
+    "expected": 1
+   },
+   {
+    "id": 6,
+    "expected": 10,
+    "on": " Later"
+   },
+   {
+    "id": 7,
+    "expected": 0
+   },
+   {
+    "id": 8,
+    "expected": 10,
+    "on": " Later"
+   },
+   {
+    "id": 9,
+    "expected": 0
+   },
+   {
+    "id": 10,
+    "expected": 6,
+    "on": " later"
+   },
+   {
+    "id": 11,
+    "expected": 0
+   },
+   {
+    "id": 12,
+    "expected": 0
+   },
+   {
+    "id": 13,
+    "expected": 0
+   },
+   {
+    "id": 14,
+    "expected": 0
+   },
+   {
+    "id": 15,
+    "expected": 0
+   },
+   {
+    "id": 16,
+    "expected": 1
+   },
+   {
+    "id": 17,
+    "expected": 1
+   },
+   {
+    "id": 18,
+    "expected": 5,
+    "on": " later"
+   },
+   {
+    "id": 19,
+    "expected": 0
+   },
+   {
+    "id": 20,
+    "expected": 6,
+    "on": " later"
+   }
+  ]
+ },
+ {
+  "feature": 9739,
+  "arm": "investigated",
+  "predictions": [
+   {
+    "id": 0,
+    "expected": 0
+   },
+   {
+    "id": 1,
+    "expected": 0
+   },
+   {
+    "id": 2,
+    "expected": 0
+   },
+   {
+    "id": 3,
+    "expected": 0
+   },
+   {
+    "id": 4,
+    "expected": 7,
+    "on": " later"
+   },
+   {
+    "id": 5,
+    "expected": 2,
+    "on": " latter"
+   },
+   {
+    "id": 6,
+    "expected": 9,
+    "on": " Later"
+   },
+   {
+    "id": 7,
+    "expected": 0
+   },
+   {
+    "id": 8,
+    "expected": 9,
+    "on": " Later"
+   },
+   {
+    "id": 9,
+    "expected": 0
+   },
+   {
+    "id": 10,
+    "expected": 7,
+    "on": " later"
+   },
+   {
+    "id": 11,
+    "expected": 1
+   },
+   {
+    "id": 12,
+    "expected": 0
+   },
+   {
+    "id": 13,
+    "expected": 1
+   },
+   {
+    "id": 14,
+    "expected": 0
+   },
+   {
+    "id": 15,
+    "expected": 0
+   },
+   {
+    "id": 16,
+    "expected": 2,
+    "on": " late"
+   },
+   {
+    "id": 17,
+    "expected": 2,
+    "on": " late"
+   },
+   {
+    "id": 18,
+    "expected": 6,
+    "on": " later"
+   },
+   {
+    "id": 19,
+    "expected": 0
+   },
+   {
+    "id": 20,
+    "expected": 7,
+    "on": "later"
+   }
+  ]
+ },
+ {
+  "feature": 11469,
+  "arm": "label",
+  "predictions": [
+   {
+    "id": 0,
+    "expected": 0
+   },
+   {
+    "id": 1,
+    "expected": 0
+   },
+   {
+    "id": 2,
+    "expected": 0
+   },
+   {
+    "id": 3,
+    "expected": 0
+   },
+   {
+    "id": 4,
+    "expected": 3,
+    "on": "plant"
+   },
+   {
+    "id": 5,
+    "expected": 1
+   },
+   {
+    "id": 6,
+    "expected": 6,
+    "on": " rights"
+   },
+   {
+    "id": 7,
+    "expected": 2,
+    "on": " practices"
+   },
+   {
+    "id": 8,
+    "expected": 8,
+    "on": " ethical"
+   },
+   {
+    "id": 9,
+    "expected": 0
+   },
+   {
+    "id": 10,
+    "expected": 5,
+    "on": " sourced"
+   },
+   {
+    "id": 11,
+    "expected": 2,
+    "on": " targets"
+   },
+   {
+    "id": 12,
+    "expected": 3,
+    "on": " environmental"
+   },
+   {
+    "id": 13,
+    "expected": 0
+   },
+   {
+    "id": 14,
+    "expected": 1
+   },
+   {
+    "id": 15,
+    "expected": 0
+   },
+   {
+    "id": 16,
+    "expected": 0
+   },
+   {
+    "id": 17,
+    "expected": 0
+   },
+   {
+    "id": 18,
+    "expected": 2,
+    "on": " extraction"
+   },
+   {
+    "id": 19,
+    "expected": 0
+   },
+   {
+    "id": 20,
+    "expected": 1
+   }
+  ]
+ },
+ {
+  "feature": 11469,
+  "arm": "examples",
+  "predictions": [
+   {
+    "id": 0,
+    "expected": 0
+   },
+   {
+    "id": 1,
+    "expected": 0
+   },
+   {
+    "id": 2,
+    "expected": 0
+   },
+   {
+    "id": 3,
+    "expected": 1
+   },
+   {
+    "id": 4,
+    "expected": 3,
+    "on": "able"
+   },
+   {
+    "id": 5,
+    "expected": 1
+   },
+   {
+    "id": 6,
+    "expected": 7,
+    "on": " ecology"
+   },
+   {
+    "id": 7,
+    "expected": 2,
+    "on": " practices"
+   },
+   {
+    "id": 8,
+    "expected": 8,
+    "on": " ethical"
+   },
+   {
+    "id": 9,
+    "expected": 0
+   },
+   {
+    "id": 10,
+    "expected": 5,
+    "on": " sourced"
+   },
+   {
+    "id": 11,
+    "expected": 2,
+    "on": " targets"
+   },
+   {
+    "id": 12,
+    "expected": 3,
+    "on": " environmental"
+   },
+   {
+    "id": 13,
+    "expected": 0
+   },
+   {
+    "id": 14,
+    "expected": 0
+   },
+   {
+    "id": 15,
+    "expected": 0
+   },
+   {
+    "id": 16,
+    "expected": 1
+   },
+   {
+    "id": 17,
+    "expected": 0
+   },
+   {
+    "id": 18,
+    "expected": 3,
+    "on": " extraction"
+   },
+   {
+    "id": 19,
+    "expected": 0
+   },
+   {
+    "id": 20,
+    "expected": 3,
+    "on": " engineering"
+   }
+  ]
+ },
+ {
+  "feature": 11469,
+  "arm": "investigated",
+  "predictions": [
+   {
+    "id": 0,
+    "expected": 0
+   },
+   {
+    "id": 1,
+    "expected": 0
+   },
+   {
+    "id": 2,
+    "expected": 0
+   },
+   {
+    "id": 3,
+    "expected": 1
+   },
+   {
+    "id": 4,
+    "expected": 3,
+    "on": "able"
+   },
+   {
+    "id": 5,
+    "expected": 1
+   },
+   {
+    "id": 6,
+    "expected": 5,
+    "on": " rights"
+   },
+   {
+    "id": 7,
+    "expected": 2,
+    "on": " practices"
+   },
+   {
+    "id": 8,
+    "expected": 7,
+    "on": " ethical"
+   },
+   {
+    "id": 9,
+    "expected": 0
+   },
+   {
+    "id": 10,
+    "expected": 5,
+    "on": " sourced"
+   },
+   {
+    "id": 11,
+    "expected": 1
+   },
+   {
+    "id": 12,
+    "expected": 2,
+    "on": " environmental"
+   },
+   {
+    "id": 13,
+    "expected": 0.5
+   },
+   {
+    "id": 14,
+    "expected": 0.5
+   },
+   {
+    "id": 15,
+    "expected": 0
+   },
+   {
+    "id": 16,
+    "expected": 0
+   },
+   {
+    "id": 17,
+    "expected": 0
+   },
+   {
+    "id": 18,
+    "expected": 1.5
+   },
+   {
+    "id": 19,
+    "expected": 0
+   },
+   {
+    "id": 20,
+    "expected": 2,
+    "on": " engineering"
+   }
+  ]
+ },
+ {
+  "feature": 7957,
+  "arm": "label",
+  "predictions": [
+   {
+    "id": 0,
+    "expected": 0
+   },
+   {
+    "id": 1,
+    "expected": 0
+   },
+   {
+    "id": 2,
+    "expected": 0
+   },
+   {
+    "id": 3,
+    "expected": 0
+   },
+   {
+    "id": 4,
+    "expected": 0
+   },
+   {
+    "id": 5,
+    "expected": 0
+   },
+   {
+    "id": 6,
+    "expected": 0
+   },
+   {
+    "id": 7,
+    "expected": 0
+   },
+   {
+    "id": 8,
+    "expected": 0
+   },
+   {
+    "id": 9,
+    "expected": 0
+   },
+   {
+    "id": 10,
+    "expected": 0
+   },
+   {
+    "id": 11,
+    "expected": 0
+   },
+   {
+    "id": 12,
+    "expected": 2,
+    "on": " health"
+   },
+   {
+    "id": 13,
+    "expected": 0
+   },
+   {
+    "id": 14,
+    "expected": 0
+   },
+   {
+    "id": 15,
+    "expected": 0
+   },
+   {
+    "id": 16,
+    "expected": 1
+   },
+   {
+    "id": 17,
+    "expected": 5,
+    "on": " Disease"
+   },
+   {
+    "id": 18,
+    "expected": 7,
+    "on": "Virus"
+   },
+   {
+    "id": 19,
+    "expected": 1
+   },
+   {
+    "id": 20,
+    "expected": 0
+   }
+  ]
+ },
+ {
+  "feature": 7957,
+  "arm": "examples",
+  "predictions": [
+   {
+    "id": 0,
+    "expected": 0
+   },
+   {
+    "id": 1,
+    "expected": 0
+   },
+   {
+    "id": 2,
+    "expected": 0
+   },
+   {
+    "id": 3,
+    "expected": 0
+   },
+   {
+    "id": 4,
+    "expected": 0
+   },
+   {
+    "id": 5,
+    "expected": 0
+   },
+   {
+    "id": 6,
+    "expected": 0
+   },
+   {
+    "id": 7,
+    "expected": 0
+   },
+   {
+    "id": 8,
+    "expected": 0
+   },
+   {
+    "id": 9,
+    "expected": 0
+   },
+   {
+    "id": 10,
+    "expected": 0
+   },
+   {
+    "id": 11,
+    "expected": 0
+   },
+   {
+    "id": 12,
+    "expected": 1
+   },
+   {
+    "id": 13,
+    "expected": 0
+   },
+   {
+    "id": 14,
+    "expected": 0
+   },
+   {
+    "id": 15,
+    "expected": 0
+   },
+   {
+    "id": 16,
+    "expected": 1
+   },
+   {
+    "id": 17,
+    "expected": 2,
+    "on": " disease"
+   },
+   {
+    "id": 18,
+    "expected": 2,
+    "on": "Virus"
+   },
+   {
+    "id": 19,
+    "expected": 0
+   },
+   {
+    "id": 20,
+    "expected": 0
+   }
+  ]
+ },
+ {
+  "feature": 7957,
+  "arm": "investigated",
+  "predictions": [
+   {
+    "id": 0,
+    "expected": 0
+   },
+   {
+    "id": 1,
+    "expected": 0
+   },
+   {
+    "id": 2,
+    "expected": 0
+   },
+   {
+    "id": 3,
+    "expected": 0
+   },
+   {
+    "id": 4,
+    "expected": 0
+   },
+   {
+    "id": 5,
+    "expected": 0
+   },
+   {
+    "id": 6,
+    "expected": 0
+   },
+   {
+    "id": 7,
+    "expected": 0
+   },
+   {
+    "id": 8,
+    "expected": 0
+   },
+   {
+    "id": 9,
+    "expected": 0
+   },
+   {
+    "id": 10,
+    "expected": 0
+   },
+   {
+    "id": 11,
+    "expected": 0
+   },
+   {
+    "id": 12,
+    "expected": 0
+   },
+   {
+    "id": 13,
+    "expected": 0
+   },
+   {
+    "id": 14,
+    "expected": 0
+   },
+   {
+    "id": 15,
+    "expected": 0
+   },
+   {
+    "id": 16,
+    "expected": 0
+   },
+   {
+    "id": 17,
+    "expected": 0
+   },
+   {
+    "id": 18,
+    "expected": 1
+   },
+   {
+    "id": 19,
+    "expected": 0
+   },
+   {
+    "id": 20,
+    "expected": 0
+   }
+  ]
+ },
+ {
+  "feature": 3584,
+  "arm": "label",
+  "predictions": [
+   {
+    "id": 0,
+    "expected": 0
+   },
+   {
+    "id": 1,
+    "expected": 0
+   },
+   {
+    "id": 2,
+    "expected": 0
+   },
+   {
+    "id": 3,
+    "expected": 1
+   },
+   {
+    "id": 4,
+    "expected": 5,
+    "on": " Shapiro"
+   },
+   {
+    "id": 5,
+    "expected": 1
+   },
+   {
+    "id": 6,
+    "expected": 5,
+    "on": "ald"
+   },
+   {
+    "id": 7,
+    "expected": 4,
+    "on": " Nick"
+   },
+   {
+    "id": 8,
+    "expected": 6,
+    "on": " Robinson"
+   },
+   {
+    "id": 9,
+    "expected": 0
+   },
+   {
+    "id": 10,
+    "expected": 4,
+    "on": " Washington"
+   },
+   {
+    "id": 11,
+    "expected": 1
+   },
+   {
+    "id": 12,
+    "expected": 1
+   },
+   {
+    "id": 13,
+    "expected": 5,
+    "on": " Olaf"
+   },
+   {
+    "id": 14,
+    "expected": 1
+   },
+   {
+    "id": 15,
+    "expected": 0
+   },
+   {
+    "id": 16,
+    "expected": 1
+   },
+   {
+    "id": 17,
+    "expected": 1
+   },
+   {
+    "id": 18,
+    "expected": 5,
+    "on": " Daphne"
+   },
+   {
+    "id": 19,
+    "expected": 0
+   },
+   {
+    "id": 20,
+    "expected": 3,
+    "on": " officials"
+   }
+  ]
+ },
+ {
+  "feature": 3584,
+  "arm": "examples",
+  "predictions": [
+   {
+    "id": 0,
+    "expected": 0
+   },
+   {
+    "id": 1,
+    "expected": 0
+   },
+   {
+    "id": 2,
+    "expected": 0
+   },
+   {
+    "id": 3,
+    "expected": 0.5
+   },
+   {
+    "id": 4,
+    "expected": 6,
+    "on": "Shapiro"
+   },
+   {
+    "id": 5,
+    "expected": 1
+   },
+   {
+    "id": 6,
+    "expected": 8,
+    "on": "ald"
+   },
+   {
+    "id": 7,
+    "expected": 5,
+    "on": "Nick"
+   },
+   {
+    "id": 8,
+    "expected": 9,
+    "on": "Robinson"
+   },
+   {
+    "id": 9,
+    "expected": 0
+   },
+   {
+    "id": 10,
+    "expected": 8,
+    "on": "Washington"
+   },
+   {
+    "id": 11,
+    "expected": 5,
+    "on": "Apple"
+   },
+   {
+    "id": 12,
+    "expected": 2,
+    "on": "plaintiff"
+   },
+   {
+    "id": 13,
+    "expected": 6,
+    "on": "Olaf"
+   },
+   {
+    "id": 14,
+    "expected": 1
+   },
+   {
+    "id": 15,
+    "expected": 0
+   },
+   {
+    "id": 16,
+    "expected": 1
+   },
+   {
+    "id": 17,
+    "expected": 1
+   },
+   {
+    "id": 18,
+    "expected": 9,
+    "on": "Daphne"
+   },
+   {
+    "id": 19,
+    "expected": 0
+   },
+   {
+    "id": 20,
+    "expected": 4,
+    "on": "Doro"
+   }
+  ]
+ },
+ {
+  "feature": 3584,
+  "arm": "investigated",
+  "predictions": [
+   {
+    "id": 0,
+    "expected": 0
+   },
+   {
+    "id": 1,
+    "expected": 0
+   },
+   {
+    "id": 2,
+    "expected": 0
+   },
+   {
+    "id": 3,
+    "expected": 2,
+    "on": " candidate"
+   },
+   {
+    "id": 4,
+    "expected": 5,
+    "on": " Shapiro"
+   },
+   {
+    "id": 5,
+    "expected": 2,
+    "on": " opponent"
+   },
+   {
+    "id": 6,
+    "expected": 5,
+    "on": "ald"
+   },
+   {
+    "id": 7,
+    "expected": 4,
+    "on": " Nick"
+   },
+   {
+    "id": 8,
+    "expected": 5,
+    "on": " Robinson"
+   },
+   {
+    "id": 9,
+    "expected": 0.5
+   },
+   {
+    "id": 10,
+    "expected": 5,
+    "on": " Washington"
+   },
+   {
+    "id": 11,
+    "expected": 4,
+    "on": " Apple"
+   },
+   {
+    "id": 12,
+    "expected": 3,
+    "on": " plaintiff"
+   },
+   {
+    "id": 13,
+    "expected": 3,
+    "on": " Olaf"
+   },
+   {
+    "id": 14,
+    "expected": 2.5,
+    "on": " Clinicians"
+   },
+   {
+    "id": 15,
+    "expected": 0
+   },
+   {
+    "id": 16,
+    "expected": 0.5
+   },
+   {
+    "id": 17,
+    "expected": 2,
+    "on": "A"
+   },
+   {
+    "id": 18,
+    "expected": 5,
+    "on": " Daphne"
+   },
+   {
+    "id": 19,
+    "expected": 0
+   },
+   {
+    "id": 20,
+    "expected": 3,
+    "on": " officials"
+   }
+  ]
+ },
+ {
+  "feature": 13087,
+  "arm": "label",
+  "predictions": [
+   {
+    "id": 0,
+    "expected": 0
+   },
+   {
+    "id": 1,
+    "expected": 1
+   },
+   {
+    "id": 2,
+    "expected": 0
+   },
+   {
+    "id": 3,
+    "expected": 0
+   },
+   {
+    "id": 4,
+    "expected": 0
+   },
+   {
+    "id": 5,
+    "expected": 0
+   },
+   {
+    "id": 6,
+    "expected": 8,
+    "on": " payment"
+   },
+   {
+    "id": 7,
+    "expected": 0
+   },
+   {
+    "id": 8,
+    "expected": 6,
+    "on": "payment"
+   },
+   {
+    "id": 9,
+    "expected": 0
+   },
+   {
+    "id": 10,
+    "expected": 0
+   },
+   {
+    "id": 11,
+    "expected": 4,
+    "on": " purchase"
+   },
+   {
+    "id": 12,
+    "expected": 0
+   },
+   {
+    "id": 13,
+    "expected": 0
+   },
+   {
+    "id": 14,
+    "expected": 0
+   },
+   {
+    "id": 15,
+    "expected": 0
+   },
+   {
+    "id": 16,
+    "expected": 0
+   },
+   {
+    "id": 17,
+    "expected": 0
+   },
+   {
+    "id": 18,
+    "expected": 0
+   },
+   {
+    "id": 19,
+    "expected": 0
+   },
+   {
+    "id": 20,
+    "expected": 0
+   }
+  ]
+ },
+ {
+  "feature": 13087,
+  "arm": "examples",
+  "predictions": [
+   {
+    "id": 0,
+    "expected": 0
+   },
+   {
+    "id": 1,
+    "expected": 0.5
+   },
+   {
+    "id": 2,
+    "expected": 0
+   },
+   {
+    "id": 3,
+    "expected": 0
+   },
+   {
+    "id": 4,
+    "expected": 0
+   },
+   {
+    "id": 5,
+    "expected": 0
+   },
+   {
+    "id": 6,
+    "expected": 9,
+    "on": " payment"
+   },
+   {
+    "id": 7,
+    "expected": 0
+   },
+   {
+    "id": 8,
+    "expected": 6,
+    "on": "payment"
+   },
+   {
+    "id": 9,
+    "expected": 0
+   },
+   {
+    "id": 10,
+    "expected": 0
+   },
+   {
+    "id": 11,
+    "expected": 1
+   },
+   {
+    "id": 12,
+    "expected": 0
+   },
+   {
+    "id": 13,
+    "expected": 0
+   },
+   {
+    "id": 14,
+    "expected": 0
+   },
+   {
+    "id": 15,
+    "expected": 0
+   },
+   {
+    "id": 16,
+    "expected": 0
+   },
+   {
+    "id": 17,
+    "expected": 0
+   },
+   {
+    "id": 18,
+    "expected": 0
+   },
+   {
+    "id": 19,
+    "expected": 0
+   },
+   {
+    "id": 20,
+    "expected": 0
+   }
+  ]
+ },
+ {
+  "feature": 13087,
+  "arm": "investigated",
+  "predictions": [
+   {
+    "id": 0,
+    "expected": 0
+   },
+   {
+    "id": 1,
+    "expected": 0
+   },
+   {
+    "id": 2,
+    "expected": 0
+   },
+   {
+    "id": 3,
+    "expected": 0
+   },
+   {
+    "id": 4,
+    "expected": 0
+   },
+   {
+    "id": 5,
+    "expected": 0
+   },
+   {
+    "id": 6,
+    "expected": 9,
+    "on": " payment"
+   },
+   {
+    "id": 7,
+    "expected": 0
+   },
+   {
+    "id": 8,
+    "expected": 5,
+    "on": "payment"
+   },
+   {
+    "id": 9,
+    "expected": 0
+   },
+   {
+    "id": 10,
+    "expected": 0
+   },
+   {
+    "id": 11,
+    "expected": 1
+   },
+   {
+    "id": 12,
+    "expected": 0
+   },
+   {
+    "id": 13,
+    "expected": 0
+   },
+   {
+    "id": 14,
+    "expected": 0
+   },
+   {
+    "id": 15,
+    "expected": 0
+   },
+   {
+    "id": 16,
+    "expected": 0
+   },
+   {
+    "id": 17,
+    "expected": 0
+   },
+   {
+    "id": 18,
+    "expected": 0
+   },
+   {
+    "id": 19,
+    "expected": 0
+   },
+   {
+    "id": 20,
+    "expected": 0
+   }
+  ]
+ },
+ {
+  "feature": 4409,
+  "arm": "label",
+  "predictions": [
+   {
+    "id": 0,
+    "expected": 0
+   },
+   {
+    "id": 1,
+    "expected": 0
+   },
+   {
+    "id": 2,
+    "expected": 0
+   },
+   {
+    "id": 3,
+    "expected": 0
+   },
+   {
+    "id": 4,
+    "expected": 8,
+    "on": "Copyright"
+   },
+   {
+    "id": 5,
+    "expected": 5,
+    "on": "C"
+   },
+   {
+    "id": 6,
+    "expected": 8,
+    "on": "Copyright"
+   },
+   {
+    "id": 7,
+    "expected": 0
+   },
+   {
+    "id": 8,
+    "expected": 8,
+    "on": "Copyright"
+   },
+   {
+    "id": 9,
+    "expected": 0
+   },
+   {
+    "id": 10,
+    "expected": 8,
+    "on": "Copyright"
+   },
+   {
+    "id": 11,
+    "expected": 0
+   },
+   {
+    "id": 12,
+    "expected": 7,
+    "on": "Copyright"
+   },
+   {
+    "id": 13,
+    "expected": 0
+   },
+   {
+    "id": 14,
+    "expected": 0
+   },
+   {
+    "id": 15,
+    "expected": 0
+   },
+   {
+    "id": 16,
+    "expected": 0
+   },
+   {
+    "id": 17,
+    "expected": 6,
+    "on": "\u00a9"
+   },
+   {
+    "id": 18,
+    "expected": 8,
+    "on": "Copyright"
+   },
+   {
+    "id": 19,
+    "expected": 1
+   },
+   {
+    "id": 20,
+    "expected": 8,
+    "on": "Copyright"
+   }
+  ]
+ },
+ {
+  "feature": 4409,
+  "arm": "examples",
+  "predictions": [
+   {
+    "id": 0,
+    "expected": 0
+   },
+   {
+    "id": 1,
+    "expected": 0
+   },
+   {
+    "id": 2,
+    "expected": 0
+   },
+   {
+    "id": 3,
+    "expected": 0
+   },
+   {
+    "id": 4,
+    "expected": 5.5,
+    "on": "c"
+   },
+   {
+    "id": 5,
+    "expected": 3,
+    "on": "C"
+   },
+   {
+    "id": 6,
+    "expected": 5.5,
+    "on": "c"
+   },
+   {
+    "id": 7,
+    "expected": 0
+   },
+   {
+    "id": 8,
+    "expected": 5.5,
+    "on": "c"
+   },
+   {
+    "id": 9,
+    "expected": 0
+   },
+   {
+    "id": 10,
+    "expected": 5,
+    "on": "C"
+   },
+   {
+    "id": 11,
+    "expected": 0
+   },
+   {
+    "id": 12,
+    "expected": 1
+   },
+   {
+    "id": 13,
+    "expected": 0
+   },
+   {
+    "id": 14,
+    "expected": 0
+   },
+   {
+    "id": 15,
+    "expected": 0
+   },
+   {
+    "id": 16,
+    "expected": 0
+   },
+   {
+    "id": 17,
+    "expected": 6,
+    "on": "\u00a9"
+   },
+   {
+    "id": 18,
+    "expected": 5.5,
+    "on": "c"
+   },
+   {
+    "id": 19,
+    "expected": 0
+   },
+   {
+    "id": 20,
+    "expected": 5.5,
+    "on": "c"
+   }
+  ]
+ },
+ {
+  "feature": 4409,
+  "arm": "investigated",
+  "predictions": [
+   {
+    "id": 0,
+    "expected": 0
+   },
+   {
+    "id": 1,
+    "expected": 0
+   },
+   {
+    "id": 2,
+    "expected": 0
+   },
+   {
+    "id": 3,
+    "expected": 0
+   },
+   {
+    "id": 4,
+    "expected": 5,
+    "on": "c"
+   },
+   {
+    "id": 5,
+    "expected": 3,
+    "on": "C"
+   },
+   {
+    "id": 6,
+    "expected": 5,
+    "on": "c"
+   },
+   {
+    "id": 7,
+    "expected": 0
+   },
+   {
+    "id": 8,
+    "expected": 5,
+    "on": "c"
+   },
+   {
+    "id": 9,
+    "expected": 0
+   },
+   {
+    "id": 10,
+    "expected": 3.5,
+    "on": "C"
+   },
+   {
+    "id": 11,
+    "expected": 0
+   },
+   {
+    "id": 12,
+    "expected": 1
+   },
+   {
+    "id": 13,
+    "expected": 0
+   },
+   {
+    "id": 14,
+    "expected": 0
+   },
+   {
+    "id": 15,
+    "expected": 0
+   },
+   {
+    "id": 16,
+    "expected": 0
+   },
+   {
+    "id": 17,
+    "expected": 2,
+    "on": "\u00a9"
+   },
+   {
+    "id": 18,
+    "expected": 5,
+    "on": "c"
+   },
+   {
+    "id": 19,
+    "expected": 0
+   },
+   {
+    "id": 20,
+    "expected": 4,
+    "on": "c"
+   }
+  ]
+ },
+ {
+  "feature": 276,
+  "arm": "label",
+  "predictions": [
+   {
+    "id": 0,
+    "expected": 0
+   },
+   {
+    "id": 1,
+    "expected": 0
+   },
+   {
+    "id": 2,
+    "expected": 0
+   },
+   {
+    "id": 3,
+    "expected": 0
+   },
+   {
+    "id": 4,
+    "expected": 2,
+    "on": " cells"
+   },
+   {
+    "id": 5,
+    "expected": 0
+   },
+   {
+    "id": 6,
+    "expected": 3,
+    "on": " tumor"
+   },
+   {
+    "id": 7,
+    "expected": 0
+   },
+   {
+    "id": 8,
+    "expected": 3,
+    "on": "pharyngeal"
+   },
+   {
+    "id": 9,
+    "expected": 0
+   },
+   {
+    "id": 10,
+    "expected": 0
+   },
+   {
+    "id": 11,
+    "expected": 0
+   },
+   {
+    "id": 12,
+    "expected": 1
+   },
+   {
+    "id": 13,
+    "expected": 1
+   },
+   {
+    "id": 14,
+    "expected": 0
+   },
+   {
+    "id": 15,
+    "expected": 0
+   },
+   {
+    "id": 16,
+    "expected": 2,
+    "on": " caries"
+   },
+   {
+    "id": 17,
+    "expected": 0
+   },
+   {
+    "id": 18,
+    "expected": 0
+   },
+   {
+    "id": 19,
+    "expected": 0
+   },
+   {
+    "id": 20,
+    "expected": 1
+   }
+  ]
+ },
+ {
+  "feature": 276,
+  "arm": "examples",
+  "predictions": [
+   {
+    "id": 0,
+    "expected": 0
+   },
+   {
+    "id": 1,
+    "expected": 0
+   },
+   {
+    "id": 2,
+    "expected": 0
+   },
+   {
+    "id": 3,
+    "expected": 0
+   },
+   {
+    "id": 4,
+    "expected": 3,
+    "on": " cells"
+   },
+   {
+    "id": 5,
+    "expected": 0
+   },
+   {
+    "id": 6,
+    "expected": 3,
+    "on": " tumor"
+   },
+   {
+    "id": 7,
+    "expected": 0
+   },
+   {
+    "id": 8,
+    "expected": 2,
+    "on": " mass"
+   },
+   {
+    "id": 9,
+    "expected": 0
+   },
+   {
+    "id": 10,
+    "expected": 0
+   },
+   {
+    "id": 11,
+    "expected": 0
+   },
+   {
+    "id": 12,
+    "expected": 1
+   },
+   {
+    "id": 13,
+    "expected": 1
+   },
+   {
+    "id": 14,
+    "expected": 0
+   },
+   {
+    "id": 15,
+    "expected": 0
+   },
+   {
+    "id": 16,
+    "expected": 3,
+    "on": " caries"
+   },
+   {
+    "id": 17,
+    "expected": 0
+   },
+   {
+    "id": 18,
+    "expected": 0
+   },
+   {
+    "id": 19,
+    "expected": 0
+   },
+   {
+    "id": 20,
+    "expected": 1
+   }
+  ]
+ },
+ {
+  "feature": 276,
+  "arm": "investigated",
+  "predictions": [
+   {
+    "id": 0,
+    "expected": 0
+   },
+   {
+    "id": 1,
+    "expected": 0
+   },
+   {
+    "id": 2,
+    "expected": 0
+   },
+   {
+    "id": 3,
+    "expected": 0
+   },
+   {
+    "id": 4,
+    "expected": 2,
+    "on": " cells"
+   },
+   {
+    "id": 5,
+    "expected": 0
+   },
+   {
+    "id": 6,
+    "expected": 1
+   },
+   {
+    "id": 7,
+    "expected": 0
+   },
+   {
+    "id": 8,
+    "expected": 2,
+    "on": " adenoid"
+   },
+   {
+    "id": 9,
+    "expected": 0
+   },
+   {
+    "id": 10,
+    "expected": 0
+   },
+   {
+    "id": 11,
+    "expected": 0.5
+   },
+   {
+    "id": 12,
+    "expected": 1.5
+   },
+   {
+    "id": 13,
+    "expected": 2,
+    "on": " ("
+   },
+   {
+    "id": 14,
+    "expected": 0
+   },
+   {
+    "id": 15,
+    "expected": 0
+   },
+   {
+    "id": 16,
+    "expected": 1
+   },
+   {
+    "id": 17,
+    "expected": 0
+   },
+   {
+    "id": 18,
+    "expected": 0
+   },
+   {
+    "id": 19,
+    "expected": 0
+   },
+   {
+    "id": 20,
+    "expected": 2,
+    "on": " was"
+   }
+  ]
+ },
+ {
+  "feature": 11243,
+  "arm": "label",
+  "predictions": [
+   {
+    "id": 0,
+    "expected": 2,
+    "on": "\n\n"
+   },
+   {
+    "id": 1,
+    "expected": 4,
+    "on": "\n\n\t"
+   },
+   {
+    "id": 2,
+    "expected": 2,
+    "on": "\n"
+   },
+   {
+    "id": 3,
+    "expected": 3,
+    "on": "/"
+   },
+   {
+    "id": 4,
+    "expected": 3,
+    "on": "\n\n"
+   },
+   {
+    "id": 5,
+    "expected": 5,
+    "on": "\n\t"
+   },
+   {
+    "id": 6,
+    "expected": 1
+   },
+   {
+    "id": 7,
+    "expected": 5,
+    "on": "\n\t"
+   },
+   {
+    "id": 8,
+    "expected": 3,
+    "on": "\r"
+   },
+   {
+    "id": 9,
+    "expected": 3,
+    "on": "\n\n"
+   },
+   {
+    "id": 10,
+    "expected": 0
+   },
+   {
+    "id": 11,
+    "expected": 1
+   },
+   {
+    "id": 12,
+    "expected": 0
+   },
+   {
+    "id": 13,
+    "expected": 2,
+    "on": "\r\n"
+   },
+   {
+    "id": 14,
+    "expected": 3,
+    "on": "\r\n"
+   },
+   {
+    "id": 15,
+    "expected": 2,
+    "on": "\n"
+   },
+   {
+    "id": 16,
+    "expected": 4,
+    "on": "\n\t\t"
+   },
+   {
+    "id": 17,
+    "expected": 2,
+    "on": "\n"
+   },
+   {
+    "id": 18,
+    "expected": 1
+   },
+   {
+    "id": 19,
+    "expected": 5,
+    "on": "\n\n\t"
+   }
+  ]
+ },
+ {
+  "feature": 11243,
+  "arm": "examples",
+  "predictions": [
+   {
+    "id": 0,
+    "expected": 0
+   },
+   {
+    "id": 1,
+    "expected": 1
+   },
+   {
+    "id": 2,
+    "expected": 0
+   },
+   {
+    "id": 3,
+    "expected": 3,
+    "on": "/"
+   },
+   {
+    "id": 4,
+    "expected": 3,
+    "on": "*/"
+   },
+   {
+    "id": 5,
+    "expected": 3,
+    "on": ")"
+   },
+   {
+    "id": 6,
+    "expected": 0
+   },
+   {
+    "id": 7,
+    "expected": 3,
+    "on": ")"
+   },
+   {
+    "id": 8,
+    "expected": 3,
+    "on": "*/"
+   },
+   {
+    "id": 9,
+    "expected": 1
+   },
+   {
+    "id": 10,
+    "expected": 0
+   },
+   {
+    "id": 11,
+    "expected": 0
+   },
+   {
+    "id": 12,
+    "expected": 0
+   },
+   {
+    "id": 13,
+    "expected": 0
+   },
+   {
+    "id": 14,
+    "expected": 0
+   },
+   {
+    "id": 15,
+    "expected": 1
+   },
+   {
+    "id": 16,
+    "expected": 1
+   },
+   {
+    "id": 17,
+    "expected": 1
+   },
+   {
+    "id": 18,
+    "expected": 0
+   },
+   {
+    "id": 19,
+    "expected": 3,
+    "on": ")"
+   }
+  ]
+ },
+ {
+  "feature": 11243,
+  "arm": "investigated",
+  "predictions": [
+   {
+    "id": 0,
+    "expected": 0
+   },
+   {
+    "id": 1,
+    "expected": 1
+   },
+   {
+    "id": 2,
+    "expected": 0
+   },
+   {
+    "id": 3,
+    "expected": 0
+   },
+   {
+    "id": 4,
+    "expected": 0
+   },
+   {
+    "id": 5,
+    "expected": 4,
+    "on": "."
+   },
+   {
+    "id": 6,
+    "expected": 0
+   },
+   {
+    "id": 7,
+    "expected": 3,
+    "on": "."
+   },
+   {
+    "id": 8,
+    "expected": 0
+   },
+   {
+    "id": 9,
+    "expected": 0
+   },
+   {
+    "id": 10,
+    "expected": 0
+   },
+   {
+    "id": 11,
+    "expected": 0
+   },
+   {
+    "id": 12,
+    "expected": 0
+   },
+   {
+    "id": 13,
+    "expected": 0
+   },
+   {
+    "id": 14,
+    "expected": 0
+   },
+   {
+    "id": 15,
+    "expected": 1
+   },
+   {
+    "id": 16,
+    "expected": 0
+   },
+   {
+    "id": 17,
+    "expected": 0
+   },
+   {
+    "id": 18,
+    "expected": 0
+   },
+   {
+    "id": 19,
+    "expected": 3,
+    "on": "."
+   }
+  ]
+ },
+ {
+  "feature": 970,
+  "arm": "label",
+  "predictions": [
+   {
+    "id": 0,
+    "expected": 0
+   },
+   {
+    "id": 1,
+    "expected": 0
+   },
+   {
+    "id": 2,
+    "expected": 0
+   },
+   {
+    "id": 3,
+    "expected": 3,
+    "on": " basically"
+   },
+   {
+    "id": 4,
+    "expected": 5,
+    "on": " words"
+   },
+   {
+    "id": 5,
+    "expected": 3,
+    "on": " Specifically"
+   },
+   {
+    "id": 6,
+    "expected": 9,
+    "on": " short"
+   },
+   {
+    "id": 7,
+    "expected": 0
+   },
+   {
+    "id": 8,
+    "expected": 9,
+    "on": " short"
+   },
+   {
+    "id": 9,
+    "expected": 0
+   },
+   {
+    "id": 10,
+    "expected": 6,
+    "on": " say"
+   },
+   {
+    "id": 11,
+    "expected": 3,
+    "on": "e"
+   },
+   {
+    "id": 12,
+    "expected": 0
+   },
+   {
+    "id": 13,
+    "expected": 5,
+    "on": " analysis"
+   },
+   {
+    "id": 14,
+    "expected": 1
+   },
+   {
+    "id": 15,
+    "expected": 0
+   },
+   {
+    "id": 16,
+    "expected": 4,
+    "on": " basically"
+   },
+   {
+    "id": 17,
+    "expected": 0
+   },
+   {
+    "id": 18,
+    "expected": 2,
+    "on": " saying"
+   },
+   {
+    "id": 19,
+    "expected": 0
+   },
+   {
+    "id": 20,
+    "expected": 5,
+    "on": "Essentially"
+   }
+  ]
+ },
+ {
+  "feature": 970,
+  "arm": "examples",
+  "predictions": [
+   {
+    "id": 0,
+    "expected": 0
+   },
+   {
+    "id": 1,
+    "expected": 0
+   },
+   {
+    "id": 2,
+    "expected": 0
+   },
+   {
+    "id": 3,
+    "expected": 3,
+    "on": " basically"
+   },
+   {
+    "id": 4,
+    "expected": 5,
+    "on": " words"
+   },
+   {
+    "id": 5,
+    "expected": 1
+   },
+   {
+    "id": 6,
+    "expected": 9,
+    "on": " short"
+   },
+   {
+    "id": 7,
+    "expected": 1
+   },
+   {
+    "id": 8,
+    "expected": 9,
+    "on": " short"
+   },
+   {
+    "id": 9,
+    "expected": 0
+   },
+   {
+    "id": 10,
+    "expected": 3,
+    "on": " say"
+   },
+   {
+    "id": 11,
+    "expected": 1
+   },
+   {
+    "id": 12,
+    "expected": 0
+   },
+   {
+    "id": 13,
+    "expected": 3,
+    "on": " analysis"
+   },
+   {
+    "id": 14,
+    "expected": 0
+   },
+   {
+    "id": 15,
+    "expected": 0
+   },
+   {
+    "id": 16,
+    "expected": 3,
+    "on": " basically"
+   },
+   {
+    "id": 17,
+    "expected": 0
+   },
+   {
+    "id": 18,
+    "expected": 1
+   },
+   {
+    "id": 19,
+    "expected": 0
+   },
+   {
+    "id": 20,
+    "expected": 6,
+    "on": "Essentially"
+   }
+  ]
+ },
+ {
+  "feature": 970,
+  "arm": "investigated",
+  "predictions": [
+   {
+    "id": 0,
+    "expected": 0
+   },
+   {
+    "id": 1,
+    "expected": 0
+   },
+   {
+    "id": 2,
+    "expected": 0
+   },
+   {
+    "id": 3,
+    "expected": 2,
+    "on": " basically"
+   },
+   {
+    "id": 4,
+    "expected": 4,
+    "on": " words"
+   },
+   {
+    "id": 5,
+    "expected": 1
+   },
+   {
+    "id": 6,
+    "expected": 6,
+    "on": " short"
+   },
+   {
+    "id": 7,
+    "expected": 1
+   },
+   {
+    "id": 8,
+    "expected": 6,
+    "on": " short"
+   },
+   {
+    "id": 9,
+    "expected": 0
+   },
+   {
+    "id": 10,
+    "expected": 2,
+    "on": " say"
+   },
+   {
+    "id": 11,
+    "expected": 1
+   },
+   {
+    "id": 12,
+    "expected": 0
+   },
+   {
+    "id": 13,
+    "expected": 3,
+    "on": " analysis"
+   },
+   {
+    "id": 14,
+    "expected": 0
+   },
+   {
+    "id": 15,
+    "expected": 0
+   },
+   {
+    "id": 16,
+    "expected": 2,
+    "on": " basically"
+   },
+   {
+    "id": 17,
+    "expected": 0
+   },
+   {
+    "id": 18,
+    "expected": 1
+   },
+   {
+    "id": 19,
+    "expected": 0
+   },
+   {
+    "id": 20,
+    "expected": 2,
+    "on": "Essentially"
+   }
+  ]
+ },
+ {
+  "feature": 2011,
+  "arm": "label",
+  "predictions": [
+   {
+    "id": 0,
+    "expected": 0.5
+   },
+   {
+    "id": 1,
+    "expected": 0
+   },
+   {
+    "id": 2,
+    "expected": 0
+   },
+   {
+    "id": 3,
+    "expected": 6,
+    "on": " largest"
+   },
+   {
+    "id": 4,
+    "expected": 7,
+    "on": " largest"
+   },
+   {
+    "id": 5,
+    "expected": 7,
+    "on": " largest"
+   },
+   {
+    "id": 6,
+    "expected": 7,
+    "on": " highest"
+   },
+   {
+    "id": 7,
+    "expected": 4,
+    "on": " lowest"
+   },
+   {
+    "id": 8,
+    "expected": 8,
+    "on": " largest"
+   },
+   {
+    "id": 9,
+    "expected": 0
+   },
+   {
+    "id": 10,
+    "expected": 3,
+    "on": " most"
+   },
+   {
+    "id": 11,
+    "expected": 3,
+    "on": " higher"
+   },
+   {
+    "id": 12,
+    "expected": 7,
+    "on": " largest"
+   },
+   {
+    "id": 13,
+    "expected": 1
+   },
+   {
+    "id": 14,
+    "expected": 0
+   },
+   {
+    "id": 15,
+    "expected": 0
+   },
+   {
+    "id": 16,
+    "expected": 4,
+    "on": " higher"
+   },
+   {
+    "id": 17,
+    "expected": 1
+   },
+   {
+    "id": 18,
+    "expected": 5,
+    "on": " most"
+   },
+   {
+    "id": 19,
+    "expected": 0
+   },
+   {
+    "id": 20,
+    "expected": 1
+   }
+  ]
+ },
+ {
+  "feature": 2011,
+  "arm": "examples",
+  "predictions": [
+   {
+    "id": 0,
+    "expected": 1
+   },
+   {
+    "id": 1,
+    "expected": 0
+   },
+   {
+    "id": 2,
+    "expected": 0
+   },
+   {
+    "id": 3,
+    "expected": 4,
+    "on": " largest"
+   },
+   {
+    "id": 4,
+    "expected": 4,
+    "on": " largest"
+   },
+   {
+    "id": 5,
+    "expected": 6,
+    "on": " largest"
+   },
+   {
+    "id": 6,
+    "expected": 10,
+    "on": " highest"
+   },
+   {
+    "id": 7,
+    "expected": 3,
+    "on": " lowest"
+   },
+   {
+    "id": 8,
+    "expected": 7,
+    "on": " largest"
+   },
+   {
+    "id": 9,
+    "expected": 0
+   },
+   {
+    "id": 10,
+    "expected": 2,
+    "on": " most"
+   },
+   {
+    "id": 11,
+    "expected": 2,
+    "on": " higher"
+   },
+   {
+    "id": 12,
+    "expected": 6,
+    "on": " largest"
+   },
+   {
+    "id": 13,
+    "expected": 0
+   },
+   {
+    "id": 14,
+    "expected": 0
+   },
+   {
+    "id": 15,
+    "expected": 0
+   },
+   {
+    "id": 16,
+    "expected": 2,
+    "on": " higher"
+   },
+   {
+    "id": 17,
+    "expected": 0
+   },
+   {
+    "id": 18,
+    "expected": 3,
+    "on": " most"
+   },
+   {
+    "id": 19,
+    "expected": 0
+   },
+   {
+    "id": 20,
+    "expected": 0
+   }
+  ]
+ },
+ {
+  "feature": 2011,
+  "arm": "investigated",
+  "predictions": [
+   {
+    "id": 0,
+    "expected": 0
+   },
+   {
+    "id": 1,
+    "expected": 0
+   },
+   {
+    "id": 2,
+    "expected": 0
+   },
+   {
+    "id": 3,
+    "expected": 2,
+    "on": " largest"
+   },
+   {
+    "id": 4,
+    "expected": 3,
+    "on": " largest"
+   },
+   {
+    "id": 5,
+    "expected": 3,
+    "on": " largest"
+   },
+   {
+    "id": 6,
+    "expected": 8,
+    "on": " highest"
+   },
+   {
+    "id": 7,
+    "expected": 4,
+    "on": " lowest"
+   },
+   {
+    "id": 8,
+    "expected": 4,
+    "on": " largest"
+   },
+   {
+    "id": 9,
+    "expected": 0
+   },
+   {
+    "id": 10,
+    "expected": 2,
+    "on": " most"
+   },
+   {
+    "id": 11,
+    "expected": 1
+   },
+   {
+    "id": 12,
+    "expected": 3,
+    "on": " largest"
+   },
+   {
+    "id": 13,
+    "expected": 1
+   },
+   {
+    "id": 14,
+    "expected": 0
+   },
+   {
+    "id": 15,
+    "expected": 0
+   },
+   {
+    "id": 16,
+    "expected": 1
+   },
+   {
+    "id": 17,
+    "expected": 0
+   },
+   {
+    "id": 18,
+    "expected": 4,
+    "on": " most"
+   },
+   {
+    "id": 19,
+    "expected": 0
+   },
+   {
+    "id": 20,
+    "expected": 0
+   }
+  ]
+ },
+ {
+  "feature": 16214,
+  "arm": "label",
+  "predictions": [
+   {
+    "id": 0,
+    "expected": 0
+   },
+   {
+    "id": 1,
+    "expected": 0
+   },
+   {
+    "id": 2,
+    "expected": 0
+   },
+   {
+    "id": 3,
+    "expected": 1
+   },
+   {
+    "id": 4,
+    "expected": 8,
+    "on": "''"
+   },
+   {
+    "id": 5,
+    "expected": 0
+   },
+   {
+    "id": 6,
+    "expected": 9,
+    "on": "''"
+   },
+   {
+    "id": 7,
+    "expected": 0
+   },
+   {
+    "id": 8,
+    "expected": 9,
+    "on": "\"\""
+   },
+   {
+    "id": 9,
+    "expected": 0
+   },
+   {
+    "id": 10,
+    "expected": 8,
+    "on": "''"
+   },
+   {
+    "id": 11,
+    "expected": 3,
+    "on": "[]"
+   },
+   {
+    "id": 12,
+    "expected": 0
+   },
+   {
+    "id": 13,
+    "expected": 0
+   },
+   {
+    "id": 14,
+    "expected": 1
+   },
+   {
+    "id": 15,
+    "expected": 0
+   },
+   {
+    "id": 16,
+    "expected": 0
+   },
+   {
+    "id": 17,
+    "expected": 0
+   },
+   {
+    "id": 18,
+    "expected": 3,
+    "on": "\"\""
+   },
+   {
+    "id": 19,
+    "expected": 0
+   },
+   {
+    "id": 20,
+    "expected": 6,
+    "on": "\"\""
+   }
+  ]
+ },
+ {
+  "feature": 16214,
+  "arm": "examples",
+  "predictions": [
+   {
+    "id": 0,
+    "expected": 0
+   },
+   {
+    "id": 1,
+    "expected": 0
+   },
+   {
+    "id": 2,
+    "expected": 0
+   },
+   {
+    "id": 3,
+    "expected": 0
+   },
+   {
+    "id": 4,
+    "expected": 4,
+    "on": " ''"
+   },
+   {
+    "id": 5,
+    "expected": 0
+   },
+   {
+    "id": 6,
+    "expected": 5,
+    "on": " ''"
+   },
+   {
+    "id": 7,
+    "expected": 0
+   },
+   {
+    "id": 8,
+    "expected": 10,
+    "on": " \"\""
+   },
+   {
+    "id": 9,
+    "expected": 0
+   },
+   {
+    "id": 10,
+    "expected": 5,
+    "on": " ''"
+   },
+   {
+    "id": 11,
+    "expected": 0
+   },
+   {
+    "id": 12,
+    "expected": 0
+   },
+   {
+    "id": 13,
+    "expected": 0
+   },
+   {
+    "id": 14,
+    "expected": 0
+   },
+   {
+    "id": 15,
+    "expected": 0
+   },
+   {
+    "id": 16,
+    "expected": 0
+   },
+   {
+    "id": 17,
+    "expected": 0
+   },
+   {
+    "id": 18,
+    "expected": 2,
+    "on": "\"\""
+   },
+   {
+    "id": 19,
+    "expected": 0
+   },
+   {
+    "id": 20,
+    "expected": 6,
+    "on": ":\"\""
+   }
+  ]
+ },
+ {
+  "feature": 16214,
+  "arm": "investigated",
+  "predictions": [
+   {
+    "id": 0,
+    "expected": 0
+   },
+   {
+    "id": 1,
+    "expected": 0
+   },
+   {
+    "id": 2,
+    "expected": 0
+   },
+   {
+    "id": 3,
+    "expected": 0
+   },
+   {
+    "id": 4,
+    "expected": 6,
+    "on": "''"
+   },
+   {
+    "id": 5,
+    "expected": 0
+   },
+   {
+    "id": 6,
+    "expected": 7,
+    "on": "''"
+   },
+   {
+    "id": 7,
+    "expected": 0
+   },
+   {
+    "id": 8,
+    "expected": 9,
+    "on": " \"\""
+   },
+   {
+    "id": 9,
+    "expected": 0
+   },
+   {
+    "id": 10,
+    "expected": 6,
+    "on": "''"
+   },
+   {
+    "id": 11,
+    "expected": 1
+   },
+   {
+    "id": 12,
+    "expected": 0
+   },
+   {
+    "id": 13,
+    "expected": 0
+   },
+   {
+    "id": 14,
+    "expected": 0
+   },
+   {
+    "id": 15,
+    "expected": 0
+   },
+   {
+    "id": 16,
+    "expected": 1
+   },
+   {
+    "id": 17,
+    "expected": 0
+   },
+   {
+    "id": 18,
+    "expected": 4,
+    "on": "\"\""
+   },
+   {
+    "id": 19,
+    "expected": 0
+   },
+   {
+    "id": 20,
+    "expected": 5,
+    "on": "\"\""
+   }
+  ]
+ },
+ {
+  "feature": 4678,
+  "arm": "label",
+  "predictions": [
+   {
+    "id": 0,
+    "expected": 0
+   },
+   {
+    "id": 1,
+    "expected": 0
+   },
+   {
+    "id": 2,
+    "expected": 0
+   },
+   {
+    "id": 3,
+    "expected": 3,
+    "on": " prefer"
+   },
+   {
+    "id": 4,
+    "expected": 6,
+    "on": " like"
+   },
+   {
+    "id": 5,
+    "expected": 1
+   },
+   {
+    "id": 6,
+    "expected": 7,
+    "on": " likes"
+   },
+   {
+    "id": 7,
+    "expected": 2,
+    "on": " Enjoy"
+   },
+   {
+    "id": 8,
+    "expected": 7,
+    "on": " likes"
+   },
+   {
+    "id": 9,
+    "expected": 0
+   },
+   {
+    "id": 10,
+    "expected": 2,
+    "on": " like"
+   },
+   {
+    "id": 11,
+    "expected": 1
+   },
+   {
+    "id": 12,
+    "expected": 4,
+    "on": " love"
+   },
+   {
+    "id": 13,
+    "expected": 0
+   },
+   {
+    "id": 14,
+    "expected": 1
+   },
+   {
+    "id": 15,
+    "expected": 0
+   },
+   {
+    "id": 16,
+    "expected": 2,
+    "on": "like"
+   },
+   {
+    "id": 17,
+    "expected": 1
+   },
+   {
+    "id": 18,
+    "expected": 6,
+    "on": " liked"
+   },
+   {
+    "id": 19,
+    "expected": 0
+   },
+   {
+    "id": 20,
+    "expected": 3,
+    "on": " like"
+   }
+  ]
+ },
+ {
+  "feature": 4678,
+  "arm": "examples",
+  "predictions": [
+   {
+    "id": 0,
+    "expected": 0
+   },
+   {
+    "id": 1,
+    "expected": 0
+   },
+   {
+    "id": 2,
+    "expected": 0
+   },
+   {
+    "id": 3,
+    "expected": 1
+   },
+   {
+    "id": 4,
+    "expected": 8,
+    "on": " like"
+   },
+   {
+    "id": 5,
+    "expected": 0
+   },
+   {
+    "id": 6,
+    "expected": 10,
+    "on": " likes"
+   },
+   {
+    "id": 7,
+    "expected": 0
+   },
+   {
+    "id": 8,
+    "expected": 10,
+    "on": " likes"
+   },
+   {
+    "id": 9,
+    "expected": 0
+   },
+   {
+    "id": 10,
+    "expected": 5,
+    "on": " like"
+   },
+   {
+    "id": 11,
+    "expected": 0
+   },
+   {
+    "id": 12,
+    "expected": 0
+   },
+   {
+    "id": 13,
+    "expected": 0
+   },
+   {
+    "id": 14,
+    "expected": 1
+   },
+   {
+    "id": 15,
+    "expected": 0
+   },
+   {
+    "id": 16,
+    "expected": 2,
+    "on": "like"
+   },
+   {
+    "id": 17,
+    "expected": 1
+   },
+   {
+    "id": 18,
+    "expected": 7,
+    "on": " liked"
+   },
+   {
+    "id": 19,
+    "expected": 0
+   },
+   {
+    "id": 20,
+    "expected": 5,
+    "on": " like"
+   }
+  ]
+ },
+ {
+  "feature": 4678,
+  "arm": "investigated",
+  "predictions": [
+   {
+    "id": 0,
+    "expected": 0
+   },
+   {
+    "id": 1,
+    "expected": 0
+   },
+   {
+    "id": 2,
+    "expected": 0
+   },
+   {
+    "id": 3,
+    "expected": 1
+   },
+   {
+    "id": 4,
+    "expected": 7,
+    "on": " like"
+   },
+   {
+    "id": 5,
+    "expected": 0
+   },
+   {
+    "id": 6,
+    "expected": 9,
+    "on": " likes"
+   },
+   {
+    "id": 7,
+    "expected": 1
+   },
+   {
+    "id": 8,
+    "expected": 9,
+    "on": " likes"
+   },
+   {
+    "id": 9,
+    "expected": 0
+   },
+   {
+    "id": 10,
+    "expected": 6,
+    "on": " like"
+   },
+   {
+    "id": 11,
+    "expected": 0
+   },
+   {
+    "id": 12,
+    "expected": 0
+   },
+   {
+    "id": 13,
+    "expected": 0
+   },
+   {
+    "id": 14,
+    "expected": 1
+   },
+   {
+    "id": 15,
+    "expected": 0
+   },
+   {
+    "id": 16,
+    "expected": 3,
+    "on": "like"
+   },
+   {
+    "id": 17,
+    "expected": 1
+   },
+   {
+    "id": 18,
+    "expected": 7,
+    "on": " liked"
+   },
+   {
+    "id": 19,
+    "expected": 0
+   },
+   {
+    "id": 20,
+    "expected": 7,
+    "on": " like"
+   }
+  ]
+ },
+ {
+  "feature": 4190,
+  "arm": "label",
+  "predictions": [
+   {
+    "id": 0,
+    "expected": 0
+   },
+   {
+    "id": 1,
+    "expected": 0
+   },
+   {
+    "id": 2,
+    "expected": 0
+   },
+   {
+    "id": 3,
+    "expected": 1
+   },
+   {
+    "id": 4,
+    "expected": 2,
+    "on": " but"
+   },
+   {
+    "id": 5,
+    "expected": 1
+   },
+   {
+    "id": 6,
+    "expected": 4,
+    "on": " only"
+   },
+   {
+    "id": 7,
+    "expected": 0
+   },
+   {
+    "id": 8,
+    "expected": 8,
+    "on": " only"
+   },
+   {
+    "id": 9,
+    "expected": 0
+   },
+   {
+    "id": 10,
+    "expected": 6,
+    "on": " only"
+   },
+   {
+    "id": 11,
+    "expected": 4,
+    "on": " only"
+   },
+   {
+    "id": 12,
+    "expected": 1
+   },
+   {
+    "id": 13,
+    "expected": 7,
+    "on": " only"
+   },
+   {
+    "id": 14,
+    "expected": 1
+   },
+   {
+    "id": 15,
+    "expected": 0
+   },
+   {
+    "id": 16,
+    "expected": 4,
+    "on": " only"
+   },
+   {
+    "id": 17,
+    "expected": 6,
+    "on": " only"
+   },
+   {
+    "id": 18,
+    "expected": 5,
+    "on": " only"
+   },
+   {
+    "id": 19,
+    "expected": 0
+   },
+   {
+    "id": 20,
+    "expected": 8,
+    "on": " only"
+   }
+  ]
+ },
+ {
+  "feature": 4190,
+  "arm": "examples",
+  "predictions": [
+   {
+    "id": 0,
+    "expected": 0
+   },
+   {
+    "id": 1,
+    "expected": 0
+   },
+   {
+    "id": 2,
+    "expected": 0
+   },
+   {
+    "id": 3,
+    "expected": 1
+   },
+   {
+    "id": 4,
+    "expected": 1
+   },
+   {
+    "id": 5,
+    "expected": 0
+   },
+   {
+    "id": 6,
+    "expected": 3,
+    "on": " only"
+   },
+   {
+    "id": 7,
+    "expected": 0
+   },
+   {
+    "id": 8,
+    "expected": 7,
+    "on": " only"
+   },
+   {
+    "id": 9,
+    "expected": 0
+   },
+   {
+    "id": 10,
+    "expected": 5,
+    "on": " only"
+   },
+   {
+    "id": 11,
+    "expected": 5,
+    "on": " only"
+   },
+   {
+    "id": 12,
+    "expected": 0
+   },
+   {
+    "id": 13,
+    "expected": 6,
+    "on": " only"
+   },
+   {
+    "id": 14,
+    "expected": 0.5
+   },
+   {
+    "id": 15,
+    "expected": 0
+   },
+   {
+    "id": 16,
+    "expected": 3,
+    "on": " only"
+   },
+   {
+    "id": 17,
+    "expected": 4,
+    "on": " only"
+   },
+   {
+    "id": 18,
+    "expected": 6,
+    "on": " only"
+   },
+   {
+    "id": 19,
+    "expected": 0
+   },
+   {
+    "id": 20,
+    "expected": 7,
+    "on": " only"
+   }
+  ]
+ },
+ {
+  "feature": 4190,
+  "arm": "investigated",
+  "predictions": [
+   {
+    "id": 0,
+    "expected": 0
+   },
+   {
+    "id": 1,
+    "expected": 0
+   },
+   {
+    "id": 2,
+    "expected": 0
+   },
+   {
+    "id": 3,
+    "expected": 0
+   },
+   {
+    "id": 4,
+    "expected": 0.5
+   },
+   {
+    "id": 5,
+    "expected": 0
+   },
+   {
+    "id": 6,
+    "expected": 2,
+    "on": " only"
+   },
+   {
+    "id": 7,
+    "expected": 0
+   },
+   {
+    "id": 8,
+    "expected": 3.5,
+    "on": " only"
+   },
+   {
+    "id": 9,
+    "expected": 0
+   },
+   {
+    "id": 10,
+    "expected": 2.5,
+    "on": " only"
+   },
+   {
+    "id": 11,
+    "expected": 2.5,
+    "on": " only"
+   },
+   {
+    "id": 12,
+    "expected": 0
+   },
+   {
+    "id": 13,
+    "expected": 3,
+    "on": " only"
+   },
+   {
+    "id": 14,
+    "expected": 0
+   },
+   {
+    "id": 15,
+    "expected": 0
+   },
+   {
+    "id": 16,
+    "expected": 1.5
+   },
+   {
+    "id": 17,
+    "expected": 2.5,
+    "on": " only"
+   },
+   {
+    "id": 18,
+    "expected": 2.5,
+    "on": " only"
+   },
+   {
+    "id": 19,
+    "expected": 0
+   },
+   {
+    "id": 20,
+    "expected": 3.5,
+    "on": " only"
+   }
+  ]
+ },
+ {
+  "feature": 12043,
+  "arm": "label",
+  "predictions": [
+   {
+    "id": 0,
+    "expected": 3,
+    "on": " Wire"
+   },
+   {
+    "id": 1,
+    "expected": 1
+   },
+   {
+    "id": 2,
+    "expected": 0
+   },
+   {
+    "id": 3,
+    "expected": 3,
+    "on": "row"
+   },
+   {
+    "id": 4,
+    "expected": 3,
+    "on": "select"
+   },
+   {
+    "id": 5,
+    "expected": 1
+   },
+   {
+    "id": 6,
+    "expected": 4,
+    "on": "SELECT"
+   },
+   {
+    "id": 7,
+    "expected": 3,
+    "on": "putExtra"
+   },
+   {
+    "id": 8,
+    "expected": 4,
+    "on": " int"
+   },
+   {
+    "id": 9,
+    "expected": 0
+   },
+   {
+    "id": 10,
+    "expected": 2,
+    "on": "param"
+   },
+   {
+    "id": 11,
+    "expected": 3,
+    "on": "int"
+   },
+   {
+    "id": 12,
+    "expected": 3,
+    "on": "cursor"
+   },
+   {
+    "id": 13,
+    "expected": 4,
+    "on": "JOIN"
+   },
+   {
+    "id": 14,
+    "expected": 3,
+    "on": "setPathType"
+   },
+   {
+    "id": 15,
+    "expected": 0
+   },
+   {
+    "id": 16,
+    "expected": 4,
+    "on": "static"
+   },
+   {
+    "id": 17,
+    "expected": 0
+   },
+   {
+    "id": 18,
+    "expected": 4,
+    "on": " TABLE"
+   },
+   {
+    "id": 19,
+    "expected": 0.5
+   },
+   {
+    "id": 20,
+    "expected": 4,
+    "on": "getOwnPropertyDescriptor"
+   }
+  ]
+ },
+ {
+  "feature": 12043,
+  "arm": "examples",
+  "predictions": [
+   {
+    "id": 0,
+    "expected": 1
+   },
+   {
+    "id": 1,
+    "expected": 0
+   },
+   {
+    "id": 2,
+    "expected": 0
+   },
+   {
+    "id": 3,
+    "expected": 2,
+    "on": "'=>$"
+   },
+   {
+    "id": 4,
+    "expected": 4,
+    "on": "',"
+   },
+   {
+    "id": 5,
+    "expected": 0
+   },
+   {
+    "id": 6,
+    "expected": 5,
+    "on": " :"
+   },
+   {
+    "id": 7,
+    "expected": 3,
+    "on": ","
+   },
+   {
+    "id": 8,
+    "expected": 3,
+    "on": " ("
+   },
+   {
+    "id": 9,
+    "expected": 0
+   },
+   {
+    "id": 10,
+    "expected": 6,
+    "on": "param"
+   },
+   {
+    "id": 11,
+    "expected": 3,
+    "on": ","
+   },
+   {
+    "id": 12,
+    "expected": 4,
+    "on": ","
+   },
+   {
+    "id": 13,
+    "expected": 2,
+    "on": " ("
+   },
+   {
+    "id": 14,
+    "expected": 3,
+    "on": ","
+   },
+   {
+    "id": 15,
+    "expected": 0
+   },
+   {
+    "id": 16,
+    "expected": 2,
+    "on": ","
+   },
+   {
+    "id": 17,
+    "expected": 0
+   },
+   {
+    "id": 18,
+    "expected": 3,
+    "on": "("
+   },
+   {
+    "id": 19,
+    "expected": 0
+   },
+   {
+    "id": 20,
+    "expected": 5,
+    "on": ","
+   }
+  ]
+ },
+ {
+  "feature": 12043,
+  "arm": "investigated",
+  "predictions": [
+   {
+    "id": 0,
+    "expected": 0
+   },
+   {
+    "id": 1,
+    "expected": 0
+   },
+   {
+    "id": 2,
+    "expected": 0
+   },
+   {
+    "id": 3,
+    "expected": 1
+   },
+   {
+    "id": 4,
+    "expected": 3,
+    "on": "',"
+   },
+   {
+    "id": 5,
+    "expected": 1
+   },
+   {
+    "id": 6,
+    "expected": 6,
+    "on": " :"
+   },
+   {
+    "id": 7,
+    "expected": 1
+   },
+   {
+    "id": 8,
+    "expected": 1
+   },
+   {
+    "id": 9,
+    "expected": 0
+   },
+   {
+    "id": 10,
+    "expected": 5,
+    "on": " name"
+   },
+   {
+    "id": 11,
+    "expected": 0
+   },
+   {
+    "id": 12,
+    "expected": 1
+   },
+   {
+    "id": 13,
+    "expected": 0
+   },
+   {
+    "id": 14,
+    "expected": 1
+   },
+   {
+    "id": 15,
+    "expected": 0
+   },
+   {
+    "id": 16,
+    "expected": 3,
+    "on": "("
+   },
+   {
+    "id": 17,
+    "expected": 0
+   },
+   {
+    "id": 18,
+    "expected": 1
+   },
+   {
+    "id": 19,
+    "expected": 0
+   },
+   {
+    "id": 20,
+    "expected": 3,
+    "on": " '"
+   }
+  ]
+ },
+ {
+  "feature": 2788,
+  "arm": "label",
+  "predictions": [
+   {
+    "id": 0,
+    "expected": 0
+   },
+   {
+    "id": 1,
+    "expected": 0
+   },
+   {
+    "id": 2,
+    "expected": 0
+   },
+   {
+    "id": 3,
+    "expected": 6,
+    "on": "view"
+   },
+   {
+    "id": 4,
+    "expected": 6,
+    "on": "html"
+   },
+   {
+    "id": 5,
+    "expected": 5,
+    "on": "T"
+   },
+   {
+    "id": 6,
+    "expected": 6,
+    "on": "page"
+   },
+   {
+    "id": 7,
+    "expected": 6,
+    "on": "sec"
+   },
+   {
+    "id": 8,
+    "expected": 6,
+    "on": "full"
+   },
+   {
+    "id": 9,
+    "expected": 0
+   },
+   {
+    "id": 10,
+    "expected": 5,
+    "on": "type"
+   },
+   {
+    "id": 11,
+    "expected": 6,
+    "on": "browse"
+   },
+   {
+    "id": 12,
+    "expected": 1
+   },
+   {
+    "id": 13,
+    "expected": 0
+   },
+   {
+    "id": 14,
+    "expected": 3,
+    "on": "ref"
+   },
+   {
+    "id": 15,
+    "expected": 0
+   },
+   {
+    "id": 16,
+    "expected": 5,
+    "on": "t"
+   },
+   {
+    "id": 17,
+    "expected": 3,
+    "on": "dc"
+   },
+   {
+    "id": 18,
+    "expected": 5,
+    "on": "MO"
+   },
+   {
+    "id": 19,
+    "expected": 5,
+    "on": "max"
+   },
+   {
+    "id": 20,
+    "expected": 7,
+    "on": "watch"
+   }
+  ]
+ },
+ {
+  "feature": 2788,
+  "arm": "examples",
+  "predictions": [
+   {
+    "id": 0,
+    "expected": 0
+   },
+   {
+    "id": 1,
+    "expected": 0
+   },
+   {
+    "id": 2,
+    "expected": 0
+   },
+   {
+    "id": 3,
+    "expected": 1
+   },
+   {
+    "id": 4,
+    "expected": 3,
+    "on": "_"
+   },
+   {
+    "id": 5,
+    "expected": 1
+   },
+   {
+    "id": 6,
+    "expected": 2,
+    "on": "="
+   },
+   {
+    "id": 7,
+    "expected": 1
+   },
+   {
+    "id": 8,
+    "expected": 1
+   },
+   {
+    "id": 9,
+    "expected": 0
+   },
+   {
+    "id": 10,
+    "expected": 3,
+    "on": "_"
+   },
+   {
+    "id": 11,
+    "expected": 1
+   },
+   {
+    "id": 12,
+    "expected": 0
+   },
+   {
+    "id": 13,
+    "expected": 0
+   },
+   {
+    "id": 14,
+    "expected": 0
+   },
+   {
+    "id": 15,
+    "expected": 0
+   },
+   {
+    "id": 16,
+    "expected": 1
+   },
+   {
+    "id": 17,
+    "expected": 1
+   },
+   {
+    "id": 18,
+    "expected": 1
+   },
+   {
+    "id": 19,
+    "expected": 1
+   },
+   {
+    "id": 20,
+    "expected": 2,
+    "on": "="
+   }
+  ]
+ },
+ {
+  "feature": 2788,
+  "arm": "investigated",
+  "predictions": [
+   {
+    "id": 0,
+    "expected": 0
+   },
+   {
+    "id": 1,
+    "expected": 0
+   },
+   {
+    "id": 2,
+    "expected": 0
+   },
+   {
+    "id": 3,
+    "expected": 1
+   },
+   {
+    "id": 4,
+    "expected": 2,
+    "on": "id"
+   },
+   {
+    "id": 5,
+    "expected": 2,
+    "on": "type"
+   },
+   {
+    "id": 6,
+    "expected": 4,
+    "on": "="
+   },
+   {
+    "id": 7,
+    "expected": 1
+   },
+   {
+    "id": 8,
+    "expected": 2,
+    "on": "material"
+   },
+   {
+    "id": 9,
+    "expected": 0
+   },
+   {
+    "id": 10,
+    "expected": 3,
+    "on": "="
+   },
+   {
+    "id": 11,
+    "expected": 1
+   },
+   {
+    "id": 12,
+    "expected": 0
+   },
+   {
+    "id": 13,
+    "expected": 0
+   },
+   {
+    "id": 14,
+    "expected": 2,
+    "on": "type"
+   },
+   {
+    "id": 15,
+    "expected": 0
+   },
+   {
+    "id": 16,
+    "expected": 2,
+    "on": "type"
+   },
+   {
+    "id": 17,
+    "expected": 0
+   },
+   {
+    "id": 18,
+    "expected": 2,
+    "on": "type"
+   },
+   {
+    "id": 19,
+    "expected": 2,
+    "on": "cdn"
+   },
+   {
+    "id": 20,
+    "expected": 3,
+    "on": "="
+   }
+  ]
+ },
+ {
+  "feature": 5976,
+  "arm": "label",
+  "predictions": [
+   {
+    "id": 0,
+    "expected": 0
+   },
+   {
+    "id": 1,
+    "expected": 0
+   },
+   {
+    "id": 2,
+    "expected": 1
+   },
+   {
+    "id": 3,
+    "expected": 0
+   },
+   {
+    "id": 4,
+    "expected": 3,
+    "on": " return"
+   },
+   {
+    "id": 5,
+    "expected": 5,
+    "on": " used"
+   },
+   {
+    "id": 6,
+    "expected": 6,
+    "on": " which"
+   },
+   {
+    "id": 7,
+    "expected": 4,
+    "on": " representation"
+   },
+   {
+    "id": 8,
+    "expected": 6,
+    "on": " used"
+   },
+   {
+    "id": 9,
+    "expected": 0
+   },
+   {
+    "id": 10,
+    "expected": 5,
+    "on": " which"
+   },
+   {
+    "id": 11,
+    "expected": 1
+   },
+   {
+    "id": 12,
+    "expected": 1
+   },
+   {
+    "id": 13,
+    "expected": 5,
+    "on": " provide"
+   },
+   {
+    "id": 14,
+    "expected": 6,
+    "on": " which"
+   },
+   {
+    "id": 15,
+    "expected": 1
+   },
+   {
+    "id": 16,
+    "expected": 3,
+    "on": " that"
+   },
+   {
+    "id": 17,
+    "expected": 1
+   },
+   {
+    "id": 18,
+    "expected": 6,
+    "on": " which"
+   },
+   {
+    "id": 19,
+    "expected": 0
+   },
+   {
+    "id": 20,
+    "expected": 4,
+    "on": " measurement"
+   }
+  ]
+ },
+ {
+  "feature": 5976,
+  "arm": "examples",
+  "predictions": [
+   {
+    "id": 0,
+    "expected": 0
+   },
+   {
+    "id": 1,
+    "expected": 0
+   },
+   {
+    "id": 2,
+    "expected": 1
+   },
+   {
+    "id": 3,
+    "expected": 0
+   },
+   {
+    "id": 4,
+    "expected": 3,
+    "on": " from"
+   },
+   {
+    "id": 5,
+    "expected": 4,
+    "on": " to"
+   },
+   {
+    "id": 6,
+    "expected": 6,
+    "on": " order"
+   },
+   {
+    "id": 7,
+    "expected": 4,
+    "on": " in"
+   },
+   {
+    "id": 8,
+    "expected": 5,
+    "on": " to"
+   },
+   {
+    "id": 9,
+    "expected": 0
+   },
+   {
+    "id": 10,
+    "expected": 4,
+    "on": " which"
+   },
+   {
+    "id": 11,
+    "expected": 2,
+    "on": " via"
+   },
+   {
+    "id": 12,
+    "expected": 1
+   },
+   {
+    "id": 13,
+    "expected": 2,
+    "on": " for"
+   },
+   {
+    "id": 14,
+    "expected": 5,
+    "on": " which"
+   },
+   {
+    "id": 15,
+    "expected": 0
+   },
+   {
+    "id": 16,
+    "expected": 2,
+    "on": " is"
+   },
+   {
+    "id": 17,
+    "expected": 1
+   },
+   {
+    "id": 18,
+    "expected": 5,
+    "on": " by"
+   },
+   {
+    "id": 19,
+    "expected": 0
+   },
+   {
+    "id": 20,
+    "expected": 4,
+    "on": " of"
+   }
+  ]
+ },
+ {
+  "feature": 5976,
+  "arm": "investigated",
+  "predictions": [
+   {
+    "id": 0,
+    "expected": 0
+   },
+   {
+    "id": 1,
+    "expected": 0
+   },
+   {
+    "id": 2,
+    "expected": 1
+   },
+   {
+    "id": 3,
+    "expected": 0
+   },
+   {
+    "id": 4,
+    "expected": 4,
+    "on": " features"
+   },
+   {
+    "id": 5,
+    "expected": 3,
+    "on": " transport"
+   },
+   {
+    "id": 6,
+    "expected": 6,
+    "on": " manner"
+   },
+   {
+    "id": 7,
+    "expected": 5,
+    "on": " form"
+   },
+   {
+    "id": 8,
+    "expected": 5,
+    "on": " transport"
+   },
+   {
+    "id": 9,
+    "expected": 0
+   },
+   {
+    "id": 10,
+    "expected": 4,
+    "on": " between"
+   },
+   {
+    "id": 11,
+    "expected": 2,
+    "on": " via"
+   },
+   {
+    "id": 12,
+    "expected": 1
+   },
+   {
+    "id": 13,
+    "expected": 3,
+    "on": " provide"
+   },
+   {
+    "id": 14,
+    "expected": 4,
+    "on": " which"
+   },
+   {
+    "id": 15,
+    "expected": 0
+   },
+   {
+    "id": 16,
+    "expected": 3,
+    "on": " other"
+   },
+   {
+    "id": 17,
+    "expected": 1
+   },
+   {
+    "id": 18,
+    "expected": 5,
+    "on": " deposition"
+   },
+   {
+    "id": 19,
+    "expected": 0
+   },
+   {
+    "id": 20,
+    "expected": 4,
+    "on": " reproducibility"
+   }
+  ]
+ },
+ {
+  "feature": 115,
+  "arm": "label",
+  "predictions": [
+   {
+    "id": 0,
+    "expected": 0
+   },
+   {
+    "id": 1,
+    "expected": 0
+   },
+   {
+    "id": 2,
+    "expected": 1
+   },
+   {
+    "id": 3,
+    "expected": 5,
+    "on": "2"
+   },
+   {
+    "id": 4,
+    "expected": 4,
+    "on": "2"
+   },
+   {
+    "id": 5,
+    "expected": 3,
+    "on": "2"
+   },
+   {
+    "id": 6,
+    "expected": 6,
+    "on": "2"
+   },
+   {
+    "id": 7,
+    "expected": 5,
+    "on": " al"
+   },
+   {
+    "id": 8,
+    "expected": 6,
+    "on": "2"
+   },
+   {
+    "id": 9,
+    "expected": 0
+   },
+   {
+    "id": 10,
+    "expected": 5,
+    "on": "2"
+   },
+   {
+    "id": 11,
+    "expected": 5,
+    "on": " al"
+   },
+   {
+    "id": 12,
+    "expected": 5,
+    "on": " al"
+   },
+   {
+    "id": 13,
+    "expected": 3,
+    "on": "4"
+   },
+   {
+    "id": 14,
+    "expected": 5,
+    "on": "1"
+   },
+   {
+    "id": 15,
+    "expected": 1
+   },
+   {
+    "id": 16,
+    "expected": 5,
+    "on": "2"
+   },
+   {
+    "id": 17,
+    "expected": 3,
+    "on": "3"
+   },
+   {
+    "id": 18,
+    "expected": 5,
+    "on": "1"
+   },
+   {
+    "id": 19,
+    "expected": 0
+   },
+   {
+    "id": 20,
+    "expected": 5,
+    "on": "2"
+   }
+  ]
+ },
+ {
+  "feature": 115,
+  "arm": "examples",
+  "predictions": [
+   {
+    "id": 0,
+    "expected": 0
+   },
+   {
+    "id": 1,
+    "expected": 0
+   },
+   {
+    "id": 2,
+    "expected": 0
+   },
+   {
+    "id": 3,
+    "expected": 5,
+    "on": "0"
+   },
+   {
+    "id": 4,
+    "expected": 3,
+    "on": "0"
+   },
+   {
+    "id": 5,
+    "expected": 0.5
+   },
+   {
+    "id": 6,
+    "expected": 9,
+    "on": "0"
+   },
+   {
+    "id": 7,
+    "expected": 1
+   },
+   {
+    "id": 8,
+    "expected": 8,
+    "on": "0"
+   },
+   {
+    "id": 9,
+    "expected": 0
+   },
+   {
+    "id": 10,
+    "expected": 4,
+    "on": "0"
+   },
+   {
+    "id": 11,
+    "expected": 1
+   },
+   {
+    "id": 12,
+    "expected": 1
+   },
+   {
+    "id": 13,
+    "expected": 1
+   },
+   {
+    "id": 14,
+    "expected": 6,
+    "on": "9"
+   },
+   {
+    "id": 15,
+    "expected": 0
+   },
+   {
+    "id": 16,
+    "expected": 4,
+    "on": "0"
+   },
+   {
+    "id": 17,
+    "expected": 0.5
+   },
+   {
+    "id": 18,
+    "expected": 4,
+    "on": "9"
+   },
+   {
+    "id": 19,
+    "expected": 0
+   },
+   {
+    "id": 20,
+    "expected": 4,
+    "on": "0"
+   }
+  ]
+ },
+ {
+  "feature": 115,
+  "arm": "investigated",
+  "predictions": [
+   {
+    "id": 0,
+    "expected": 0
+   },
+   {
+    "id": 1,
+    "expected": 0
+   },
+   {
+    "id": 2,
+    "expected": 0
+   },
+   {
+    "id": 3,
+    "expected": 5,
+    "on": "0"
+   },
+   {
+    "id": 4,
+    "expected": 4,
+    "on": "0"
+   },
+   {
+    "id": 5,
+    "expected": 0
+   },
+   {
+    "id": 6,
+    "expected": 8,
+    "on": "0"
+   },
+   {
+    "id": 7,
+    "expected": 1
+   },
+   {
+    "id": 8,
+    "expected": 7,
+    "on": "0"
+   },
+   {
+    "id": 9,
+    "expected": 0
+   },
+   {
+    "id": 10,
+    "expected": 4,
+    "on": "0"
+   },
+   {
+    "id": 11,
+    "expected": 1
+   },
+   {
+    "id": 12,
+    "expected": 1
+   },
+   {
+    "id": 13,
+    "expected": 1
+   },
+   {
+    "id": 14,
+    "expected": 5.5,
+    "on": "9"
+   },
+   {
+    "id": 15,
+    "expected": 0
+   },
+   {
+    "id": 16,
+    "expected": 4,
+    "on": "0"
+   },
+   {
+    "id": 17,
+    "expected": 0
+   },
+   {
+    "id": 18,
+    "expected": 4,
+    "on": "9"
+   },
+   {
+    "id": 19,
+    "expected": 0
+   },
+   {
+    "id": 20,
+    "expected": 4,
+    "on": "0"
+   }
+  ]
+ },
+ {
+  "feature": 312,
+  "arm": "label",
+  "predictions": [
+   {
+    "id": 0,
+    "expected": 2,
+    "on": " machines"
+   },
+   {
+    "id": 1,
+    "expected": 0
+   },
+   {
+    "id": 2,
+    "expected": 0
+   },
+   {
+    "id": 3,
+    "expected": 0
+   },
+   {
+    "id": 4,
+    "expected": 0
+   },
+   {
+    "id": 5,
+    "expected": 0
+   },
+   {
+    "id": 6,
+    "expected": 0
+   },
+   {
+    "id": 7,
+    "expected": 0
+   },
+   {
+    "id": 8,
+    "expected": 0
+   },
+   {
+    "id": 9,
+    "expected": 0
+   },
+   {
+    "id": 10,
+    "expected": 0
+   },
+   {
+    "id": 11,
+    "expected": 0
+   },
+   {
+    "id": 12,
+    "expected": 0
+   },
+   {
+    "id": 13,
+    "expected": 2,
+    "on": " gauge"
+   },
+   {
+    "id": 14,
+    "expected": 1
+   },
+   {
+    "id": 15,
+    "expected": 0
+   },
+   {
+    "id": 16,
+    "expected": 0
+   },
+   {
+    "id": 17,
+    "expected": 0
+   },
+   {
+    "id": 18,
+    "expected": 3,
+    "on": " states"
+   },
+   {
+    "id": 19,
+    "expected": 0
+   },
+   {
+    "id": 20,
+    "expected": 7,
+    "on": " Bell"
+   }
+  ]
+ },
+ {
+  "feature": 312,
+  "arm": "examples",
+  "predictions": [
+   {
+    "id": 0,
+    "expected": 0
+   },
+   {
+    "id": 1,
+    "expected": 0
+   },
+   {
+    "id": 2,
+    "expected": 0
+   },
+   {
+    "id": 3,
+    "expected": 0
+   },
+   {
+    "id": 4,
+    "expected": 0
+   },
+   {
+    "id": 5,
+    "expected": 1
+   },
+   {
+    "id": 6,
+    "expected": 9,
+    "on": " space"
+   },
+   {
+    "id": 7,
+    "expected": 0
+   },
+   {
+    "id": 8,
+    "expected": 2,
+    "on": " transformation"
+   },
+   {
+    "id": 9,
+    "expected": 0
+   },
+   {
+    "id": 10,
+    "expected": 0
+   },
+   {
+    "id": 11,
+    "expected": 0
+   },
+   {
+    "id": 12,
+    "expected": 0
+   },
+   {
+    "id": 13,
+    "expected": 1
+   },
+   {
+    "id": 14,
+    "expected": 0
+   },
+   {
+    "id": 15,
+    "expected": 0
+   },
+   {
+    "id": 16,
+    "expected": 1
+   },
+   {
+    "id": 17,
+    "expected": 0
+   },
+   {
+    "id": 18,
+    "expected": 1
+   },
+   {
+    "id": 19,
+    "expected": 0
+   },
+   {
+    "id": 20,
+    "expected": 1
+   }
+  ]
+ },
+ {
+  "feature": 312,
+  "arm": "investigated",
+  "predictions": [
+   {
+    "id": 0,
+    "expected": 0
+   },
+   {
+    "id": 1,
+    "expected": 0
+   },
+   {
+    "id": 2,
+    "expected": 0
+   },
+   {
+    "id": 3,
+    "expected": 1
+   },
+   {
+    "id": 4,
+    "expected": 0
+   },
+   {
+    "id": 5,
+    "expected": 4,
+    "on": " surely"
+   },
+   {
+    "id": 6,
+    "expected": 7,
+    "on": " space"
+   },
+   {
+    "id": 7,
+    "expected": 0
+   },
+   {
+    "id": 8,
+    "expected": 5,
+    "on": " transformation"
+   },
+   {
+    "id": 9,
+    "expected": 0
+   },
+   {
+    "id": 10,
+    "expected": 1
+   },
+   {
+    "id": 11,
+    "expected": 2,
+    "on": " diagrams"
+   },
+   {
+    "id": 12,
+    "expected": 1
+   },
+   {
+    "id": 13,
+    "expected": 2,
+    "on": " gauge"
+   },
+   {
+    "id": 14,
+    "expected": 1
+   },
+   {
+    "id": 15,
+    "expected": 1
+   },
+   {
+    "id": 16,
+    "expected": 3,
+    "on": " solutions"
+   },
+   {
+    "id": 17,
+    "expected": 1
+   },
+   {
+    "id": 18,
+    "expected": 3,
+    "on": " degeneracy"
+   },
+   {
+    "id": 19,
+    "expected": 0
+   },
+   {
+    "id": 20,
+    "expected": 3,
+    "on": " theorem"
+   }
+  ]
+ },
+ {
+  "feature": 2616,
+  "arm": "label",
+  "predictions": [
+   {
+    "id": 0,
+    "expected": 1
+   },
+   {
+    "id": 1,
+    "expected": 1
+   },
+   {
+    "id": 2,
+    "expected": 0
+   },
+   {
+    "id": 3,
+    "expected": 0
+   },
+   {
+    "id": 4,
+    "expected": 5,
+    "on": " over"
+   },
+   {
+    "id": 5,
+    "expected": 1
+   },
+   {
+    "id": 6,
+    "expected": 7,
+    "on": " over"
+   },
+   {
+    "id": 7,
+    "expected": 1
+   },
+   {
+    "id": 8,
+    "expected": 9,
+    "on": " over"
+   },
+   {
+    "id": 9,
+    "expected": 0
+   },
+   {
+    "id": 10,
+    "expected": 9,
+    "on": " over"
+   },
+   {
+    "id": 11,
+    "expected": 5,
+    "on": " across"
+   },
+   {
+    "id": 12,
+    "expected": 2,
+    "on": " around"
+   },
+   {
+    "id": 13,
+    "expected": 1
+   },
+   {
+    "id": 14,
+    "expected": 1
+   },
+   {
+    "id": 15,
+    "expected": 0
+   },
+   {
+    "id": 16,
+    "expected": 1
+   },
+   {
+    "id": 17,
+    "expected": 2,
+    "on": " above"
+   },
+   {
+    "id": 18,
+    "expected": 4,
+    "on": " over"
+   },
+   {
+    "id": 19,
+    "expected": 0
+   },
+   {
+    "id": 20,
+    "expected": 5,
+    "on": " over"
+   }
+  ]
+ },
+ {
+  "feature": 2616,
+  "arm": "examples",
+  "predictions": [
+   {
+    "id": 0,
+    "expected": 0
+   },
+   {
+    "id": 1,
+    "expected": 0
+   },
+   {
+    "id": 2,
+    "expected": 0
+   },
+   {
+    "id": 3,
+    "expected": 0
+   },
+   {
+    "id": 4,
+    "expected": 10,
+    "on": " over"
+   },
+   {
+    "id": 5,
+    "expected": 1
+   },
+   {
+    "id": 6,
+    "expected": 8,
+    "on": " over"
+   },
+   {
+    "id": 7,
+    "expected": 0
+   },
+   {
+    "id": 8,
+    "expected": 10,
+    "on": " over"
+   },
+   {
+    "id": 9,
+    "expected": 0
+   },
+   {
+    "id": 10,
+    "expected": 10,
+    "on": " over"
+   },
+   {
+    "id": 11,
+    "expected": 0
+   },
+   {
+    "id": 12,
+    "expected": 0
+   },
+   {
+    "id": 13,
+    "expected": 1
+   },
+   {
+    "id": 14,
+    "expected": 0
+   },
+   {
+    "id": 15,
+    "expected": 0
+   },
+   {
+    "id": 16,
+    "expected": 1
+   },
+   {
+    "id": 17,
+    "expected": 0
+   },
+   {
+    "id": 18,
+    "expected": 7,
+    "on": " over"
+   },
+   {
+    "id": 19,
+    "expected": 0
+   },
+   {
+    "id": 20,
+    "expected": 9,
+    "on": " over"
+   }
+  ]
+ },
+ {
+  "feature": 2616,
+  "arm": "investigated",
+  "predictions": [
+   {
+    "id": 0,
+    "expected": 0
+   },
+   {
+    "id": 1,
+    "expected": 0
+   },
+   {
+    "id": 2,
+    "expected": 0
+   },
+   {
+    "id": 3,
+    "expected": 0
+   },
+   {
+    "id": 4,
+    "expected": 9,
+    "on": " over"
+   },
+   {
+    "id": 5,
+    "expected": 1
+   },
+   {
+    "id": 6,
+    "expected": 6,
+    "on": " over"
+   },
+   {
+    "id": 7,
+    "expected": 0
+   },
+   {
+    "id": 8,
+    "expected": 10,
+    "on": " over"
+   },
+   {
+    "id": 9,
+    "expected": 0
+   },
+   {
+    "id": 10,
+    "expected": 9,
+    "on": " over"
+   },
+   {
+    "id": 11,
+    "expected": 0
+   },
+   {
+    "id": 12,
+    "expected": 0
+   },
+   {
+    "id": 13,
+    "expected": 1
+   },
+   {
+    "id": 14,
+    "expected": 0
+   },
+   {
+    "id": 15,
+    "expected": 0
+   },
+   {
+    "id": 16,
+    "expected": 0
+   },
+   {
+    "id": 17,
+    "expected": 0
+   },
+   {
+    "id": 18,
+    "expected": 7,
+    "on": " over"
+   },
+   {
+    "id": 19,
+    "expected": 0
+   },
+   {
+    "id": 20,
+    "expected": 8,
+    "on": " over"
+   }
+  ]
+ },
+ {
+  "feature": 4446,
+  "arm": "label",
+  "predictions": [
+   {
+    "id": 0,
+    "expected": 0.5
+   },
+   {
+    "id": 1,
+    "expected": 0
+   },
+   {
+    "id": 2,
+    "expected": 0
+   },
+   {
+    "id": 3,
+    "expected": 0.5
+   },
+   {
+    "id": 4,
+    "expected": 9,
+    "on": " used"
+   },
+   {
+    "id": 5,
+    "expected": 3,
+    "on": " commented"
+   },
+   {
+    "id": 6,
+    "expected": 7,
+    "on": " had"
+   },
+   {
+    "id": 7,
+    "expected": 3,
+    "on": " install"
+   },
+   {
+    "id": 8,
+    "expected": 9,
+    "on": " tried"
+   },
+   {
+    "id": 9,
+    "expected": 0
+   },
+   {
+    "id": 10,
+    "expected": 8,
+    "on": " bought"
+   },
+   {
+    "id": 11,
+    "expected": 5,
+    "on": " ordered"
+   },
+   {
+    "id": 12,
+    "expected": 2,
+    "on": " fighting"
+   },
+   {
+    "id": 13,
+    "expected": 4,
+    "on": " ended"
+   },
+   {
+    "id": 14,
+    "expected": 8,
+    "on": " use"
+   },
+   {
+    "id": 15,
+    "expected": 0
+   },
+   {
+    "id": 16,
+    "expected": 2,
+    "on": " have"
+   },
+   {
+    "id": 17,
+    "expected": 4,
+    "on": " did"
+   },
+   {
+    "id": 18,
+    "expected": 7,
+    "on": " had"
+   },
+   {
+    "id": 19,
+    "expected": 0
+   },
+   {
+    "id": 20,
+    "expected": 4,
+    "on": " came"
+   }
+  ]
+ },
+ {
+  "feature": 4446,
+  "arm": "examples",
+  "predictions": [
+   {
+    "id": 0,
+    "expected": 0
+   },
+   {
+    "id": 1,
+    "expected": 0
+   },
+   {
+    "id": 2,
+    "expected": 0
+   },
+   {
+    "id": 3,
+    "expected": 0.5
+   },
+   {
+    "id": 4,
+    "expected": 5,
+    "on": " used"
+   },
+   {
+    "id": 5,
+    "expected": 0.5
+   },
+   {
+    "id": 6,
+    "expected": 8,
+    "on": " had"
+   },
+   {
+    "id": 7,
+    "expected": 2,
+    "on": " install"
+   },
+   {
+    "id": 8,
+    "expected": 4,
+    "on": " tried"
+   },
+   {
+    "id": 9,
+    "expected": 0
+   },
+   {
+    "id": 10,
+    "expected": 6,
+    "on": " have"
+   },
+   {
+    "id": 11,
+    "expected": 2,
+    "on": " ordered"
+   },
+   {
+    "id": 12,
+    "expected": 1
+   },
+   {
+    "id": 13,
+    "expected": 1
+   },
+   {
+    "id": 14,
+    "expected": 8,
+    "on": " use"
+   },
+   {
+    "id": 15,
+    "expected": 0
+   },
+   {
+    "id": 16,
+    "expected": 6,
+    "on": " have"
+   },
+   {
+    "id": 17,
+    "expected": 1
+   },
+   {
+    "id": 18,
+    "expected": 8,
+    "on": " had"
+   },
+   {
+    "id": 19,
+    "expected": 0
+   },
+   {
+    "id": 20,
+    "expected": 3,
+    "on": " came"
+   }
+  ]
+ },
+ {
+  "feature": 4446,
+  "arm": "investigated",
+  "predictions": [
+   {
+    "id": 0,
+    "expected": 0
+   },
+   {
+    "id": 1,
+    "expected": 0
+   },
+   {
+    "id": 2,
+    "expected": 0
+   },
+   {
+    "id": 3,
+    "expected": 1
+   },
+   {
+    "id": 4,
+    "expected": 6,
+    "on": " used"
+   },
+   {
+    "id": 5,
+    "expected": 1
+   },
+   {
+    "id": 6,
+    "expected": 6,
+    "on": " had"
+   },
+   {
+    "id": 7,
+    "expected": 3,
+    "on": " install"
+   },
+   {
+    "id": 8,
+    "expected": 6,
+    "on": " tried"
+   },
+   {
+    "id": 9,
+    "expected": 0
+   },
+   {
+    "id": 10,
+    "expected": 5,
+    "on": " bought"
+   },
+   {
+    "id": 11,
+    "expected": 2,
+    "on": " ordered"
+   },
+   {
+    "id": 12,
+    "expected": 2,
+    "on": " fighting"
+   },
+   {
+    "id": 13,
+    "expected": 2,
+    "on": " ended"
+   },
+   {
+    "id": 14,
+    "expected": 6,
+    "on": " use"
+   },
+   {
+    "id": 15,
+    "expected": 0
+   },
+   {
+    "id": 16,
+    "expected": 5,
+    "on": " have"
+   },
+   {
+    "id": 17,
+    "expected": 1
+   },
+   {
+    "id": 18,
+    "expected": 7,
+    "on": " had"
+   },
+   {
+    "id": 19,
+    "expected": 0
+   },
+   {
+    "id": 20,
+    "expected": 8,
+    "on": "Mine"
+   }
+  ]
+ }
+]
