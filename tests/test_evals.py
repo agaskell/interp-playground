@@ -405,6 +405,8 @@ def test_paired_summary_can_score_a_subset_of_sources():
     wild = paired_summary([rec], sources=("wild", "neighbor", "random"))
     assert top["f1"]["ties"] == 1 and top["f1"]["mean_delta"] == pytest.approx(0.0)
     assert wild["f1"]["wins"] == 1 and wild["f1"]["mean_delta"] == pytest.approx(1.0)
+    # Nobody named a peak here, so peak_hit has nothing to compare and does not set n.
+    assert wild["peak_hit"]["n"] == 0 and wild["peak_hit"]["sign_p"] is None and wild["n"] == 1
 
 
 def test_f1_is_zero_when_the_feature_fires_and_nothing_is_predicted():

@@ -49,16 +49,23 @@ def main() -> None:
     contrasts = [("label", "investigated")]
     if "examples" in names:
         contrasts += [("label", "examples"), ("examples", "investigated")]
-    for base, other in contrasts:
-        s = paired_summary(records, base, other)
-        if not s["n"]:
-            continue
-        print(f"\npaired, {other} minus {base}, pool sentences only, n={s['n']}:")
-        for m in ("f1", "spearman"):
-            r = s[m]
-            p = "-" if r["sign_p"] is None else f"{r['sign_p']:.3f}"
-            print(f"  {m:9} mean {fmt(r['mean_delta'])}  wins/ties/losses {r['wins']}/{r['ties']}/{r['losses']}"
-                  f"  sign test p={p}")
+    # Pools with wild or neighbor sentences are also compared on the sentences
+    # that are not top examples, and on the top-example part alone.
+    subsets: list[tuple[str, tuple[str, ...] | None]] = [("pool sentences only", None)]
+    if any(r["source"] in ("wild", "neighbor") for rec in records for s in rec["sets"].values() for r in s["rows"]):
+        subsets += [("wild, neighbor and random sentences", ("wild", "neighbor", "random")),
+                    ("held-out and random sentences", ("heldout", "random"))]
+    for what, sources in subsets:
+        for base, other in contrasts:
+            s = paired_summary(records, base, other, sources)
+            if not s["n"]:
+                continue
+            print(f"\npaired, {other} minus {base}, {what}, n={s['n']}:")
+            for m in ("f1", "spearman", "peak_hit"):
+                r = s[m]
+                p = "-" if r["sign_p"] is None else f"{r['sign_p']:.3f}"
+                print(f"  {m:9} mean {fmt(r['mean_delta'])}  wins/ties/losses {r['wins']}/{r['ties']}/{r['losses']}"
+                      f"  sign test p={p}")
 
 if __name__ == "__main__":
     main()

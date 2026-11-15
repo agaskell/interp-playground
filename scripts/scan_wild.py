@@ -5,7 +5,8 @@ for the eval pool's "wild" and "neighbor" sources (see src/interp_playground/wil
 The text scanned is every Neuronpedia example context already in the local
 cache: 127-token passages that are top activations of *other* features, so
 for the feature being scanned they are text nobody picked. The feature's own
-example contexts are left out.
+example contexts are left out, and so are its nearest features' (those are
+where it is most likely to fire, and they feed the "neighbor" source instead).
 
 For each feature:
 - every context is run once through the model; the feature's peak activation
@@ -89,8 +90,6 @@ def main() -> None:
     backend._prepare_layer(layer)
     sae, max_act, tok = backend._saes[layer], backend._max_act[layer], model.tokenizer
 
-    # Neighbors first: this is the only step that may need the network, and the
-    # contexts it downloads are not added to the scan (the list is fixed here).
     texts = cached_contexts(layer)[: args.limit]
     W = sae.W_dec.detach()
     neighbors = {}
@@ -141,7 +140,10 @@ def main() -> None:
     for col, f in enumerate(targets):
         own = neuronpedia.load_examples(layer, f) or []
         own_texts = [full_text(e) for e in own]
+        # Left out of this feature's scan: its own examples and its neighbors'.
         own_keys = {normalize(t) for t in own_texts}
+        neighbor_examples = {nb: neuronpedia.load_examples(layer, nb) for nb, _ in neighbors[f]}
+        own_keys |= {normalize(full_text(e)) for ex in neighbor_examples.values() for e in ex or []}
         top = float(max_act[f])
         strata: dict[str, list[dict]] = {"strong": [], "weak": []}
         for i, text in enumerate(texts):
@@ -163,7 +165,7 @@ def main() -> None:
         # Neighbor sentences, one neighbor at a time in turn so a short pool covers several.
         per_neighbor, unreachable = [], []
         for nb, cos in neighbors[f]:
-            examples = neuronpedia.load_examples(layer, nb)
+            examples = neighbor_examples[nb]
             if examples is None:
                 unreachable.append(nb)
                 continue

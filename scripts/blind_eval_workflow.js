@@ -50,8 +50,10 @@ const GRADE = { type: 'object', required: ['ok'], properties: {
   contaminated: { type: 'array', items: { type: 'integer' } },
   label: SCORES, examples: SCORES, investigated: SCORES, surprises: { type: 'string' } } }
 
-// Plain text, one sentence per line. (JSON-quoting them made agents copy the quotes.)
-const fmtSentences = (ss) => ss.map(s => `[${s.id}] ${s.text}`).join('\n')
+// One sentence per line, JSON-quoted so newlines and indentation (kept since
+// pool version 5) are visible. Agents return ids only, so the quotes cannot
+// leak into predictions.
+const fmtSentences = (ss) => ss.map(s => `[${s.id}] ${JSON.stringify(s.text)}`).join('\n')
 const scale = `"expected" is the feature's predicted PEAK activation anywhere in the sentence, relative to the feature's own maximum: 10 = as strong as a top activating example, 5 = half that, 0 = does not fire at all. Anything >= 2 counts as predicting that it fires (ground truth fires at >= 0.1 of max). "on" is the single word (or token fragment) you expect the peak on; give it whenever expected >= 2, omit it otherwise. Give exactly one prediction per sentence, identified by the number in [brackets] as "id".`
 
 const withText = (sample, preds) => {
@@ -75,7 +77,7 @@ const labeler = (sample, f) => {
 Feature ${f.feature} (layer ${layer}) label: "${f.label}"
 The label was auto-generated from the feature's strongest activations, so it describes the top of the range; the feature may fire on a narrower trigger than the label suggests.
 
-Sentences, one per line, each preceded by its id in [brackets]:
+Sentences, one per line, each preceded by its id in [brackets] and written as a JSON string (so \\n is a newline):
 ${fmtSentences(sample.sentences)}
 
 ${scale}`,
@@ -89,7 +91,7 @@ const examplesArm = (prev, f) => agent(
 
 Neuronpedia label (auto-generated, treat as a hypothesis): "${f.label}"
 
-Pool sentences you must predict, one per line, each preceded by its id in [brackets]:
+Pool sentences you must predict, one per line, each preceded by its id in [brackets] and written as a JSON string (so \\n is a newline):
 ${fmtSentences(prev.sample.sentences)}
 
 Tools: load exactly one with ToolSearch query "select:mcp__interp-playground__feature_info" and call feature_info(feature=${f.feature}, layer=${layer}) exactly once. Read the top examples (peak token in [[brackets]]), the promotes list and the similar features. Do NOT call any other tool: no run_prompt, no steer, no ablate, no eval_sentences, no grade_explanation, no file reads, no search.
@@ -105,7 +107,7 @@ const investigator = (prev, f) => agent(
 
 Neuronpedia label (auto-generated, treat as a hypothesis): "${f.label}"
 
-Pool sentences you must predict, one per line, each preceded by its id in [brackets]:
+Pool sentences you must predict, one per line, each preceded by its id in [brackets] and written as a JSON string (so \\n is a newline):
 ${fmtSentences(prev.sample.sentences)}
 
 Tools: load them with ToolSearch query "select:mcp__interp-playground__feature_info,mcp__interp-playground__run_prompt,mcp__interp-playground__ablate,mcp__interp-playground__steer". Budget, strictly:

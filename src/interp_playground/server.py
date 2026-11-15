@@ -310,9 +310,12 @@ def eval_sentences(
        instead of `id`.
     4. Call grade_explanation once with both sets.
 
-    Every held-out sentence is checked to fire before it is included. A
-    feature whose examples go silent in a short window (it depends on long
-    context) is refused with an error saying so; pick another feature.
+    Every held-out sentence is checked before it is included: the feature
+    must fire in it and keep half of the activation recorded for it in its
+    full context. A feature whose examples lose that in a short window (it
+    depends on long context or on special tokens) is refused with an error
+    saying so; pick another feature. Sentences keep their original spacing,
+    newlines and indentation.
 
     Do not run these sentences through run_prompt or the other tools before
     grading: any that you do are reported as `contaminated`. A good score is

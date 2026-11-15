@@ -369,3 +369,10 @@ natural share; for some features the nearest neighbors are barely similar
    0.6 label, 0.75 examples, 0.8 investigated.
 7. False positives on silent neighbor sentences: label most (about 0.3),
    investigated fewest (about 0.15).
+
+**Correction to the run 5 design, 2026-11-14, before any pool was built.**
+The scan text is 18,255 contexts, not 16,365: a trial of the scan script
+downloaded the examples of the 125 neighbor features into the cache. Those
+are the passages where a feature is most likely to fire, so leaving them in
+would tilt its "ordinary text". Each feature's scan now leaves out its own
+examples and its five neighbors' examples. Nothing else in the design changed.

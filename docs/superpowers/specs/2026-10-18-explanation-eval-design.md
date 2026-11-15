@@ -193,3 +193,25 @@ position in each 16-token window (version 2, 2026-11-01). Records carry
 `pool_version` and a free `run` label. Tool errors the caller can fix are
 returned with their message. Rationale and history: `results/DECISIONS.md`
 and FINDINGS section 13.
+
+## Amendment 2026-11-14: pool versions 4 and 5
+
+Version 4: a held-out window that copies one of the eight examples
+`feature_info` shows is never used, and empty windows are skipped.
+
+Version 5: windows keep spaces, newlines and indentation as the model saw
+them, and an agent's own sentences are run exactly as written. A held-out
+window must fire and reach half of the activation Neuronpedia recorded for
+that example in its full context; otherwise it is replaced, and a feature
+with fewer than three such windows is refused. F1 is 0 (not undefined) when
+the feature fires and nothing is predicted.
+
+Version 5 also lets a pool carry two more sources, built from a scan
+(`scripts/scan_wild.py`, `src/interp_playground/wild.py`): "wild" sentences,
+where the feature fires in text nobody picked for it, and "neighbor"
+sentences, where one of its nearest features fires. `Backend.eval_sentences`
+and `grade_explanation` take `n_wild` and `n_neighbor` (default 0); the MCP
+tools do not expose them yet. `scripts/simulate_workflow.js`,
+`prepare_simulation.py` and `grade_simulation.py` run a batch in which
+tool-less agents predict from stored explanations. Rationale:
+`results/DECISIONS.md` and FINDINGS sections 15 and 16.

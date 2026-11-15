@@ -129,7 +129,7 @@ def paired_summary(
         {name: _pool_only(r["sets"][name], sources) for name in (base, other)}
         for r in records if base in r.get("sets", {}) and other in r["sets"]
     ]
-    for metric in ("f1", "spearman"):
+    for metric in ("f1", "spearman", "peak_hit"):
         deltas = [
             s[other][metric] - s[base][metric]
             for s in pairs
@@ -149,7 +149,8 @@ def paired_summary(
             "mean_delta": statistics.fmean(deltas) if deltas else None,
             "wins": wins, "ties": ties, "losses": losses, "sign_p": sign_p,
         }
-        out["n"] = max(out["n"], len(deltas))
+        if metric != "peak_hit":  # undefined wherever no peak was named: not the comparison's n
+            out["n"] = max(out["n"], len(deltas))
     return out
 
 
