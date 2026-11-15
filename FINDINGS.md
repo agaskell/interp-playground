@@ -677,7 +677,8 @@ max was 0.68, 0.70 and 0.68 for the three arms.
   " again" (KL 0.98); ablating 16333 halved " minority" after "the majority
   held ... while the" (KL 0.22).
 - **7957** "viruses and diseases" and **11243** "punctuation marks" are both
-  mid-text `<bos>` detectors, the third and fourth found in 50 features.
+  mid-text `<bos>` detectors. With 11650 from the first batch that makes
+  three in 50 sampled features, each under a topical label.
   Both investigators said so and scored badly anyway (7957: F1 0.29), which
   is a defect of the eval, below.
 - **276** (0.91 to 0.67), **2011**, **4190**, **3584**: investigation lost by

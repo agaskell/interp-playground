@@ -140,7 +140,7 @@ features, each agent predicting a feature's activations on a 16-sentence pool:
   below 0.6 (10 features) investigating added +0.53; where it was 0.9 or more
   (20 features) it added nothing. "References to a crisis" is a
   Spanish-language detector; "scientific measurements" is a syntactic slot;
-  four of 50 sampled features are mid-text `<bos>` detectors under topical
+  three of 50 sampled features are mid-text `<bos>` detectors under topical
   labels.
 - A third arm in the second batch, given the label and the top examples but
   no experiments, got F1 0.89 against the investigator's 0.90. On this pool,
