@@ -34,7 +34,9 @@ MIN_FIRING_HELDOUT = 3
 # 5 = whitespace kept as the model saw it, a window must keep KEEP_RECORDED of
 # the activation recorded for it in full context, and a pool can also carry
 # "wild" and "neighbor" sentences (see wild.py); 6 = a feature is refused when
-# most of the examples feature_info shows peak on <bos>.
+# most of the examples feature_info shows peak on <bos>, and the order of a
+# pool is the feature's own (before, every pool with the same seed and sizes
+# put each source at the same ids).
 POOL_VERSION = 6
 # A window is only used if the feature reaches this share of the activation
 # recorded for the same tokens in their full context. Below it, what the
@@ -213,10 +215,14 @@ def take_strata(strong: list[Any], weak: list[Any], n: int, ok: Callable[[Any], 
 
 
 def build_pool(
-    heldout: list[str], random_texts: list[str], seed: int,
+    heldout: list[str], random_texts: list[str], seed: int | str,
     wild: list[str] | tuple[str, ...] = (), neighbor: list[str] | tuple[str, ...] = (),
 ) -> list[dict[str, Any]]:
     """Shuffle the sources together; ids are 0..n-1 in shuffled order.
+
+    `seed` keys the shuffle. Callers pass one that includes the feature, so
+    that knowing which ids are held-out in one feature's pool says nothing
+    about another's.
 
     Duplicate texts are dropped, keeping the first occurrence (held-out, then
     wild, neighbor, random), so no two ids ever carry the same sentence.

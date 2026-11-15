@@ -215,3 +215,12 @@ tools do not expose them yet. `scripts/simulate_workflow.js`,
 `prepare_simulation.py` and `grade_simulation.py` run a batch in which
 tool-less agents predict from stored explanations. Rationale:
 `results/DECISIONS.md` and FINDINGS sections 15 and 16.
+
+## Amendment 2026-11-15: pool version 6 and reporting
+
+A feature is refused when more than half of the examples `feature_info`
+shows peak on `<bos>`. The order of a pool is keyed on the feature as well as
+the seed. Every scored set also carries `f1_at_1` (F1 with a prediction of 1
+or more counted as firing; the primary `f1` stays at 2) and `by_strength`
+(recall on firings below and at or above 0.3 of max). Rationale:
+`results/DECISIONS.md` and FINDINGS section 16.

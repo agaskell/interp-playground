@@ -455,3 +455,13 @@ def test_paired_summary_compares_f1_at_1_on_records_stored_before_it_existed():
     s = paired_summary([{"sets": old}])
     assert s["f1"]["ties"] == 1                      # both miss the weak firing at the primary threshold
     assert s["f1_at_1"]["wins"] == 1 and s["f1_at_1"]["mean_delta"] == pytest.approx(1 / 3, abs=1e-3)
+
+
+def test_fresh_candidates_skips_text_copied_from_blocked_passages():
+    from interp_playground.wild import fresh_candidates
+
+    cands = [{"text": " paid the  invoice in"}, {"text": "a new sentence"}, {"text": ""}, {"text": "another new one"},
+             {"text": "a third new one"}]
+    blocked = ["He paid the invoice in full.", "unrelated"]
+    assert [c["text"] for c in fresh_candidates(cands, blocked, keep=2)] == ["a new sentence", "another new one"]
+    assert fresh_candidates(cands, [], keep=10) == [c for c in cands if c["text"]]

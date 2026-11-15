@@ -18,6 +18,8 @@ import os
 from pathlib import Path
 from typing import Any
 
+from interp_playground.evals import normalize
+
 # Override with INTERP_PLAYGROUND_WILD (tests and the smoke test do).
 WILD_DIR = Path(
     os.environ.get("INTERP_PLAYGROUND_WILD", Path(__file__).resolve().parents[2] / "results" / "wild")
@@ -39,3 +41,22 @@ def save_wild(layer: int, feature: int, found: dict[str, Any]) -> Path:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(found, indent=1, ensure_ascii=False) + "\n")
     return path
+
+
+def fresh_candidates(candidates: list[dict[str, Any]], blocked: list[str], keep: int) -> list[dict[str, Any]]:
+    """The first `keep` candidates, in order, whose text is not empty and not
+    copied from any `blocked` passage (whitespace-insensitive substring).
+
+    Passages recur in the corpus with different boundaries, so leaving out a
+    feature's example passages whole does not stop a window of the same text
+    turning up in another passage.
+    """
+    walls = [normalize(b) for b in blocked]
+    out: list[dict[str, Any]] = []
+    for c in candidates:
+        if len(out) >= keep:
+            break
+        key = normalize(c["text"])
+        if key and not any(key in w for w in walls):
+            out.append(c)
+    return out

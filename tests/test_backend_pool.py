@@ -249,3 +249,18 @@ def test_pool_refuses_a_feature_whose_shown_examples_mostly_peak_on_bos(bare_bac
 def test_pool_accepts_a_feature_with_half_its_shown_examples_on_bos(bare_backend, monkeypatch):
     monkeypatch.setattr(backend_module.neuronpedia, "load_examples", bos_examples(4))
     assert len(bare_backend._pool(7272, 12, seed=0, n_heldout=4, n_random=2)) == 6
+
+
+# --- review fixes, 2026-11-15 --------------------------------------------------
+
+def test_two_features_do_not_share_an_id_to_source_layout(bare_backend, monkeypatch):
+    def own_text(layer, feature):  # every feature has its own text, so nothing is dropped as a duplicate
+        return [{"max": 1.0, "tokens": [f"▁f{feature}e{i}t{j}" for j in range(40)], "peak": 20} for i in range(45)]
+
+    monkeypatch.setattr(backend_module.neuronpedia, "load_examples", own_text)
+    layouts = {
+        f: tuple(p["source"] for p in bare_backend._pool(f, 12, seed=1, n_heldout=6, n_random=10))
+        for f in (7272, 7273, 7274)
+    }
+    assert all(sorted(v) == sorted(layouts[7272]) for v in layouts.values())  # same composition
+    assert len(set(layouts.values())) == 3  # but the order is the feature's own

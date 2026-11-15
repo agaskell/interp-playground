@@ -35,7 +35,7 @@ An explanation written by another agent who studied the feature:
 """
 ${f.explanations[arm]}
 """
-Trust the explanation over the label where they disagree. It may refer to numbered sentences from an earlier, different sentence set; ignore those references.`
+Trust the explanation over the label where they disagree. It may refer to numbered sentences from an earlier sentence set, with different numbering; ignore those references.`
 
 const prompt = (f, arm) => `You are predicting where sparse-autoencoder feature ${f.feature} at layer ${layer} of Gemma 2 2B fires on a fixed set of text snippets. You have NO tool access for this task: do not call any tool, do not search, do not read files. Answer from what is given here and your own judgement.
 

@@ -134,7 +134,7 @@ features, each agent predicting a feature's activations on a 16-sentence pool:
 - From the label alone, mean firing F1 was 0.66 and 0.81 in the two batches.
   With `feature_info`, four `run_prompt`s and one causal probe it was 0.88 and
   0.90. Paired, on the pre-registered primary metric: +0.22 (p = 0.007) in the
-  first batch, +0.09 (p = 0.077, not significant) in the second, +0.15
+  first batch, +0.08 (p = 0.077, not significant) in the second, +0.15
   (25 wins, 17 ties, 6 losses, p = 0.0009) pooled.
 - The gain comes from a minority of bad labels. Where the label's own F1 was
   below 0.6 (10 features) investigating added +0.53; where it was 0.9 or more
@@ -148,18 +148,19 @@ features, each agent predicting a feature's activations on a 16-sentence pool:
 - 38 of 48 causal probes barely moved the next token.
 - A follow-up on 24 features tested sentences the examples do not resemble:
   ordinary text where the feature fires, and text where its nearest features
-  fire. Fresh agents predicted from the stored explanations. Experiments beat
-  examples by +0.05 F1 (p = 0.18, not significant). Neither explanation beat
-  the bare label on F1 (0.67 label, 0.59 examples, 0.64 investigated): they
-  cut false alarms on neighboring features' text from 0.33 to 0.10 and missed
-  more of the weak firings, which are most of what a feature does in ordinary
-  text.
+  fire. Fresh agents predicted from the stored explanations. Experiments
+  against examples: +0.05 F1 (p = 0.18, not significant, and -0.01 under a
+  second scoring threshold). Against the bare label, an explanation cut false
+  alarms on neighboring features' text from 0.33 to 0.10 and missed more of
+  the weak firings, with no significant change in F1. Most firings in
+  ordinary text are weak, and one feature's top examples hid a second
+  trigger.
 
 Known limits: one SAE and layer, one model family writing and reading the
-explanations, 24 to 25 features per batch, and a firing threshold that counts
-weak activations no explanation describes. Records in `results/`, write-up in
-FINDINGS sections 12-16, decisions and predictions written before each run in
-`results/DECISIONS.md`.
+explanations, 24 to 25 features per batch, and F1 figures that depend on
+where "predicted to fire" is drawn when firings are weak. Records in
+`results/`, write-up in FINDINGS sections 12-16, decisions and predictions
+written before each run in `results/DECISIONS.md`.
 
 ## Roadmap
 

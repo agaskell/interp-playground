@@ -441,3 +441,58 @@ Andy accepted all four recommendations on 2026-11-15:
    `feature_info` shows peak on `<bos>`.
 4. **No further experiment before the residency deadline (2026-11-22).** The
    same-agent rerun on the new pool is not run.
+
+## 2026-11-15 Review of run 5, and corrections
+
+A review (three agents on code, numbers and claims, each finding checked by
+a second agent) confirmed eleven defects. None changes the primary result.
+FINDINGS 16 was rewritten; its first version is commit f97c5e5.
+
+Claims withdrawn or narrowed:
+- "Neither explanation beats the label on F1" held only at the registered
+  threshold. At the matched one the three arms are level on new sentences,
+  and both explanations beat the label on held-out and random sentences.
+- "The threshold mismatch explains none of result 1" was wrong: the primary's
+  +0.05 lean is -0.01 at the matched threshold. Not significant either way.
+- "The hand-off costs something" cannot be read from the data: the label arm,
+  with no hand-off, moved as much, and the pool changed too.
+- "No short explanation, from any source" was a claim about three tested
+  descriptions. Feature 13087 was misdescribed: it has a second trigger
+  (measurement and probability words), not an unrelated weak tail.
+- "Only on sentences like its top examples" was untested and is removed.
+
+Defects in the run itself:
+- **The pools reused run 4's seed.** All 144 random sentences, 49 of 95
+  held-out and one neighbor sentence had been in front of run 4's explainers.
+  The design entry above defines the primary on "the 17 new sentences"; only
+  the 11 wild and neighbor ones are new to the explanations. On those alone
+  the primary is the same: +0.05, 10 / 10 / 4, p = 0.18.
+- 2 of 144 wild sentences copy text from an unshown own example or a
+  neighbor's example. One feature (11243) has 3 held-out sentences, not 4.
+- Every pool with the same seed and sizes had the same id-to-source order.
+- Three numbers were mistyped in the third decimal place.
+- A second check of the rewritten section, by a fresh agent recomputing
+  about 290 stated values, found six more slips, all fixed: four last-digit
+  roundings (including run 4's primary delta, which is 0.085 and was printed
+  as +0.09 in FINDINGS 15, the README and the "Run 4 executed" entry above;
+  and run 5's label F1 on new sentences, 0.66, printed as 0.67 in the
+  "Run 5 executed" entry above), one figure taken from the wrong source, and
+  one sentence about what the readers wrote.
+
+## 2026-11-15 Decisions implemented: pool version 6
+
+- `f1_at_1` and recall by strength are computed for every prediction set and
+  shown by `scripts/eval_report.py`, for old records too. The primary stays
+  at 2. Rescoring changes no stored primary score.
+- A feature is refused when more than half of the examples `feature_info`
+  shows peak on `<bos>`. **This also refuses 2788**, which runs 4 and 5
+  evaluated: 7 of its 8 shown examples peak on `<bos>`, though it has a
+  text trigger as well (URL tracking parameters at 0.8 to 0.96 of max).
+  Among the 761 cached features, 46 have at least one shown example on
+  `<bos>` and 35 have more than half. Open for Andy: keep the rule as is
+  (simple, costs some evaluable features), or narrow it to features with no
+  shown example on ordinary text.
+- From the review: the pool's order is keyed on the feature; the scan drops
+  windows copied from own or neighbor examples; `prepare_simulation.py`
+  counts sentences shared with the run the explanations came from and warns.
+- The MCP server needs a `/mcp` reconnect to serve pool version 6.

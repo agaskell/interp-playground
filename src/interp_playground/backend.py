@@ -405,8 +405,8 @@ class Backend:
         if 2 * on_bos > len(own[:EXAMPLES_SHOWN]):
             raise ValueError(
                 f"feature {feature}: {on_bos} of the {len(own[:EXAMPLES_SHOWN])} examples feature_info shows peak "
-                "on <bos>, which cannot be written as plain text. Its main trigger cannot appear in any "
-                "sentence here, so it cannot be evaluated."
+                "on <bos>, which cannot be written as plain text. Most of its strongest activations "
+                "cannot appear in any sentence here, so it is not evaluated."
             )
         # What feature_info shows in full; a copy of any of it is not held out.
         shown = [neuronpedia.example_text(e, len(e["tokens"]), len(e["tokens"])) for e in own[:EXAMPLES_SHOWN]]
@@ -434,7 +434,7 @@ class Backend:
             if examples:
                 random_texts.append(window(examples[0], f"r{other}"))
         wild, neighbor = self._scanned(feature, layer, shown, n_wild, n_neighbor)
-        return build_pool(heldout, [t for t in random_texts if t.strip()], seed, wild, neighbor)
+        return build_pool(heldout, [t for t in random_texts if t.strip()], f"{seed}:{feature}:order", wild, neighbor)
 
     def _scanned(
         self, feature: int, layer: int, shown: list[str], n_wild: int, n_neighbor: int

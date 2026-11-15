@@ -632,13 +632,16 @@ sentence fired and none was a copy of a shown example.
 
 | paired contrast | F1 delta | wins / ties / losses | sign test | Spearman delta, test | peak_hit delta, test |
 |---|---|---|---|---|---|
-| **investigated minus label (primary)** | +0.09 | 12 / 9 / 4 | **p = 0.077** | +0.13, p = 0.0002 | +0.27, p = 0.0005 |
-| examples minus label | +0.08 | 12 / 13 / 0 | p = 0.0005 | +0.09, p = 0.002 | +0.13, p = 0.15 |
+| **investigated minus label (primary)** | +0.08 | 12 / 9 / 4 | **p = 0.077** | +0.13, p = 0.0002 | +0.27, p = 0.0005 |
+| examples minus label | +0.07 | 12 / 13 / 0 | p = 0.0005 | +0.09, p = 0.002 | +0.13, p = 0.15 |
 | investigated minus examples | +0.01 | 5 / 13 / 7 | p = 0.77 | +0.05, p = 0.83 | +0.14, p = 0.42 |
 | investigated minus label, sections 14 and 15 pooled (48) | +0.15 | 25 / 17 / 6 | p = 0.0009 | +0.16, p < 0.0001 | +0.25, p < 0.0001 |
 
+*Rounding corrected 2026-11-15:* the first two F1 deltas were printed as
++0.09 and +0.08. They are 0.085 and 0.075.
+
 **The primary comparison did not reach significance in this batch.** The
-direction is the same as section 14, the size is under half (+0.09 against
+direction is the same as section 14, the size is under half (+0.08 against
 +0.22), and four features got worse. Pooled over both batches it holds.
 
 **Reading the examples accounts for nearly all of the firing gain.** The
@@ -695,7 +698,7 @@ extra call beyond the four allowed. Every examples agent made exactly one
 **Predictions scored.** Right: the examples arm captures most of the gain;
 investigated minus examples is small, tie-heavy and not significant on F1; at
 least 19 null probes (20). Wrong: label mean F1 about 0.65 (0.81); primary
-gain +0.15 to +0.25 (+0.09); primary significant (p = 0.077); the vague
+gain +0.15 to +0.25 (+0.08); primary significant (p = 0.077); the vague
 labels would be the worst (13412 scored 1.00; the worst were 312, 7957 and
 11243).
 
@@ -735,10 +738,19 @@ the examples reveal it. On this pool, running experiments adds nothing
 measurable to firing prediction beyond reading eight examples. The honest
 headline is about labels and examples, not about tools.
 
-## 16. Sentences unlike the examples: no explanation beats the label at saying where a feature fires
+## 16. Sentences unlike the examples: experiments still add nothing measurable
 
 Run 2026-11-15, tagged `blind-5`. Design, the reasons for it and seven
 predictions were committed before any pool was built (`results/DECISIONS.md`).
+
+*Revised 2026-11-15 after a review of this section.* The first version
+(commit f97c5e5) said that neither explanation beats the label, that the
+hand-off between agents costs accuracy, and that no short explanation can
+describe weak firings. The data does not support those three statements as
+written: they depend on a scoring threshold, on a comparison that cannot
+separate two causes, and on three tested descriptions. It also called six
+random sentences per pool "new" that the explainers had already seen. What
+follows is the corrected section. The primary result did not change.
 
 **Question.** Section 15 found that reading eight top examples gives nearly
 all of the gain, on a pool made of more top examples. Does an explanation
@@ -752,125 +764,181 @@ built with experiments do better on sentences the examples do not resemble?
 - *Arms*: for each feature, three fresh agents with no tools predict the pool:
   from the label alone, from the label plus the examples-arm explanation, and
   from the label plus the investigator's explanation. Unlike sections 12 to
-  15, the agent that predicts is not the agent that studied the feature. The
-  explanation text has to carry everything.
-- *Pool*, version 5, 21 sentences: 4 held-out examples and 6 random
-  sentences as before, plus two new kinds (`scripts/scan_wild.py`).
-  **Wild** (6): windows of ordinary text where the feature fires, sampled at
-  random from its firings across 18,255 passages (2.3 million tokens) that
-  were not picked for it. **Neighbor** (5): windows where one of the
-  feature's five nearest features fires, chosen without looking at what the
-  feature itself does there.
+  15, the agent that predicts is not the agent that studied the feature.
+- *Pool*, version 5: 4 held-out examples, 6 random sentences, and two new
+  kinds (`scripts/scan_wild.py`). **Wild** (6): windows of ordinary text where
+  the feature fires, sampled at random from its firings in about 18,000
+  cached passages (2.3 million tokens in the whole cache; each feature's own
+  examples and its neighbors' are left out). **Neighbor** (5): windows where
+  one of the feature's five nearest features fires, chosen without looking
+  at what the feature itself does there. 21 sentences; one feature (11243)
+  has 3 held-out and 20.
 - 72 agents, all sets complete, nothing contaminated. Graded locally with the
   same code as the MCP tool.
 
-**What the new sentences look like.** All 144 wild sentences fire, but
-weakly: the median is 0.25 of max and 86 are below 0.3. The feature fires on
-26 of 120 neighbor sentences (22%) and 1 of 144 random ones.
+**Two scoring thresholds.** The truth counts as firing at 0.1 of max. A
+prediction counts as "fires" at 2 on the 0 to 10 scale: that is the primary
+definition in every run. A reader who correctly expects a firing at 0.15 of
+max and writes 1.5 is therefore scored as predicting silence. That barely
+mattered on top examples. It matters here, where most firings are weak, so
+every F1 below is given at 2 (registered) and at 1 (matched to the truth
+threshold, chosen after seeing the data).
 
-**Results** (24 features, means):
+**What the new sentences look like.** All 144 wild sentences fire, mostly
+weakly: the median is 0.25 of max and 86 are below 0.3. The pool is half
+strong and half weak by design, so that share understates how weak ordinary
+firings are: across the scan, 82% of the passages where one of these
+features fires have it below 0.3 of max. The feature fires on 26 of 120
+neighbor sentences (22%) and 1 of 144 random ones.
+
+**Results** (24 features, means; a metric that is undefined for a feature
+is left out of its mean):
 
 | sentences | metric | label | examples | investigated |
 |---|---|---|---|---|
-| new (wild, neighbor, random) | firing F1 | 0.67 | 0.59 | 0.64 |
-| | precision / recall, pooled rows | 0.75 / 0.66 | 0.85 / 0.51 | 0.91 / 0.57 |
+| wild, neighbor, random (registered) | F1, prediction of 2 or more | 0.66 | 0.59 | 0.64 |
+| | F1, prediction of 1 or more | 0.68 | 0.71 | 0.70 |
 | | Spearman | 0.57 | 0.63 | 0.69 |
 | | peak_hit | 0.44 | 0.52 | 0.60 |
-| held-out and random | firing F1 | 0.87 | 0.84 | 0.83 |
-| | Spearman | 0.83 | 0.90 | 0.90 |
+| held-out and random | F1, prediction of 2 or more | 0.87 | 0.84 | 0.83 |
+| | F1, prediction of 1 or more | 0.83 | 0.92 | 0.90 |
+| | Spearman | 0.83 | 0.89 | 0.90 |
 | | peak_hit | 0.55 | 0.77 | 0.81 |
 
-| paired contrast, new sentences | F1 delta | wins / ties / losses | sign test | Spearman delta, test |
+Paired contrasts (delta, wins / ties / losses, sign test):
+
+| sentences | contrast | F1 at 2 | F1 at 1 | Spearman |
 |---|---|---|---|---|
-| **investigated minus examples (primary)** | +0.05 | 10 / 10 / 4 | **p = 0.18** | +0.03, p = 0.38 |
-| investigated minus label | -0.02 | 7 / 4 / 13 | p = 0.26 | +0.09, p = 0.011 |
-| examples minus label | -0.07 | 6 / 5 / 13 | p = 0.17 | +0.06, p = 0.053 |
+| wild, neighbor, random | **investigated minus examples (primary)** | **+0.05, 10 / 10 / 4, p = 0.18** | -0.01, 6 / 10 / 8, p = 0.79 | +0.03, 13 / 2 / 8, p = 0.38 |
+| | investigated minus label | -0.02, 7 / 4 / 13, p = 0.26 | +0.02, 10 / 6 / 8, p = 0.81 | +0.09, 18 / 0 / 5, p = 0.011 |
+| | examples minus label | -0.07, 6 / 5 / 13, p = 0.17 | +0.03, 12 / 5 / 7, p = 0.36 | +0.06, 16 / 2 / 6, p = 0.052 |
+| held-out and random | investigated minus examples | -0.01, 5 / 13 / 6, p = 1 | -0.02, 4 / 14 / 6, p = 0.75 | +0.01, 8 / 9 / 7, p = 1 |
+| | investigated minus label | -0.04, 2 / 14 / 8, p = 0.11 | +0.07, 12 / 10 / 2, p = 0.013 | +0.08, 15 / 3 / 6, p = 0.078 |
+| | examples minus label | -0.03, 2 / 16 / 6, p = 0.29 | +0.09, 13 / 10 / 1, p = 0.002 | +0.07, 14 / 4 / 6, p = 0.12 |
 
-| pooled rows | n | label | examples | investigated |
-|---|---|---|---|---|
-| recall, wild firing below 0.3 of max | 86 | 0.50 | 0.27 | 0.38 |
-| recall, wild firing at 0.3 or more | 58 | 0.86 | 0.81 | 0.83 |
-| recall, held-out | 95 | 0.85 | 0.78 | 0.77 |
-| recall, neighbor sentences that fire | 26 | 0.77 | 0.65 | 0.65 |
-| false positives, silent neighbor sentences | 94 | 0.33 | 0.14 | 0.10 |
-| false positives, silent random sentences | 143 | 0.04 | 0.01 | 0.01 |
+Pooled rows, share predicted to fire:
 
-**1. The primary comparison is not significant.** Experiments beat examples
-by +0.05 F1 on the new sentences, in the predicted direction, with 10 wins,
-10 ties and 4 losses. With 24 features this rules out a large effect and
-cannot rule out a small one. Two runs, two kinds of pool, and no measurable
-gain from running experiments over reading eight examples.
+| rows | n | at 2: label / examples / investigated | at 1: label / examples / investigated |
+|---|---|---|---|
+| wild, firing below 0.3 of max (recall) | 86 | 0.50 / 0.27 / 0.38 | 0.73 / 0.57 / 0.57 |
+| wild, firing at 0.3 or more (recall) | 58 | 0.86 / 0.81 / 0.83 | 0.88 / 0.88 / 0.86 |
+| held-out (recall) | 95 | 0.85 / 0.78 / 0.77 | 0.88 / 0.93 / 0.87 |
+| neighbor, silent (false alarms) | 94 | 0.33 / 0.14 / 0.10 | 0.57 / 0.33 / 0.35 |
+| random, silent (false alarms) | 143 | 0.04 / 0.01 / 0.01 | 0.15 / 0.04 / 0.02 |
 
-**2. Neither explanation beats the bare label on firing F1.** This was not
-predicted. Both explanations make the reader more precise and less
-sensitive. False positives on a neighbor's sentences fall from 0.33 to 0.14
-and 0.10, which is the discrimination an explanation is for. Recall falls
-too, and most of what is lost is weak firings.
+**1. The primary comparison is not significant, and its small lean is a
+threshold effect.** Experiments beat examples by +0.05 F1 at the registered
+threshold (10 wins, 10 ties, 4 losses, p = 0.18). At the matched threshold
+the difference is -0.01 with more losses than wins. The features that seemed
+to show experiments helping (9261: 0.46 against 1.00; 312; 276) are level
+or within 0.01 at the matched threshold (9261: 0.89 against 0.89). On the
+weak firings that decide them, the examples arm's readers wrote 1 and the
+investigator's readers wrote 2 to 4: both said "fires weakly". Two
+runs, two kinds of pool, and no measurable gain from running experiments
+over reading eight examples. With 24 features this rules out a large effect
+and cannot rule out a small one.
 
-**3. Explanations do improve the ranking.** Spearman on the new sentences
-rises from 0.57 to 0.63 and 0.69, and the investigator's gain over the label
-is the one contrast here with a small p (0.011, one of several secondary
-tests, so suggestive only). A reader with an explanation orders sentences
-better and names the peak token more often, and still draws the fire / no
-fire line in a worse place.
+**2. On the new sentences, explanations trade misses for false alarms, and
+F1 does not move.** Both hold at either threshold. With an explanation, a
+reader raises fewer false alarms on text where a neighboring feature fires
+(0.33 falls to 0.14 and 0.10), which is the discrimination an explanation is
+for. The same reader misses more of the weak firings in ordinary text (0.50
+falls to 0.27 and 0.38). Net F1 is not significantly different from the bare
+label at either threshold, in either direction.
 
-**4. Most of a feature's firings in ordinary text are weak, and outside what
-any explanation says.** Feature 13087 is the clearest case. Its explanation
-is right: the noun "payment", with tiers. In ordinary text it also fires at
-0.13 to 0.32 of max on " measurement", " probabilities", " photons" and
-" packets". All three arms scored 0 on its new sentences. A short
-explanation describes the top of a feature's range. The weak tail is a
-different thing, and here it is most of what there is to predict.
+**3. Explanations may improve the ranking.** Spearman on the registered
+sentences rises from 0.57 to 0.63 and 0.69, and the investigator's gain over
+the label has p = 0.011. On wild and neighbor sentences alone it is +0.16
+with p = 0.052. One of several secondary tests: suggestive only.
 
-**The hand-off costs something.** On held-out and random sentences, section
-15's agents scored 0.81, 0.88 and 0.89 (these 24 features) when the agent
-that studied the feature also predicted. Here separate readers scored 0.87,
-0.84 and 0.83. The advantage on F1 did not survive being written down in 120
-words, though the advantage on Spearman and peak_hit did. The pool also
-changed (version 5, fewer held-out sentences), so the two causes cannot be
-separated.
+**4. On sentences like the top examples, a written explanation does carry
+over to another reader, at the matched threshold.** There both explanations
+beat the label (+0.09, p = 0.002 and +0.07, p = 0.013); at the registered
+threshold neither does. Two cautions. The threshold was chosen after the
+fact. And half of these held-out sentences were in front of the agent who
+wrote the explanation (see the next heading), which favors the explanation
+arms here.
 
-**Exploratory, decided after seeing the data.** The scoring counts a
-prediction as "fires" at 2 on the 0 to 10 scale and counts the truth as
-firing at 0.1 of max. A reader who correctly expects a firing at 0.15 of max
-and writes 1.5 is scored as predicting silence. On the 86 weak wild
-sentences the three arms wrote a value from 1 up to 2 on 20, 26 and 16.
-Counting predictions of 1 or more as "fires" gives F1 0.68, 0.71 and 0.70 on
-the new sentences, and no contrast is significant. The mismatch explains part
-of result 2 and none of result 1.
+**5. Top examples can hide a second trigger.** Feature 13087's explanation
+says the noun "payment", with tiers, and that is what its top examples show.
+Of 20 firings sampled at random from those at 0.3 of max or more in
+ordinary text, 14 are on forms of "measurement" and "probability" (0.30 to
+0.38 of max), 2 on "notification" and 4 on "payment". Four of its six wild
+sentences were of that kind, no arm predicted any of them, and all three
+scored 0 on its new sentences. Neuronpedia's own list has " probability"
+seven times from rank 32 down, at 0.29 to 0.44 of its maximum. A description written from top activations, or from
+experiments designed around them, did not find it. Whether one written with
+ordinary-text firings in view would was not tested.
 
-**Without the two `<bos>` features** (22 features): primary +0.07
-(9 / 10 / 3, p = 0.15); investigated minus label +0.01; examples minus label
--0.06. Same conclusions.
+**What this run cannot say about the hand-off.** With the same agent studying
+and predicting, section 15 scored 0.81, 0.88 and 0.89 on held-out and random
+sentences (these 24 features). Here separate readers scored 0.87, 0.84 and
+0.83 at the registered threshold and 0.83, 0.92 and 0.90 at the matched one.
+The label arm involves no hand-off and moved as much as the others, and the
+pool changed between the runs. No cost of the hand-off can be read from this.
 
-**Features.** Experiments helped most on 9261 (F1 on new sentences 0.46 from
-examples, 1.00 investigated), 312 (0.00, 0.55) and 276 (0.25, 0.60). They
-hurt most on 10140 (0.73, 0.25), where the investigator's explanation was
-narrower than the feature.
+**Defects in this run, found in review.**
+
+- *Shared sentences.* The pools were built with section 15's seed. All 144
+  random sentences, 49 of the 95 held-out ones and one neighbor sentence
+  were in the pool that section 15's agents had in their prompt when they
+  wrote the explanations, and a few explanations name them. Only the wild
+  and neighbor sentences are new to the explanations. On those alone the
+  primary is unchanged (+0.05, 10 / 10 / 4, p = 0.18; -0.01 at the matched
+  threshold) and F1 is 0.68, 0.60, 0.65 (0.72, 0.72, 0.71 matched). The
+  overlap favors the explanation arms on held-out and random sentences.
+- *Copied text.* 2 of the 144 wild sentences are text that also appears in
+  one of the feature's own unshown examples or a neighbor's example, in a
+  different passage. No shown example leaked.
+- *Fixed order.* In every run so far, pools with the same seed and sizes put
+  each source at the same ids. No agent has seen two pools, so nothing
+  leaked, but it would in an interactive session that grades two features.
+
+All three are fixed in the code for future runs (pool version 6, the scan,
+and a check in `scripts/prepare_simulation.py`). This run was not repeated.
+
+**Without the `<bos>` features.** Pool version 6 refuses features whose shown
+examples mostly peak on `<bos>`: 7957, 11243 and also 2788. Without those
+three (21 features) the primary is +0.07 (8 / 10 / 3, p = 0.23) at the
+registered threshold and +0.01 at the matched one; investigated minus label
++0.01; examples minus label -0.06. Same conclusions.
+
+**Earlier runs at the matched threshold** (exploratory). Investigated minus
+label: section 14 +0.13 (15 / 5 / 3, p = 0.008); section 15 +0.11
+(20 / 1 / 4, p = 0.002), against +0.08 and p = 0.077 at the registered
+threshold. Investigated minus examples in section 15: +0.04 (10 / 12 / 3,
+p = 0.09). The earlier conclusions hold at both thresholds.
 
 **Predictions scored.** Right: the feature fires on about a quarter of
 neighbor sentences (22%); the primary contrast is +0.04 to +0.08 with more
 wins than losses and not significant (+0.05, p = 0.18); the label makes the
-most false positives on neighbor sentences and the investigator the fewest
+most false alarms on neighbor sentences and the investigator the fewest
 (0.33, 0.10). Wrong: pool version 5 would refuse the two `<bos>` features
-(it refused neither); the hand-off would cost little (it reversed the F1
-ordering); F1 on new sentences 0.55, 0.62, 0.68 (0.67, 0.59, 0.64, label
-highest); recall on strong wild sentences would rise with each arm (flat at
-0.81 to 0.86). The Spearman prediction was high (+0.03 against +0.05 to
-+0.10).
+(it refused neither); F1 on new sentences 0.55, 0.62, 0.68 (0.66, 0.59,
+0.64); recall on strong wild sentences would rise with each arm (flat at
+0.81 to 0.86). Low: Spearman, investigated minus examples (+0.03 against
++0.05 to +0.10). Mixed: F1 on held-out and random sentences of 0.80, 0.87,
+0.88 was wrong at the registered threshold (0.87, 0.84, 0.83) and close at
+the matched one (0.83, 0.92, 0.90).
 
 **Limits.** 24 features, one SAE, one layer. One model family writes and
-reads the explanations. The explanations were written for another pool and
-capped at 120 words. The wild text is other features' example passages, not
-a uniform sample. The comparison with section 15 changes the pool and the
-hand-off together.
+reads the explanations. The explanations were written with section 15's pool
+in view and capped at 120 words. The wild text is other features' example
+passages, not a uniform sample. The agent that studied a feature never
+predicted a wild or neighbor sentence, so whether it would do better than its
+written explanation there is untested.
 
 **Where sections 12 to 16 leave the question.**
 
-- Studying a feature beats reading its label when the label is badly wrong,
-  which is a minority of labels, and only on sentences like its top examples.
+- When the agent that studies a feature also predicts, it beats the label on
+  held-out examples (48 features, +0.15 F1, p = 0.0009). The gain comes from
+  the minority of labels that are badly wrong.
 - Reading eight examples gets nearly all of that. Running experiments on top
-  has not produced a measurable gain in firing prediction in either design.
-- In ordinary text most firings are weak and no short explanation, from any
-  source, says where they are. An explanation's measurable value there is
-  fewer false alarms and better ranking.
+  has not produced a measurable gain in firing prediction, on held-out
+  examples or on ordinary text.
+- On ordinary text and on neighboring features' text, a written explanation
+  read by another agent gives fewer false alarms, more missed weak firings,
+  possibly better ranking, and no change in F1.
+- Most of what a feature does in ordinary text is weak, and for at least one
+  feature the top examples hid a second trigger. Sampling where a feature
+  fires in ordinary text is a cheap check that none of the arms had.

@@ -10,6 +10,13 @@ an earlier run), builds the pool, and writes:
 Features whose pool is refused are listed with the reason and left out.
 Makes no predictions and grades nothing.
 
+Give --source-run, the run tag under which the explanations were written. The
+agents who wrote them had that run's pool in their prompt, so a sentence that
+is in both pools is not new to the explanation. The script counts those per
+source and writes the counts into the batch; with the same --seed as the
+source run, every random sentence and many held-out ones are shared (this
+happened in run blind-5, see FINDINGS 16). Use a different seed.
+
 Usage: uv run python scripts/prepare_simulation.py --run blind-5 --explanations results/blind4_run_agents.json
            --out results/blind5_inputs.json --workflow /path/outside/the/repo/blind5_workflow.js
            [--layer 12] [--seed 1] [--n-heldout 4] [--n-wild 6] [--n-neighbor 5] [--n-random 6]
@@ -24,7 +31,8 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "src"))
 
 from interp_playground.backend import Backend  # noqa: E402
-from interp_playground.evals import POOL_VERSION  # noqa: E402
+from interp_playground.backend import RESULTS_PATH  # noqa: E402
+from interp_playground.evals import POOL_VERSION, normalize  # noqa: E402
 
 
 def main() -> None:
@@ -33,6 +41,7 @@ def main() -> None:
     ap.add_argument("--explanations", type=Path, required=True)
     ap.add_argument("--out", type=Path, required=True)
     ap.add_argument("--workflow", type=Path, required=True)
+    ap.add_argument("--source-run", help="run tag whose pools the explainers saw; shared sentences are counted")
     ap.add_argument("--layer", type=int, default=12)
     ap.add_argument("--seed", type=int, default=1)
     ap.add_argument("--n-heldout", type=int, default=4)
@@ -40,6 +49,15 @@ def main() -> None:
     ap.add_argument("--n-neighbor", type=int, default=5)
     ap.add_argument("--n-random", type=int, default=6)
     args = ap.parse_args()
+
+    seen_by_explainer: dict[int, set[str]] = {}
+    if args.source_run and RESULTS_PATH.exists():
+        for line in RESULTS_PATH.read_text().splitlines():
+            rec = json.loads(line) if line.strip() else {}
+            if rec.get("run") == args.source_run:
+                rows = next(iter(rec["sets"].values()))["rows"]
+                seen_by_explainer.setdefault(rec["feature"], set()).update(normalize(r["text"]) for r in rows)
+    shared: dict[str, int] = {}
 
     backend = Backend()
     features, refused = [], []
@@ -59,11 +77,15 @@ def main() -> None:
             "feature": f, "label": a["label"], "pool": pool,
             "explanations": {"examples": a["examples_explanation"], "investigated": a["explanation"]},
         })
+        for p in pool:
+            if normalize(p["text"]) in seen_by_explainer.get(f, ()):
+                shared[p["source"]] = shared.get(p["source"], 0) + 1
         print(f"{f:6} ok   {counts}", flush=True)
 
     batch = {"run": args.run, "layer": args.layer, "seed": args.seed, "pool_version": POOL_VERSION,
              "n_heldout": args.n_heldout, "n_wild": args.n_wild, "n_neighbor": args.n_neighbor,
              "n_random": args.n_random, "explanations_from": str(args.explanations),
+             "source_run": args.source_run, "shared_with_source_run": shared if args.source_run else None,
              "features": features, "refused": refused}
     args.out.write_text(json.dumps(batch, indent=1, ensure_ascii=False) + "\n")
 
@@ -77,6 +99,9 @@ def main() -> None:
     # ASCII only: the workflow runner refuses a script with raw control characters.
     args.workflow.write_text(template.replace(marker, "const DATA = " + json.dumps(data, ensure_ascii=True)))
     print(f"{len(features)} features ready, {len(refused)} refused; batch -> {args.out}; workflow -> {args.workflow}")
+    if shared:
+        print(f"WARNING: sentences the explainers already saw in run {args.source_run}, by source: {shared}. "
+              "Use a different --seed, or score only the sources that are new.")
 
 
 if __name__ == "__main__":

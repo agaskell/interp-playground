@@ -7,6 +7,8 @@ cache: 127-token passages that are top activations of *other* features, so
 for the feature being scanned they are text nobody picked. The feature's own
 example contexts are left out, and so are its nearest features' (those are
 where it is most likely to fire, and they feed the "neighbor" source instead).
+A window whose text is copied from one of those examples is left out too:
+the same text can sit in another cached passage with different boundaries.
 
 For each feature:
 - every context is run once through the model; the feature's peak activation
@@ -47,7 +49,7 @@ from interp_playground.evals import (  # noqa: E402
     spread_indices,
     window_offsets,
 )
-from interp_playground.wild import save_wild  # noqa: E402
+from interp_playground.wild import fresh_candidates, save_wild  # noqa: E402
 
 NEIGHBORS = 5
 PER_NEIGHBOR = 4
@@ -143,7 +145,8 @@ def main() -> None:
         # Left out of this feature's scan: its own examples and its neighbors'.
         own_keys = {normalize(t) for t in own_texts}
         neighbor_examples = {nb: neuronpedia.load_examples(layer, nb) for nb, _ in neighbors[f]}
-        own_keys |= {normalize(full_text(e)) for ex in neighbor_examples.values() for e in ex or []}
+        neighbor_texts = [full_text(e) for ex in neighbor_examples.values() for e in ex or []]
+        own_keys |= {normalize(t) for t in neighbor_texts}
         top = float(max_act[f])
         strata: dict[str, list[dict]] = {"strong": [], "weak": []}
         for i, text in enumerate(texts):
@@ -160,7 +163,7 @@ def main() -> None:
         n_firing = {name: len(c) for name, c in strata.items()}
         for name, cands in strata.items():
             random.Random(f"{args.seed}:{f}:wild:{name}").shuffle(cands)
-            del cands[args.keep:]
+            strata[name] = fresh_candidates(cands, own_texts + neighbor_texts, args.keep)
 
         # Neighbor sentences, one neighbor at a time in turn so a short pool covers several.
         per_neighbor, unreachable = [], []
