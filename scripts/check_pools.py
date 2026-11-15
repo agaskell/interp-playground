@@ -4,7 +4,8 @@ Run before a batch so refusals are known and logged up front, not discovered
 mid-run. Builds pools only; makes no predictions and grades nothing.
 
 Usage: uv run python scripts/check_pools.py [--seed 1] [--n-heldout 6] [--n-random 10]
-Reads results/blind_features.json; writes results/blind_pools.json.
+           [--features PATH] [--out PATH] [--take N]
+Reads results/blind_features.json and writes results/blind_pools.json by default.
 """
 
 import argparse
@@ -24,9 +25,12 @@ def main() -> None:
     ap.add_argument("--seed", type=int, default=1)
     ap.add_argument("--n-heldout", type=int, default=6)
     ap.add_argument("--n-random", type=int, default=10)
+    ap.add_argument("--features", type=Path, default=ROOT / "results" / "blind_features.json")
+    ap.add_argument("--out", type=Path, default=ROOT / "results" / "blind_pools.json")
+    ap.add_argument("--take", type=int, help="mark the first N evaluable features, in selection order, as the batch")
     args = ap.parse_args()
 
-    selection = json.loads((ROOT / "results" / "blind_features.json").read_text())
+    selection = json.loads(args.features.read_text())
     backend = Backend()
     out = []
     for f in selection["features"]:
@@ -40,9 +44,14 @@ def main() -> None:
         out.append(row)
         print(f"{row['feature']:6} {'ok  ' if row['evaluable'] else 'SKIP'} "
               f"{row.get('n_heldout', '-')} held-out  {row.get('reason', '')[:90]}", flush=True)
+    if args.take is not None:
+        taken = 0
+        for row in out:
+            row["in_batch"] = bool(row["evaluable"]) and taken < args.take
+            taken += row["in_batch"]
     result = {"pool_version": POOL_VERSION, "layer": selection["layer"], "seed": args.seed,
               "n_heldout": args.n_heldout, "n_random": args.n_random, "features": out}
-    (ROOT / "results" / "blind_pools.json").write_text(json.dumps(result, indent=1) + "\n")
+    args.out.write_text(json.dumps(result, indent=1) + "\n")
     ok = [r for r in out if r["evaluable"]]
     print(f"{len(ok)} of {len(out)} evaluable; "
           f"{sum(r['n_heldout'] == args.n_heldout for r in ok)} with a full held-out set")

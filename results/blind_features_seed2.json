@@ -1,0 +1,208 @@
+{
+ "layer": 12,
+ "seed": 2,
+ "n_heldout": 6,
+ "criteria": "not mentioned in FINDINGS/README, not in an earlier selection file, not hidden, labelled, >= 14 Neuronpedia examples; order = Random('blind:<seed>').shuffle",
+ "n_excluded_ids": 149,
+ "skipped": {
+  "excluded": 0,
+  "hidden": 1,
+  "no_label": 0,
+  "few_examples": 0,
+  "unreachable": 0
+ },
+ "features": [
+  {
+   "feature": 16333,
+   "label": "instances and discussions about majority and minority perspectives",
+   "density": 0.00126,
+   "n_examples": 45
+  },
+  {
+   "feature": 10140,
+   "label": "elements related to programming structures and their definitions",
+   "density": 0.00047,
+   "n_examples": 45
+  },
+  {
+   "feature": 9261,
+   "label": "dialogue or conversational exchanges",
+   "density": 0.00167,
+   "n_examples": 45
+  },
+  {
+   "feature": 13412,
+   "label": "patterns and structures in the text",
+   "density": 0.00255,
+   "n_examples": 45
+  },
+  {
+   "feature": 9739,
+   "label": "transitional phrases that indicate the passage of time",
+   "density": 0.0007599999999999999,
+   "n_examples": 45
+  },
+  {
+   "feature": 11469,
+   "label": "keywords related to corporate social responsibility and ethical business practices",
+   "density": 0.00121,
+   "n_examples": 44
+  },
+  {
+   "feature": 7957,
+   "label": "references to health-related topics, particularly viruses and diseases",
+   "density": 0.00724,
+   "n_examples": 45
+  },
+  {
+   "feature": 3584,
+   "label": "mentions of specific individuals and their actions or roles within a narrative",
+   "density": 0.00928,
+   "n_examples": 45
+  },
+  {
+   "feature": 13087,
+   "label": "terms related to payment processing and financial transactions",
+   "density": 0.00073,
+   "n_examples": 45
+  },
+  {
+   "feature": 4409,
+   "label": "copyright symbols and copyright-related text",
+   "density": 0.00022,
+   "n_examples": 38
+  },
+  {
+   "feature": 276,
+   "label": "terms related to medical conditions, particularly types of dementia and immune cell characteristics",
+   "density": 0.007980000000000001,
+   "n_examples": 45
+  },
+  {
+   "feature": 11243,
+   "label": "punctuation marks and other non-word tokens",
+   "density": 0.00045,
+   "n_examples": 45
+  },
+  {
+   "feature": 970,
+   "label": "concise summaries and key points within a larger text",
+   "density": 0.00259,
+   "n_examples": 45
+  },
+  {
+   "feature": 2011,
+   "label": "comparative and superlative adjectives to identify effectiveness and performance metrics",
+   "density": 0.00379,
+   "n_examples": 45
+  },
+  {
+   "feature": 16214,
+   "label": "occurrences of empty string or null values in code",
+   "density": 0.00119,
+   "n_examples": 45
+  },
+  {
+   "feature": 4678,
+   "label": "expressions of liking or affection",
+   "density": 0.00049,
+   "n_examples": 45
+  },
+  {
+   "feature": 4190,
+   "label": "conditional statements and possibilities in reasoning or argumentation",
+   "density": 0.00354,
+   "n_examples": 45
+  },
+  {
+   "feature": 12043,
+   "label": "programming-related keywords and structures",
+   "density": 0.00334,
+   "n_examples": 45
+  },
+  {
+   "feature": 2788,
+   "label": "URLs and reference identifiers",
+   "density": 0.00274,
+   "n_examples": 45
+  },
+  {
+   "feature": 5976,
+   "label": "technical terms related to communication systems and leadership styles",
+   "density": 0.00929,
+   "n_examples": 45
+  },
+  {
+   "feature": 115,
+   "label": "numerical data and statistical references",
+   "density": 0.00274,
+   "n_examples": 45
+  },
+  {
+   "feature": 312,
+   "label": "terms related to counterfactual reasoning and concepts in quantum mechanics",
+   "density": 0.005600000000000001,
+   "n_examples": 45
+  },
+  {
+   "feature": 11411,
+   "label": "situations involving crisis or urgency in a narrative context",
+   "density": 0.00377,
+   "n_examples": 45
+  },
+  {
+   "feature": 2616,
+   "label": "words and phrases that consistently appear multiple times in relation to quantities or time duration",
+   "density": 0.00118,
+   "n_examples": 45
+  },
+  {
+   "feature": 4446,
+   "label": "past tense verbs indicating personal experiences or usage",
+   "density": 0.00174,
+   "n_examples": 45
+  },
+  {
+   "feature": 8063,
+   "label": "mathematical symbols and expressions",
+   "density": 0.01086,
+   "n_examples": 45
+  },
+  {
+   "feature": 9707,
+   "label": "terms related to the legal and entertainment industries, particularly focusing on courts, publishers, and Hollywood",
+   "density": 0.00594,
+   "n_examples": 45
+  },
+  {
+   "feature": 11450,
+   "label": "references to specific bacteria and biomedical terms",
+   "density": 0.004079999999999999,
+   "n_examples": 45
+  },
+  {
+   "feature": 1770,
+   "label": "phrases related to the concept of maintenance",
+   "density": 0.00276,
+   "n_examples": 45
+  },
+  {
+   "feature": 5907,
+   "label": "statistics and percentage data related to populations and demographics",
+   "density": 0.005699999999999999,
+   "n_examples": 45
+  },
+  {
+   "feature": 6925,
+   "label": "values and properties associated with data structures",
+   "density": 0.00575,
+   "n_examples": 45
+  },
+  {
+   "feature": 13670,
+   "label": "phrases indicating the action of sending or dispatching",
+   "density": 0.00091,
+   "n_examples": 45
+  }
+ ]
+}

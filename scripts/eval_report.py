@@ -45,14 +45,20 @@ def main() -> None:
                 a, b = sets["label"][m], sets["investigated"][m]
                 d[m] = None if a is None or b is None else b - a
             print(f"{'':19} {'':>5} {'delta':13} {'':>3} {fmt(d['f1'])} {'':>5} {'':>5} {fmt(d['spearman'])}")
-    s = paired_summary(records)
-    if s["n"]:
-        print(f"\npaired, investigated minus label, pool sentences only, n={s['n']}:")
+    names = {name for rec in records for name in rec["sets"]}
+    contrasts = [("label", "investigated")]
+    if "examples" in names:
+        contrasts += [("label", "examples"), ("examples", "investigated")]
+    for base, other in contrasts:
+        s = paired_summary(records, base, other)
+        if not s["n"]:
+            continue
+        print(f"\npaired, {other} minus {base}, pool sentences only, n={s['n']}:")
         for m in ("f1", "spearman"):
             r = s[m]
+            p = "-" if r["sign_p"] is None else f"{r['sign_p']:.3f}"
             print(f"  {m:9} mean {fmt(r['mean_delta'])}  wins/ties/losses {r['wins']}/{r['ties']}/{r['losses']}"
-                  f"  sign test p={'-' if r['sign_p'] is None else f'{r['sign_p']:.3f}'}")
-
+                  f"  sign test p={p}")
 
 if __name__ == "__main__":
     main()

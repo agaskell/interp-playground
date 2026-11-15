@@ -318,3 +318,21 @@ def test_shown_examples_are_not_held_out():
     assert duplicates_shown("find that the  old bridge had been", shown)  # a window of a shown example
     assert not duplicates_shown("the new bridge had been", shown)
     assert not duplicates_shown("", shown)
+
+
+# --- three-arm extension (DECISIONS 2026-11-14, run 4) -----------------------
+
+def test_paired_summary_takes_any_two_sets():
+    from interp_playground.evals import paired_summary
+
+    def rec(label, examples, investigated):
+        return {"sets": {name: {"f1": v, "spearman": v} for name, v in
+                         (("label", label), ("examples", examples), ("investigated", investigated))}}
+
+    recs = [rec(0.5, 0.8, 0.9), rec(0.6, 0.8, 0.8), rec(0.7, 0.6, 0.9)]
+    assert paired_summary(recs)["f1"]["wins"] == 3  # default contrast is unchanged
+    s = paired_summary(recs, base="label", other="examples")
+    assert (s["f1"]["wins"], s["f1"]["ties"], s["f1"]["losses"]) == (2, 0, 1)
+    s = paired_summary(recs, base="examples", other="investigated")
+    assert (s["f1"]["wins"], s["f1"]["ties"], s["f1"]["losses"]) == (2, 1, 0)
+    assert paired_summary(recs, base="label", other="missing")["n"] == 0

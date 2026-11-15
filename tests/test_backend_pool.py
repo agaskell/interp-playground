@@ -131,3 +131,25 @@ def test_pool_never_holds_out_an_example_feature_info_shows(bare_backend, monkey
     monkeypatch.setattr(backend_module.neuronpedia, "load_examples", fake_load)
     pool = bare_backend._pool(7272, 12, seed=0, n_heldout=4, n_random=2)
     assert example_ids(pool) == [9, 21, 32, 44]  # the copies are skipped like silent windows
+
+
+def test_eval_sentences_reports_the_pool_version(bare_backend, monkeypatch):
+    from interp_playground.evals import POOL_VERSION
+
+    monkeypatch.setattr(backend_module.neuronpedia, "load_examples", load_45)
+    out = bare_backend.eval_sentences(7272, 12, seed=0, n_heldout=4, n_random=2)
+    assert out["pool_version"] == POOL_VERSION
+    assert all(set(s) == {"id", "text"} for s in out["sentences"])
+
+
+def test_pool_skips_a_window_with_no_text(bare_backend, monkeypatch):
+    def fake_load(layer, feature):
+        ex = distinct_examples(feature, 45 if feature == 7272 else 3)
+        if feature == 7272:
+            ex[8] = {"max": 1.0, "tokens": ["▁"] * 40, "peak": 20}  # whitespace only: nothing to run
+        return ex
+
+    monkeypatch.setattr(backend_module.neuronpedia, "load_examples", fake_load)
+    pool = bare_backend._pool(7272, 12, seed=0, n_heldout=4, n_random=2)
+    assert all(p["text"].strip() for p in pool)
+    assert example_ids(pool) == [9, 20, 32, 44]

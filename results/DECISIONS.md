@@ -180,3 +180,50 @@ effect of either alone.
   primary comparison stays label against investigated; the third arm is
   secondary and its two contrasts are named here before any run: examples
   against label, and investigated against examples.
+
+## 2026-11-14 Run 4 (extension, three arms) — approved by Andy, set up
+
+Andy approved the proposal above on 2026-11-14, including the third arm.
+Written before run 4.
+
+**Selection.** `scripts/select_features.py --n 32 --seed 2 --out
+results/blind_features_seed2.json`: same criteria as before, and now also
+excluding every feature in an earlier selection file. 32 candidates were drawn
+so that refusals could be absorbed; `scripts/check_pools.py --take 25`
+(→ `results/blind_pools_seed2.json`) marks the first 25 evaluable in shuffle
+order as the batch. All 32 turned out evaluable, so the batch is simply the
+first 25 drawn. Nothing was hand-picked.
+
+**Pool.** Version 4 (held-out windows verified to fire; no copy of a shown
+example; empty windows skipped, a bug found by this pre-check). Seed 1,
+6 held-out + 10 random, thresholds unchanged. Two batch features have short
+held-out sets and stay in: 11243 (3 held-out) and 2788 (4).
+
+**Arms**, all Claude Fable 5.2, one chain per feature:
+1. `label`: label and sentences only, no tools. Unchanged.
+2. `examples` (new): label, sentences and one `feature_info` call. No other
+   tool, no agent sentences.
+3. `investigated`: unchanged budget (1 `feature_info`, up to 4 `run_prompt`,
+   1 causal probe, up to 4 agent sentences).
+The examples and investigated agents run side by side and do not see each
+other's output. The driver checks the server reports pool version 4 and
+stops otherwise.
+
+**Statistics**, all paired on pool sentences, two-sided exact sign test:
+- Primary: investigated minus label on firing F1, on this batch alone
+  (independent features, clean pool).
+- Secondary: examples minus label, and investigated minus examples, on F1
+  and Spearman; peak_hit for all three.
+- Also reported: investigated minus label pooled over run 3 and run 4
+  (48 features), flagged as mixing pool versions 3 and 4.
+
+**Predictions for run 4** (Claude's, before running):
+- Primary: label mean F1 about 0.65, investigated about 0.85, gain +0.15 to
+  +0.25, sign test p < 0.05.
+- The examples arm captures most of the gain: examples minus label about
+  +0.13 on F1 and significant on Spearman; investigated minus examples about
+  +0.05 on F1 with many ties and not significant, but positive on Spearman.
+- The largest label failures will be features whose label is vague
+  (13412 "patterns and structures in the text", 12043 "programming-related
+  keywords and structures", 3584) and the examples arm will fix most of them.
+- At least 19 of 25 causal probes have KL below 0.05.

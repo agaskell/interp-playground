@@ -292,6 +292,7 @@ class Backend:
             "seed": seed,
             "n_heldout": n_heldout,
             "n_random": n_random,
+            "pool_version": POOL_VERSION,
             "sentences": [{"id": p["id"], "text": p["text"]} for p in pool],
         }
 
@@ -387,6 +388,8 @@ class Backend:
 
         def usable(i: int) -> bool:
             text = window(own[i], i)
+            if not text.strip():
+                return False  # a window of whitespace or special tokens has nothing to run
             return not duplicates_shown(text, shown) and self._window_fires(feature, layer, text)
 
         with self._lock:

@@ -4,8 +4,8 @@ Blind = never mentioned in FINDINGS.md or README.md, not hidden (dense or
 position artifact), and with enough Neuronpedia examples to hold some out.
 The selection is a function of the seed, so it can be re-derived.
 
-Usage: uv run python scripts/select_features.py [--n 25] [--seed 1] [--n-heldout 6]
-Writes results/blind_features.json.
+Usage: uv run python scripts/select_features.py [--n 25] [--seed 1] [--n-heldout 6] [--out PATH]
+Writes results/blind_features.json unless --out is given.
 """
 
 import argparse
@@ -31,14 +31,24 @@ def mentioned_features() -> set[int]:
     return {int(m) for m in re.findall(r"\b\d{1,5}\b", text) if int(m) < D_SAE}
 
 
+def earlier_selections(out: Path) -> set[int]:
+    """Features any earlier selection file picked, whether or not they were run."""
+    picked: set[int] = set()
+    for path in (ROOT / "results").glob("blind_features*.json"):
+        if path.resolve() != out.resolve():
+            picked |= {f["feature"] for f in json.loads(path.read_text())["features"]}
+    return picked
+
+
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--n", type=int, default=25)
     ap.add_argument("--seed", type=int, default=1)
     ap.add_argument("--n-heldout", type=int, default=6)
+    ap.add_argument("--out", type=Path, default=ROOT / "results" / "blind_features.json")
     args = ap.parse_args()
 
-    excluded = mentioned_features()
+    excluded = mentioned_features() | earlier_selections(args.out)
     backend = Backend()
     backend._prepare_layer(LAYER)
     masks = backend._hidden[LAYER]
@@ -75,11 +85,11 @@ def main() -> None:
 
     out = {
         "layer": LAYER, "seed": args.seed, "n_heldout": args.n_heldout,
-        "criteria": "not mentioned in FINDINGS/README, not hidden, labelled, "
+        "criteria": "not mentioned in FINDINGS/README, not in an earlier selection file, not hidden, labelled, "
                     f">= {EXAMPLES_SHOWN + args.n_heldout} Neuronpedia examples; order = Random('blind:<seed>').shuffle",
         "n_excluded_ids": len(excluded), "skipped": skipped, "features": chosen,
     }
-    (ROOT / "results" / "blind_features.json").write_text(json.dumps(out, indent=1) + "\n")
+    args.out.write_text(json.dumps(out, indent=1) + "\n")
     print(f"wrote {len(chosen)} features; skipped {skipped}")
 
 

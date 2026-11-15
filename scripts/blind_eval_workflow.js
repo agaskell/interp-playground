@@ -1,26 +1,34 @@
 // Driver for a blind explanation-eval batch, run as a Claude Code workflow.
-// One chain of four agents per feature: sampler -> tool-less label agent ->
-// investigator with a fixed tool budget -> grader. The agents talk to the
-// interp-playground MCP server, so the contamination record is live.
+// One chain of agents per feature: sampler -> tool-less label agent ->
+// investigator with a fixed tool budget (and, if args.arms includes
+// "examples", an agent that sees feature_info's output but runs no
+// experiments) -> grader. The agents talk to the interp-playground MCP
+// server, so the contamination record is live.
 //
-// args: { run, layer, seed, n_heldout, n_random, features: [{feature, label}] }
-// Take the features from results/blind_pools.json (evaluable ones only).
+// args: { run, layer, seed, n_heldout, n_random, pool_version, arms,
+//         features: [{feature, label}] }
+// Take the features from a check_pools.py output (evaluable ones only).
+// pool_version, if given, must match what the server reports: a server that
+// was not restarted after a pool change fails at the first sampler.
 export const meta = {
   name: 'blind-explanation-eval',
   description: 'Explanation eval on blind SAE features: sample, label-only predict, investigate, grade',
   phases: [
     { title: 'Sample', detail: 'eval_sentences once per feature' },
     { title: 'Label', detail: 'tool-less predictions from the Neuronpedia label' },
-    { title: 'Investigate', detail: 'feature_info, <=4 run_prompt, 1 causal probe, explanation + predictions' },
+    { title: 'Investigate', detail: 'feature_info, <=4 run_prompt, 1 causal probe; optional examples-only arm' },
     { title: 'Grade', detail: 'grade_explanation once with both sets' },
   ],
 }
 
 const { run, layer, seed, n_heldout, n_random, features } = args
+const arms = args.arms || []
+const wantVersion = args.pool_version
 const BATCH = 5
 
 const SENT = { type: 'object', required: ['sentences'], properties: {
   sentences: { type: 'array', items: { type: 'object', required: ['id', 'text'], properties: { id: { type: 'integer' }, text: { type: 'string' } } } },
+  pool_version: { type: 'integer' },
   error: { type: 'string' } } }
 // Agents return ids only. The script attaches each sentence's text from the
 // sampler's output, so a copying slip cannot break grading, and the server's
@@ -28,6 +36,8 @@ const SENT = { type: 'object', required: ['sentences'], properties: {
 const PRED_ITEM = { type: 'object', required: ['id', 'expected'], properties: {
   id: { type: 'integer' }, expected: { type: 'number' }, on: { type: 'string' } } }
 const PREDS = { type: 'object', required: ['predictions'], properties: { predictions: { type: 'array', items: PRED_ITEM } } }
+const EXAMPLES = { type: 'object', required: ['explanation', 'predictions'], properties: {
+  explanation: { type: 'string' }, predictions: { type: 'array', items: PRED_ITEM }, tools_used: { type: 'object', properties: { feature_info: { type: 'integer' } } } } }
 const INVEST = { type: 'object', required: ['explanation', 'predictions', 'agent_sentences', 'causal', 'tools_used'], properties: {
   explanation: { type: 'string' },
   predictions: { type: 'array', items: PRED_ITEM },
@@ -38,7 +48,7 @@ const SCORES = { type: 'object', properties: { f1: { type: ['number', 'null'] },
 const GRADE = { type: 'object', required: ['ok'], properties: {
   ok: { type: 'boolean' }, error: { type: 'string' },
   contaminated: { type: 'array', items: { type: 'integer' } },
-  label: SCORES, investigated: SCORES, surprises: { type: 'string' } } }
+  label: SCORES, examples: SCORES, investigated: SCORES, surprises: { type: 'string' } } }
 
 // Plain text, one sentence per line. (JSON-quoting them made agents copy the quotes.)
 const fmtSentences = (ss) => ss.map(s => `[${s.id}] ${s.text}`).join('\n')
@@ -53,11 +63,12 @@ const withText = (sample, preds) => {
 }
 
 const sampler = (f) => agent(
-`Load one tool: ToolSearch with query "select:mcp__interp-playground__eval_sentences". Call it EXACTLY ONCE with feature=${f.feature}, layer=${layer}, seed=${seed}, n_heldout=${n_heldout}, n_random=${n_random}. Return the "sentences" array exactly as returned (ids and texts verbatim, nothing added). Do not call any other tool. If the call fails, return an empty sentences array and the error text in "error".`,
+`Load one tool: ToolSearch with query "select:mcp__interp-playground__eval_sentences". Call it EXACTLY ONCE with feature=${f.feature}, layer=${layer}, seed=${seed}, n_heldout=${n_heldout}, n_random=${n_random}. Return the "sentences" array exactly as returned (ids and texts verbatim, nothing added) and the "pool_version" number if the result has one (omit it if not). Do not call any other tool. If the call fails, return an empty sentences array and the error text in "error".`,
   { label: `sample:${f.feature}`, phase: 'Sample', schema: SENT, effort: 'low' })
 
 const labeler = (sample, f) => {
   if (!sample || !sample.sentences || !sample.sentences.length) throw new Error(`no sentences for ${f.feature}: ${sample && sample.error}`)
+  if (wantVersion && sample.pool_version !== wantVersion) throw new Error(`server reports pool version ${sample.pool_version}, expected ${wantVersion}: reconnect the MCP server`)
   return agent(
 `You are predicting where a sparse-autoencoder feature of Gemma 2 2B fires, from its auto-generated label ALONE. You have NO tool access for this task: do not call any tool, do not search, do not read files. Answer from the label and your own judgement.
 
@@ -71,6 +82,23 @@ ${scale}`,
     { label: `label:${f.feature}`, phase: 'Label', schema: PREDS })
     .then(p => ({ sample, labelPreds: p }))
 }
+
+// Sees what the investigator's first tool call shows, and nothing else.
+const examplesArm = (prev, f) => agent(
+`You are predicting where sparse-autoencoder feature ${f.feature} at layer ${layer} of Gemma 2 2B fires on a fixed set of sentences, from its label and its top activating examples. You may NOT run experiments.
+
+Neuronpedia label (auto-generated, treat as a hypothesis): "${f.label}"
+
+Pool sentences you must predict, one per line, each preceded by its id in [brackets]:
+${fmtSentences(prev.sample.sentences)}
+
+Tools: load exactly one with ToolSearch query "select:mcp__interp-playground__feature_info" and call feature_info(feature=${f.feature}, layer=${layer}) exactly once. Read the top examples (peak token in [[brackets]]), the promotes list and the similar features. Do NOT call any other tool: no run_prompt, no steer, no ablate, no eval_sentences, no grade_explanation, no file reads, no search.
+
+Then return:
+- "explanation": at most 120 words. Name the trigger (token, pattern, or concept) as far as the examples show it, and what you expect does NOT fire.
+- "predictions": one per pool sentence. ${scale}
+- "tools_used": the count of feature_info calls.`,
+  { label: `examples:${f.feature}`, phase: 'Investigate', schema: EXAMPLES })
 
 const investigator = (prev, f) => agent(
 `You are investigating sparse-autoencoder feature ${f.feature} at layer ${layer} of Gemma 2 2B and will predict where it fires on a fixed set of sentences.
@@ -93,11 +121,21 @@ Then return:
 - "causal": one sentence.
 - "tools_used": counts of each tool you called.`,
   { label: `investigate:${f.feature}`, phase: 'Investigate', schema: INVEST })
-  .then(inv => ({ ...prev, inv }))
+
+// The two arms run side by side; neither sees the other's output.
+const investigate = async (prev, f) => {
+  const [inv, ex] = await parallel([
+    () => investigator(prev, f),
+    () => (arms.includes('examples') ? examplesArm(prev, f) : Promise.resolve(null)),
+  ])
+  if (!inv) throw new Error(`investigator failed for ${f.feature}`)
+  return { ...prev, inv, ex }
+}
 
 const grader = (prev, f) => {
   const predictions = {
     label: withText(prev.sample, prev.labelPreds.predictions),
+    ...(prev.ex ? { examples: withText(prev.sample, prev.ex.predictions) } : {}),
     investigated: [
       ...withText(prev.sample, prev.inv.predictions),
       ...prev.inv.agent_sentences.slice(0, 4).map(a => ({ text: a.text, expected: a.expected, ...(a.on ? { on: a.on } : {}) })),
@@ -109,16 +147,17 @@ feature=${f.feature}, layer=${layer}, seed=${seed}, n_heldout=${n_heldout}, n_ra
 explanation=${JSON.stringify(prev.inv.explanation)},
 predictions=${JSON.stringify(predictions)}
 
-From the result return ok=true, "contaminated" (the list from the result), and for each of the two sets the f1, precision, recall, spearman and peak_hit. In "surprises" write at most two sentences on rows where expected and actual disagree most (quote the sentence fragment and the peak_token). If the tool call raises an error, return ok=false with the error message verbatim and do not retry with changed arguments.`,
+From the result return ok=true, "contaminated" (the list from the result), and for each set in the result (label, investigated, and examples if present) the f1, precision, recall, spearman and peak_hit. In "surprises" write at most two sentences on rows where expected and actual disagree most (quote the sentence fragment and the peak_token). If the tool call raises an error, return ok=false with the error message verbatim and do not retry with changed arguments.`,
     { label: `grade:${f.feature}`, phase: 'Grade', schema: GRADE, effort: 'low' })
-    .then(g => ({ feature: f.feature, label: f.label, grade: g, causal: prev.inv.causal, tools_used: prev.inv.tools_used, explanation: prev.inv.explanation, n_agent: prev.inv.agent_sentences.length }))
+    .then(g => ({ feature: f.feature, label: f.label, grade: g, causal: prev.inv.causal, tools_used: prev.inv.tools_used, explanation: prev.inv.explanation, n_agent: prev.inv.agent_sentences.length,
+      examples_explanation: prev.ex ? prev.ex.explanation : null, examples_tools: prev.ex ? prev.ex.tools_used : null }))
 }
 
 const results = []
 for (let i = 0; i < features.length; i += BATCH) {
   const batch = features.slice(i, i + BATCH)
   log(`batch ${i / BATCH + 1}/${Math.ceil(features.length / BATCH)}: ${batch.map(f => f.feature).join(', ')}`)
-  const out = await pipeline(batch, sampler, labeler, investigator, grader)
+  const out = await pipeline(batch, sampler, labeler, investigate, grader)
   out.forEach((r, k) => results.push(r || { feature: batch[k].feature, label: batch[k].label, failed: true }))
   const bad = results.filter(r => r.failed || (r.grade && !r.grade.ok)).map(r => r.feature)
   log(`graded ${results.length - bad.length}/${results.length}; failed so far: ${bad.join(', ') || 'none'}`)

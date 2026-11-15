@@ -97,23 +97,26 @@ def _pool_only(scored: dict[str, Any]) -> dict[str, Any]:
     return score_set([dict(r) for r in rows if r["source"] != "agent"])
 
 
-def paired_summary(records: list[dict[str, Any]]) -> dict[str, Any]:
-    """Label-vs-investigated deltas across records that scored both sets,
-    over the pool sentences both sets predicted (agent sentences excluded).
+def paired_summary(
+    records: list[dict[str, Any]], base: str = "label", other: str = "investigated"
+) -> dict[str, Any]:
+    """`other` minus `base` (default: investigated minus label) across records
+    that scored both sets, over the pool sentences both sets predicted (agent
+    sentences excluded).
 
-    Per metric: mean delta, wins/ties/losses for investigated over label, and
-    a two-sided exact sign test over the non-tied pairs.
+    Per metric: mean delta, wins/ties/losses, and
+    a two-sided exact sign test over the non-tied pairs. Wins are `other` over `base`.
     """
     out: dict[str, Any] = {"n": 0}
     pairs = [
-        {name: _pool_only(r["sets"][name]) for name in ("label", "investigated")}
-        for r in records if "label" in r.get("sets", {}) and "investigated" in r["sets"]
+        {name: _pool_only(r["sets"][name]) for name in (base, other)}
+        for r in records if base in r.get("sets", {}) and other in r["sets"]
     ]
     for metric in ("f1", "spearman"):
         deltas = [
-            s["investigated"][metric] - s["label"][metric]
+            s[other][metric] - s[base][metric]
             for s in pairs
-            if s["label"].get(metric) is not None and s["investigated"].get(metric) is not None
+            if s[base].get(metric) is not None and s[other].get(metric) is not None
         ]
         wins = sum(d > 1e-9 for d in deltas)
         losses = sum(d < -1e-9 for d in deltas)
