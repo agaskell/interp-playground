@@ -336,3 +336,79 @@ def test_paired_summary_takes_any_two_sets():
     s = paired_summary(recs, base="examples", other="investigated")
     assert (s["f1"]["wins"], s["f1"]["ties"], s["f1"]["losses"]) == (2, 1, 0)
     assert paired_summary(recs, base="label", other="missing")["n"] == 0
+
+
+# --- pool version 5 (DECISIONS 2026-11-14, after run 4) ----------------------
+
+def test_window_usable_needs_firing_and_most_of_the_recorded_activation():
+    from interp_playground.evals import window_usable
+
+    assert window_usable(act=10.0, rel=0.2, recorded=None)
+    assert window_usable(act=16.0, rel=0.3, recorded=30.0)
+    assert not window_usable(act=10.0, rel=0.2, recorded=30.0)  # fires, but kept a third: the trigger is not in the window
+    assert not window_usable(act=30.0, rel=0.05, recorded=30.0)  # below the firing threshold
+
+
+def test_take_strata_fills_from_the_other_stratum():
+    from interp_playground.evals import take_strata
+
+    strong, weak = ["s0", "s1", "s2"], ["w0", "w1", "w2", "w3"]
+    assert take_strata(strong, weak, 4, lambda c: True) == ["s0", "s1", "w0", "w1"]
+    assert take_strata(strong, weak, 4, lambda c: c != "s1") == ["s0", "s2", "w0", "w1"]
+    assert take_strata(["s0"], weak, 4, lambda c: True) == ["s0", "w0", "w1", "w2"]  # short of strong: more weak
+    assert take_strata(strong, ["w0"], 4, lambda c: True) == ["s0", "s1", "w0", "s2"]
+    assert take_strata(strong, weak, 0, lambda c: True) == []
+    calls = []
+    take_strata(strong, weak, 2, lambda c: calls.append(c) or True)
+    assert calls == ["s0", "w0"]  # nothing is checked that is not needed
+
+
+def test_build_pool_carries_wild_and_neighbour_sources():
+    from interp_playground.evals import build_pool
+
+    pool = build_pool(["h0", "h1"], ["r0", "shared"], seed=3, wild=["w0", "shared"], neighbor=["n0", "h0"])
+    assert sorted((p["source"], p["text"]) for p in pool) == [
+        ("heldout", "h0"), ("heldout", "h1"), ("neighbor", "n0"), ("random", "r0"), ("wild", "shared"), ("wild", "w0")]
+    assert [p["id"] for p in pool] == list(range(6))
+    assert build_pool(["h0"], ["r0"], seed=3) == build_pool(["h0"], ["r0"], seed=3, wild=[], neighbor=[])
+
+
+def test_agent_sentences_keep_their_whitespace():
+    code = "class Parser(Base):\n    def run(self):\n        pass"
+    rows = match_predictions(POOL, [{"id": p["id"], "expected": 0} for p in POOL] + [{"text": code, "expected": 7}])
+    assert rows[-1]["source"] == "agent" and rows[-1]["text"] == code
+    # Matching against pool sentences stays whitespace-insensitive.
+    match_predictions(POOL, [{"id": 0, "text": "We  drove across\nthe old bridge.", "expected": 1},
+                             {"id": 1, "expected": 0}, {"id": 2, "expected": 0}])
+
+
+def test_a_whitespace_peak_can_be_named():
+    rows = match_predictions(POOL, [{"id": 0, "expected": 5, "on": "\n"}, {"id": 1, "expected": 0, "on": "  "},
+                                    {"id": 2, "expected": 0, "on": ""}])
+    assert rows[0]["on"] == "\n" and rows[1]["on"] == "  " and rows[2]["on"] is None
+    assert peak_matches("\n", "\n") and peak_matches("\n", "\n\n") and peak_matches("    ", "        ")
+    assert not peak_matches("\n", "    ") and not peak_matches("\n", " the") and not peak_matches("the", "\n")
+    assert peak_matches("bridge", " bridges")  # unchanged
+
+
+def test_paired_summary_can_score_a_subset_of_sources():
+    from interp_playground.evals import paired_summary
+
+    def row(source, expected, rel):
+        return {"source": source, "expected": expected, "rel": rel, "on": None, "peak_token": "x"}
+
+    truth = [("heldout", 0.9), ("heldout", 0.8), ("wild", 0.4), ("wild", 0.2), ("neighbor", 0.0), ("random", 0.0)]
+    label = [row(s, 9 if s == "heldout" else 0, rel) for s, rel in truth]         # finds only the top examples
+    inv = [row(s, 9 if rel >= 0.1 else 0, rel) for s, rel in truth]               # finds everything
+    rec = {"sets": {"label": score_set(label), "investigated": score_set(inv)}}
+    top = paired_summary([rec], sources=("heldout", "random"))
+    wild = paired_summary([rec], sources=("wild", "neighbor", "random"))
+    assert top["f1"]["ties"] == 1 and top["f1"]["mean_delta"] == pytest.approx(0.0)
+    assert wild["f1"]["wins"] == 1 and wild["f1"]["mean_delta"] == pytest.approx(1.0)
+
+
+def test_f1_is_zero_when_the_feature_fires_and_nothing_is_predicted():
+    rows = [{"source": "heldout", "expected": 0, "rel": 0.5, "on": None, "peak_token": "x"},
+            {"source": "random", "expected": 0, "rel": 0.0, "on": None, "peak_token": "y"}]
+    s = score_set(rows)
+    assert s["precision"] is None and s["recall"] == 0.0 and s["f1"] == 0.0

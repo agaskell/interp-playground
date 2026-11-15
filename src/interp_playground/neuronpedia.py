@@ -92,10 +92,14 @@ def load_examples(layer: int, feature: int) -> list[dict] | None:
 
 
 def example_text(example: dict, before: int = 12, after: int = 4) -> str:
-    """A plain-text window around an example's peak token, for running through the model."""
+    """A plain-text window around an example's peak token, for running through the model.
+
+    Spaces, newlines and indentation are kept as the model saw them. `<bos>`
+    is dropped: it cannot be written as plain text.
+    """
     toks, i = example["tokens"], example["peak"]
     window = [t for t in toks[max(0, i - before):i + 1 + after] if t != "<bos>"]
-    return " ".join("".join(window).replace("▁", " ").split())
+    return "".join(window).replace("▁", " ")
 
 
 def fetch_examples(layer: int, feature: int, n: int = 8, context: int = 12) -> list[dict] | None:

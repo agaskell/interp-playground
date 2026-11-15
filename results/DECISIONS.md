@@ -261,3 +261,111 @@ stops otherwise.
    density, or near-misses written by an agent that never sees the arms'
    outputs, predicted by all three arms. This is a new experiment and needs
    its own entry and predictions.
+
+## 2026-11-14 Andy's decisions after run 4
+
+Andy accepted all three recommendations on 2026-11-14:
+1. **Stop collecting with the top-example pool design.** Runs 3 and 4 stand as
+   the result for that design.
+2. **Fix the pool defects** (unreachable triggers scored on noise; collapsed
+   whitespace) as pool version 5 before any further use.
+3. **Run a new experiment on whether experiments add value beyond reading
+   examples**, with a pool the shown examples do not resemble. Design and
+   predictions follow in the next entry, written before any run.
+
+## 2026-11-14 Pool version 5
+
+Fixes the two defects Andy approved fixing. Choices made by Claude, for Andy
+to confirm or change:
+
+- **Whitespace is kept.** Pool windows keep spaces, newlines and indentation
+  as the model saw them, and an agent's own sentences are run exactly as
+  written. Text comparisons stay whitespace-insensitive. A predicted peak can
+  be a whitespace token.
+- **A window must keep half of its recorded activation** (`KEEP_RECORDED =
+  0.5`), as well as fire. Neuronpedia records each example's activation in a
+  127-token context. A 16-token window that reaches under half of it has lost
+  what the feature responds to. Windows that fail are replaced by the nearest
+  example that passes, and a feature with fewer than 3 passing windows is
+  refused, as before. The 0.5 is a judgement call. It will also refuse
+  features that need long context, which narrows what the eval covers.
+- **F1 is 0, not undefined, when the feature fires and nothing is predicted.**
+  Undefined dropped such features from every paired comparison. Rescoring all
+  177 stored prediction sets under the new rule changes none of them, so no
+  reported number moves.
+
+## 2026-11-14 Run 5 design: do experiments help on sentences unlike the examples?
+
+Written before the scan finished and before any pool for this run was built.
+
+**Question.** Run 4 found that reading eight top examples gives nearly all of
+the gain, on a pool drawn from the same top activations. Does an explanation
+built with experiments predict better than one built from examples alone on
+sentences that do not resemble those examples?
+
+**New kinds of sentence** (`scripts/scan_wild.py`, `results/wild/`):
+- *Wild*: ordinary text where the feature fires. The text is the 16,365
+  example contexts in the local Neuronpedia cache, which are top activations
+  of about 640 other features, minus the feature's own examples. Firings are
+  taken in seeded random order, half from "strong" (0.3 of max or more in
+  context) and half from "weak" (0.1 to 0.3). Each window must keep half of
+  its in-context activation.
+- *Neighbor*: windows around the top examples of the feature's five nearest
+  features by decoder cosine, the ones `feature_info` lists. The neighbor
+  must fire in the window. What the feature itself does there is not looked
+  at when choosing them, so these can be positives or negatives.
+
+**Pool per feature**: 4 held-out, 6 wild, 5 neighbor, 6 random, seed 1,
+pool version 5. 21 sentences.
+
+**Features**: the 25 from run 4, minus any that pool version 5 refuses.
+
+**Arms**: the explanations already written in run 4 are reused unchanged
+(`results/blind4_run_agents.json`). For each feature, three fresh agents with
+no tools predict the new pool: one from the label alone, one from the label
+plus the examples-arm explanation, one from the label plus the investigator's
+explanation. The two explanation arms get the same prompt and are not told
+how the explanation was produced. Fable 5.2. Run tag `blind-5`. Grading is
+done by a local script calling the same grading code, not through the MCP
+server, since no agent uses a tool.
+
+This differs from runs 2 to 4, where the agent that investigated also
+predicted. Here the explanation text has to carry everything. That is a
+stricter test of the explanation as an artifact, and it means a difference
+from run 4 can come from the pool or from the hand-off.
+
+**Primary comparison**: firing F1 on the 17 new sentences (wild, neighbor,
+random), investigated minus examples, paired by feature, two-sided exact sign
+test.
+
+**Secondary**: each arm minus label on the same sentences; Spearman and
+peak_hit on the same sentences; recall on wild sentences by actual strength
+(below 0.3, 0.3 and above); false-positive rate on neighbor sentences where
+the feature is silent; F1 on held-out plus random sentences as a check that
+the hand-off preserves run 4's ordering.
+
+**Reading the result.** With about 22 features and many ties, this can show
+a large effect and cannot rule out a small one. A non-significant primary
+means "no large effect seen", nothing stronger.
+
+**Known limits, stated up front**: the explanations were written with run 4's
+pool in view and capped at 120 words; one model family writes and reads them;
+the wild text is other features' top activations, not a uniform sample;
+half the wild sentences are strong by design, which is more than their
+natural share; for some features the nearest neighbors are barely similar
+(cosine 0.1).
+
+**Claude's predictions.**
+1. Pool version 5 refuses 7957 and 11243 and one to three others. 20 to 23
+   features are evaluable.
+2. The feature fires on about a quarter of neighbor sentences.
+3. Held-out plus random sentences: F1 about 0.80 label, 0.87 examples, 0.88
+   investigated. The hand-off costs little.
+4. New sentences: F1 about 0.55 label, 0.62 examples, 0.68 investigated.
+   Primary contrast +0.04 to +0.08, more wins than losses, not significant.
+   I put about 30% on it reaching p < 0.05.
+5. Spearman on new sentences: investigated minus examples +0.05 to +0.10.
+6. Recall on weak wild sentences is below 0.5 for every arm. On strong ones:
+   0.6 label, 0.75 examples, 0.8 investigated.
+7. False positives on silent neighbor sentences: label most (about 0.3),
+   investigated fewest (about 0.15).

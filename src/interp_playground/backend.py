@@ -34,7 +34,9 @@ from interp_playground.evals import (
     pick_random_features,
     relative_activation,
     score_set,
+    take_strata,
     window_offsets,
+    window_usable,
 )
 from interp_playground.lens import lens_rows
 from interp_playground.loading import load_model, load_sae
@@ -46,6 +48,7 @@ from interp_playground.steering import (
     teacher_mask,
 )
 from interp_playground.summarize import find_position_artifacts, summarize
+from interp_playground.wild import load_wild
 
 NUM_LAYERS = 26
 D_SAE = 16384
@@ -96,8 +99,8 @@ class Backend:
         # Every prompt the other tools have run, for the eval's contamination
         # check. Never cleared: several features can be evaluated per session.
         self._seen_prompts: set[str] = set()
-        # Built pools, keyed by (feature, layer, seed, n_heldout, n_random).
-        self._pools: dict[tuple[int, int, int, int, int], list[dict[str, Any]]] = {}
+        # Built pools, keyed by (feature, layer, seed, n_heldout, n_random, n_wild, n_neighbor).
+        self._pools: dict[tuple[int, ...], list[dict[str, Any]]] = {}
 
     def warm_up(self, layers: list[int]) -> None:
         with self._lock:
@@ -282,16 +285,19 @@ class Backend:
         }
 
     def eval_sentences(
-        self, feature: int, layer: int, seed: int, n_heldout: int, n_random: int
+        self, feature: int, layer: int, seed: int, n_heldout: int, n_random: int,
+        n_wild: int = 0, n_neighbor: int = 0,
     ) -> dict[str, Any]:
         self._check(feature, layer)
-        pool = self._pool(feature, layer, seed, n_heldout, n_random)
+        pool = self._pool(feature, layer, seed, n_heldout, n_random, n_wild, n_neighbor)
         return {
             "feature": feature,
             "layer": layer,
             "seed": seed,
             "n_heldout": n_heldout,
             "n_random": n_random,
+            "n_wild": n_wild,
+            "n_neighbor": n_neighbor,
             "pool_version": POOL_VERSION,
             "sentences": [{"id": p["id"], "text": p["text"]} for p in pool],
         }
@@ -306,13 +312,15 @@ class Backend:
         n_heldout: int,
         n_random: int,
         run: str = "",
+        n_wild: int = 0,
+        n_neighbor: int = 0,
     ) -> dict[str, Any]:
         self._check(feature, layer)
         if not predictions:
             raise ValueError("predictions must contain at least one named set")
         if len(predictions) > MAX_SETS:
             raise ValueError(f"at most {MAX_SETS} prediction sets, got {len(predictions)}")
-        pool = self._pool(feature, layer, seed, n_heldout, n_random)
+        pool = self._pool(feature, layer, seed, n_heldout, n_random, n_wild, n_neighbor)
         sets = {name: match_predictions(pool, preds) for name, preds in predictions.items()}
 
         texts = sorted({r["text"] for rows in sets.values() for r in rows})
@@ -334,6 +342,8 @@ class Backend:
             "seed": seed,
             "n_heldout": n_heldout,
             "n_random": n_random,
+            "n_wild": n_wild,
+            "n_neighbor": n_neighbor,
             "run": run,
             "pool_version": POOL_VERSION,
             "contaminated": [p["id"] for p in pool if _normalize(p["text"]) in self._seen_prompts],
@@ -345,25 +355,29 @@ class Backend:
         return record
 
     def _pool(
-        self, feature: int, layer: int, seed: int, n_heldout: int, n_random: int
+        self, feature: int, layer: int, seed: int, n_heldout: int, n_random: int,
+        n_wild: int = 0, n_neighbor: int = 0,
     ) -> list[dict[str, Any]]:
-        """The eval's sentence pool: held-out own examples plus other features' text.
+        """The eval's sentence pool: held-out own examples plus other features' text,
+        and optionally "wild" and "neighbor" sentences from a scan (see wild.py).
 
-        Deterministic in (feature, layer, seed, n_heldout, n_random) and built
-        once per key. Held-out windows are verified to fire: Neuronpedia's
-        activations come from long contexts, and a short window can lose what
-        the feature needs. A feature with too few firing windows is refused
-        rather than evaluated on a pool whose "positives" are silent. A
+        Deterministic in its arguments (and the scan file, if used) and built
+        once per key. Held-out and wild windows are verified: activations are
+        recorded in long contexts, and a short window can lose what the
+        feature needs. A window must fire and keep half of the activation
+        recorded for it. A feature with too few such windows is refused
+        rather than evaluated on a pool whose "positives" are noise. A
         Neuronpedia fetch failure raises rather than silently shrinking the
         pool, since a shorter pool would misalign the agent's predictions.
         """
-        key = (feature, layer, seed, n_heldout, n_random)
+        key = (feature, layer, seed, n_heldout, n_random, n_wild, n_neighbor)
         if key not in self._pools:
             self._pools[key] = self._build_pool(*key)
         return [dict(p) for p in self._pools[key]]
 
     def _build_pool(
-        self, feature: int, layer: int, seed: int, n_heldout: int, n_random: int
+        self, feature: int, layer: int, seed: int, n_heldout: int, n_random: int,
+        n_wild: int = 0, n_neighbor: int = 0,
     ) -> list[dict[str, Any]]:
         with self._lock:
             self._prepare_layer(layer)
@@ -390,14 +404,15 @@ class Backend:
             text = window(own[i], i)
             if not text.strip():
                 return False  # a window of whitespace or special tokens has nothing to run
-            return not duplicates_shown(text, shown) and self._window_fires(feature, layer, text)
+            return not duplicates_shown(text, shown) and self._window_fires(feature, layer, text, own[i]["max"])
 
         with self._lock:
             chosen = pick_firing(EXAMPLES_SHOWN, len(own), n_heldout, usable)
         if len(chosen) < min(MIN_FIRING_HELDOUT, n_heldout):
             raise ValueError(
                 f"feature {feature}: only {len(chosen)} of its {max(0, len(own) - EXAMPLES_SHOWN)} held-out "
-                f"examples are unseen and fire in a {WINDOW_TOKENS}-token window (need {min(MIN_FIRING_HELDOUT, n_heldout)}). "
+                f"examples are unseen and keep half their recorded activation in a {WINDOW_TOKENS}-token window "
+                f"(need {min(MIN_FIRING_HELDOUT, n_heldout)}). "
                 "It needs context these short plain-text windows do not carry (longer text, or special "
                 "tokens), so it cannot be evaluated here."
             )
@@ -407,11 +422,45 @@ class Backend:
             examples = examples_for(other)
             if examples:
                 random_texts.append(window(examples[0], f"r{other}"))
-        return build_pool(heldout, [t for t in random_texts if t], seed)
+        wild, neighbor = self._scanned(feature, layer, shown, n_wild, n_neighbor)
+        return build_pool(heldout, [t for t in random_texts if t.strip()], seed, wild, neighbor)
 
-    def _window_fires(self, feature: int, layer: int, text: str) -> bool:
-        """Whether the feature reaches the firing threshold anywhere in `text`. Caller holds the lock."""
-        return self._peak(self._get_model(), feature, layer, text)["rel"] >= FIRE_REL
+    def _scanned(
+        self, feature: int, layer: int, shown: list[str], n_wild: int, n_neighbor: int
+    ) -> tuple[list[str], list[str]]:
+        """Wild and neighbor sentences from the feature's scan file; exactly as many as asked, or refuse."""
+        if not n_wild and not n_neighbor:
+            return [], []
+        found = load_wild(layer, feature)
+        if found is None:
+            raise ValueError(f"feature {feature}: not scanned for wild sentences yet; run scripts/scan_wild.py first")
+
+        def fresh(c: dict[str, Any]) -> bool:
+            return bool(c["text"].strip()) and not duplicates_shown(c["text"], shown)
+
+        with self._lock:
+            wild = take_strata(
+                found["strong"], found["weak"], n_wild,
+                lambda c: fresh(c) and self._window_fires(feature, layer, c["text"], c["act"]),
+            )
+        if len(wild) < n_wild:
+            raise ValueError(
+                f"feature {feature}: only {len(wild)} of the {n_wild} wild sentences asked for were found "
+                f"(the scan has {len(found['strong'])} strong and {len(found['weak'])} weak candidates); "
+                "it fires too rarely in the scanned text to be evaluated this way."
+            )
+        # Neighbor sentences are taken as they come: whether this feature fires on them is the question.
+        neighbor = [c["text"] for c in found["neighbor"] if fresh(c)][:n_neighbor]
+        if len(neighbor) < n_neighbor:
+            raise ValueError(f"feature {feature}: only {len(neighbor)} of the {n_neighbor} neighbor sentences asked for were found")
+        return [c["text"] for c in wild], neighbor
+
+    def _window_fires(self, feature: int, layer: int, text: str, recorded: float | None = None) -> bool:
+        """Whether `text` is a usable positive: the feature fires in it and, if an
+        activation was recorded for it in full context, keeps half of that.
+        Caller holds the lock."""
+        peak = self._peak(self._get_model(), feature, layer, text)
+        return window_usable(peak["act"], peak["rel"], recorded)
 
     def _peak(self, model: LanguageModel, feature: int, layer: int, text: str) -> dict[str, Any]:
         """Ground truth for one sentence: the feature's peak activation and where."""
