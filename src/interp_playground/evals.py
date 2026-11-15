@@ -14,8 +14,13 @@ from typing import Any
 EXAMPLES_SHOWN = 8
 # Actual activation / max_act at or above this counts as firing.
 FIRE_REL = 0.1
-# A prediction (0-10) at or above this predicts firing.
+# A prediction (0-10) at or above this predicts firing. This is the primary
+# definition, kept at 2 so every run is comparable.
 PREDICT_FIRE = 2
+# The prediction that corresponds to FIRE_REL on the 0-10 scale. F1 at this
+# threshold is reported beside the primary one ("f1_at_1"): with PREDICT_FIRE
+# alone, a correct prediction of a firing at 0.1-0.2 of max counts as a miss.
+PREDICT_FIRE_MATCHED = 1
 MAX_EXPECTED = 10
 MAX_AGENT = 4
 MAX_SETS = 4
@@ -28,14 +33,15 @@ MIN_FIRING_HELDOUT = 3
 # fire; 4 = copies of the examples feature_info shows are never held out;
 # 5 = whitespace kept as the model saw it, a window must keep KEEP_RECORDED of
 # the activation recorded for it in full context, and a pool can also carry
-# "wild" and "neighbor" sentences (see wild.py).
-POOL_VERSION = 5
+# "wild" and "neighbor" sentences (see wild.py); 6 = a feature is refused when
+# most of the examples feature_info shows peak on <bos>.
+POOL_VERSION = 6
 # A window is only used if the feature reaches this share of the activation
 # recorded for the same tokens in their full context. Below it, what the
 # feature responds to was cut away and the window fires, if at all, on noise.
 KEEP_RECORDED = 0.5
-# In-context activation / max_act at or above this is a "strong" wild firing;
-# from FIRE_REL up to it is "weak".
+# Activation / max_act at or above this is a "strong" firing; from FIRE_REL up
+# to it is "weak". Used to pick wild sentences and to report recall by strength.
 WILD_STRONG_REL = 0.3
 
 
@@ -105,9 +111,9 @@ def _pool_only(scored: dict[str, Any], sources: tuple[str, ...] | None = None) -
     rows = scored.get("rows")
     if not rows:
         return scored
+    # Always rescored from the rows, so records written before a metric
+    # existed are compared on it too.
     if sources is None:
-        if all(r["source"] != "agent" for r in rows):
-            return scored
         return score_set([dict(r) for r in rows if r["source"] != "agent"])
     return score_set([dict(r) for r in rows if r["source"] in sources])
 
@@ -129,7 +135,7 @@ def paired_summary(
         {name: _pool_only(r["sets"][name], sources) for name in (base, other)}
         for r in records if base in r.get("sets", {}) and other in r["sets"]
     ]
-    for metric in ("f1", "spearman", "peak_hit"):
+    for metric in ("f1", "f1_at_1", "spearman", "peak_hit"):
         deltas = [
             s[other][metric] - s[base][metric]
             for s in pairs
@@ -308,10 +314,11 @@ def spearman(expected: list[float], rel: list[float]) -> float | None:
         return None
 
 
-def _prf(rows: list[dict[str, Any]]) -> dict[str, float | None]:
-    tp = sum(r["fired"] and r["predicted_fired"] for r in rows)
-    fp = sum((not r["fired"]) and r["predicted_fired"] for r in rows)
-    fn = sum(r["fired"] and (not r["predicted_fired"]) for r in rows)
+def _prf(rows: list[dict[str, Any]], threshold: float = PREDICT_FIRE) -> dict[str, float | None]:
+    """Precision, recall and F1 of "expected >= threshold" against "fired"."""
+    tp = sum(r["fired"] and r["expected"] >= threshold for r in rows)
+    fp = sum((not r["fired"]) and r["expected"] >= threshold for r in rows)
+    fn = sum(r["fired"] and r["expected"] < threshold for r in rows)
     p = tp / (tp + fp) if tp + fp else None
     rc = tp / (tp + fn) if tp + fn else None
     # Undefined only when nothing fired. Predicting nothing where the feature
@@ -324,7 +331,11 @@ def _prf(rows: list[dict[str, Any]]) -> dict[str, float | None]:
 
 def score_set(rows: list[dict[str, Any]]) -> dict[str, Any]:
     """Score one prediction set. Rows need expected, rel, peak_token, on, source;
-    fired / predicted_fired / peak_hit are added to each row in place."""
+    fired / predicted_fired / peak_hit are added to each row in place.
+
+    `f1` (and precision, recall, the rows' predicted_fired) use the primary
+    threshold PREDICT_FIRE; `f1_at_1` uses PREDICT_FIRE_MATCHED. `by_strength`
+    is recall, at the primary threshold, on weak and on strong firings."""
     for r in rows:
         r["fired"] = r["rel"] >= FIRE_REL
         r["predicted_fired"] = r["expected"] >= PREDICT_FIRE
@@ -335,10 +346,19 @@ def score_set(rows: list[dict[str, Any]]) -> dict[str, Any]:
         group = [r for r in rows if r["source"] == source]
         if group:
             by_source[source] = {"n": len(group), **_prf(group)}
+    by_strength = {}
+    for name, group in (
+        ("weak", [r for r in rows if r["fired"] and r["rel"] < WILD_STRONG_REL]),
+        ("strong", [r for r in rows if r["rel"] >= WILD_STRONG_REL]),
+    ):
+        if group:
+            by_strength[name] = {"n": len(group), "recall": _prf(group)["recall"]}
     return {
         "n": len(rows),
         "spearman": spearman([r["expected"] for r in rows], [r["rel"] for r in rows]),
         **_prf(rows),
+        "f1_at_1": _prf(rows, PREDICT_FIRE_MATCHED)["f1"],
+        "by_strength": by_strength,
         "peak_hit": round(sum(hits) / len(hits), 3) if hits else None,
         "by_source": by_source,
         "rows": rows,

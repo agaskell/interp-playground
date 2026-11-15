@@ -428,3 +428,16 @@ examples and its five neighbors' examples. Nothing else in the design changed.
    pool. About 125 agents and an MCP reconnect. Recommended: not before the
    residency deadline on 2026-11-22. The five runs already support a clear
    and honest write-up.
+
+## 2026-11-15 Andy's decisions after run 5
+
+Andy accepted all four recommendations on 2026-11-15:
+1. **Thresholds.** A prediction of 2 or more stays the primary definition of
+   "predicted firing", so runs stay comparable. F1 with predictions of 1 or
+   more is reported beside it from now on.
+2. **Weak firings** keep being scored, and recall is always reported
+   separately for weak (below 0.3 of max) and strong firings.
+3. **`<bos>` features.** A feature is refused when most of the examples
+   `feature_info` shows peak on `<bos>`.
+4. **No further experiment before the residency deadline (2026-11-22).** The
+   same-agent rerun on the new pool is not run.

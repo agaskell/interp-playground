@@ -314,8 +314,9 @@ def eval_sentences(
     must fire in it and keep half of the activation recorded for it in its
     full context. A feature whose examples lose that in a short window (it
     depends on long context or on special tokens) is refused with an error
-    saying so; pick another feature. Sentences keep their original spacing,
-    newlines and indentation.
+    saying so, and so is one whose top examples mostly peak on <bos>; pick
+    another feature. Sentences keep their original spacing, newlines and
+    indentation.
 
     Do not run these sentences through run_prompt or the other tools before
     grading: any that you do are reported as `contaminated`. A good score is

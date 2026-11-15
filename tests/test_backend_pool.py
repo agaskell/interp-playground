@@ -226,3 +226,26 @@ def test_wild_sentences_are_checked_against_their_in_context_activation(bare_bac
     assert sorted(p["text"] for p in pool if p["source"] == "wild") == [
         "strong wild sentence 1", "strong wild sentence 2", "weak wild sentence 1", "weak wild sentence 2"]
     assert recorded_for["strong wild sentence 1"] == 20.0 and recorded_for["weak wild sentence 1"] == 6.0
+
+
+# --- features whose examples peak on <bos> (DECISIONS 2026-11-15) -------------
+
+def bos_examples(n_bos):
+    def load(layer, feature):
+        ex = distinct_examples(feature, 45 if feature == 7272 else 3)
+        if feature == 7272:
+            for e in ex[:n_bos]:
+                e["tokens"][e["peak"]] = "<bos>"
+        return ex
+    return load
+
+
+def test_pool_refuses_a_feature_whose_shown_examples_mostly_peak_on_bos(bare_backend, monkeypatch):
+    monkeypatch.setattr(backend_module.neuronpedia, "load_examples", bos_examples(5))
+    with pytest.raises(ValueError, match="5 of the 8 examples .*<bos>"):
+        bare_backend._pool(7272, 12, seed=0, n_heldout=4, n_random=2)
+
+
+def test_pool_accepts_a_feature_with_half_its_shown_examples_on_bos(bare_backend, monkeypatch):
+    monkeypatch.setattr(backend_module.neuronpedia, "load_examples", bos_examples(4))
+    assert len(bare_backend._pool(7272, 12, seed=0, n_heldout=4, n_random=2)) == 6

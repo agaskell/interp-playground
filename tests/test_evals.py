@@ -414,3 +414,44 @@ def test_f1_is_zero_when_the_feature_fires_and_nothing_is_predicted():
             {"source": "random", "expected": 0, "rel": 0.0, "on": None, "peak_token": "y"}]
     s = score_set(rows)
     assert s["precision"] is None and s["recall"] == 0.0 and s["f1"] == 0.0
+
+
+# --- reporting decisions of 2026-11-15 (DECISIONS, after run 5) ---------------
+
+def _row(source, expected, rel):
+    return {"source": source, "expected": expected, "rel": rel, "on": None, "peak_token": "x"}
+
+
+def test_score_set_reports_f1_at_the_matching_threshold_and_recall_by_strength():
+    rows = [
+        _row("wild", 1.5, 0.15),    # weak firing, predicted at 1.5: a miss at the primary threshold only
+        _row("wild", 0, 0.2),       # weak firing, missed outright
+        _row("heldout", 8, 0.8),    # strong firing, found
+        _row("random", 1, 0.0),     # silent, a false alarm at the lower threshold only
+    ]
+    s = score_set(rows)
+    assert s["f1"] == pytest.approx(0.5)                   # tp 1, fp 0, fn 2
+    assert s["f1_at_1"] == pytest.approx(0.667, abs=1e-3)  # tp 2, fp 1, fn 1
+    assert s["by_strength"] == {"weak": {"n": 2, "recall": 0.0}, "strong": {"n": 1, "recall": 1.0}}
+    # The rows keep the primary definition of a predicted firing.
+    assert [r["predicted_fired"] for r in rows] == [False, False, True, False]
+
+
+def test_by_strength_omits_a_stratum_with_no_firing():
+    s = score_set([_row("heldout", 8, 0.8), _row("random", 0, 0.0)])
+    assert s["by_strength"] == {"strong": {"n": 1, "recall": 1.0}}
+    assert score_set([_row("random", 0, 0.0)])["f1_at_1"] is None
+
+
+def test_paired_summary_compares_f1_at_1_on_records_stored_before_it_existed():
+    from interp_playground.evals import paired_summary
+
+    truth = [("heldout", 0.8), ("wild", 0.15), ("random", 0.0)]
+    old = {}
+    for name, weak_guess in (("label", 0), ("investigated", 1.5)):
+        stored = score_set([_row(src, weak_guess if src == "wild" else (8 if rel else 0), rel) for src, rel in truth])
+        del stored["f1_at_1"], stored["by_strength"]  # as written by an older version
+        old[name] = stored
+    s = paired_summary([{"sets": old}])
+    assert s["f1"]["ties"] == 1                      # both miss the weak firing at the primary threshold
+    assert s["f1_at_1"]["wins"] == 1 and s["f1_at_1"]["mean_delta"] == pytest.approx(1 / 3, abs=1e-3)

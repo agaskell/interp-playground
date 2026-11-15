@@ -366,7 +366,8 @@ class Backend:
         recorded in long contexts, and a short window can lose what the
         feature needs. A window must fire and keep half of the activation
         recorded for it. A feature with too few such windows is refused
-        rather than evaluated on a pool whose "positives" are noise. A
+        rather than evaluated on a pool whose "positives" are noise, and so is
+        one whose shown examples mostly peak on <bos>. A
         Neuronpedia fetch failure raises rather than silently shrinking the
         pool, since a shorter pool would misalign the agent's predictions.
         """
@@ -397,6 +398,16 @@ class Backend:
             return neuronpedia.example_text(example, *window_offsets(rng))
 
         own = examples_for(feature)
+        # A feature whose strongest activations sit on <bos> cannot be shown its
+        # main trigger: no plain-text sentence contains one. It would be scored
+        # on its weak tail alone, so it is refused.
+        on_bos = sum(e["tokens"][e["peak"]] == "<bos>" for e in own[:EXAMPLES_SHOWN])
+        if 2 * on_bos > len(own[:EXAMPLES_SHOWN]):
+            raise ValueError(
+                f"feature {feature}: {on_bos} of the {len(own[:EXAMPLES_SHOWN])} examples feature_info shows peak "
+                "on <bos>, which cannot be written as plain text. Its main trigger cannot appear in any "
+                "sentence here, so it cannot be evaluated."
+            )
         # What feature_info shows in full; a copy of any of it is not held out.
         shown = [neuronpedia.example_text(e, len(e["tokens"]), len(e["tokens"])) for e in own[:EXAMPLES_SHOWN]]
 
