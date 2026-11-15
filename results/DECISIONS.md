@@ -496,3 +496,23 @@ Defects in the run itself:
   windows copied from own or neighbor examples; `prepare_simulation.py`
   counts sentences shared with the run the explanations came from and warns.
 - The MCP server needs a `/mcp` reconnect to serve pool version 6.
+
+## 2026-11-15 Andy's decision: the `<bos>` rule stays as approved
+
+Andy chose to keep the rule as implemented in pool version 6: a feature is
+refused when more than half of the examples `feature_info` shows peak on
+`<bos>`. The narrower alternative (refuse only features with no shown example
+on ordinary text) is not adopted.
+
+- Reason: the rule is simple to state and check, and its only cost is
+  coverage. 35 of the 761 cached features are refused by it.
+- Known cost: 2788 is refused although it has a real text trigger (URL
+  tracking parameters). Its records in runs 4 and 5 stay in the log as
+  scored; the conclusions of both runs hold with it removed (run 5 primary
+  without 7957, 11243 and 2788: +0.07, 8 / 10 / 3, p = 0.23).
+- Checked after the `/mcp` reconnect: `eval_sentences` on 2788 through the
+  MCP server is refused with the pool version 6 message, so the server is
+  serving the new code.
+
+No open eval decisions remain. No further experiment is planned before the
+residency deadline (2026-11-22).
