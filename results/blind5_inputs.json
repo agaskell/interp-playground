@@ -2768,7 +2768,7 @@
  "refused": [
   {
    "feature": 11411,
-   "reason": "feature 11411: only 4 of the 6 wild sentences asked for were found (the scan has 20 strong and 20 weak candidates); it fires too rarely in the scanned text to be evaluated this way."
+   "reason": "feature 11411: only 4 of the 6 wild sentences asked for were found: of the scan's 20 strong and 20 weak candidates, too few are unseen and keep half their in-context activation in a 16-token window."
   }
  ]
 }

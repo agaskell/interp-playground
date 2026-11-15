@@ -74,7 +74,8 @@ def main() -> None:
     template = (ROOT / "scripts" / "simulate_workflow.js").read_text()
     marker = "const DATA = /*DATA*/ null"
     assert template.count(marker) == 1
-    args.workflow.write_text(template.replace(marker, "const DATA = " + json.dumps(data, ensure_ascii=False)))
+    # ASCII only: the workflow runner refuses a script with raw control characters.
+    args.workflow.write_text(template.replace(marker, "const DATA = " + json.dumps(data, ensure_ascii=True)))
     print(f"{len(features)} features ready, {len(refused)} refused; batch -> {args.out}; workflow -> {args.workflow}")
 
 
